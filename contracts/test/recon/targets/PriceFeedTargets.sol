@@ -12,6 +12,14 @@ abstract contract PriceFeedTargets is BaseTargetFunctions, Properties  {
     
     /// CUSTOM TARGET FUNCTIONS - Add your own target functions here ///
 
+    function priceFeed_setPrice_clamped(uint88 price) public {
+        // Clamp inputs
+        price = uint88(price % 10000e18);
+        
+        // Call unclamped handler
+        priceFeed_setPrice(price);
+    }
+
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
     
     function priceFeed_fetchPrice() public {
