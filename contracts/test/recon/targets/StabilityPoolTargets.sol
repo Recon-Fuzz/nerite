@@ -208,6 +208,86 @@ abstract contract StabilityPoolTargets is BaseTargetFunctions, Properties  {
         }
     }
 
+    // Enhanced handler to more aggressively trigger scale changes
+    // Scale changes occur when P < SCALE_FACTOR (1e9)
+    // P is reduced by factor (1 - debtToOffset/totalDeposits) in each offset
+    // To drop P below 1e9 (from 1e18), we need product of factors < 1e-9
+    // This requires multiple very large offsets, or near-complete pool depletion
+    function stabilityPool_trigger_scale_change_aggressive(uint256 _depositAmount, uint256 _numOffsets) public {
+        // Step 1: User makes a deposit
+        _depositAmount = _depositAmount % (boldToken.balanceOf(_getActor()) + 1);
+        if (_depositAmount == 0) return;
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _depositAmount);
+        stabilityPool_provideToSP(_depositAmount, false);
+        
+        // Step 2: Perform multiple consecutive near-complete offsets
+        // Each offset should consume ~99.9% of remaining deposits
+        _numOffsets = (_numOffsets % 5) + 1; // 1-5 offsets
+        
+        for (uint256 i = 0; i < _numOffsets; i++) {
+            uint256 totalDeposits = stabilityPool.getTotalBoldDeposits();
+            if (totalDeposits == 0) break;
+            
+            // Offset 99.9% of deposits
+            uint256 debtToOffset = (totalDeposits * 999) / 1000;
+            if (debtToOffset == 0) break;
+            
+            // Use minimal collateral to avoid running out
+            uint256 collToAdd = 1 ether;
+            if (collToken.balanceOf(_getActor()) < collToAdd) break;
+            
+            vm.prank(_getActor());
+            collToken.approve(address(stabilityPool), collToAdd);
+            stabilityPool_offset(debtToOffset, collToAdd);
+        }
+        
+        // Step 3: Withdraw to trigger _getCompoundedStakeFromSnapshots
+        uint256 compoundedDeposit = stabilityPool.getCompoundedBoldDeposit(_getActor());
+        if (compoundedDeposit > 0) {
+            stabilityPool_withdrawFromSP(compoundedDeposit, true);
+        }
+    }
+
+    // Handler to trigger double scale change (scaleDiff >= 2)
+    // This requires even more aggressive depletion
+    // The code should return 0 for compoundedStake when scaleDiff >= 2
+    function stabilityPool_trigger_double_scale_change(uint256 _depositAmount) public {
+        // Step 1: User makes a deposit
+        _depositAmount = _depositAmount % (boldToken.balanceOf(_getActor()) + 1);
+        if (_depositAmount == 0) return;
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _depositAmount);
+        stabilityPool_provideToSP(_depositAmount, false);
+        
+        // Step 2: Perform extreme offsets to trigger multiple scale changes
+        // We need P to drop by factor of 1e-18 or more
+        // This requires offsetting essentially 100% multiple times
+        for (uint256 i = 0; i < 10; i++) {
+            uint256 totalDeposits = stabilityPool.getTotalBoldDeposits();
+            if (totalDeposits == 0) break;
+            
+            // Offset 99.99% of deposits
+            uint256 debtToOffset = (totalDeposits * 9999) / 10000;
+            if (debtToOffset == 0) break;
+            
+            uint256 collToAdd = 1 ether;
+            if (collToken.balanceOf(_getActor()) < collToAdd) break;
+            
+            vm.prank(_getActor());
+            collToken.approve(address(stabilityPool), collToAdd);
+            stabilityPool_offset(debtToOffset, collToAdd);
+        }
+        
+        // Step 3: Withdraw to trigger _getCompoundedStakeFromSnapshots
+        uint256 compoundedDeposit = stabilityPool.getCompoundedBoldDeposit(_getActor());
+        if (compoundedDeposit > 0) {
+            stabilityPool_withdrawFromSP(compoundedDeposit, true);
+        }
+    }
+
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
 
     function stabilityPool_claimAllCollGains() public updateGhosts asActor {
