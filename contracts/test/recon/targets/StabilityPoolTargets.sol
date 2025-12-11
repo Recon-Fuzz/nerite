@@ -90,6 +90,41 @@ abstract contract StabilityPoolTargets is BaseTargetFunctions, Properties  {
         stabilityPool_claimAllCollGains();
     }
 
+    // Enhanced handler to ensure stashed collateral exists before claimAllCollGains
+    // This creates the exact scenario needed to cover lines 360, 362-363
+    function stabilityPool_setup_stashed_coll_and_claim(uint256 _depositAmount, uint256 _debtToOffset, uint256 _collToAdd) public {
+        // Step 1: User deposits to SP
+        _depositAmount = _depositAmount % (boldToken.balanceOf(_getActor()) + 1);
+        if (_depositAmount == 0) return;
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _depositAmount);
+        stabilityPool_provideToSP(_depositAmount, false);
+        
+        // Step 2: Create an offset event so user gains collateral
+        _debtToOffset = _debtToOffset % (stabilityPool.getTotalBoldDeposits() / 2 + 1); // Don't deplete pool
+        _collToAdd = _collToAdd % (collToken.balanceOf(_getActor()) + 1);
+        if (_collToAdd > 0 && _debtToOffset > 0) {
+            vm.prank(_getActor());
+            collToken.approve(address(stabilityPool), _collToAdd);
+            stabilityPool_offset(_debtToOffset, _collToAdd);
+        }
+        
+        // Step 3: Withdraw entire deposit WITHOUT claiming (_doClaim = false)
+        // This creates stashed collateral
+        uint256 deposit = stabilityPool.getCompoundedBoldDeposit(_getActor());
+        if (deposit > 0) {
+            stabilityPool_withdrawFromSP(deposit, false);
+            
+            // Step 4: Now claim all collateral gains
+            // This should execute lines 360, 362-363 in claimAllCollGains
+            uint256 stashedColl = stabilityPool.stashedColl(_getActor());
+            if (stashedColl > 0) {
+                stabilityPool_claimAllCollGains();
+            }
+        }
+    }
+
     // Handler to do very large offset to trigger scale changes
     // This helps cover scale-related branches in _updateCollRewardSumAndProduct and _getCompoundedStakeFromSnapshots
     function stabilityPool_offset_large(uint256 _debtToOffset, uint256 _collToAdd) public {
@@ -108,6 +143,69 @@ abstract contract StabilityPoolTargets is BaseTargetFunctions, Properties  {
         
         // Call unclamped handler
         stabilityPool_offset(_debtToOffset, _collToAdd);
+    }
+
+    // Handler to trigger multiple consecutive large offsets to force scale changes
+    // Scale changes occur when P < SCALE_FACTOR (1e9)
+    // This requires multiple large offsets in succession
+    function stabilityPool_offset_massive_sequential(uint256 _debtToOffset1, uint256 _collToAdd1, uint256 _debtToOffset2, uint256 _collToAdd2) public {
+        uint256 totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits == 0) return;
+        
+        // First offset: 90-99% of total deposits
+        uint256 minOffset1 = (totalDeposits * 90) / 100;
+        _debtToOffset1 = minOffset1 + (_debtToOffset1 % (totalDeposits - minOffset1 + 1));
+        _collToAdd1 = _collToAdd1 % (collToken.balanceOf(_getActor()) + 1);
+        
+        vm.prank(_getActor());
+        collToken.approve(address(stabilityPool), _collToAdd1);
+        stabilityPool_offset(_debtToOffset1, _collToAdd1);
+        
+        // Second offset: another large offset on remaining deposits
+        totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits > 0) {
+            uint256 minOffset2 = (totalDeposits * 90) / 100;
+            _debtToOffset2 = minOffset2 + (_debtToOffset2 % (totalDeposits - minOffset2 + 1));
+            _collToAdd2 = _collToAdd2 % (collToken.balanceOf(_getActor()) + 1);
+            
+            vm.prank(_getActor());
+            collToken.approve(address(stabilityPool), _collToAdd2);
+            stabilityPool_offset(_debtToOffset2, _collToAdd2);
+        }
+    }
+
+    // Handler specifically designed to trigger scaleDiff == 1 in _getCompoundedStakeFromSnapshots
+    // This requires:
+    // 1. User makes a deposit (creates snapshot with current scale)
+    // 2. Large offset occurs that changes the scale
+    // 3. User withdraws (computes compounded stake with scaleDiff == 1)
+    function stabilityPool_deposit_offset_withdraw_sequence(uint256 _depositAmount, uint256 _debtToOffset, uint256 _collToAdd) public {
+        // Step 1: User makes a deposit
+        _depositAmount = _depositAmount % (boldToken.balanceOf(_getActor()) + 1);
+        if (_depositAmount == 0) return;
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _depositAmount);
+        stabilityPool_provideToSP(_depositAmount, false);
+        
+        // Step 2: Perform massive offset to trigger scale change
+        uint256 totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits > 0) {
+            // Offset 95-99% of deposits to maximize chance of scale change
+            uint256 minOffset = (totalDeposits * 95) / 100;
+            _debtToOffset = minOffset + (_debtToOffset % (totalDeposits - minOffset + 1));
+            _collToAdd = _collToAdd % (collToken.balanceOf(_getActor()) + 1);
+            
+            vm.prank(_getActor());
+            collToken.approve(address(stabilityPool), _collToAdd);
+            stabilityPool_offset(_debtToOffset, _collToAdd);
+        }
+        
+        // Step 3: Withdraw (this triggers _getCompoundedStakeFromSnapshots with potentially different scale)
+        uint256 compoundedDeposit = stabilityPool.getCompoundedBoldDeposit(_getActor());
+        if (compoundedDeposit > 0) {
+            stabilityPool_withdrawFromSP(compoundedDeposit, true);
+        }
     }
 
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
