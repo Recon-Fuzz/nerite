@@ -19,21 +19,9 @@ abstract contract StabilityPoolTargets is BaseTargetFunctions, Properties  {
         stabilityPool.provideToSP(_topUp, _doClaim);
     }
 
-    function stabilityPool_provideToSP_clamped(uint256 _topUp, bool _doClaim) public {
-        _topUp = _topUp % (boldToken.balanceOf(_getActor()) + 1);
-        stabilityPool_provideToSP(_topUp, _doClaim);
-    }
-
     function stabilityPool_withdrawFromSP(uint256 _amount, bool _doClaim) public updateGhosts asActor {
         stabilityPool.withdrawFromSP(_amount, _doClaim);
     }
-
-    function stabilityPool_withdrawFromSP_clamped(uint256 _amount, bool _doClaim) public {
-        _amount = _amount % (stabilityPool.getCompoundedBoldDeposit(_getActor()) + 1);
-        stabilityPool_withdrawFromSP(_amount, _doClaim);
-    }
-
-
 
     function stabilityPool_offset(uint256 _debtToOffset, uint256 _collToAdd) public updateGhosts asActor {
         stabilityPool.offset(_debtToOffset, _collToAdd);

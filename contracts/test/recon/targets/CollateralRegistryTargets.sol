@@ -13,9 +13,4 @@ abstract contract CollateralRegistryTargets is BaseTargetFunctions, Properties  
         collateralRegistry.redeemCollateral(_boldAmount, _maxIterationsPerCollateral, _maxFeePercentage);
         hasDoneRedemption = true;
     }
-
-    function collateralRegistry_redeemCollateral_clamped(uint256 _boldAmount) public {
-        _boldAmount = _boldAmount % (boldToken.balanceOf(_getActor()) + 1);
-        collateralRegistry_redeemCollateral(_boldAmount, 100, 1e18); // DECIMAL_PRECISION = 1e18
-    }
 }

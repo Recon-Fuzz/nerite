@@ -20,31 +20,9 @@ abstract contract TroveManagerTargets is BaseTargetFunctions, Properties  {
         hasDoneLiquidation = true;
     }
 
-    function troveManager_liquidate_clamped() public {
-        troveManager_liquidate(clampedTroveId);
-    }
-
-    function troveManager_liquidate_with_oracle_clamped() public {
-        uint256 prevPrice = priceFeed.getPrice();
-        priceFeed.setPrice(1); // Set to insanely low price
-        
-        troveManager_liquidate(clampedTroveId); // Liquidate
-
-        priceFeed.setPrice(prevPrice); //Bring back prev price
-    }
-
 
     function troveManager_urgentRedemption(uint256 _boldAmount, uint256[] memory _troveIds, uint256 _minCollateral) public updateGhosts asActor {
         troveManager.urgentRedemption(_boldAmount, _troveIds, _minCollateral);
-    }
-
-    
-    function troveManager_urgentRedemption_clamped(uint256 _boldAmount) public {
-        uint256[] memory ids = new uint256[](1);
-        ids[0] = clampedTroveId;
-
-        _boldAmount = _boldAmount % troveManager.getTroveDebt(clampedTroveId) + 1;
-        troveManager_urgentRedemption(_boldAmount, ids, 0);
     }
     
 
