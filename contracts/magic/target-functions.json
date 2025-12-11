@@ -1,0 +1,81 @@
+[
+  {
+    "contract": "ActivePool",
+    "target_functions": [
+      "aggWeightedDebtSum"
+    ]
+  },
+  {
+    "contract": "BorrowerOperationsTester",
+    "target_functions": [
+      "addColl",
+      "adjustTrove",
+      "adjustTroveInterestRate",
+      "adjustZombieTrove",
+      "applyPendingDebt",
+      "closeTrove",
+      "lowerBatchManagementFee",
+      "onLiquidateTrove",
+      "openTrove",
+      "openTroveAndJoinInterestBatchManager",
+      "registerBatchManager",
+      "removeFromBatch",
+      "removeInterestIndividualDelegate",
+      "repayBold",
+      "setAddManager",
+      "setBatchManagerAnnualInterestRate",
+      "setInterestBatchManager",
+      "setInterestIndividualDelegate",
+      "setRemoveManager",
+      "setRemoveManagerWithReceiver",
+      "shutdown",
+      "shutdownFromOracleFailure",
+      "switchBatchManager",
+      "withdrawBold",
+      "withdrawColl"
+    ]
+  },
+  {
+    "contract": "CollateralRegistry",
+    "target_functions": [
+      "redeemCollateral"
+    ]
+  },
+  {
+    "contract": "MockERC20",
+    "target_functions": [
+      "approve",
+      "mint",
+      "transfer",
+      "transferFrom"
+    ]
+  },
+  {
+    "contract": "MultiTokenPriceFeedTestnet",
+    "target_functions": [
+      "fetchPrice",
+      "fetchRedemptionPrice",
+      "setPrice",
+      "triggerShutdown"
+    ]
+  },
+  {
+    "contract": "StabilityPool",
+    "target_functions": [
+      "claimAllCollGains",
+      "offset",
+      "provideToSP",
+      "triggerBoldRewards",
+      "withdrawFromSP"
+    ]
+  },
+  {
+    "contract": "TroveManagerTester",
+    "target_functions": [
+      "batchLiquidateTroves",
+      "getbatchDebtAndShares",
+      "liquidate",
+      "urgentRedemption"
+    ]
+  }
+]
