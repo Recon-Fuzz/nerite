@@ -1,0 +1,446 @@
+[
+    {
+        "target_function": "borrowerOperations_addColl",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_addColl",
+        "type": "max",
+        "value": "uint256 _collAmount",
+        "access": "collToken.balanceOf(_getActor())"
+    },
+    {
+        "target_function": "borrowerOperations_adjustTrove",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_adjustTrove",
+        "type": "max",
+        "value": "uint256 _collChange",
+        "access": "collToken.balanceOf(_getActor())"
+    },
+    {
+        "target_function": "borrowerOperations_adjustTroveInterestRate",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_adjustTroveInterestRate",
+        "type": "max",
+        "value": "uint256 _newAnnualInterestRate",
+        "access": "250e16"
+    },
+    {
+        "target_function": "borrowerOperations_adjustTroveInterestRate",
+        "type": "exact",
+        "value": "uint256 _upperHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_adjustTroveInterestRate",
+        "type": "exact",
+        "value": "uint256 _lowerHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_adjustZombieTrove",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_adjustZombieTrove",
+        "type": "max",
+        "value": "uint256 _collChange",
+        "access": "collToken.balanceOf(_getActor())"
+    },
+    {
+        "target_function": "borrowerOperations_adjustZombieTrove",
+        "type": "exact",
+        "value": "uint256 _upperHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_adjustZombieTrove",
+        "type": "exact",
+        "value": "uint256 _lowerHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_applyPendingDebt",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_applyPendingDebt",
+        "type": "exact",
+        "value": "uint256 _lowerHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_applyPendingDebt",
+        "type": "exact",
+        "value": "uint256 _upperHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_closeTrove",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_lowerBatchManagementFee",
+        "type": "max",
+        "value": "uint256 _newAnnualManagementFee",
+        "access": "1e17"
+    },
+    {
+        "target_function": "borrowerOperations_onLiquidateTrove",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_openTrove",
+        "type": "max",
+        "value": "uint256 _collAmount",
+        "access": "collToken.balanceOf(_getActor())"
+    },
+    {
+        "target_function": "borrowerOperations_openTrove",
+        "type": "max",
+        "value": "uint256 _boldAmount",
+        "access": "2000e18"
+    },
+    {
+        "target_function": "borrowerOperations_openTrove",
+        "type": "exact",
+        "value": "uint256 _upperHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_openTrove",
+        "type": "exact",
+        "value": "uint256 _lowerHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_openTrove",
+        "type": "max",
+        "value": "uint256 _annualInterestRate",
+        "access": "250e16"
+    },
+    {
+        "target_function": "borrowerOperations_registerBatchManager",
+        "type": "max",
+        "value": "uint128 _minInterestRate",
+        "access": "250e16"
+    },
+    {
+        "target_function": "borrowerOperations_registerBatchManager",
+        "type": "max",
+        "value": "uint128 _maxInterestRate",
+        "access": "250e16"
+    },
+    {
+        "target_function": "borrowerOperations_registerBatchManager",
+        "type": "max",
+        "value": "uint128 _currentInterestRate",
+        "access": "250e16"
+    },
+    {
+        "target_function": "borrowerOperations_registerBatchManager",
+        "type": "max",
+        "value": "uint128 _annualManagementFee",
+        "access": "1e17"
+    },
+    {
+        "target_function": "borrowerOperations_registerBatchManager",
+        "type": "max",
+        "value": "uint128 _minInterestRateChangePeriod",
+        "access": "7 days"
+    },
+    {
+        "target_function": "borrowerOperations_removeFromBatch",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_removeFromBatch",
+        "type": "max",
+        "value": "uint256 _newAnnualInterestRate",
+        "access": "250e16"
+    },
+    {
+        "target_function": "borrowerOperations_removeFromBatch",
+        "type": "exact",
+        "value": "uint256 _upperHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_removeFromBatch",
+        "type": "exact",
+        "value": "uint256 _lowerHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_removeInterestIndividualDelegate",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_repayBold",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_repayBold",
+        "type": "max",
+        "value": "uint256 _boldAmount",
+        "access": "boldToken.balanceOf(_getActor())"
+    },
+    {
+        "target_function": "borrowerOperations_setAddManager",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_setBatchManagerAnnualInterestRate",
+        "type": "max",
+        "value": "uint128 _newAnnualInterestRate",
+        "access": "250e16"
+    },
+    {
+        "target_function": "borrowerOperations_setBatchManagerAnnualInterestRate",
+        "type": "exact",
+        "value": "uint256 _upperHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_setBatchManagerAnnualInterestRate",
+        "type": "exact",
+        "value": "uint256 _lowerHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_setInterestBatchManager",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_setInterestBatchManager",
+        "type": "exact",
+        "value": "address _newBatchManager",
+        "access": "clampedBatchManager"
+    },
+    {
+        "target_function": "borrowerOperations_setInterestBatchManager",
+        "type": "exact",
+        "value": "uint256 _upperHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_setInterestBatchManager",
+        "type": "exact",
+        "value": "uint256 _lowerHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_setInterestIndividualDelegate",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_setInterestIndividualDelegate",
+        "type": "max",
+        "value": "uint128 _minInterestRate",
+        "access": "250e16"
+    },
+    {
+        "target_function": "borrowerOperations_setInterestIndividualDelegate",
+        "type": "max",
+        "value": "uint128 _maxInterestRate",
+        "access": "250e16"
+    },
+    {
+        "target_function": "borrowerOperations_setInterestIndividualDelegate",
+        "type": "max",
+        "value": "uint256 _newAnnualInterestRate",
+        "access": "250e16"
+    },
+    {
+        "target_function": "borrowerOperations_setInterestIndividualDelegate",
+        "type": "exact",
+        "value": "uint256 _upperHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_setInterestIndividualDelegate",
+        "type": "exact",
+        "value": "uint256 _lowerHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_setInterestIndividualDelegate",
+        "type": "max",
+        "value": "uint256 _minInterestRateChangePeriod",
+        "access": "7 days"
+    },
+    {
+        "target_function": "borrowerOperations_setRemoveManager",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_setRemoveManagerWithReceiver",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_switchBatchManager",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_switchBatchManager",
+        "type": "exact",
+        "value": "uint256 _removeUpperHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_switchBatchManager",
+        "type": "exact",
+        "value": "uint256 _removeLowerHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_switchBatchManager",
+        "type": "exact",
+        "value": "address _newBatchManager",
+        "access": "clampedBatchManager"
+    },
+    {
+        "target_function": "borrowerOperations_switchBatchManager",
+        "type": "exact",
+        "value": "uint256 _addUpperHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_switchBatchManager",
+        "type": "exact",
+        "value": "uint256 _addLowerHint",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_withdrawBold",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "borrowerOperations_withdrawColl",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "collateralRegistry_redeemCollateral",
+        "type": "max",
+        "value": "uint256 _boldAmount",
+        "access": "boldToken.balanceOf(_getActor())"
+    },
+    {
+        "target_function": "collateralRegistry_redeemCollateral",
+        "type": "max",
+        "value": "uint256 _maxFeePercentage",
+        "access": "1e18"
+    },
+    {
+        "target_function": "collToken_transfer",
+        "type": "max",
+        "value": "uint256 amount",
+        "access": "collToken.balanceOf(_getActor())"
+    },
+    {
+        "target_function": "collToken_transferFrom",
+        "type": "max",
+        "value": "uint256 amount",
+        "access": "collToken.balanceOf(from)"
+    },
+    {
+        "target_function": "priceFeed_setPrice",
+        "type": "max",
+        "value": "uint88 price",
+        "access": "10000e18"
+    },
+    {
+        "target_function": "stabilityPool_provideToSP",
+        "type": "max",
+        "value": "uint256 _topUp",
+        "access": "boldToken.balanceOf(_getActor())"
+    },
+    {
+        "target_function": "stabilityPool_withdrawFromSP",
+        "type": "max",
+        "value": "uint256 _amount",
+        "access": "stabilityPool.getCompoundedBoldDeposit(_getActor())"
+    },
+    {
+        "target_function": "stabilityPool_offset",
+        "type": "max",
+        "value": "uint256 _debtToOffset",
+        "access": "stabilityPool.getTotalBoldDeposits()"
+    },
+    {
+        "target_function": "stabilityPool_offset",
+        "type": "max",
+        "value": "uint256 _collToAdd",
+        "access": "collToken.balanceOf(_getActor())"
+    },
+    {
+        "target_function": "stabilityPool_triggerBoldRewards",
+        "type": "max",
+        "value": "uint256 _boldYield",
+        "access": "boldToken.balanceOf(_getActor())"
+    },
+    {
+        "target_function": "troveManager_batchLiquidateTroves",
+        "type": "exact",
+        "value": "uint256[] memory _troveArray",
+        "access": "troveIds"
+    },
+    {
+        "target_function": "troveManager_liquidate",
+        "type": "exact",
+        "value": "uint256 _troveId",
+        "access": "clampedTroveId"
+    },
+    {
+        "target_function": "troveManager_urgentRedemption",
+        "type": "max",
+        "value": "uint256 _boldAmount",
+        "access": "boldToken.balanceOf(_getActor())"
+    },
+    {
+        "target_function": "troveManager_urgentRedemption",
+        "type": "exact",
+        "value": "uint256[] memory _troveIds",
+        "access": "troveIds"
+    }
+]
