@@ -12,19 +12,6 @@ abstract contract CollateralRegistryTargets is BaseTargetFunctions, Properties  
     
     /// CUSTOM TARGET FUNCTIONS - Add your own target functions here ///
 
-    // Clamped handler for redeemCollateral
-    function collateralRegistry_redeemCollateral_clamped(
-        uint256 _boldAmount, 
-        uint256 _maxIterationsPerCollateral, 
-        uint256 _maxFeePercentage
-    ) public {
-        _boldAmount = _boldAmount % (boldToken.balanceOf(_getActor()) + 1);
-        _maxIterationsPerCollateral = _maxIterationsPerCollateral % 101;
-        _maxFeePercentage = _maxFeePercentage % (1e18 + 1);
-        
-        collateralRegistry_redeemCollateral(_boldAmount, _maxIterationsPerCollateral, _maxFeePercentage);
-    }
-
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
     
     function collateralRegistry_redeemCollateral(uint256 _boldAmount, uint256 _maxIterationsPerCollateral, uint256 _maxFeePercentage) public updateGhosts asActor {

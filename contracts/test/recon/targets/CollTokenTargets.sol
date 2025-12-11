@@ -12,30 +12,6 @@ abstract contract CollTokenTargets is BaseTargetFunctions, Properties  {
 
     /// CUSTOM TARGET FUNCTIONS - Add your own target functions here ///
 
-    // Clamped handler for approve
-    function collToken_approve_clamped(address spender, uint256 amount) public {
-        amount = amount % type(uint88).max;
-        collToken_approve(spender, amount);
-    }
-
-    // Clamped handler for mint
-    function collToken_mint_clamped(address to, uint256 amt) public {
-        amt = amt % type(uint88).max;
-        collToken_mint(to, amt);
-    }
-
-    // Clamped handler for transfer
-    function collToken_transfer_clamped(address to, uint256 amount) public {
-        amount = amount % (collToken.balanceOf(_getActor()) + 1);
-        collToken_transfer(to, amount);
-    }
-
-    // Clamped handler for transferFrom
-    function collToken_transferFrom_clamped(address from, address to, uint256 amount) public {
-        amount = amount % (collToken.balanceOf(from) + 1);
-        collToken_transferFrom(from, to, amount);
-    }
-
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
 
     function collToken_approve(address spender, uint256 amount) public updateGhosts asActor {
