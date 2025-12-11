@@ -173,6 +173,14 @@ abstract contract Setup is BaseSetup, ActorManager, AssetManager {
         return clampedTroveId; // So it gets added to the dictionary
     }
 
+    function setNewClampedBatchManager(uint256 entropy) public returns (address) {
+        // Get a random actor to use as batch manager
+        address[] memory actors = _getActors();
+        clampedBatchManager = actors[entropy % actors.length];
+        
+        return clampedBatchManager; // So it gets added to the dictionary
+    }
+
 
     
     // bold token

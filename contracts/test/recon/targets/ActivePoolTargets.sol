@@ -9,6 +9,12 @@ import "forge-std/console2.sol";
 import {Properties} from "../Properties.sol";
 
 abstract contract ActivePoolTargets is BaseTargetFunctions, Properties  {
+    
+    /// CUSTOM TARGET FUNCTIONS - Add your own target functions here ///
+
+    // Note: ActivePool has only view functions in the target-functions.json
+    // aggWeightedDebtSum is a view function, no clamped handler needed
+    
     // AP should prob never be called directly
 
     // function activePool_accountForReceivedColl(uint256 _amount) public {
