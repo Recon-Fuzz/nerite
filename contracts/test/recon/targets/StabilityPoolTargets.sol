@@ -288,6 +288,141 @@ abstract contract StabilityPoolTargets is BaseTargetFunctions, Properties  {
         }
     }
 
+    // Ultra-aggressive handler to trigger single scale change (scaleDiff == 1)
+    // To cross scale boundary: P must drop from 1e18 to below 1e9
+    // This requires offsetting > 99.9999999% (1 - 1e-9) of the pool
+    function stabilityPool_trigger_single_scale_ultra(uint256 _depositAmount, uint256 _offsetPercentage) public {
+        // Step 1: Make a deposit
+        _depositAmount = _depositAmount % (boldToken.balanceOf(_getActor()) + 1);
+        if (_depositAmount == 0) return;
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _depositAmount);
+        stabilityPool_provideToSP(_depositAmount, false);
+        
+        // Step 2: Offset extremely close to 100% in a SINGLE offset
+        uint256 totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits == 0) return;
+        
+        // Clamp percentage to be between 99.999999% and 99.9999999%
+        // This is the range most likely to trigger exactly one scale change
+        uint256 minPercentage = 999999990; // 99.999999%
+        uint256 maxPercentage = 999999999; // 99.9999999%
+        _offsetPercentage = minPercentage + (_offsetPercentage % (maxPercentage - minPercentage + 1));
+        
+        uint256 debtToOffset = (totalDeposits * _offsetPercentage) / 1000000000;
+        if (debtToOffset == 0) return;
+        
+        uint256 collToAdd = _depositAmount / 10; // Use 10% of deposit as collateral
+        if (collToken.balanceOf(_getActor()) < collToAdd) collToAdd = collToken.balanceOf(_getActor());
+        if (collToAdd == 0) return;
+        
+        vm.prank(_getActor());
+        collToken.approve(address(stabilityPool), collToAdd);
+        stabilityPool_offset(debtToOffset, collToAdd);
+        
+        // Step 3: Withdraw to trigger _getCompoundedStakeFromSnapshots with scaleDiff == 1
+        uint256 compoundedDeposit = stabilityPool.getCompoundedBoldDeposit(_getActor());
+        if (compoundedDeposit > 0) {
+            stabilityPool_withdrawFromSP(compoundedDeposit, true);
+        }
+    }
+
+    // Handler specifically designed to trigger the errorFactor calculation (line 566)
+    // and the scale change branches (lines 523-527, 530, 535-540, 542)
+    function stabilityPool_trigger_scale_with_error_tracking(uint256 _depositAmount1, uint256 _depositAmount2, uint256 _offsetPercentage) public {
+        // Step 1: First actor makes a deposit
+        _depositAmount1 = _depositAmount1 % (boldToken.balanceOf(_getActor()) + 1);
+        if (_depositAmount1 == 0) return;
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _depositAmount1);
+        stabilityPool_provideToSP(_depositAmount1, false);
+        
+        // Step 2: Do a partial offset to build up error tracking
+        uint256 totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits > 0) {
+            uint256 debtToOffset1 = totalDeposits / 3; // Offset 33%
+            uint256 collToAdd1 = _depositAmount1 / 10;
+            if (collToken.balanceOf(_getActor()) >= collToAdd1 && debtToOffset1 > 0) {
+                vm.prank(_getActor());
+                collToken.approve(address(stabilityPool), collToAdd1);
+                stabilityPool_offset(debtToOffset1, collToAdd1);
+            }
+        }
+        
+        // Step 3: Another actor makes a large deposit
+        _depositAmount2 = _depositAmount2 % (boldToken.balanceOf(_getActor()) + 1);
+        if (_depositAmount2 > 0) {
+            vm.prank(_getActor());
+            boldToken.approve(address(stabilityPool), _depositAmount2);
+            stabilityPool_provideToSP(_depositAmount2, false);
+        }
+        
+        // Step 4: Now do an ultra-aggressive offset to trigger scale change
+        // with error tracking in place (lastBoldLossErrorByP_Offset > 0)
+        totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits > 0) {
+            // Clamp to 99.9999999% range
+            uint256 minPercentage = 999999000; // 99.9999%
+            uint256 maxPercentage = 999999999; // 99.9999999%
+            _offsetPercentage = minPercentage + (_offsetPercentage % (maxPercentage - minPercentage + 1));
+            
+            uint256 debtToOffset = (totalDeposits * _offsetPercentage) / 1000000000;
+            if (debtToOffset > 0) {
+                uint256 collToAdd = totalDeposits / 100; // 1% as collateral
+                if (collToken.balanceOf(_getActor()) < collToAdd) collToAdd = collToken.balanceOf(_getActor());
+                if (collToAdd > 0) {
+                    vm.prank(_getActor());
+                    collToken.approve(address(stabilityPool), collToAdd);
+                    stabilityPool_offset(debtToOffset, collToAdd);
+                }
+            }
+        }
+        
+        // Step 5: Withdraw to trigger _getCompoundedStakeFromSnapshots
+        uint256 compoundedDeposit = stabilityPool.getCompoundedBoldDeposit(_getActor());
+        if (compoundedDeposit > 0) {
+            stabilityPool_withdrawFromSP(compoundedDeposit, true);
+        }
+    }
+
+    // Simplified ultra-aggressive handler for double scale change
+    // To trigger scaleDiff >= 2, we need P to drop below SCALE_FACTOR twice
+    function stabilityPool_trigger_double_scale_ultra(uint256 _depositAmount) public {
+        // Step 1: Make a deposit
+        _depositAmount = _depositAmount % (boldToken.balanceOf(_getActor()) + 1);
+        if (_depositAmount == 0) return;
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _depositAmount);
+        stabilityPool_provideToSP(_depositAmount, false);
+        
+        // Step 2: Single ultra-massive offset to cross TWO scale boundaries
+        // To cross 2 boundaries: P must drop from 1e18 to below 1e0 (essentially to 0)
+        // This requires offsetting > 99.99999999999999999% of the pool
+        uint256 totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits == 0) return;
+        
+        // Offset 99.99999999999999% (leave only 1 wei essentially)
+        uint256 debtToOffset = totalDeposits - 1;
+        if (debtToOffset == 0) return;
+        
+        uint256 collToAdd = _depositAmount / 10;
+        if (collToken.balanceOf(_getActor()) < collToAdd) collToAdd = collToken.balanceOf(_getActor());
+        if (collToAdd == 0) return;
+        
+        vm.prank(_getActor());
+        collToken.approve(address(stabilityPool), collToAdd);
+        stabilityPool_offset(debtToOffset, collToAdd);
+        
+        // Step 3: Withdraw to trigger _getCompoundedStakeFromSnapshots with scaleDiff >= 2
+        uint256 compoundedDeposit = stabilityPool.getCompoundedBoldDeposit(_getActor());
+        if (compoundedDeposit > 0) {
+            stabilityPool_withdrawFromSP(compoundedDeposit, true);
+        }
+    }
+
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
 
     function stabilityPool_claimAllCollGains() public updateGhosts asActor {
