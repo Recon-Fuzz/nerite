@@ -12,33 +12,6 @@ abstract contract CollateralRegistryTargets is BaseTargetFunctions, Properties  
     
     /// CUSTOM TARGET FUNCTIONS - Add your own target functions here ///
 
-    function collateralRegistry_redeemCollateral_clamped(uint256 _boldAmount, uint256 _maxIterationsPerCollateral, uint256 _maxFeePercentage) public {
-        // Clamp inputs
-        _boldAmount = _boldAmount % (boldToken.balanceOf(_getActor()) + 1);
-        _maxFeePercentage = _maxFeePercentage % 1e18;
-        
-        // Approve
-        vm.prank(_getActor());
-        boldToken.approve(address(collateralRegistry), _boldAmount);
-        
-        // Call unclamped handler
-        collateralRegistry_redeemCollateral(_boldAmount, _maxIterationsPerCollateral, _maxFeePercentage);
-    }
-
-    // Handler to test getTroveManager with various indices
-    // Since we only have 1 collateral in setup, we clamp to valid range
-    function collateralRegistry_getTroveManager_clamped(uint256 _index) public {
-        // Get total number of collaterals from the registry
-        uint256 totalCollaterals = collateralRegistry.totalCollaterals();
-        if (totalCollaterals == 0) return;
-        
-        // Clamp index to valid range [0, totalCollaterals)
-        _index = _index % totalCollaterals;
-        
-        // Call getTroveManager - this will cover different branches based on index
-        collateralRegistry.getTroveManager(_index);
-    }
-
     // Handler to test the redeemCollateral fallback path (lines 140-142)
     // This path is taken when totals.unbacked == 0, which happens when:
     // - All redeemable branches have unbackedPortion = 0 
