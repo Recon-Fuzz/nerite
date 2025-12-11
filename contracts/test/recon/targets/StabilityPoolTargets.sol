@@ -423,6 +423,179 @@ abstract contract StabilityPoolTargets is BaseTargetFunctions, Properties  {
         }
     }
 
+    // Mathematical approach to trigger single scale change (line 732)
+    // P starts at 1e18 (DECIMAL_PRECISION)
+    // SCALE_FACTOR = 1e9
+    // To trigger: newP < SCALE_FACTOR means we need P to drop below 1e9
+    // P_new = P_old * (1 - debtToOffset/totalDeposits)
+    // So: 1e18 * (1 - x) < 1e9 => (1 - x) < 1e-9 => x > 0.999999999
+    function stabilityPool_precise_single_scale(uint256 _depositAmount) public {
+        _depositAmount = _depositAmount % (boldToken.balanceOf(_getActor()) + 1);
+        if (_depositAmount < 1e20) return; // Need large enough deposit for precision
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _depositAmount);
+        stabilityPool_provideToSP(_depositAmount, false);
+        
+        uint256 totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits < 1e20) return;
+        
+        // Calculate precise offset: leave exactly (totalDeposits / 1e10) remaining
+        // This ensures P drops to approximately 1e8 (just below SCALE_FACTOR)
+        uint256 remaining = totalDeposits / 1e10;
+        if (remaining == 0) remaining = 1;
+        uint256 debtToOffset = totalDeposits - remaining;
+        
+        uint256 collToAdd = totalDeposits / 100;
+        if (collToken.balanceOf(_getActor()) < collToAdd) return;
+        
+        vm.prank(_getActor());
+        collToken.approve(address(stabilityPool), collToAdd);
+        stabilityPool_offset(debtToOffset, collToAdd);
+        
+        uint256 compoundedDeposit = stabilityPool.getCompoundedBoldDeposit(_getActor());
+        if (compoundedDeposit > 0) {
+            stabilityPool_withdrawFromSP(compoundedDeposit, true);
+        }
+    }
+
+    // Multi-step approach for double scale change (line 735, scaleDiff >= 2)
+    // Need P to drop by factor of 1e18 total (two scale boundaries)
+    // Do this in multiple controlled steps
+    function stabilityPool_multi_step_double_scale(uint256 _depositAmount) public {
+        _depositAmount = _depositAmount % (boldToken.balanceOf(_getActor()) + 1);
+        if (_depositAmount < 1e21) return; // Need very large deposit
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _depositAmount);
+        stabilityPool_provideToSP(_depositAmount, false);
+        
+        // First scale change: reduce P from 1e18 to ~1e8
+        uint256 totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits > 0) {
+            uint256 remaining1 = totalDeposits / 1e10;
+            if (remaining1 == 0) remaining1 = 1;
+            uint256 debtToOffset1 = totalDeposits - remaining1;
+            
+            uint256 collToAdd1 = totalDeposits / 100;
+            if (collToken.balanceOf(_getActor()) >= collToAdd1 && debtToOffset1 > 0) {
+                vm.prank(_getActor());
+                collToken.approve(address(stabilityPool), collToAdd1);
+                stabilityPool_offset(debtToOffset1, collToAdd1);
+            }
+        }
+        
+        // Second scale change: reduce P from ~1e8 to below 1e-1
+        totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits > 0) {
+            uint256 remaining2 = totalDeposits / 1e10;
+            if (remaining2 == 0) remaining2 = 1;
+            uint256 debtToOffset2 = totalDeposits - remaining2;
+            
+            uint256 collToAdd2 = totalDeposits / 10;
+            if (collToken.balanceOf(_getActor()) >= collToAdd2 && debtToOffset2 > 0) {
+                vm.prank(_getActor());
+                collToken.approve(address(stabilityPool), collToAdd2);
+                stabilityPool_offset(debtToOffset2, collToAdd2);
+            }
+        }
+        
+        uint256 compoundedDeposit = stabilityPool.getCompoundedBoldDeposit(_getActor());
+        if (compoundedDeposit > 0) {
+            stabilityPool_withdrawFromSP(compoundedDeposit, true);
+        }
+    }
+
+    // Handler to ensure error tracking is active before scale changes (line 566)
+    // lastBoldLossErrorByP_Offset is set in _updateCollRewardSumAndProduct (line 548)
+    // It becomes > 0 when there's rounding error from previous offsets
+    function stabilityPool_build_error_then_scale(uint256 _depositAmount) public {
+        _depositAmount = _depositAmount % (boldToken.balanceOf(_getActor()) + 1);
+        if (_depositAmount < 1e20) return;
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _depositAmount);
+        stabilityPool_provideToSP(_depositAmount, false);
+        
+        // Step 1: Small offset to create error accumulation
+        uint256 totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits > 0) {
+            uint256 smallOffset = totalDeposits / 7; // ~14% offset creates error
+            uint256 collToAdd1 = smallOffset / 10;
+            if (collToken.balanceOf(_getActor()) >= collToAdd1 && smallOffset > 0) {
+                vm.prank(_getActor());
+                collToken.approve(address(stabilityPool), collToAdd1);
+                stabilityPool_offset(smallOffset, collToAdd1);
+            }
+        }
+        
+        // Step 2: Another small offset to further build error
+        totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits > 0) {
+            uint256 smallOffset2 = totalDeposits / 5;
+            uint256 collToAdd2 = smallOffset2 / 10;
+            if (collToken.balanceOf(_getActor()) >= collToAdd2 && smallOffset2 > 0) {
+                vm.prank(_getActor());
+                collToken.approve(address(stabilityPool), collToAdd2);
+                stabilityPool_offset(smallOffset2, collToAdd2);
+            }
+        }
+        
+        // Step 3: Now trigger scale change with error tracking active
+        totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits > 0) {
+            uint256 remaining = totalDeposits / 1e10;
+            if (remaining == 0) remaining = 1;
+            uint256 largeOffset = totalDeposits - remaining;
+            
+            uint256 collToAdd3 = totalDeposits / 50;
+            if (collToken.balanceOf(_getActor()) >= collToAdd3 && largeOffset > 0) {
+                vm.prank(_getActor());
+                collToken.approve(address(stabilityPool), collToAdd3);
+                stabilityPool_offset(largeOffset, collToAdd3);
+            }
+        }
+        
+        uint256 compoundedDeposit = stabilityPool.getCompoundedBoldDeposit(_getActor());
+        if (compoundedDeposit > 0) {
+            stabilityPool_withdrawFromSP(compoundedDeposit, true);
+        }
+    }
+
+    // Handler to trigger the second scale increment check (lines 534-542)
+    // This happens when newP is still < SCALE_FACTOR after first scale increment
+    // Need a very specific offset amount that lands P between 1e0 and 1e9 after scaling
+    function stabilityPool_trigger_second_scale_increment(uint256 _depositAmount) public {
+        _depositAmount = _depositAmount % (boldToken.balanceOf(_getActor()) + 1);
+        if (_depositAmount < 1e21) return;
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _depositAmount);
+        stabilityPool_provideToSP(_depositAmount, false);
+        
+        uint256 totalDeposits = stabilityPool.getTotalBoldDeposits();
+        if (totalDeposits < 1e21) return;
+        
+        // Calculate offset to make P drop to ~1e4 (well below SCALE_FACTOR but not zero)
+        // This should trigger line 522 (newP < SCALE_FACTOR) 
+        // Then potentially line 534 (still < SCALE_FACTOR after first increment)
+        uint256 remaining = totalDeposits / 1e14; // Leave very little
+        if (remaining == 0) remaining = 1;
+        uint256 debtToOffset = totalDeposits - remaining;
+        
+        uint256 collToAdd = totalDeposits / 50;
+        if (collToken.balanceOf(_getActor()) < collToAdd) return;
+        
+        vm.prank(_getActor());
+        collToken.approve(address(stabilityPool), collToAdd);
+        stabilityPool_offset(debtToOffset, collToAdd);
+        
+        uint256 compoundedDeposit = stabilityPool.getCompoundedBoldDeposit(_getActor());
+        if (compoundedDeposit > 0) {
+            stabilityPool_withdrawFromSP(compoundedDeposit, true);
+        }
+    }
+
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
 
     function stabilityPool_claimAllCollGains() public updateGhosts asActor {
