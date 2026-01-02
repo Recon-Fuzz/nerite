@@ -336,62 +336,196 @@ abstract contract TargetFunctions is
 
     // Handler 1: CollateralRegistry.redeemCollateral - reaching line 140-142
     // This targets the edge case where totals.unbacked == 0 but branches are still redeemable
+    // SHORTCUT: Create scenario where SP fully covers system debt (unbacked = 0) but TCR > SCR (redeemable)
     function coverage_redeemCollateral_edgeCase(
-        uint256 boldAmount
+        uint256 depositAmount,
+        uint256 troveCollAmount,
+        uint256 troveDebtAmount,
+        uint256 redeemAmount
     ) public {
-        // This is a complex edge case that's difficult to trigger with clamping alone
-        // The scenario requires all redeemable collaterals to have 0 unbacked portions
-        // in the first loop but still be redeemable (TCR > SCR)
-        // This would naturally occur through normal redemption operations
-        // We'll call the existing handler which should eventually hit this edge case
-        collateralRegistry_redeemCollateral(boldAmount, 10, type(uint256).max);
+        // This edge case occurs when:
+        // 1. Stability Pool size >= total system debt (makes unbackedPortion = 0)
+        // 2. BUT TCR > SCR (branch is still redeemable)
+        // Then the code uses getEntireSystemDebt() as fallback
+        
+        // Step 1: Open a trove to create some system debt
+        troveCollAmount = (troveCollAmount % (collToken.balanceOf(_getActor()) / 2 + 1)) + 2e18;
+        troveDebtAmount = (troveDebtAmount % 10000e18) + 2000e18; // At least MIN_DEBT
+        
+        borrowerOperations_openTrove_clamped(
+            _getActor(),
+            0,
+            troveCollAmount,
+            troveDebtAmount,
+            0,
+            0,
+            1e17,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 2: Deposit large amount to SP to ensure SP size >= system debt
+        // This makes unbackedPortion = 0 in first loop
+        uint256 actorBoldBalance = boldToken.balanceOf(_getActor());
+        if (actorBoldBalance > 0) {
+            depositAmount = (depositAmount % (actorBoldBalance / 2 + 1)) + (actorBoldBalance / 2);
+            stabilityPool_provideToSP_clamped(depositAmount, true);
+        }
+        
+        // Step 3: Now attempt redemption
+        // At this point, SP covers debt (unbacked=0) but system is healthy (TCR > SCR)
+        // This triggers the fallback path using getEntireSystemDebt()
+        uint256 remainingBold = boldToken.balanceOf(_getActor());
+        if (remainingBold > 100e18) { // Need some Bold to redeem
+            redeemAmount = (redeemAmount % (remainingBold / 2 + 1)) + 100e18;
+            collateralRegistry_redeemCollateral_clamped(redeemAmount, 10, type(uint256).max);
+        }
     }
 
     // Handler 2: TroveManager.batchLiquidateTroves - generating collSurplus
     // To reach line 440, we need liquidations that generate surplus collateral
+    // This happens in recovery mode when well-collateralized troves are liquidated
     function coverage_batchLiquidateTroves_withSurplus(
-        uint256 troveEntropy1,
-        uint256 troveEntropy2,
-        uint256 liquidatorEntropy
+        uint256 highCollAmount,
+        uint256 lowCollAmount,
+        uint256 debtAmount,
+        uint256 priceDropPercent
     ) public {
-        // Batch liquidations generate collSurplus when liquidated troves
-        // have collateral value exceeding their debt (typically in recovery mode)
-        // We need troves with high collateralization ratios
+        // SHORTCUT FUNCTION: Create recovery mode scenario with collateral surplus
         
-        if (troveIds.length < 2) return;
+        // Step 1: Open a well-collateralized trove (high CR)
+        // This trove will generate surplus when liquidated
+        uint256 safeCollAmount = (highCollAmount % (collToken.balanceOf(_getActor()) / 2 + 1)) + 1e18; // At least 1 ETH
+        borrowerOperations_openTrove_clamped(
+            _getActor(),
+            0,
+            safeCollAmount,
+            debtAmount,
+            0,
+            0,
+            1e17, // 10% interest rate
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
         
-        // Select 2 troves to liquidate
-        uint256 troveId1 = troveIds[troveEntropy1 % troveIds.length];
-        uint256 troveId2 = troveIds[troveEntropy2 % troveIds.length];
+        // Step 2: Open another trove with low collateralization (will help trigger recovery mode)
+        switchActor(1);
+        uint256 riskyCollAmount = (lowCollAmount % (collToken.balanceOf(_getActor()) / 2 + 1)) + 1e17; // At least 0.1 ETH
+        borrowerOperations_openTrove_clamped(
+            _getActor(),
+            1,
+            riskyCollAmount,
+            debtAmount,
+            0,
+            0,
+            1e17,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
         
-        uint256[] memory trovesToLiquidate = new uint256[](2);
-        trovesToLiquidate[0] = troveId1;
-        trovesToLiquidate[1] = troveId2;
+        // Step 3: Drop the price to trigger recovery mode and make troves liquidatable
+        // Get current price and reduce it
+        uint256 currentPrice = priceFeed.getPrice();
+        uint256 priceDropFactor = (priceDropPercent % 50) + 50; // Drop 50-99%
+        uint256 newPrice = (currentPrice * priceDropFactor) / 100;
+        priceFeed_setPrice(uint88(newPrice));
         
-        // Call batchLiquidateTroves
-        troveManager_batchLiquidateTroves(trovesToLiquidate);
+        // Step 4: Now batch liquidate - should generate collateral surplus
+        if (troveIds.length >= 2) {
+            uint256[] memory trovesToLiquidate = new uint256[](2);
+            trovesToLiquidate[0] = troveIds[troveIds.length - 2]; // First trove we opened
+            trovesToLiquidate[1] = troveIds[troveIds.length - 1]; // Second trove we opened
+            
+            switchActor(0);
+            troveManager_batchLiquidateTroves(trovesToLiquidate);
+        }
     }
 
     // Handler 3: BorrowerOperations.applyPendingDebt - zombie recovery
     // To reach lines 787-789, we need a zombie trove with enough pending debt to exceed MIN_DEBT
+    // SHORTCUT: Create zombie trove, trigger redistributions, then apply pending debt
     function coverage_applyPendingDebt_zombieRecovery(
-        uint256 entropy
+        uint256 zombieCollAmount,
+        uint256 zombieDebtAmount,
+        uint256 victimCollAmount,
+        uint256 victimDebtAmount
     ) public {
-        // This requires:
-        // 1. A zombie trove (debt < MIN_DEBT)
-        // 2. That has accumulated redistribution gains >= MIN_DEBT
+        // This shortcut creates the exact scenario:
+        // 1. Creates a trove that will become zombie (near MIN_DEBT)
+        // 2. Creates victim troves that will be liquidated
+        // 3. Liquidates victims to create redistribution gains
+        // 4. Applies pending debt to zombie trove to recover it
         
-        // Check if we have any troves
-        if (troveIds.length == 0) return;
+        uint256 MIN_DEBT = 2000e18; // Typical MIN_DEBT value
         
-        // Simply call applyPendingDebt on a random trove
-        // The fuzzer will eventually find zombie troves through other operations
-        borrowerOperations_applyPendingDebt_clamped(entropy);
+        // Step 1: Open a trove with debt just below MIN_DEBT (will become zombie after small redemption)
+        // Clamp debt to be slightly above MIN_DEBT initially
+        zombieDebtAmount = MIN_DEBT + (zombieDebtAmount % MIN_DEBT);
+        zombieCollAmount = (zombieCollAmount % (collToken.balanceOf(_getActor()) / 3 + 1)) + 2e18;
+        
+        borrowerOperations_openTrove_clamped(
+            _getActor(),
+            0,
+            zombieCollAmount,
+            zombieDebtAmount,
+            0,
+            0,
+            1e17,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        uint256 targetTroveId = troveIds[troveIds.length - 1];
+        
+        // Step 2: Open victim troves with low CR (will be liquidated to create redistributions)
+        switchActor(1);
+        victimCollAmount = (victimCollAmount % (collToken.balanceOf(_getActor()) / 3 + 1)) + 1e18;
+        borrowerOperations_openTrove_clamped(
+            _getActor(),
+            1,
+            victimCollAmount,
+            victimDebtAmount,
+            0,
+            0,
+            1e17,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 3: Make first trove zombie via small redemption (if possible)
+        // Use collateralRegistry to redeem and reduce the first trove below MIN_DEBT
+        switchActor(0);
+        uint256 redeemAmount = MIN_DEBT / 2; // Redeem enough to zombify it
+        if (boldToken.balanceOf(_getActor()) >= redeemAmount) {
+            collateralRegistry_redeemCollateral_clamped(redeemAmount, 1, type(uint256).max);
+        }
+        
+        // Step 4: Drop price to liquidate victim trove (creates redistribution)
+        uint256 currentPrice = priceFeed.getPrice();
+        priceFeed_setPrice(uint88(currentPrice / 2)); // 50% price drop
+        
+        // Step 5: Liquidate victim to trigger redistribution
+        if (troveIds.length >= 2) {
+            troveManager_liquidate_clamped(troveIds.length - 1);
+        }
+        
+        // Step 6: Apply pending debt to the zombie trove
+        // It should now have enough redistribution gains to exceed MIN_DEBT
+        borrowerOperations_applyPendingDebt(targetTroveId, 0, 0);
     }
 
     // Handler 4: CollateralRegistry.getTroveManager - test all indices
     // To cover lines 285-293, we need to call getTroveManager with indices 1-9
-    function coverage_getTroveManager_allIndices(uint256 indexEntropy) public view {
+    function coverage_getTroveManager_allIndices(uint256 indexEntropy) public {
         // Get total number of collaterals
         uint256 totalColls = collateralRegistry.totalCollaterals();
         if (totalColls == 0) return;
@@ -405,32 +539,63 @@ abstract contract TargetFunctions is
 
     // Handler 5: StabilityPool.claimAllCollGains - with stashed collateral
     // To reach lines 360-363, we need users with nonzero stashedColl
+    // SHORTCUT: Deposit -> Generate gains via liquidation -> Withdraw -> Claim stashed
     function coverage_claimAllCollGains_withStashedColl(
         uint256 depositAmount,
-        uint256 debtToOffset,
-        uint256 collToAdd
+        uint256 troveCollAmount,
+        uint256 troveDebtAmount
     ) public {
         // Scenario to create stashed collateral:
-        // 1. Deposit to SP
-        // 2. Generate collateral gains via liquidation
-        // 3. Withdraw deposit (which should stash the gains)
-        // 4. Call claimAllCollGains
+        // 1. Deposit Bold to SP
+        // 2. Create and liquidate a trove to generate collateral gains
+        // 3. Withdraw all deposit (which stashes the unclaimed collateral)
+        // 4. Call claimAllCollGains to claim the stashed collateral
         
-        // Step 1: Provide to SP
+        // Step 1: Provide Bold to SP
+        uint256 actorBoldBalance = boldToken.balanceOf(_getActor());
+        if (actorBoldBalance < 1000e18) return; // Need sufficient Bold
+        
+        depositAmount = (depositAmount % (actorBoldBalance / 2 + 1)) + 1000e18;
         stabilityPool_provideToSP_clamped(depositAmount, true);
         
-        // Step 2: Generate gains by offsetting debt (simulates liquidation)
-        vm.prank(address(troveManager));
-        stabilityPool_offset(debtToOffset, collToAdd);
+        // Step 2: Create a trove to liquidate (switch to different actor)
+        switchActor(1);
+        troveCollAmount = (troveCollAmount % (collToken.balanceOf(_getActor()) + 1)) + 1e18;
+        troveDebtAmount = (troveDebtAmount % 5000e18) + 2000e18; // At least MIN_DEBT
         
-        // Step 3: Withdraw deposit to stash the collateral gains
-        // First get the depositor's current deposit
+        borrowerOperations_openTrove_clamped(
+            _getActor(),
+            1,
+            troveCollAmount,
+            troveDebtAmount,
+            0,
+            0,
+            1e17,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 3: Drop price to make trove liquidatable
+        uint256 currentPrice = priceFeed.getPrice();
+        priceFeed_setPrice(uint88(currentPrice / 2)); // 50% drop
+        
+        // Step 4: Liquidate the trove (generates collateral gains for SP depositors)
+        if (troveIds.length > 0) {
+            switchActor(0);
+            troveManager_liquidate_clamped(troveIds.length - 1);
+        }
+        
+        // Step 5: Withdraw all deposit to stash the collateral gains
+        // When withdrawing with gains pending, they get stashed
         uint256 currentDeposit = stabilityPool.deposits(_getActor());
         if (currentDeposit > 0) {
             stabilityPool_withdrawFromSP_clamped(currentDeposit, true);
         }
         
-        // Step 4: Now claim the stashed collateral gains
+        // Step 6: Now claim the stashed collateral gains
+        // User should have no deposit but have stashedColl > 0
         stabilityPool_claimAllCollGains();
     }
 
