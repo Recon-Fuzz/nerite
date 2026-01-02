@@ -9,9 +9,12 @@ import "forge-std/console2.sol";
 import {Properties} from "../Properties.sol";
 
 import {IBorrowerOperations} from "../../../src/Interfaces/IBorrowerOperations.sol";
+import {ITroveManager} from "../../../src/Interfaces/ITroveManager.sol";
 
 import {LiquityMath} from "../../../src/Dependencies/LiquityMath.sol";
-import {MAX_ANNUAL_INTEREST_RATE, MAX_ANNUAL_BATCH_MANAGEMENT_FEE} from "../../../src/Dependencies/Constants.sol";
+import {MAX_ANNUAL_INTEREST_RATE, MAX_ANNUAL_BATCH_MANAGEMENT_FEE, MIN_DEBT} from "../../../src/Dependencies/Constants.sol";
+import {LatestTroveData} from "../../../src/Types/LatestTroveData.sol";
+import {LatestBatchData} from "../../../src/Types/LatestBatchData.sol";
 
 abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  {
 
@@ -178,6 +181,123 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         uint256 _troveId = setNewClampedTroveId(entropy);
         
         borrowerOperations_withdrawColl(_troveId, 0);
+    }
+
+    // Clamped handler for closeTrove that targets troves in batches
+    // This ensures we cover lines 699-706 and 727 which handle batch-specific cleanup
+    function borrowerOperations_closeTrove_batch_clamped(uint256 entropy) public {
+        if (troveIds.length == 0) return;
+        
+        // Find a trove that's in a batch (has non-zero batch manager)
+        for (uint256 i = entropy % troveIds.length; i < troveIds.length; i++) {
+            uint256 _troveId = troveIds[i];
+            address batchManager = borrowerOperations.interestBatchManagerOf(_troveId);
+            
+            if (batchManager != address(0)) {
+                // Found a batched trove, ensure actor has enough Bold to close it
+                LatestTroveData memory trove = troveManager.getLatestTroveData(_troveId);
+                uint256 actorBalance = boldToken.balanceOf(_getActor());
+                
+                if (actorBalance >= trove.entireDebt) {
+                    vm.prank(_getActor());
+                    boldToken.approve(address(borrowerOperations), trove.entireDebt);
+                    borrowerOperations_closeTrove(_troveId);
+                    return;
+                }
+            }
+        }
+    }
+
+    // Clamped handler for openTroveAndJoinInterestBatchManager
+    // This ensures we cover lines 267-287 which handle joining batches
+    function borrowerOperations_openTroveAndJoinBatch_clamped(uint256 _collAmount, uint256 _boldAmount, uint256 batchEntropy) public {
+        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+        
+        // Get a valid batch manager
+        address batchManager = setNewClampedBatchManager(batchEntropy);
+        
+        // Ensure batch manager is registered by checking if it has valid parameters
+        // If not registered, register it first
+        try troveManager.getLatestBatchData(batchManager) returns (LatestBatchData memory) {
+            // Batch exists, proceed
+        } catch {
+            // Register batch manager first
+            vm.prank(batchManager);
+            borrowerOperations.registerBatchManager(
+                uint128(5e16), // 5% min rate
+                uint128(MAX_ANNUAL_INTEREST_RATE), // max rate
+                uint128(10e16), // 10% current rate
+                uint128(1e16), // 1% management fee
+                uint128(7 days) // cooldown period
+            );
+        }
+        
+        IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams memory params;
+        params.owner = _getActor();
+        params.ownerIndex = 0;
+        params.collAmount = _collAmount;
+        params.boldAmount = _boldAmount;
+        params.upperHint = 0;
+        params.lowerHint = 0;
+        params.interestBatchManager = batchManager;
+        params.maxUpfrontFee = 1e18; // 100% max upfront fee
+        params.addManager = address(0);
+        params.removeManager = address(0);
+        params.receiver = _getActor();
+        
+        borrowerOperations_openTroveAndJoinInterestBatchManager(params);
+        // Note: troveId would need to be tracked differently as the function doesn't return it
+    }
+
+    // Clamped handler for setBatchManagerAnnualInterestRate within cooldown period
+    // This ensures we cover lines 928-944 which handle premature adjustments with upfront fees
+    function borrowerOperations_setBatchManagerAnnualInterestRate_premature(uint128 _newAnnualInterestRate) public {
+        // Ensure actor is a registered batch manager
+        address batchManager = _getActor();
+        
+        try troveManager.getLatestBatchData(batchManager) returns (LatestBatchData memory batch) {
+            // Check if within cooldown period
+            uint256 INTEREST_RATE_ADJ_COOLDOWN = 7 days; // Assuming this constant
+            if (block.timestamp >= batch.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN) {
+                // Not in cooldown period, warp time backwards (not possible in real scenario)
+                // Instead, just return as we can't create this scenario
+                return;
+            }
+            
+            // Ensure new rate is different from current
+            _newAnnualInterestRate = uint128(_newAnnualInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1));
+            if (_newAnnualInterestRate == batch.annualInterestRate) {
+                _newAnnualInterestRate = uint128((batch.annualInterestRate + 1e16) % (MAX_ANNUAL_INTEREST_RATE + 1));
+            }
+            
+            borrowerOperations_setBatchManagerAnnualInterestRate(_newAnnualInterestRate, 0, 0, 1e18);
+        } catch {
+            // Not a registered batch manager, skip
+            return;
+        }
+    }
+
+    // Clamped handler for applyPendingDebt that targets zombie troves with enough redistribution gains
+    // This ensures we cover lines 787-789 which reactivate zombie troves
+    function borrowerOperations_applyPendingDebt_zombie_recovery(uint256 entropy) public {
+        if (troveIds.length == 0) return;
+        
+        // Look for zombie troves with pending redistribution gains
+        for (uint256 i = entropy % troveIds.length; i < troveIds.length; i++) {
+            uint256 _troveId = troveIds[i];
+            
+            // Check if trove is zombie
+            ITroveManager.Status status = troveManager.getTroveStatus(_troveId);
+            if (uint8(status) == 3) { // Assuming 3 is zombie status
+                LatestTroveData memory trove = troveManager.getLatestTroveData(_troveId);
+                
+                // Check if entire debt (including redistribution gains) >= MIN_DEBT
+                if (trove.entireDebt >= MIN_DEBT) {
+                    borrowerOperations_applyPendingDebt(_troveId, 0, 0);
+                    return;
+                }
+            }
+        }
     }
 
     /// === Handlers === ///

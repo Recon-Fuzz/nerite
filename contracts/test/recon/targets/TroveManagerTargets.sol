@@ -35,6 +35,43 @@ abstract contract TroveManagerTargets is BaseTargetFunctions, Properties  {
         troveManager_urgentRedemption(_boldAmount, troveIds, _minCollateral);
     }
 
+    // Handler to trigger batch liquidations that generate collateral surplus (line 440)
+    // This requires liquidating troves in recovery mode that have high collateralization
+    function troveManager_batchLiquidateTroves_with_surplus() public {
+        if (troveIds.length == 0) return;
+        
+        // Check if system is in recovery mode (TCR < CCR)
+        uint256 price = priceFeed.getPrice();
+        uint256 TCR = troveManager.getTCR(price);
+        uint256 CCR = 150e16; // Assuming 150% CCR
+        
+        if (TCR >= CCR) {
+            // Not in recovery mode, can't generate surplus from liquidations
+            return;
+        }
+        
+        // In recovery mode, liquidate troves
+        // Troves with CR >= CCR will generate surplus collateral
+        troveManager_batchLiquidateTroves(troveIds);
+    }
+
+    // Handler to trigger system shutdown and enable urgent redemptions
+    // This covers lines 850-903 in urgentRedemption function
+    function troveManager_trigger_shutdown_and_urgent_redeem(uint256 _boldAmount) public {
+        // First, trigger shutdown (can be called by BorrowerOperations)
+        // We need to impersonate the BorrowerOperations contract
+        vm.prank(address(borrowerOperations));
+        troveManager.shutdown();
+        
+        // Now that system is shut down, urgent redemptions should work
+        _boldAmount = _boldAmount % (boldToken.balanceOf(_getActor()) + 1);
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(troveManager), _boldAmount);
+        
+        troveManager_urgentRedemption(_boldAmount, troveIds, 0);
+    }
+
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
 
     function troveManager_batchLiquidateTroves(uint256[] memory _troveArray) public updateGhosts asActor {

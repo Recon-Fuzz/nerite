@@ -1,0 +1,334 @@
+{
+  "timestamp": "1767396176",
+  "lcov_file": "echidna/covered.1767396176.lcov",
+  "missing_coverage": [
+    {
+      "group_name": "Conditional Branch - Edge Cases Not Explored",
+      "group_description": "Functions with conditional branches that are not being explored because specific edge case conditions are never met",
+      "functions": [
+        {
+          "function": "redeemCollateral",
+          "contract": "CollateralRegistry",
+          "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/CollateralRegistry.sol",
+          "function_range": {
+            "start": 96,
+            "end": 168
+          },
+          "uncovered_code": {
+            "line_range": "140-142",
+            "last_covered_line": 139,
+            "code": [
+              "139: [LAST COVERED]                 if (redeemable) {",
+              "140:                     uint256 unbackedPortion = troveManager.getEntireSystemDebt();",
+              "141:                     totals.unbacked += unbackedPortion;",
+              "142:                     unbackedPortions[index] = unbackedPortion;"
+            ]
+          },
+          "complexity": 10,
+          "analysis": "The last_covered_line is 139, which shows the conditional statement `if (redeemable)`. This line was executed (covered), but the subsequent lines 140-142 inside the conditional block are uncovered. This tells us the root cause: this is inside a nested conditional block where the outer condition `if (totals.unbacked == 0)` at line 134 is true, AND the inner condition `if (redeemable)` at line 139 needs to be true.\n\nLooking at the broader function context (lines 121-145), we can see:\n- Lines 121-130: First loop checks if any collaterals are redeemable and have unbacked portions\n- Line 134: If totals.unbacked == 0 after the first loop, we enter this block\n- Lines 136-144: Second loop to use entire system debt instead\n- Line 139: Checks if redeemable again\n\nThe uncovered lines 140-142 are only reached when:\n1. All normally redeemable branches have 0 unbacked portions (totals.unbacked == 0)\n2. AND at least one branch is still redeemable\n\nThis is a rare edge case that requires all redeemable collaterals to have zero unbacked debt in the first check, but still be marked as redeemable. The fuzzer hasn't created this specific state. To fix this, we need to create a scenario where TCR > SCR for collaterals (making them redeemable) but their unbacked portions are exactly 0."
+        },
+        {
+          "function": "batchLiquidateTroves",
+          "contract": "TroveManager",
+          "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/TroveManager.sol",
+          "function_range": {
+            "start": 407,
+            "end": 461
+          },
+          "uncovered_code": {
+            "line_range": "440",
+            "last_covered_line": 439,
+            "code": [
+              "439: [LAST COVERED]         if (totals.collSurplus > 0) {",
+              "440:             activePoolCached.sendColl(address(collSurplusPool), totals.collSurplus);"
+            ]
+          },
+          "complexity": 5,
+          "analysis": "The last_covered_line is 439, which shows the conditional statement `if (totals.collSurplus > 0)`. This line was executed (covered), but line 440 inside the conditional block is uncovered. This tells us the root cause: the condition `totals.collSurplus > 0` is never evaluating to true.\n\nLooking at the function context, collSurplus accumulates surplus collateral from liquidations when the collateral value exceeds the debt being liquidated. This typically happens in recovery mode when troves with high collateralization are liquidated. The uncovered line indicates that batch liquidations are never generating surplus collateral.\n\nTo reach this code, we need to:\n1. Have the system in recovery mode (TCR < CCR)\n2. Liquidate troves that have collateral value exceeding their debt\n3. Generate a positive collSurplus value\n\nThe fuzzer likely isn't creating scenarios where liquidated troves have excess collateral. To fix this, we need to clamp liquidation parameters to target troves with high collateral ratios during recovery mode liquidations."
+        },
+        {
+          "function": "applyPendingDebt",
+          "contract": "BorrowerOperations",
+          "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
+          "function_range": {
+            "start": 743,
+            "end": 792
+          },
+          "uncovered_code": {
+            "line_range": "787-789",
+            "last_covered_line": 786,
+            "code": [
+              "786: [LAST COVERED]         if (_checkTroveIsZombie(troveManagerCached, _troveId) && trove.entireDebt >= MIN_DEBT) {",
+              "787:             troveManagerCached.setTroveStatusToActive(_troveId);",
+              "788:             _reInsertIntoSortedTroves(",
+              "789:                 _troveId, trove.annualInterestRate, _upperHint, _lowerHint, batchManager, batch.annualInterestRate"
+            ]
+          },
+          "complexity": 3,
+          "analysis": "The last_covered_line is 786, which shows the conditional statement `if (_checkTroveIsZombie(troveManagerCached, _troveId) && trove.entireDebt >= MIN_DEBT)`. This line was executed (covered), but lines 787-789 inside the conditional block are uncovered. This tells us the root cause: the compound condition is never evaluating to true.\n\nThe condition requires both:\n1. The trove must be in zombie status (debt < MIN_DEBT)\n2. After applying pending debt (redistribution gains), trove.entireDebt >= MIN_DEBT\n\nThis is a recovery scenario where a zombie trove (created when its debt fell below MIN_DEBT, typically after a redemption) receives enough redistribution debt gains to bring it back above MIN_DEBT threshold. When this happens, the trove should be reactivated and reinserted into the sorted list.\n\nThe fuzzer hasn't created this scenario because it requires:\n1. A trove to be zombified (debt reduced below MIN_DEBT)\n2. Other troves to be liquidated/redistributed\n3. The zombie trove to receive enough redistribution gains to exceed MIN_DEBT\n\nTo fix this, we need to create a handler that specifically targets zombie troves with accumulated redistribution gains and calls applyPendingDebt on them. We should clamp the _troveId parameter to select from zombie troves that have pending redistribution debt gains approaching or exceeding MIN_DEBT."
+        },
+        {
+          "function": "getTroveManager",
+          "contract": "CollateralRegistry",
+          "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/CollateralRegistry.sol",
+          "function_range": {
+            "start": 283,
+            "end": 295
+          },
+          "uncovered_code": {
+            "line_range": "285-293",
+            "last_covered_line": 284,
+            "code": [
+              "284: [LAST COVERED]         if (_index == 0) return troveManager0;",
+              "285:         else if (_index == 1) return troveManager1;",
+              "286:         else if (_index == 2) return troveManager2;",
+              "287:         else if (_index == 3) return troveManager3;",
+              "288:         else if (_index == 4) return troveManager4;",
+              "289:         else if (_index == 5) return troveManager5;",
+              "290:         else if (_index == 6) return troveManager6;",
+              "291:         else if (_index == 7) return troveManager7;",
+              "292:         else if (_index == 8) return troveManager8;",
+              "293:         else if (_index == 9) return troveManager9;"
+            ]
+          },
+          "complexity": 1,
+          "analysis": "The last_covered_line is 284, which shows the conditional `if (_index == 0) return troveManager0;`. This line executes and returns when _index is 0. Lines 285-293 are uncovered because the fuzzer is always calling this function with _index = 0, never testing indices 1-9.\n\nThis is a simple conditional chain where each branch handles a different collateral index. The function returns the appropriate TroveManager based on the index parameter. The uncovered branches indicate the fuzzer only uses collateral index 0.\n\nTo fix this, we need to clamp the _index parameter in handlers that call getTroveManager (or functions that use it internally) to include values 1-9, ensuring all collateral managers are tested. We should check how many collaterals are actually deployed in the system (stored in totalCollaterals) and clamp _index to valid range [0, totalCollaterals-1]."
+        },
+        {
+          "function": "claimAllCollGains",
+          "contract": "StabilityPool",
+          "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/StabilityPool.sol",
+          "function_range": {
+            "start": 353,
+            "end": 366
+          },
+          "uncovered_code": {
+            "line_range": "360-363",
+            "last_covered_line": 359,
+            "code": [
+              "359: [LAST COVERED]         _requireNonZeroAmount(collToSend);",
+              "360:         stashedColl[msg.sender] = 0;",
+              "362:         emit DepositOperation(msg.sender, Operation.claimAllCollGains, 0, 0, 0, 0, 0, collToSend);",
+              "363:         emit DepositUpdated(msg.sender, 0, 0, 0, 0, 0, 0, 0);"
+            ]
+          },
+          "complexity": 1,
+          "analysis": "The last_covered_line is 359, which contains `_requireNonZeroAmount(collToSend)`. Since line 359 was the last covered line, the require statement is failing, meaning collToSend is 0. This causes the function to revert before reaching lines 360-363.\n\nLooking at line 358, collToSend is set from `stashedColl[msg.sender]`. The function is designed to claim collateral gains that were stashed (saved for later claiming) when a user had no deposit. For the require at line 359 to pass, the user must have nonzero stashed collateral.\n\nAdditionally, line 354 has `_requireUserHasNoDeposit(msg.sender)`, which means this function is only for users who withdrew their deposit but still have unclaimed collateral gains.\n\nThe fuzzer hasn't created this scenario because it requires:\n1. User deposits in stability pool\n2. Liquidations occur, generating collateral gains\n3. User withdraws their deposit while gains are pending\n4. Collateral gets stashed for later claiming\n5. User calls claimAllCollGains to retrieve stashed collateral\n\nTo fix this, we need to create a handler that:\n1. First ensures users make deposits in the stability pool\n2. Triggers liquidations to generate gains\n3. Withdraws deposits (which should stash the unclaimed collateral)\n4. Then calls claimAllCollGains\n\nAlternatively, we could create a clamped handler that only calls claimAllCollGains for actors who have nonzero stashedColl balances."
+        }
+      ]
+    },
+    {
+      "group_name": "System Shutdown Required",
+      "group_description": "Functions that require the system to be in shutdown state, which is never reached during fuzzing",
+      "functions": [
+        {
+          "function": "urgentRedemption",
+          "contract": "TroveManager",
+          "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/TroveManager.sol",
+          "function_range": {
+            "start": 848,
+            "end": 906
+          },
+          "uncovered_code": {
+            "line_range": "850-903",
+            "last_covered_line": 849,
+            "code": [
+              "849: [LAST COVERED]         _requireIsShutDown();",
+              "850:         _requireAmountGreaterThanZero(_boldAmount);",
+              "851:         _requireBoldBalanceCoversRedemption(boldToken, msg.sender, _boldAmount);",
+              "853:         IActivePool activePoolCached = activePool;",
+              "854:         TroveChange memory totalsTroveChange;",
+              "857:         (uint256 price,) = priceFeed.fetchPrice();",
+              "859:         uint256 remainingBold = _boldAmount;",
+              "860:         for (uint256 i = 0; i < _troveIds.length; i++) {",
+              "861:             if (remainingBold == 0) break;",
+              "863:             SingleRedemptionValues memory singleRedemption;",
+              "864:             singleRedemption.troveId = _troveIds[i];",
+              "865:             _getLatestTroveData(singleRedemption.troveId, singleRedemption.trove);",
+              "867:             if (!_isActiveOrZombie(Troves[singleRedemption.troveId].status) || singleRedemption.trove.entireDebt == 0) {",
+              "868:                 continue;",
+              "873:             singleRedemption.batchAddress = _getBatchManager(singleRedemption.troveId);",
+              "874:             if (singleRedemption.batchAddress != address(0)) {",
+              "875:                 _updateBatchInterestPriorToRedemption(activePoolCached, singleRedemption.batchAddress);",
+              "878:             _urgentRedeemCollateralFromTrove(defaultPool, remainingBold, price, singleRedemption);",
+              "880:             totalsTroveChange.collDecrease += singleRedemption.collLot;",
+              "881:             totalsTroveChange.debtDecrease += singleRedemption.boldLot;",
+              "882:             totalsTroveChange.appliedRedistBoldDebtGain += singleRedemption.appliedRedistBoldDebtGain;",
+              "886:             totalsTroveChange.newWeightedRecordedDebt += singleRedemption.newWeightedRecordedDebt;",
+              "887:             totalsTroveChange.oldWeightedRecordedDebt += singleRedemption.oldWeightedRecordedDebt;",
+              "889:             remainingBold -= singleRedemption.boldLot;",
+              "892:         if (totalsTroveChange.collDecrease < _minCollateral) {",
+              "893:             revert MinCollNotReached(totalsTroveChange.collDecrease);",
+              "896:         emit Redemption(_boldAmount, totalsTroveChange.debtDecrease, totalsTroveChange.collDecrease, 0, price);",
+              "900:         activePoolCached.mintAggInterestAndAccountForTroveChange(totalsTroveChange, address(0));",
+              "903:         activePoolCached.sendColl(msg.sender, totalsTroveChange.collDecrease);"
+            ]
+          },
+          "complexity": 6,
+          "analysis": "The last_covered_line is 849, which contains `_requireIsShutDown()`. This require statement is failing, meaning the system is not in shutdown state. Since line 849 was covered but lines 850-903 are uncovered, the function is reverting at the require check.\n\nUrgent redemptions are only available after the system has been shut down (shutdownTime != 0). The shutdown can be triggered by:\n1. Oracle failure (via shutdownFromOracleFailure in BorrowerOperations)\n2. Manual shutdown (via shutdown function in TroveManager)\n\nThe fuzzer hasn't triggered a system shutdown, so this entire function remains unreachable. This is an unreachable state problem - no amount of parameter clamping can fix this because the system state itself needs to change.\n\nTo fix this, we need to add a target function handler that triggers system shutdown. We should add handlers for:\n1. TroveManager.shutdown() - requires caller to be BorrowerOperations\n2. BorrowerOperations.shutdownFromOracleFailure() - requires caller to be PriceFeed\n\nOnce shutdown is possible, the urgentRedemption function will become reachable. We should also create a clamped handler for urgentRedemption that only calls it when hasBeenShutDown is true."
+        },
+        {
+          "function": "shutdownFromOracleFailure",
+          "contract": "BorrowerOperations",
+          "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
+          "function_range": {
+            "start": 1183,
+            "end": 1191
+          },
+          "uncovered_code": {
+            "line_range": "1188",
+            "last_covered_line": 1184,
+            "code": [
+              "1184: [LAST COVERED]         _requireCallerIsPriceFeed();",
+              "1188:         if (hasBeenShutDown) return;"
+            ]
+          },
+          "complexity": 1,
+          "analysis": "The last_covered_line is 1184, which contains `_requireCallerIsPriceFeed()`. Since this was the last line covered, the require is failing because msg.sender is not the priceFeed address. Lines after 1184 are uncovered because the function reverts at this authorization check.\n\nThis function can only be called by the priceFeed contract when an oracle failure is detected. The authorization check prevents any other caller from triggering a shutdown. Looking at line 1188, there's also a check for hasBeenShutDown to avoid re-applying shutdown.\n\nThe fuzzer can't reach this code because:\n1. The fuzzer's msg.sender is never the priceFeed address\n2. Even if we bypass that, we'd need the priceFeed to actually call this function\n\nThis is an authorization issue. To fix this, we need to create a handler that calls this function with the correct caller context. However, since this is meant to be called internally by the PriceFeed contract when it detects oracle failures, we should instead:\n1. Check if there's a way to trigger oracle failures in the PriceFeed that would cause it to call this function\n2. Or create a mock/test scenario where we can simulate the PriceFeed calling this function\n\nWe could use vm.prank(address(priceFeed)) to impersonate the priceFeed and call this function in our handler, or we could create a target function that triggers conditions in the PriceFeed that would cause it to call shutdownFromOracleFailure."
+        }
+      ]
+    },
+    {
+      "group_name": "Batch Management - Conditional Execution",
+      "group_description": "Functions that have branches related to batch management (when troves are in interest batches) that aren't being explored",
+      "functions": [
+        {
+          "function": "closeTrove",
+          "contract": "BorrowerOperations",
+          "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
+          "function_range": {
+            "start": 674,
+            "end": 741
+          },
+          "uncovered_code": {
+            "line_range": "699-706",
+            "last_covered_line": 698,
+            "code": [
+              "698: [LAST COVERED]         if (batchManager != address(0)) {",
+              "699:             batch = troveManagerCached.getLatestBatchData(batchManager);",
+              "700:             uint256 batchFutureDebt =",
+              "701:                 batch.entireDebtWithoutRedistribution - (trove.entireDebt - trove.redistBoldDebtGain);",
+              "702:             troveChange.batchAccruedManagementFee = batch.accruedManagementFee;",
+              "703:             troveChange.oldWeightedRecordedDebt = batch.weightedRecordedDebt;",
+              "704:             troveChange.newWeightedRecordedDebt = batchFutureDebt * batch.annualInterestRate;",
+              "705:             troveChange.oldWeightedRecordedBatchManagementFee = batch.weightedRecordedBatchManagementFee;",
+              "706:             troveChange.newWeightedRecordedBatchManagementFee = batchFutureDebt * batch.annualManagementFee;"
+            ]
+          },
+          "complexity": 4,
+          "analysis": "The last_covered_line is 698, which shows the conditional `if (batchManager != address(0))`. Line 698 was executed (covered), but lines 699-706 inside the conditional are uncovered. This tells us the root cause: batchManager is always address(0), meaning the troves being closed are never part of an interest batch.\n\nLine 696 shows `address batchManager = interestBatchManagerOf[_troveId];`. This retrieves the batch manager for the trove being closed. The uncovered code handles the case where a trove is part of a batch - it needs to update the batch's weighted debt accounting when removing the trove.\n\nThe fuzzer is only closing troves that were opened individually (not joined to batches). To reach this code, we need to:\n1. Open troves that join interest batch managers (using openTroveAndJoinInterestBatchManager)\n2. Then close those batched troves\n\nTo fix this, we need to create a clamped handler for closeTrove that specifically targets troves that have non-zero batch managers (interestBatchManagerOf[_troveId] != address(0)). This ensures the fuzzer tests the batch-specific accounting logic when closing batched troves."
+          },
+          "second_uncovered_section": {
+            "line_range": "727",
+            "last_covered_line": 725,
+            "code": [
+              "725: [LAST COVERED]         if (batchManager != address(0)) {",
+              "727:             interestBatchManagerOf[_troveId] = address(0);"
+            ],
+            "analysis": "This is a second uncovered section in the same function. The last_covered_line is 725, which is the same conditional check `if (batchManager != address(0))`. Line 725 was covered but line 727 is uncovered, indicating the same root cause as the first section: batchManager is always address(0).\n\nLine 727 cleans up the batch manager mapping by setting it to address(0) after the trove is closed. This is the final cleanup step for batched troves. The fix is the same as above - we need to clamp closeTrove to target troves that are part of batches."
+          }
+        },
+        {
+          "function": "setBatchManagerAnnualInterestRate",
+          "contract": "BorrowerOperations",
+          "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
+          "function_range": {
+            "start": 897,
+            "end": 957
+          },
+          "uncovered_code": {
+            "line_range": "928-944",
+            "last_covered_line": 927,
+            "code": [
+              "927: [LAST COVERED]                 && block.timestamp < batch.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN",
+              "928:         ) {",
+              "929:             uint256 price = _requireOraclesLive();",
+              "931:             uint256 avgInterestRate = activePoolCached.getNewApproxAvgInterestRateFromTroveChange(batchChange);",
+              "932:             batchChange.upfrontFee = _calcUpfrontFee(newDebt, avgInterestRate);",
+              "933:             _requireUserAcceptsUpfrontFee(batchChange.upfrontFee, _maxUpfrontFee);",
+              "935:             newDebt += batchChange.upfrontFee;",
+              "938:             batchChange.newWeightedRecordedDebt = newDebt * _newAnnualInterestRate;",
+              "939:             batchChange.newWeightedRecordedBatchManagementFee = newDebt * batch.annualManagementFee;",
+              "943:             uint256 newTCR = _getNewTCRFromTroveChange(batchChange, price);",
+              "944:             _requireNewTCRisAboveCCR(newTCR);"
+            ]
+          },
+          "complexity": 3,
+          "analysis": "The last_covered_line is 927, which is part of a compound conditional that spans lines 925-927:\n```\nif (\n    batch.annualInterestRate != _newAnnualInterestRate\n    && block.timestamp < batch.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN\n) {\n```\n\nLine 927 was covered (evaluated), but lines 928-944 inside the conditional block are uncovered. This tells us the compound condition is never fully true. The condition requires both:\n1. The new interest rate must be different from current (batch.annualInterestRate != _newAnnualInterestRate)\n2. The adjustment must be premature (within the cooldown period)\n\nLines 928-944 handle the \"premature adjustment\" case - when a batch manager tries to change the interest rate before the cooldown period has elapsed, an upfront fee is charged and TCR must remain above CCR.\n\nThe fuzzer is either:\n1. Always setting the same interest rate (not changing it)\n2. Or only calling this function after the cooldown period has passed\n\nTo reach this code, we need to:\n1. Have a batch manager set an initial interest rate\n2. Call setBatchManagerAnnualInterestRate again with a different rate\n3. Do so within INTEREST_RATE_ADJ_COOLDOWN seconds of the last adjustment\n\nTo fix this, we need to create a clamped handler that:\n1. Selects batch managers that have recently adjusted rates (block.timestamp < batch.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)\n2. Ensures _newAnnualInterestRate is different from current batch.annualInterestRate\n3. Sets appropriate _maxUpfrontFee to handle the fee requirement"
+        },
+        {
+          "function": "openTroveAndJoinInterestBatchManager",
+          "contract": "BorrowerOperations",
+          "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
+          "function_range": {
+            "start": 235,
+            "end": 288
+          },
+          "uncovered_code": {
+            "line_range": "267-287",
+            "last_covered_line": 264,
+            "code": [
+              "264: [LAST COVERED]             vars.change",
+              "267:         interestBatchManagerOf[vars.troveId] = _params.interestBatchManager;",
+              "270:         vars.troveManager.onOpenTroveAndJoinBatch(",
+              "271:             _params.owner,",
+              "272:             vars.troveId,",
+              "273:             vars.change,",
+              "274:             _params.interestBatchManager,",
+              "275:             vars.batch.entireCollWithoutRedistribution,",
+              "276:             vars.batch.entireDebtWithoutRedistribution",
+              "279:         sortedTroves.insertIntoBatch(",
+              "280:             vars.troveId,",
+              "281:             BatchId.wrap(_params.interestBatchManager),",
+              "282:             vars.batch.annualInterestRate,",
+              "283:             _params.upperHint,",
+              "284:             _params.lowerHint",
+              "287:         return vars.troveId;"
+            ]
+          },
+          "complexity": 1,
+          "analysis": "The last_covered_line is 264, which is the end of a parameter being passed to the _openTrove internal function (line 251-265). Line 264 was covered, meaning _openTrove was called successfully. However, lines 267-287 (which execute after _openTrove returns) are uncovered.\n\nThis indicates that _openTrove is reverting or the entire function is reverting before reaching line 267. Looking at the function flow:\n1. Lines 240-265: Preparation and call to _openTrove\n2. Line 267+: Post-processing to join the batch\n\nSince line 264 is marked as last covered and it's part of the _openTrove call, the most likely cause is that _openTrove is reverting. The uncovered lines handle the batch-specific setup after a trove is successfully opened.\n\nLooking at _openTrove function (line 290+), it likely has validation checks that are failing. The parameters passed include:\n- _params.owner, _params.ownerIndex\n- _params.collAmount, _params.boldAmount  \n- vars.batch.annualInterestRate (from the batch, not params)\n- _params.interestBatchManager\n- Various batch values and management fee\n\nThe fuzzer is calling this function but _openTrove is rejecting the parameters. To fix this, we need to create a clamped handler that:\n1. Ensures valid owner and ownerIndex\n2. Provides sufficient collAmount and boldAmount to meet minimum requirements\n3. Uses valid interestBatchManager addresses\n4. Provides appropriate upperHint and lowerHint for sorted list insertion\n5. Sets adequate maxUpfrontFee to cover any fees\n\nWe should also check if the batch manager needs to be registered first before troves can join it."
+        },
+        {
+          "function": "adjustZombieTrove",
+          "contract": "BorrowerOperations",
+          "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
+          "function_range": {
+            "start": 467,
+            "end": 500
+          },
+          "uncovered_code": {
+            "line_range": "480-498",
+            "last_covered_line": 478,
+            "code": [
+              "478: [LAST COVERED]         _requireTroveIsZombie(troveManagerCached, _troveId);",
+              "480:         TroveChange memory troveChange;",
+              "481:         _initTroveChange(troveChange, _collChange, _isCollIncrease, _boldChange, _isDebtIncrease);",
+              "482:         _adjustTrove(troveManagerCached, _troveId, troveChange, _maxUpfrontFee);",
+              "484:         troveManagerCached.setTroveStatusToActive(_troveId);",
+              "486:         address batchManager = interestBatchManagerOf[_troveId];",
+              "488:         if (batchManager != address(0)) {",
+              "489:             LatestBatchData memory batch = troveManagerCached.getLatestBatchData(batchManager);",
+              "490:             batchAnnualInterestRate = batch.annualInterestRate;",
+              "492:         _reInsertIntoSortedTroves(",
+              "493:             _troveId,",
+              "494:             troveManagerCached.getTroveAnnualInterestRate(_troveId),",
+              "495:             _upperHint,",
+              "496:             _lowerHint,",
+              "497:             batchManager,",
+              "498:             batchAnnualInterestRate"
+            ]
+          },
+          "complexity": 2,
+          "analysis": "The last_covered_line is 478, which contains `_requireTroveIsZombie(troveManagerCached, _troveId)`. Since line 478 was covered but lines 480-498 are uncovered, this require statement is failing. The function reverts because the trove is not in zombie status.\n\nA zombie trove is one that has debt below MIN_DEBT but hasn't been fully closed. This typically happens after redemptions that reduce a trove's debt below the minimum threshold. The adjustZombieTrove function is designed to allow zombie troves to be adjusted and potentially brought back above MIN_DEBT to become active again.\n\nThe fuzzer hasn't created any zombie troves, so this function always reverts at the status check. To reach this code, we need to:\n1. Create troves with debt close to MIN_DEBT\n2. Trigger redemptions that reduce their debt below MIN_DEBT (zombifying them)\n3. Then call adjustZombieTrove on those zombie troves\n\nTo fix this, we need to:\n1. First ensure zombie troves exist in the system (may require a specific redemption handler)\n2. Create a clamped handler for adjustZombieTrove that only targets troves in zombie status\n3. Clamp _troveId to select from the set of zombie troves\n4. Provide parameters (_collChange, _boldChange) that would bring the trove back above MIN_DEBT\n\nWe should check if there's a way to query or track zombie troves, or we could add instrumentation to track when troves become zombified."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "functions_analyzed": 184,
+    "functions_with_missing_coverage": 11,
+    "uncovered_sections": 12,
+    "full_coverage": false
+  }
+}

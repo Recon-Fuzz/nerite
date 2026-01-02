@@ -7,6 +7,7 @@ import {vm} from "@chimera/Hevm.sol";
 import "forge-std/console2.sol";
 
 import {Properties} from "../Properties.sol";
+import {ITroveManager} from "../../../src/Interfaces/ITroveManager.sol";
 
 abstract contract CollateralRegistryTargets is BaseTargetFunctions, Properties  {
     
@@ -56,6 +57,25 @@ abstract contract CollateralRegistryTargets is BaseTargetFunctions, Properties  
         boldToken.approve(address(collateralRegistry), _boldAmount);
         
         collateralRegistry_redeemCollateral(_boldAmount, _maxIterationsPerCollateral, _maxFeePercentage);
+    }
+
+    // Handler to test getTroveManager with different indices (lines 285-293)
+    // This ensures we cover all branches for collateral indices 1-9
+    function collateralRegistry_getTroveManager_all_indices(uint256 _index) public {
+        // Get total number of collaterals
+        uint256 totalCollaterals = collateralRegistry.totalCollaterals();
+        if (totalCollaterals == 0) return;
+        
+        // Clamp index to valid range
+        _index = _index % totalCollaterals;
+        
+        // Call getTroveManager with the clamped index
+        // This will cover different branches based on the index value
+        try collateralRegistry.getTroveManager(_index) returns (ITroveManager) {
+            // Successfully retrieved trove manager for this index
+        } catch {
+            // Invalid index or other error
+        }
     }
 
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///

@@ -12,6 +12,19 @@ abstract contract PriceFeedTargets is BaseTargetFunctions, Properties  {
     
     /// CUSTOM TARGET FUNCTIONS - Add your own target functions here ///
 
+    // Handler to trigger shutdownFromOracleFailure (line 1188 in BorrowerOperations)
+    // This requires calling the function from the priceFeed address
+    function priceFeed_trigger_shutdown_from_oracle_failure() public {
+        // Check if already shut down
+        if (borrowerOperations.hasBeenShutDown()) {
+            return; // Already shut down, line 1188 would execute
+        }
+        
+        // Impersonate the priceFeed to call shutdownFromOracleFailure
+        vm.prank(address(priceFeed));
+        borrowerOperations.shutdownFromOracleFailure();
+    }
+
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
     
     function priceFeed_fetchPrice() public {
