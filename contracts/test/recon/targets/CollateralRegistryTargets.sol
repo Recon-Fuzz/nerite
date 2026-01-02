@@ -12,6 +12,17 @@ abstract contract CollateralRegistryTargets is BaseTargetFunctions, Properties  
     
     /// CUSTOM TARGET FUNCTIONS - Add your own target functions here ///
 
+    /// === Clamped Handlers === ///
+
+    function collateralRegistry_redeemCollateral_clamped(uint256 _boldAmount, uint256 _maxIterationsPerCollateral, uint256 _maxFeePercentage) public {
+        _boldAmount = _boldAmount % (boldToken.balanceOf(_getActor()) + 1);
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(collateralRegistry), _boldAmount);
+        
+        collateralRegistry_redeemCollateral(_boldAmount, _maxIterationsPerCollateral, _maxFeePercentage);
+    }
+
     // Handler to test the redeemCollateral fallback path (lines 140-142)
     // This path is taken when totals.unbacked == 0, which happens when:
     // - All redeemable branches have unbackedPortion = 0 

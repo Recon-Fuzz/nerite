@@ -7,6 +7,7 @@ import {vm} from "@chimera/Hevm.sol";
 import "forge-std/console2.sol";
 
 import {ActivePoolTargets} from "./targets/ActivePoolTargets.sol";
+import {BoldTokenTargets} from "./targets/BoldTokenTargets.sol";
 import {BorrowerOperationsTargets} from "./targets/BorrowerOperationsTargets.sol";
 import {CollateralRegistryTargets} from "./targets/CollateralRegistryTargets.sol";
 import {CollTokenTargets} from "./targets/CollTokenTargets.sol";
@@ -17,6 +18,7 @@ import {TroveManagerTargets} from "./targets/TroveManagerTargets.sol";
 
 abstract contract TargetFunctions is 
     ActivePoolTargets,
+    BoldTokenTargets,
     BorrowerOperationsTargets,
     CollateralRegistryTargets,
     CollTokenTargets,
