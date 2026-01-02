@@ -1,0 +1,469 @@
+{
+  "borrowerOperations_adjustTroveInterestRate": {
+    "prerequisite_functions": [],
+    "paths": [
+      "!(hasBeenShutDown) && _newAnnualInterestRate >= MIN_ANNUAL_INTEREST_RATE && _newAnnualInterestRate <= MAX_ANNUAL_INTEREST_RATE && interestBatchManagerOf[_troveId] == 0 && (msg.sender == owner) && (msg.sender != interestIndividualDelegateOf[_troveId].account) && status == ITroveManager.Status.active && individualDelegate.account == msg.sender && (individualDelegate.minInterestRate <= _newAnnualInterestRate) || (_newAnnualInterestRate > individualDelegate.maxInterestRate) && block.timestamp >= (trove.lastInterestRateAdjTime + individualDelegate.minInterestRateChangePeriod) && trove.annualInterestRate != _newAnnualInterestRate && (trove.annualInterestRate != _newAnnualInterestRate) && (block.timestamp < (trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && !(newOracleFailureDetected) && troveChange.upfrontFee <= _maxUpfrontFee && newDebt > 0 && newICR >= MCR && totalDebt > 0 && newTCR >= CCR && troveNFT.ownerOf(_troveId) && troveManagerCached.getTroveStatus(_troveId) && troveManagerCached.getLatestTroveData(_troveId) && priceFeed.fetchPrice() && activePool.getNewApproxAvgInterestRateFromTroveChange(troveChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && activePool.mintAggInterestAndAccountForTroveChange(troveChange, 0) && sortedTroves.reInsert(_troveId, _newAnnualInterestRate, _upperHint, _lowerHint) && troveManagerCached.onAdjustTroveInterestRate(_troveId, trove.entireColl, newDebt, _newAnnualInterestRate, troveChange)",
+      "!(hasBeenShutDown) && _newAnnualInterestRate >= MIN_ANNUAL_INTEREST_RATE && _newAnnualInterestRate <= MAX_ANNUAL_INTEREST_RATE && interestBatchManagerOf[_troveId] == 0 && (msg.sender == owner) && (msg.sender != interestIndividualDelegateOf[_troveId].account) && status == ITroveManager.Status.active && individualDelegate.account != msg.sender && trove.annualInterestRate != _newAnnualInterestRate && (trove.annualInterestRate != _newAnnualInterestRate) && (block.timestamp < (trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && !(newOracleFailureDetected) && troveChange.upfrontFee <= _maxUpfrontFee && newDebt <= 0 && newICR >= MCR && totalDebt <= 0 && newTCR >= CCR && troveNFT.ownerOf(_troveId) && troveManagerCached.getTroveStatus(_troveId) && troveManagerCached.getLatestTroveData(_troveId) && priceFeed.fetchPrice() && activePool.getNewApproxAvgInterestRateFromTroveChange(troveChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && activePool.mintAggInterestAndAccountForTroveChange(troveChange, 0) && sortedTroves.reInsert(_troveId, _newAnnualInterestRate, _upperHint, _lowerHint) && troveManagerCached.onAdjustTroveInterestRate(_troveId, trove.entireColl, newDebt, _newAnnualInterestRate, troveChange)",
+      "!(hasBeenShutDown) && _newAnnualInterestRate >= MIN_ANNUAL_INTEREST_RATE && _newAnnualInterestRate <= MAX_ANNUAL_INTEREST_RATE && interestBatchManagerOf[_troveId] == 0 && (msg.sender == owner) && (msg.sender != interestIndividualDelegateOf[_troveId].account) && status == ITroveManager.Status.active && individualDelegate.account == msg.sender && (individualDelegate.minInterestRate <= _newAnnualInterestRate) || (_newAnnualInterestRate > individualDelegate.maxInterestRate) && block.timestamp >= (trove.lastInterestRateAdjTime + individualDelegate.minInterestRateChangePeriod) && trove.annualInterestRate != _newAnnualInterestRate && (trove.annualInterestRate == _newAnnualInterestRate) && (block.timestamp < (trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && troveNFT.ownerOf(_troveId) && troveManagerCached.getTroveStatus(_troveId) && troveManagerCached.getLatestTroveData(_troveId) && activePool.mintAggInterestAndAccountForTroveChange(troveChange, 0) && sortedTroves.reInsert(_troveId, _newAnnualInterestRate, _upperHint, _lowerHint) && troveManagerCached.onAdjustTroveInterestRate(_troveId, trove.entireColl, newDebt, _newAnnualInterestRate, troveChange)"
+    ]
+  },
+  "borrowerOperations_removeInterestIndividualDelegate": {
+    "prerequisite_functions": [],
+    "paths": [
+      "msg.sender == troveNFT.ownerOf(_troveId)"
+    ]
+  },
+  "repayBold": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "provideToSP": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "setAddManager": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "shutdown": {
+    "prerequisite_functions": [
+      "openTrove",
+      "setPrice"
+    ],
+    "paths": []
+  },
+  "borrowerOperations_setBatchManagerAnnualInterestRate": {
+    "prerequisite_functions": [],
+    "paths": [
+      "!(hasBeenShutDown) && interestBatchManagers[msg.sender].maxInterestRate != 0 && (interestBatchManager.minInterestRate <= _newAnnualInterestRate) || (_newAnnualInterestRate > interestBatchManager.maxInterestRate) && block.timestamp >= (batch.lastInterestRateAdjTime + interestBatchManager.minInterestRateChangePeriod) && (batch.annualInterestRate != _newAnnualInterestRate) && (block.timestamp < (batch.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && !(newOracleFailureDetected) && batchChange.upfrontFee <= _maxUpfrontFee && totalDebt > 0 && newTCR >= CCR && !sortedTroves.isEmptyBatch(BatchId.wrap(msg.sender)) && troveManagerCached.getLatestBatchData(msg.sender) && priceFeed.fetchPrice() && activePoolCached.getNewApproxAvgInterestRateFromTroveChange(batchChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && activePoolCached.mintAggInterestAndAccountForTroveChange(batchChange, msg.sender) && sortedTroves.reInsertBatch(BatchId.wrap(msg.sender), _newAnnualInterestRate, _upperHint, _lowerHint) && troveManagerCached.onSetBatchManagerAnnualInterestRate(msg.sender, batch.entireCollWithoutRedistribution, newDebt, _newAnnualInterestRate, batchChange.upfrontFee)",
+      "!(hasBeenShutDown) && interestBatchManagers[msg.sender].maxInterestRate != 0 && (interestBatchManager.minInterestRate <= _newAnnualInterestRate) || (_newAnnualInterestRate > interestBatchManager.maxInterestRate) && block.timestamp >= (batch.lastInterestRateAdjTime + interestBatchManager.minInterestRateChangePeriod) && (batch.annualInterestRate != _newAnnualInterestRate) && (block.timestamp < (batch.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && !(newOracleFailureDetected) && batchChange.upfrontFee <= _maxUpfrontFee && totalDebt <= 0 && newTCR >= CCR && sortedTroves.isEmptyBatch(BatchId.wrap(msg.sender)) && troveManagerCached.getLatestBatchData(msg.sender) && priceFeed.fetchPrice() && activePoolCached.getNewApproxAvgInterestRateFromTroveChange(batchChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && activePoolCached.mintAggInterestAndAccountForTroveChange(batchChange, msg.sender) && troveManagerCached.onSetBatchManagerAnnualInterestRate(msg.sender, batch.entireCollWithoutRedistribution, newDebt, _newAnnualInterestRate, batchChange.upfrontFee)",
+      "!(hasBeenShutDown) && interestBatchManagers[msg.sender].maxInterestRate != 0 && (interestBatchManager.minInterestRate <= _newAnnualInterestRate) || (_newAnnualInterestRate > interestBatchManager.maxInterestRate) && block.timestamp >= (batch.lastInterestRateAdjTime + interestBatchManager.minInterestRateChangePeriod) && (batch.annualInterestRate == _newAnnualInterestRate) && (block.timestamp < (batch.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && !sortedTroves.isEmptyBatch(BatchId.wrap(msg.sender)) && troveManagerCached.getLatestBatchData(msg.sender) && activePoolCached.mintAggInterestAndAccountForTroveChange(batchChange, msg.sender) && sortedTroves.reInsertBatch(BatchId.wrap(msg.sender), _newAnnualInterestRate, _upperHint, _lowerHint) && troveManagerCached.onSetBatchManagerAnnualInterestRate(msg.sender, batch.entireCollWithoutRedistribution, newDebt, _newAnnualInterestRate, batchChange.upfrontFee)"
+    ]
+  },
+  "removeFromBatch": {
+    "prerequisite_functions": [
+      "registerBatchManager",
+      "setInterestBatchManager"
+    ],
+    "paths": []
+  },
+  "balanceOf": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "approve": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "collToken_transfer": {
+    "prerequisite_functions": [],
+    "paths": [
+      "(_balanceOf[msg.sender] >= amount)"
+    ]
+  },
+  "stabilityPool_offset": {
+    "prerequisite_functions": [],
+    "paths": [
+      "(totalBold != 0) || (_debtToOffset == 0) && _debtToOffset == totalBold && newProductFactor != 0 && lastBoldLossErrorByP_Offset_Cached > 0 && newP < SCALE_FACTOR && lastBoldLossErrorByP_Offset_Cached > 0 && newP < SCALE_FACTOR && lastBoldLossErrorByP_Offset_Cached > 0 && (0 == 0) && (_debtToOffset == 0) && (msg.sender == troveManager) && boldToken.burn(this, _debtToOffset) && activePool.sendColl(this, _collToAdd)",
+      "(totalBold != 0) || (_debtToOffset == 0) && _debtToOffset != totalBold && newProductFactor != 0 && lastBoldLossErrorByP_Offset_Cached <= 0 && newP < SCALE_FACTOR && lastBoldLossErrorByP_Offset_Cached <= 0 && newP < SCALE_FACTOR && lastBoldLossErrorByP_Offset_Cached <= 0 && (0 != 0) && (_debtToOffset == 0) && (msg.sender == troveManager) && boldToken.burn(this, _debtToOffset) && activePool.sendColl(this, _collToAdd)",
+      "(totalBold == 0) || (_debtToOffset == 0) && (msg.sender == troveManager)",
+      "(totalBold != 0) || (_debtToOffset == 0) && _debtToOffset == totalBold && newProductFactor == 0 && (0 == 0) && (_debtToOffset == 0) && (msg.sender == troveManager) && boldToken.burn(this, _debtToOffset) && activePool.sendColl(this, _collToAdd)",
+      "(totalBold != 0) || (_debtToOffset == 0) && _debtToOffset == totalBold && newProductFactor != 0 && lastBoldLossErrorByP_Offset_Cached > 0 && newP < SCALE_FACTOR && lastBoldLossErrorByP_Offset_Cached > 0 && newP >= SCALE_FACTOR && (0 == 0) && (_debtToOffset == 0) && (msg.sender == troveManager) && boldToken.burn(this, _debtToOffset) && activePool.sendColl(this, _collToAdd)"
+    ]
+  },
+  "stabilityPool_withdrawFromSP_clamped": {
+    "prerequisite_functions": [],
+    "paths": [
+      "initialDeposit != 0 && epochSnapshot >= currentEpoch && scaleDiff != 0 && scaleDiff == 1 && compoundedStake < (initialDeposit / 1e9)",
+      "initialDeposit != 0 && epochSnapshot >= currentEpoch && scaleDiff == 0 && compoundedStake >= (initialDeposit / 1e9)",
+      "initialDeposit == 0",
+      "initialDeposit != 0 && epochSnapshot < currentEpoch",
+      "initialDeposit != 0 && epochSnapshot >= currentEpoch && scaleDiff != 0 && scaleDiff != 1 && compoundedStake < (initialDeposit / 1e9)"
+    ]
+  },
+  "liquidate": {
+    "prerequisite_functions": [
+      "openTrove",
+      "setPrice"
+    ],
+    "paths": []
+  },
+  "urgentRedemption": {
+    "prerequisite_functions": [
+      "openTrove",
+      "shutdown"
+    ],
+    "paths": []
+  },
+  "transferFrom": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "triggerBoldRewards": {
+    "prerequisite_functions": [
+      "provideToSP"
+    ],
+    "paths": []
+  },
+  "borrowerOperations_openTrove": {
+    "prerequisite_functions": [],
+    "paths": [
+      "_annualInterestRate >= MIN_ANNUAL_INTEREST_RATE && _annualInterestRate <= MAX_ANNUAL_INTEREST_RATE && !(hasBeenShutDown) && !(newOracleFailureDetected) && status == ITroveManager.Status.nonExistent && vars.change.upfrontFee <= _maxUpfrontFee && vars.entireDebt >= MIN_DEBT && 0 == 0 && vars.entireDebt > 0 && vars.ICR >= MCR && totalDebt > 0 && vars.newTCR >= CCR && (_removeManager != 0) && (_receiver != 0) && (troveManager.getDebtLimit() >= (troveManager.getEntireSystemDebt() + _boldAmount)) && troveManager.getDebtLimit() && troveManager.getEntireSystemDebt() && priceFeed.fetchPrice() && vars.troveManager.getTroveStatus(vars.troveId) && vars.activePool.getNewApproxAvgInterestRateFromTroveChange(vars.change) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && vars.activePool.mintAggInterestAndAccountForTroveChange(vars.change, 0) && collToken.safeTransferFrom(msg.sender, vars.activePool, _collAmount) && vars.activePool.accountForReceivedColl(_collAmount) && vars.boldToken.mint(msg.sender, _boldAmount) && WETH.transferFrom(msg.sender, gasPoolAddress, ETH_GAS_COMPENSATION) && troveManager.onOpenTrove(_owner, vars.troveId, vars.change, _annualInterestRate) && sortedTroves.insert(vars.troveId, _annualInterestRate, _upperHint, _lowerHint)",
+      "_annualInterestRate >= MIN_ANNUAL_INTEREST_RATE && _annualInterestRate <= MAX_ANNUAL_INTEREST_RATE && !(hasBeenShutDown) && !(newOracleFailureDetected) && status == ITroveManager.Status.nonExistent && vars.change.upfrontFee <= _maxUpfrontFee && vars.entireDebt >= MIN_DEBT && 0 != 0 && vars.entireDebt <= 0 && vars.ICR >= MCR && totalDebt <= 0 && vars.newTCR >= CCR && (_removeManager != 0) && (_receiver != 0) && (troveManager.getDebtLimit() >= (troveManager.getEntireSystemDebt() + _boldAmount)) && troveManager.getDebtLimit() && troveManager.getEntireSystemDebt() && priceFeed.fetchPrice() && vars.troveManager.getTroveStatus(vars.troveId) && vars.activePool.getNewApproxAvgInterestRateFromTroveChange(vars.change) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && vars.activePool.mintAggInterestAndAccountForTroveChange(vars.change, 0) && collToken.safeTransferFrom(msg.sender, vars.activePool, _collAmount) && vars.activePool.accountForReceivedColl(_collAmount) && vars.boldToken.mint(msg.sender, _boldAmount) && WETH.transferFrom(msg.sender, gasPoolAddress, ETH_GAS_COMPENSATION) && troveManager.onOpenTrove(_owner, vars.troveId, vars.change, _annualInterestRate) && sortedTroves.insert(vars.troveId, _annualInterestRate, _upperHint, _lowerHint)"
+    ]
+  },
+  "setPrice": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "setInterestIndividualDelegate": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "shutdownFromOracleFailure": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "fetchPrice": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "claimAllCollGains": {
+    "prerequisite_functions": [
+      "provideToSP",
+      "offset"
+    ],
+    "paths": []
+  },
+  "stabilityPool_withdrawFromSP": {
+    "prerequisite_functions": [],
+    "paths": [
+      "initialDeposit == 0 && initialDeposit == 0 && initialDeposit != 0 && epochSnapshot >= currentEpoch && scaleDiff != 0 && scaleDiff == 1 && compoundedStake < (initialDeposit / 1e9) && _doClaim && _doClaim && newDeposit == 0 && currentYieldGain == 0 && (keptYieldGain == 0) && (boldToWithdraw == 0) && (boldToWithdraw + yieldGainToSend) == 0 && collToSend == 0 && activePool.mintAggInterest()",
+      "initialDeposit == 0 && initialDeposit == 0 && initialDeposit != 0 && epochSnapshot >= currentEpoch && scaleDiff == 0 && compoundedStake >= (initialDeposit / 1e9) && !(_doClaim) && !(_doClaim) && newDeposit != 0 && currentYieldGain != 0 && (keptYieldGain != 0) && (boldToWithdraw == 0) && (boldToWithdraw + yieldGainToSend) != 0 && collToSend != 0 && activePool.mintAggInterest() && boldToken.returnFromPool(this, msg.sender, (boldToWithdraw + yieldGainToSend)) && collToken.safeTransfer(msg.sender, collToSend)",
+      "initialDeposit == 0 && initialDeposit == 0 && initialDeposit != 0 && epochSnapshot < currentEpoch && _doClaim && _doClaim && newDeposit == 0 && currentYieldGain == 0 && (keptYieldGain == 0) && (boldToWithdraw == 0) && (boldToWithdraw + yieldGainToSend) == 0 && collToSend == 0 && activePool.mintAggInterest()",
+      "initialDeposit == 0 && initialDeposit == 0 && initialDeposit != 0 && epochSnapshot >= currentEpoch && scaleDiff != 0 && scaleDiff != 1 && compoundedStake < (initialDeposit / 1e9) && _doClaim && _doClaim && newDeposit == 0 && currentYieldGain == 0 && (keptYieldGain == 0) && (boldToWithdraw == 0) && (boldToWithdraw + yieldGainToSend) == 0 && collToSend == 0 && activePool.mintAggInterest()"
+    ]
+  },
+  "borrowerOperations_openTroveAndJoinInterestBatchManager": {
+    "prerequisite_functions": [],
+    "paths": [
+      "interestBatchManagers[_params.interestBatchManager].maxInterestRate != 0 && !(hasBeenShutDown) && !(newOracleFailureDetected) && status == ITroveManager.Status.nonExistent && vars.change.upfrontFee <= _params.maxUpfrontFee && vars.entireDebt >= MIN_DEBT && _params.interestBatchManager == 0 && vars.entireDebt > 0 && vars.ICR >= MCR && totalDebt > 0 && vars.newTCR >= CCR && (_params.removeManager != 0) && (_params.receiver != 0) && vars.troveManager.getLatestBatchData(_params.interestBatchManager) && (troveManager.getDebtLimit() >= (troveManager.getEntireSystemDebt() + _params.boldAmount)) && troveManager.getDebtLimit() && troveManager.getEntireSystemDebt() && priceFeed.fetchPrice() && vars.troveManager.getTroveStatus(vars.troveId) && vars.activePool.getNewApproxAvgInterestRateFromTroveChange(vars.change) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && vars.activePool.mintAggInterestAndAccountForTroveChange(vars.change, _params.interestBatchManager) && collToken.safeTransferFrom(msg.sender, vars.activePool, _params.collAmount) && vars.activePool.accountForReceivedColl(_params.collAmount) && vars.boldToken.mint(msg.sender, _params.boldAmount) && WETH.transferFrom(msg.sender, gasPoolAddress, ETH_GAS_COMPENSATION) && vars.troveManager.onOpenTroveAndJoinBatch(_params.owner, vars.troveId, vars.change, _params.interestBatchManager, vars.batch.entireCollWithoutRedistribution, vars.batch.entireDebtWithoutRedistribution) && sortedTroves.insertIntoBatch(vars.troveId, BatchId.wrap(_params.interestBatchManager), vars.batch.annualInterestRate, _params.upperHint, _params.lowerHint)",
+      "interestBatchManagers[_params.interestBatchManager].maxInterestRate != 0 && !(hasBeenShutDown) && !(newOracleFailureDetected) && status == ITroveManager.Status.nonExistent && vars.change.upfrontFee <= _params.maxUpfrontFee && vars.entireDebt >= MIN_DEBT && _params.interestBatchManager != 0 && vars.entireDebt <= 0 && vars.ICR >= MCR && totalDebt <= 0 && vars.newTCR >= CCR && (_params.removeManager != 0) && (_params.receiver != 0) && vars.troveManager.getLatestBatchData(_params.interestBatchManager) && (troveManager.getDebtLimit() >= (troveManager.getEntireSystemDebt() + _params.boldAmount)) && troveManager.getDebtLimit() && troveManager.getEntireSystemDebt() && priceFeed.fetchPrice() && vars.troveManager.getTroveStatus(vars.troveId) && vars.activePool.getNewApproxAvgInterestRateFromTroveChange(vars.change) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && vars.activePool.mintAggInterestAndAccountForTroveChange(vars.change, _params.interestBatchManager) && collToken.safeTransferFrom(msg.sender, vars.activePool, _params.collAmount) && vars.activePool.accountForReceivedColl(_params.collAmount) && vars.boldToken.mint(msg.sender, _params.boldAmount) && WETH.transferFrom(msg.sender, gasPoolAddress, ETH_GAS_COMPENSATION) && vars.troveManager.onOpenTroveAndJoinBatch(_params.owner, vars.troveId, vars.change, _params.interestBatchManager, vars.batch.entireCollWithoutRedistribution, vars.batch.entireDebtWithoutRedistribution) && sortedTroves.insertIntoBatch(vars.troveId, BatchId.wrap(_params.interestBatchManager), vars.batch.annualInterestRate, _params.upperHint, _params.lowerHint)"
+    ]
+  },
+  "borrowerOperations_applyPendingDebt": {
+    "prerequisite_functions": [],
+    "paths": [
+      "!(hasBeenShutDown) && (status == ITroveManager.Status.active) && (status != ITroveManager.Status.zombie) && trove.entireDebt != 0 && batchManager == 0 && _checkTroveIsZombie(troveManagerCached, _troveId) && (trove.entireDebt >= MIN_DEBT) && batchManager == 0 && troveManagerCached.getTroveStatus(_troveId) && troveManagerCached.getLatestTroveData(_troveId) && troveManagerCached.onApplyTroveInterest(_troveId, trove.entireColl, trove.entireDebt, batchManager, batch.entireCollWithoutRedistribution, batch.entireDebtWithoutRedistribution, change) && activePool.mintAggInterestAndAccountForTroveChange(change, batchManager) && troveManagerCached.setTroveStatusToActive(_troveId) && sortedTroves.insert(_troveId, trove.annualInterestRate, 0, 0)",
+      "!(hasBeenShutDown) && (status == ITroveManager.Status.active) && (status != ITroveManager.Status.zombie) && trove.entireDebt != 0 && batchManager != 0 && _checkTroveIsZombie(troveManagerCached, _troveId) && (trove.entireDebt >= MIN_DEBT) && batchManager != 0 && troveManagerCached.getTroveStatus(_troveId) && troveManagerCached.getLatestTroveData(_troveId) && troveManagerCached.getLatestBatchData(batchManager) && troveManagerCached.onApplyTroveInterest(_troveId, trove.entireColl, trove.entireDebt, batchManager, batch.entireCollWithoutRedistribution, batch.entireDebtWithoutRedistribution, change) && activePool.mintAggInterestAndAccountForTroveChange(change, batchManager) && troveManagerCached.setTroveStatusToActive(_troveId) && sortedTroves.insertIntoBatch(_troveId, BatchId.wrap(_batchManager), batch.annualInterestRate, 0, 0)",
+      "!(hasBeenShutDown) && (status == ITroveManager.Status.active) && (status != ITroveManager.Status.zombie) && trove.entireDebt != 0 && batchManager == 0 && _checkTroveIsZombie(troveManagerCached, _troveId) && (trove.entireDebt < MIN_DEBT) && troveManagerCached.getTroveStatus(_troveId) && troveManagerCached.getLatestTroveData(_troveId) && troveManagerCached.onApplyTroveInterest(_troveId, trove.entireColl, trove.entireDebt, batchManager, batch.entireCollWithoutRedistribution, batch.entireDebtWithoutRedistribution, change) && activePool.mintAggInterestAndAccountForTroveChange(change, batchManager)"
+    ]
+  },
+  "borrowerOperations_switchBatchManager": {
+    "prerequisite_functions": [],
+    "paths": [
+      "batchManager != 0 && oldBatchManager != _newBatchManager && !(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && oldBatch.annualInterestRate >= MIN_ANNUAL_INTEREST_RATE && oldBatch.annualInterestRate <= MAX_ANNUAL_INTEREST_RATE && batchManager != 0 && (vars.batch.annualInterestRate != oldBatch.annualInterestRate) && (block.timestamp < (vars.trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && !(newOracleFailureDetected) && batchChange.upfrontFee <= 0 && vars.trove.entireDebt > 0 && newICR >= MCR && totalDebt > 0 && newTCR >= CCR && !(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && interestBatchManagers[_newBatchManager].maxInterestRate != 0 && interestBatchManagerOf[_troveId] == 0 && interestIndividualDelegateOf[_troveId].account != 0 && !(newOracleFailureDetected) && newBatchTroveChange.upfrontFee <= _maxUpfrontFee && vars.trove.entireDebt > 0 && newICR >= MCR && totalDebt > 0 && newTCR >= CCR && troveManager.getLatestBatchData(oldBatchManager) && vars.troveManager.getTroveStatus(_troveId) && vars.sortedTroves.removeFromBatch(_troveId) && vars.sortedTroves.insert(_troveId, oldBatch.annualInterestRate, _removeUpperHint, _removeLowerHint) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(vars.batchManager) && priceFeed.fetchPrice() && activePool.getNewApproxAvgInterestRateFromTroveChange(batchChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && activePool.mintAggInterestAndAccountForTroveChange(batchChange, vars.batchManager) && vars.troveManager.onRemoveFromBatch(_troveId, vars.trove.entireColl, vars.trove.entireDebt, batchChange, vars.batchManager, vars.batch.entireCollWithoutRedistribution, vars.batch.entireDebtWithoutRedistribution, oldBatch.annualInterestRate) && vars.troveManager.getTroveStatus(_troveId) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(_newBatchManager) && priceFeed.fetchPrice() && activePool.getNewApproxAvgInterestRateFromTroveChange(newBatchTroveChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && vars.activePool.mintAggInterestAndAccountForTroveChange(newBatchTroveChange, _newBatchManager) && vars.troveManager.onSetInterestBatchManager(ITroveManager.OnSetInterestBatchManagerParams({troveId: _troveId, troveColl: vars.trove.entireColl, troveDebt: vars.trove.entireDebt, troveChange: newBatchTroveChange, newBatchAddress: _newBatchManager, newBatchColl: vars.newBatch.entireCollWithoutRedistribution, newBatchDebt: vars.newBatch.entireDebtWithoutRedistribution})) && vars.sortedTroves.remove(_troveId) && vars.sortedTroves.insertIntoBatch(_troveId, BatchId.wrap(_newBatchManager), vars.newBatch.annualInterestRate, _addUpperHint, _addLowerHint)",
+      "batchManager != 0 && oldBatchManager != _newBatchManager && !(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && oldBatch.annualInterestRate >= MIN_ANNUAL_INTEREST_RATE && oldBatch.annualInterestRate <= MAX_ANNUAL_INTEREST_RATE && batchManager != 0 && (vars.batch.annualInterestRate != oldBatch.annualInterestRate) && (block.timestamp < (vars.trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && !(newOracleFailureDetected) && batchChange.upfrontFee <= 0 && vars.trove.entireDebt <= 0 && newICR >= MCR && totalDebt <= 0 && newTCR >= CCR && !(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && interestBatchManagers[_newBatchManager].maxInterestRate != 0 && interestBatchManagerOf[_troveId] == 0 && interestIndividualDelegateOf[_troveId].account == 0 && !(newOracleFailureDetected) && newBatchTroveChange.upfrontFee <= _maxUpfrontFee && vars.trove.entireDebt <= 0 && newICR >= MCR && totalDebt <= 0 && newTCR >= CCR && troveManager.getLatestBatchData(oldBatchManager) && vars.troveManager.getTroveStatus(_troveId) && vars.sortedTroves.removeFromBatch(_troveId) && vars.sortedTroves.insert(_troveId, oldBatch.annualInterestRate, _removeUpperHint, _removeLowerHint) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(vars.batchManager) && priceFeed.fetchPrice() && activePool.getNewApproxAvgInterestRateFromTroveChange(batchChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && activePool.mintAggInterestAndAccountForTroveChange(batchChange, vars.batchManager) && vars.troveManager.onRemoveFromBatch(_troveId, vars.trove.entireColl, vars.trove.entireDebt, batchChange, vars.batchManager, vars.batch.entireCollWithoutRedistribution, vars.batch.entireDebtWithoutRedistribution, oldBatch.annualInterestRate) && vars.troveManager.getTroveStatus(_troveId) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(_newBatchManager) && priceFeed.fetchPrice() && activePool.getNewApproxAvgInterestRateFromTroveChange(newBatchTroveChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && vars.activePool.mintAggInterestAndAccountForTroveChange(newBatchTroveChange, _newBatchManager) && vars.troveManager.onSetInterestBatchManager(ITroveManager.OnSetInterestBatchManagerParams({troveId: _troveId, troveColl: vars.trove.entireColl, troveDebt: vars.trove.entireDebt, troveChange: newBatchTroveChange, newBatchAddress: _newBatchManager, newBatchColl: vars.newBatch.entireCollWithoutRedistribution, newBatchDebt: vars.newBatch.entireDebtWithoutRedistribution})) && vars.sortedTroves.remove(_troveId) && vars.sortedTroves.insertIntoBatch(_troveId, BatchId.wrap(_newBatchManager), vars.newBatch.annualInterestRate, _addUpperHint, _addLowerHint)",
+      "batchManager != 0 && oldBatchManager != _newBatchManager && !(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && oldBatch.annualInterestRate >= MIN_ANNUAL_INTEREST_RATE && oldBatch.annualInterestRate <= MAX_ANNUAL_INTEREST_RATE && batchManager != 0 && (vars.batch.annualInterestRate == oldBatch.annualInterestRate) && (block.timestamp < (vars.trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && !(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && interestBatchManagers[_newBatchManager].maxInterestRate != 0 && interestBatchManagerOf[_troveId] == 0 && interestIndividualDelegateOf[_troveId].account != 0 && !(newOracleFailureDetected) && newBatchTroveChange.upfrontFee <= _maxUpfrontFee && vars.trove.entireDebt > 0 && newICR >= MCR && totalDebt > 0 && newTCR >= CCR && troveManager.getLatestBatchData(oldBatchManager) && vars.troveManager.getTroveStatus(_troveId) && vars.sortedTroves.removeFromBatch(_troveId) && vars.sortedTroves.insert(_troveId, oldBatch.annualInterestRate, _removeUpperHint, _removeLowerHint) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(vars.batchManager) && activePool.mintAggInterestAndAccountForTroveChange(batchChange, vars.batchManager) && vars.troveManager.onRemoveFromBatch(_troveId, vars.trove.entireColl, vars.trove.entireDebt, batchChange, vars.batchManager, vars.batch.entireCollWithoutRedistribution, vars.batch.entireDebtWithoutRedistribution, oldBatch.annualInterestRate) && vars.troveManager.getTroveStatus(_troveId) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(_newBatchManager) && priceFeed.fetchPrice() && activePool.getNewApproxAvgInterestRateFromTroveChange(newBatchTroveChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && vars.activePool.mintAggInterestAndAccountForTroveChange(newBatchTroveChange, _newBatchManager) && vars.troveManager.onSetInterestBatchManager(ITroveManager.OnSetInterestBatchManagerParams({troveId: _troveId, troveColl: vars.trove.entireColl, troveDebt: vars.trove.entireDebt, troveChange: newBatchTroveChange, newBatchAddress: _newBatchManager, newBatchColl: vars.newBatch.entireCollWithoutRedistribution, newBatchDebt: vars.newBatch.entireDebtWithoutRedistribution})) && vars.sortedTroves.remove(_troveId) && vars.sortedTroves.insertIntoBatch(_troveId, BatchId.wrap(_newBatchManager), vars.newBatch.annualInterestRate, _addUpperHint, _addLowerHint)"
+    ]
+  },
+  "borrowerOperations_setAddManager": {
+    "prerequisite_functions": [],
+    "paths": [
+      "msg.sender == troveNFT.ownerOf(_troveId)"
+    ]
+  },
+  "addColl": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "adjustTrove": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "offset": {
+    "prerequisite_functions": [
+      "provideToSP"
+    ],
+    "paths": []
+  },
+  "batchLiquidateTroves": {
+    "prerequisite_functions": [
+      "openTrove",
+      "setPrice"
+    ],
+    "paths": []
+  },
+  "borrowerOperations_setInterestBatchManager": {
+    "prerequisite_functions": [],
+    "paths": [
+      "!(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && interestBatchManagers[_newBatchManager].maxInterestRate != 0 && interestBatchManagerOf[_troveId] == 0 && interestIndividualDelegateOf[_troveId].account != 0 && !(newOracleFailureDetected) && newBatchTroveChange.upfrontFee <= _maxUpfrontFee && vars.trove.entireDebt > 0 && newICR >= MCR && totalDebt > 0 && newTCR >= CCR && vars.troveManager.getTroveStatus(_troveId) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(_newBatchManager) && priceFeed.fetchPrice() && activePool.getNewApproxAvgInterestRateFromTroveChange(newBatchTroveChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && vars.activePool.mintAggInterestAndAccountForTroveChange(newBatchTroveChange, _newBatchManager) && vars.troveManager.onSetInterestBatchManager(ITroveManager.OnSetInterestBatchManagerParams({troveId: _troveId, troveColl: vars.trove.entireColl, troveDebt: vars.trove.entireDebt, troveChange: newBatchTroveChange, newBatchAddress: _newBatchManager, newBatchColl: vars.newBatch.entireCollWithoutRedistribution, newBatchDebt: vars.newBatch.entireDebtWithoutRedistribution})) && vars.sortedTroves.remove(_troveId) && vars.sortedTroves.insertIntoBatch(_troveId, BatchId.wrap(_newBatchManager), vars.newBatch.annualInterestRate, _upperHint, _lowerHint)",
+      "!(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && interestBatchManagers[_newBatchManager].maxInterestRate != 0 && interestBatchManagerOf[_troveId] == 0 && interestIndividualDelegateOf[_troveId].account == 0 && !(newOracleFailureDetected) && newBatchTroveChange.upfrontFee <= _maxUpfrontFee && vars.trove.entireDebt <= 0 && newICR >= MCR && totalDebt <= 0 && newTCR >= CCR && vars.troveManager.getTroveStatus(_troveId) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(_newBatchManager) && priceFeed.fetchPrice() && activePool.getNewApproxAvgInterestRateFromTroveChange(newBatchTroveChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && vars.activePool.mintAggInterestAndAccountForTroveChange(newBatchTroveChange, _newBatchManager) && vars.troveManager.onSetInterestBatchManager(ITroveManager.OnSetInterestBatchManagerParams({troveId: _troveId, troveColl: vars.trove.entireColl, troveDebt: vars.trove.entireDebt, troveChange: newBatchTroveChange, newBatchAddress: _newBatchManager, newBatchColl: vars.newBatch.entireCollWithoutRedistribution, newBatchDebt: vars.newBatch.entireDebtWithoutRedistribution})) && vars.sortedTroves.remove(_troveId) && vars.sortedTroves.insertIntoBatch(_troveId, BatchId.wrap(_newBatchManager), vars.newBatch.annualInterestRate, _upperHint, _lowerHint)"
+    ]
+  },
+  "closeTrove": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "switchBatchManager": {
+    "prerequisite_functions": [
+      "openTrove",
+      "registerBatchManager",
+      "setInterestBatchManager"
+    ],
+    "paths": []
+  },
+  "setRemoveManagerWithReceiver": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "mint": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "lowerBatchManagementFee": {
+    "prerequisite_functions": [
+      "registerBatchManager"
+    ],
+    "paths": []
+  },
+  "triggerShutdown": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "collToken_transferFrom": {
+    "prerequisite_functions": [],
+    "paths": [
+      "allowed != ~0",
+      "allowed == ~0"
+    ]
+  },
+  "fetchRedemptionPrice": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "openTrove": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "withdrawFromSP": {
+    "prerequisite_functions": [
+      "provideToSP"
+    ],
+    "paths": []
+  },
+  "borrowerOperations_setRemoveManagerWithReceiver": {
+    "prerequisite_functions": [],
+    "paths": [
+      "msg.sender == troveNFT.ownerOf(_troveId) && (_manager != 0) && (_receiver != 0)"
+    ]
+  },
+  "onLiquidateTrove": {
+    "prerequisite_functions": [
+      "openTrove",
+      "liquidate"
+    ],
+    "paths": []
+  },
+  "stabilityPool_triggerBoldRewards": {
+    "prerequisite_functions": [],
+    "paths": [
+      "accumulatedYieldGains != 0 && totalBoldDepositsCached < DECIMAL_PRECISION && (msg.sender == activePool)",
+      "accumulatedYieldGains == 0 && (msg.sender == activePool)",
+      "accumulatedYieldGains != 0 && totalBoldDepositsCached >= DECIMAL_PRECISION && (msg.sender == activePool)"
+    ]
+  },
+  "getCompoundedBoldDeposit": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "stashedColl": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "borrowerOperations_lowerBatchManagementFee": {
+    "prerequisite_functions": [],
+    "paths": [
+      "!(hasBeenShutDown) && interestBatchManagers[msg.sender].maxInterestRate != 0 && _newAnnualManagementFee < batch.annualManagementFee && troveManagerCached.getLatestBatchData(msg.sender) && troveManagerCached.onLowerBatchManagerAnnualFee(msg.sender, batch.entireCollWithoutRedistribution, batch.entireDebtWithoutRedistribution, _newAnnualManagementFee) && activePool.mintAggInterestAndAccountForTroveChange(batchChange, msg.sender)"
+    ]
+  },
+  "withdrawBold": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "openTroveAndJoinInterestBatchManager": {
+    "prerequisite_functions": [
+      "registerBatchManager"
+    ],
+    "paths": []
+  },
+  "transfer": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "redeemCollateral": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "borrowerOperations_registerBatchManager": {
+    "prerequisite_functions": [],
+    "paths": [
+      "!(hasBeenShutDown) && interestBatchManagers[msg.sender].maxInterestRate <= 0 && _minInterestRate >= MIN_ANNUAL_INTEREST_RATE && _minInterestRate <= MAX_ANNUAL_INTEREST_RATE && _maxInterestRate >= MIN_ANNUAL_INTEREST_RATE && _maxInterestRate <= MAX_ANNUAL_INTEREST_RATE && _minInterestRate < _maxInterestRate && (_minInterestRate <= _currentInterestRate) || (_currentInterestRate > _maxInterestRate) && _annualManagementFee <= MAX_ANNUAL_BATCH_MANAGEMENT_FEE && _minInterestRateChangePeriod >= MIN_INTEREST_RATE_CHANGE_PERIOD && troveManager.onRegisterBatchManager(msg.sender, _currentInterestRate, _annualManagementFee)"
+    ]
+  },
+  "borrowerOperations_setRemoveManager": {
+    "prerequisite_functions": [],
+    "paths": [
+      "msg.sender == troveNFT.ownerOf(_troveId) && (_manager != 0) && (troveNFT.ownerOf(_troveId) != 0) && troveNFT.ownerOf(_troveId)"
+    ]
+  },
+  "withdrawColl": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "borrowerOperations_setInterestIndividualDelegate": {
+    "prerequisite_functions": [],
+    "paths": [
+      "!(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && _minInterestRate >= MIN_ANNUAL_INTEREST_RATE && _minInterestRate <= MAX_ANNUAL_INTEREST_RATE && _maxInterestRate >= MIN_ANNUAL_INTEREST_RATE && _maxInterestRate <= MAX_ANNUAL_INTEREST_RATE && _minInterestRate < _maxInterestRate && interestBatchManagerOf[_troveId] != 0 && !(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && _newAnnualInterestRate >= MIN_ANNUAL_INTEREST_RATE && _newAnnualInterestRate <= MAX_ANNUAL_INTEREST_RATE && batchManager != 0 && (vars.batch.annualInterestRate != _newAnnualInterestRate) && (block.timestamp < (vars.trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && !(newOracleFailureDetected) && batchChange.upfrontFee <= _maxUpfrontFee && vars.trove.entireDebt > 0 && newICR >= MCR && totalDebt > 0 && newTCR >= CCR && troveManager.getTroveStatus(_troveId) && vars.troveManager.getTroveStatus(_troveId) && vars.sortedTroves.removeFromBatch(_troveId) && vars.sortedTroves.insert(_troveId, _newAnnualInterestRate, _upperHint, _lowerHint) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(vars.batchManager) && priceFeed.fetchPrice() && activePool.getNewApproxAvgInterestRateFromTroveChange(batchChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && activePool.mintAggInterestAndAccountForTroveChange(batchChange, vars.batchManager) && vars.troveManager.onRemoveFromBatch(_troveId, vars.trove.entireColl, vars.trove.entireDebt, batchChange, vars.batchManager, vars.batch.entireCollWithoutRedistribution, vars.batch.entireDebtWithoutRedistribution, _newAnnualInterestRate)",
+      "!(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && _minInterestRate >= MIN_ANNUAL_INTEREST_RATE && _minInterestRate <= MAX_ANNUAL_INTEREST_RATE && _maxInterestRate >= MIN_ANNUAL_INTEREST_RATE && _maxInterestRate <= MAX_ANNUAL_INTEREST_RATE && _minInterestRate < _maxInterestRate && interestBatchManagerOf[_troveId] != 0 && !(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && _newAnnualInterestRate >= MIN_ANNUAL_INTEREST_RATE && _newAnnualInterestRate <= MAX_ANNUAL_INTEREST_RATE && batchManager != 0 && (vars.batch.annualInterestRate != _newAnnualInterestRate) && (block.timestamp < (vars.trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && !(newOracleFailureDetected) && batchChange.upfrontFee <= _maxUpfrontFee && vars.trove.entireDebt <= 0 && newICR >= MCR && totalDebt <= 0 && newTCR >= CCR && troveManager.getTroveStatus(_troveId) && vars.troveManager.getTroveStatus(_troveId) && vars.sortedTroves.removeFromBatch(_troveId) && vars.sortedTroves.insert(_troveId, _newAnnualInterestRate, _upperHint, _lowerHint) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(vars.batchManager) && priceFeed.fetchPrice() && activePool.getNewApproxAvgInterestRateFromTroveChange(batchChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && activePool.mintAggInterestAndAccountForTroveChange(batchChange, vars.batchManager) && vars.troveManager.onRemoveFromBatch(_troveId, vars.trove.entireColl, vars.trove.entireDebt, batchChange, vars.batchManager, vars.batch.entireCollWithoutRedistribution, vars.batch.entireDebtWithoutRedistribution, _newAnnualInterestRate)",
+      "!(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && _minInterestRate >= MIN_ANNUAL_INTEREST_RATE && _minInterestRate <= MAX_ANNUAL_INTEREST_RATE && _maxInterestRate >= MIN_ANNUAL_INTEREST_RATE && _maxInterestRate <= MAX_ANNUAL_INTEREST_RATE && _minInterestRate < _maxInterestRate && interestBatchManagerOf[_troveId] != 0 && !(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && _newAnnualInterestRate >= MIN_ANNUAL_INTEREST_RATE && _newAnnualInterestRate <= MAX_ANNUAL_INTEREST_RATE && batchManager != 0 && (vars.batch.annualInterestRate == _newAnnualInterestRate) && (block.timestamp < (vars.trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && troveManager.getTroveStatus(_troveId) && vars.troveManager.getTroveStatus(_troveId) && vars.sortedTroves.removeFromBatch(_troveId) && vars.sortedTroves.insert(_troveId, _newAnnualInterestRate, _upperHint, _lowerHint) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(vars.batchManager) && activePool.mintAggInterestAndAccountForTroveChange(batchChange, vars.batchManager) && vars.troveManager.onRemoveFromBatch(_troveId, vars.trove.entireColl, vars.trove.entireDebt, batchChange, vars.batchManager, vars.batch.entireCollWithoutRedistribution, vars.batch.entireDebtWithoutRedistribution, _newAnnualInterestRate)",
+      "!(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && _minInterestRate >= MIN_ANNUAL_INTEREST_RATE && _minInterestRate <= MAX_ANNUAL_INTEREST_RATE && _maxInterestRate >= MIN_ANNUAL_INTEREST_RATE && _maxInterestRate <= MAX_ANNUAL_INTEREST_RATE && _minInterestRate < _maxInterestRate && interestBatchManagerOf[_troveId] == 0 && troveManager.getTroveStatus(_troveId)"
+    ]
+  },
+  "borrowerOperations_shutdownFromOracleFailure": {
+    "prerequisite_functions": [],
+    "paths": [
+      "msg.sender == priceFeed && hasBeenShutDown",
+      "msg.sender == priceFeed && !(hasBeenShutDown) && activePool.mintAggInterest() && troveManager.shutdown()"
+    ]
+  },
+  "removeInterestIndividualDelegate": {
+    "prerequisite_functions": [
+      "setInterestIndividualDelegate"
+    ],
+    "paths": []
+  },
+  "stabilityPool_withdrawAll_and_claimLater": {
+    "prerequisite_functions": [],
+    "paths": [
+      "initialDeposit != 0 && epochSnapshot >= currentEpoch && scaleDiff != 0 && scaleDiff == 1 && compoundedStake < (initialDeposit / 1e9)",
+      "initialDeposit != 0 && epochSnapshot >= currentEpoch && scaleDiff == 0 && compoundedStake >= (initialDeposit / 1e9)",
+      "initialDeposit == 0",
+      "initialDeposit != 0 && epochSnapshot < currentEpoch",
+      "initialDeposit != 0 && epochSnapshot >= currentEpoch && scaleDiff != 0 && scaleDiff != 1 && compoundedStake < (initialDeposit / 1e9)"
+    ]
+  },
+  "getTotalBoldDeposits": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "applyPendingDebt": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "setInterestBatchManager": {
+    "prerequisite_functions": [
+      "openTrove",
+      "registerBatchManager"
+    ],
+    "paths": []
+  },
+  "borrowerOperations_shutdown": {
+    "prerequisite_functions": [],
+    "paths": [
+      "!(hasBeenShutDown) && !(newOracleFailureDetected) && totalDebt > 0 && TCR < SCR && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && priceFeed.fetchPrice() && activePool.mintAggInterest() && troveManager.shutdown()",
+      "!(hasBeenShutDown) && newOracleFailureDetected && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && priceFeed.fetchPrice()",
+      "!(hasBeenShutDown) && !(newOracleFailureDetected) && totalDebt <= 0 && TCR < SCR && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && priceFeed.fetchPrice() && activePool.mintAggInterest() && troveManager.shutdown()"
+    ]
+  },
+  "registerBatchManager": {
+    "prerequisite_functions": [],
+    "paths": []
+  },
+  "stabilityPool_claimAllCollGains": {
+    "prerequisite_functions": [],
+    "paths": [
+      "collToSend == 0 && activePool.mintAggInterest()",
+      "collToSend != 0 && activePool.mintAggInterest() && collToken.safeTransfer(msg.sender, collToSend)"
+    ]
+  },
+  "borrowerOperations_onLiquidateTrove": {
+    "prerequisite_functions": [],
+    "paths": [
+      "msg.sender == troveManager"
+    ]
+  },
+  "setRemoveManager": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "stabilityPool_provideToSP": {
+    "prerequisite_functions": [],
+    "paths": [
+      "initialDeposit == 0 && initialDeposit == 0 && initialDeposit != 0 && epochSnapshot >= currentEpoch && scaleDiff != 0 && scaleDiff == 1 && compoundedStake < (initialDeposit / 1e9) && _doClaim && _doClaim && newDeposit == 0 && ((_topUp + keptYieldGain) == 0) && (0 == 0) && currentYieldGain == 0 && yieldGainToSend == 0 && collToSend == 0 && activePool.mintAggInterest() && boldToken.sendToPool(msg.sender, this, _topUp)",
+      "initialDeposit == 0 && initialDeposit == 0 && initialDeposit != 0 && epochSnapshot >= currentEpoch && scaleDiff == 0 && compoundedStake >= (initialDeposit / 1e9) && !(_doClaim) && !(_doClaim) && newDeposit != 0 && ((_topUp + keptYieldGain) != 0) && (0 == 0) && currentYieldGain != 0 && yieldGainToSend != 0 && collToSend != 0 && activePool.mintAggInterest() && boldToken.sendToPool(msg.sender, this, _topUp) && boldToken.returnFromPool(this, msg.sender, yieldGainToSend) && collToken.safeTransfer(msg.sender, collToSend)",
+      "initialDeposit == 0 && initialDeposit == 0 && initialDeposit != 0 && epochSnapshot < currentEpoch && _doClaim && _doClaim && newDeposit == 0 && ((_topUp + keptYieldGain) == 0) && (0 == 0) && currentYieldGain == 0 && yieldGainToSend == 0 && collToSend == 0 && activePool.mintAggInterest() && boldToken.sendToPool(msg.sender, this, _topUp)",
+      "initialDeposit == 0 && initialDeposit == 0 && initialDeposit != 0 && epochSnapshot >= currentEpoch && scaleDiff != 0 && scaleDiff != 1 && compoundedStake < (initialDeposit / 1e9) && _doClaim && _doClaim && newDeposit == 0 && ((_topUp + keptYieldGain) == 0) && (0 == 0) && currentYieldGain == 0 && yieldGainToSend == 0 && collToSend == 0 && activePool.mintAggInterest() && boldToken.sendToPool(msg.sender, this, _topUp)"
+    ]
+  },
+  "borrowerOperations_removeFromBatch": {
+    "prerequisite_functions": [],
+    "paths": [
+      "!(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && _newAnnualInterestRate >= MIN_ANNUAL_INTEREST_RATE && _newAnnualInterestRate <= MAX_ANNUAL_INTEREST_RATE && batchManager != 0 && (vars.batch.annualInterestRate != _newAnnualInterestRate) && (block.timestamp < (vars.trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && !(newOracleFailureDetected) && batchChange.upfrontFee <= _maxUpfrontFee && vars.trove.entireDebt > 0 && newICR >= MCR && totalDebt > 0 && newTCR >= CCR && vars.troveManager.getTroveStatus(_troveId) && vars.sortedTroves.removeFromBatch(_troveId) && vars.sortedTroves.insert(_troveId, _newAnnualInterestRate, _upperHint, _lowerHint) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(vars.batchManager) && priceFeed.fetchPrice() && activePool.getNewApproxAvgInterestRateFromTroveChange(batchChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && activePool.mintAggInterestAndAccountForTroveChange(batchChange, vars.batchManager) && vars.troveManager.onRemoveFromBatch(_troveId, vars.trove.entireColl, vars.trove.entireDebt, batchChange, vars.batchManager, vars.batch.entireCollWithoutRedistribution, vars.batch.entireDebtWithoutRedistribution, _newAnnualInterestRate)",
+      "!(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && _newAnnualInterestRate >= MIN_ANNUAL_INTEREST_RATE && _newAnnualInterestRate <= MAX_ANNUAL_INTEREST_RATE && batchManager != 0 && (vars.batch.annualInterestRate != _newAnnualInterestRate) && (block.timestamp < (vars.trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && !(newOracleFailureDetected) && batchChange.upfrontFee <= _maxUpfrontFee && vars.trove.entireDebt <= 0 && newICR >= MCR && totalDebt <= 0 && newTCR >= CCR && vars.troveManager.getTroveStatus(_troveId) && vars.sortedTroves.removeFromBatch(_troveId) && vars.sortedTroves.insert(_troveId, _newAnnualInterestRate, _upperHint, _lowerHint) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(vars.batchManager) && priceFeed.fetchPrice() && activePool.getNewApproxAvgInterestRateFromTroveChange(batchChange) && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && activePool.mintAggInterestAndAccountForTroveChange(batchChange, vars.batchManager) && vars.troveManager.onRemoveFromBatch(_troveId, vars.trove.entireColl, vars.trove.entireDebt, batchChange, vars.batchManager, vars.batch.entireCollWithoutRedistribution, vars.batch.entireDebtWithoutRedistribution, _newAnnualInterestRate)",
+      "!(hasBeenShutDown) && status == ITroveManager.Status.active && msg.sender == troveNFT.ownerOf(_troveId) && _newAnnualInterestRate >= MIN_ANNUAL_INTEREST_RATE && _newAnnualInterestRate <= MAX_ANNUAL_INTEREST_RATE && batchManager != 0 && (vars.batch.annualInterestRate == _newAnnualInterestRate) && (block.timestamp < (vars.trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN)) && vars.troveManager.getTroveStatus(_troveId) && vars.sortedTroves.removeFromBatch(_troveId) && vars.sortedTroves.insert(_troveId, _newAnnualInterestRate, _upperHint, _lowerHint) && vars.troveManager.getLatestTroveData(_troveId) && vars.troveManager.getLatestBatchData(vars.batchManager) && activePool.mintAggInterestAndAccountForTroveChange(batchChange, vars.batchManager) && vars.troveManager.onRemoveFromBatch(_troveId, vars.trove.entireColl, vars.trove.entireDebt, batchChange, vars.batchManager, vars.batch.entireCollWithoutRedistribution, vars.batch.entireDebtWithoutRedistribution, _newAnnualInterestRate)"
+    ]
+  },
+  "adjustTroveInterestRate": {
+    "prerequisite_functions": [
+      "openTrove"
+    ],
+    "paths": []
+  },
+  "adjustZombieTrove": {
+    "prerequisite_functions": [
+      "openTrove",
+      "liquidate"
+    ],
+    "paths": []
+  },
+  "borrowerOperations_closeTrove": {
+    "prerequisite_functions": [],
+    "paths": [
+      "(msg.sender == owner) && (msg.sender != manager) && (receiver == 0) || (msg.sender != manager) && (status == ITroveManager.Status.active) && (status != ITroveManager.Status.zombie) && _boldToken.balanceOf(_borrower) >= trove.entireDebt && batchManager != 0 && totalDebt > 0 && !hasBeenShutDown && newTCR >= CCR && batchManager != 0 && troveNFT.ownerOf(_troveId) && troveManagerCached.getTroveStatus(_troveId) && troveManagerCached.getLatestTroveData(_troveId) && troveManagerCached.getLatestBatchData(batchManager) && priceFeed.fetchPrice() && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && troveManagerCached.onCloseTrove(_troveId, troveChange, batchManager, batch.entireCollWithoutRedistribution, batch.entireDebtWithoutRedistribution) && activePoolCached.mintAggInterestAndAccountForTroveChange(troveChange, batchManager) && WETH.transferFrom(gasPoolAddress, receiver, ETH_GAS_COMPENSATION) && boldTokenCached.burn(msg.sender, trove.entireDebt) && activePoolCached.sendColl(receiver, trove.entireColl)",
+      "(msg.sender == owner) && (msg.sender != manager) && (receiver != 0) || (msg.sender != manager) && (status == ITroveManager.Status.active) && (status != ITroveManager.Status.zombie) && _boldToken.balanceOf(_borrower) >= trove.entireDebt && batchManager == 0 && totalDebt <= 0 && hasBeenShutDown && batchManager == 0 && troveNFT.ownerOf(_troveId) && troveManagerCached.getTroveStatus(_troveId) && troveManagerCached.getLatestTroveData(_troveId) && priceFeed.fetchPrice() && activePool.getCollBalance() && defaultPool.getCollBalance() && activePool.getBoldDebt() && defaultPool.getBoldDebt() && troveManagerCached.onCloseTrove(_troveId, troveChange, batchManager, batch.entireCollWithoutRedistribution, batch.entireDebtWithoutRedistribution) && activePoolCached.mintAggInterestAndAccountForTroveChange(troveChange, batchManager) && WETH.transferFrom(gasPoolAddress, receiver, ETH_GAS_COMPENSATION) && boldTokenCached.burn(msg.sender, trove.entireDebt) && activePoolCached.sendColl(receiver, trove.entireColl)"
+    ]
+  },
+  "setBatchManagerAnnualInterestRate": {
+    "prerequisite_functions": [
+      "registerBatchManager"
+    ],
+    "paths": []
+  }
+}
