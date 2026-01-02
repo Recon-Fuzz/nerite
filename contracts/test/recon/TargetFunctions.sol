@@ -332,6 +332,238 @@ abstract contract TargetFunctions is
         borrowerOperations_lowerBatchManagementFee_clamped(newFee);
     }
 
+    // COVERAGE PHASE 4 - CLAMPED HANDLERS FOR MISSING COVERAGE
+
+    // Handler 1: CollateralRegistry.redeemCollateral - reaching line 140-142
+    // This targets the edge case where totals.unbacked == 0 but branches are still redeemable
+    function coverage_redeemCollateral_edgeCase(
+        uint256 boldAmount
+    ) public {
+        // This is a complex edge case that's difficult to trigger with clamping alone
+        // The scenario requires all redeemable collaterals to have 0 unbacked portions
+        // in the first loop but still be redeemable (TCR > SCR)
+        // This would naturally occur through normal redemption operations
+        // We'll call the existing handler which should eventually hit this edge case
+        collateralRegistry_redeemCollateral(boldAmount, 10, type(uint256).max);
+    }
+
+    // Handler 2: TroveManager.batchLiquidateTroves - generating collSurplus
+    // To reach line 440, we need liquidations that generate surplus collateral
+    function coverage_batchLiquidateTroves_withSurplus(
+        uint256 troveEntropy1,
+        uint256 troveEntropy2,
+        uint256 liquidatorEntropy
+    ) public {
+        // Batch liquidations generate collSurplus when liquidated troves
+        // have collateral value exceeding their debt (typically in recovery mode)
+        // We need troves with high collateralization ratios
+        
+        if (troveIds.length < 2) return;
+        
+        // Select 2 troves to liquidate
+        uint256 troveId1 = troveIds[troveEntropy1 % troveIds.length];
+        uint256 troveId2 = troveIds[troveEntropy2 % troveIds.length];
+        
+        uint256[] memory trovesToLiquidate = new uint256[](2);
+        trovesToLiquidate[0] = troveId1;
+        trovesToLiquidate[1] = troveId2;
+        
+        // Call batchLiquidateTroves
+        troveManager_batchLiquidateTroves(trovesToLiquidate);
+    }
+
+    // Handler 3: BorrowerOperations.applyPendingDebt - zombie recovery
+    // To reach lines 787-789, we need a zombie trove with enough pending debt to exceed MIN_DEBT
+    function coverage_applyPendingDebt_zombieRecovery(
+        uint256 entropy
+    ) public {
+        // This requires:
+        // 1. A zombie trove (debt < MIN_DEBT)
+        // 2. That has accumulated redistribution gains >= MIN_DEBT
+        
+        // Check if we have any troves
+        if (troveIds.length == 0) return;
+        
+        // Simply call applyPendingDebt on a random trove
+        // The fuzzer will eventually find zombie troves through other operations
+        borrowerOperations_applyPendingDebt_clamped(entropy);
+    }
+
+    // Handler 4: CollateralRegistry.getTroveManager - test all indices
+    // To cover lines 285-293, we need to call getTroveManager with indices 1-9
+    function coverage_getTroveManager_allIndices(uint256 indexEntropy) public view {
+        // Get total number of collaterals
+        uint256 totalColls = collateralRegistry.totalCollaterals();
+        if (totalColls == 0) return;
+        
+        // Clamp index to valid range [0, totalColls-1]
+        uint256 index = indexEntropy % totalColls;
+        
+        // Call getTroveManager with this index
+        collateralRegistry.getTroveManager(index);
+    }
+
+    // Handler 5: StabilityPool.claimAllCollGains - with stashed collateral
+    // To reach lines 360-363, we need users with nonzero stashedColl
+    function coverage_claimAllCollGains_withStashedColl(
+        uint256 depositAmount,
+        uint256 debtToOffset,
+        uint256 collToAdd
+    ) public {
+        // Scenario to create stashed collateral:
+        // 1. Deposit to SP
+        // 2. Generate collateral gains via liquidation
+        // 3. Withdraw deposit (which should stash the gains)
+        // 4. Call claimAllCollGains
+        
+        // Step 1: Provide to SP
+        stabilityPool_provideToSP_clamped(depositAmount, true);
+        
+        // Step 2: Generate gains by offsetting debt (simulates liquidation)
+        vm.prank(address(troveManager));
+        stabilityPool_offset(debtToOffset, collToAdd);
+        
+        // Step 3: Withdraw deposit to stash the collateral gains
+        // First get the depositor's current deposit
+        uint256 currentDeposit = stabilityPool.deposits(_getActor());
+        if (currentDeposit > 0) {
+            stabilityPool_withdrawFromSP_clamped(currentDeposit, true);
+        }
+        
+        // Step 4: Now claim the stashed collateral gains
+        stabilityPool_claimAllCollGains();
+    }
+
+    // Handler 6 & 7: System Shutdown handlers
+    // The shutdown functions require special authorization
+    
+    // Handler to trigger shutdown (needs to be called as priceFeed)
+    function coverage_triggerShutdown() public {
+        // This function attempts to trigger a shutdown
+        // shutdownFromOracleFailure requires caller to be priceFeed
+        vm.prank(address(priceFeed));
+        borrowerOperations_shutdownFromOracleFailure();
+    }
+
+    // Handler for urgentRedemption (requires system to be shut down)
+    function coverage_urgentRedemption_afterShutdown(
+        uint256 boldAmount,
+        uint256 minCollateral,
+        uint256 troveEntropy
+    ) public {
+        // First check if system is shut down
+        if (!borrowerOperations.hasBeenShutDown()) {
+            // Try to trigger shutdown first
+            coverage_triggerShutdown();
+        }
+        
+        // Now attempt urgent redemption
+        if (troveIds.length == 0) return;
+        
+        uint256[] memory troveIdsToRedeem = new uint256[](1);
+        troveIdsToRedeem[0] = troveIds[troveEntropy % troveIds.length];
+        
+        // Clamp boldAmount to actor's balance
+        boldAmount = boldAmount % (boldToken.balanceOf(_getActor()) + 1);
+        
+        troveManager_urgentRedemption(boldAmount, troveIdsToRedeem, minCollateral);
+    }
+
+    // Handler 8: BorrowerOperations.closeTrove - for batched troves
+    // To reach lines 699-706 and 727, we need to close troves that are in batches
+    function coverage_closeTrove_batched(
+        uint256 entropy
+    ) public {
+        // Only close troves that have a batch manager
+        if (troveIds.length == 0) return;
+        
+        uint256 troveId = troveIds[entropy % troveIds.length];
+        
+        // Check if this trove has a batch manager
+        address batchManager = borrowerOperations.interestBatchManagerOf(troveId);
+        if (batchManager != address(0)) {
+            // This trove is batched, try to close it
+            borrowerOperations_closeTrove_clamped(entropy);
+        }
+    }
+
+    // Handler 9: BorrowerOperations.setBatchManagerAnnualInterestRate - premature adjustment
+    // To reach lines 928-944, we need to adjust rate within the cooldown period
+    function coverage_setBatchManagerAnnualInterestRate_premature(
+        uint128 initialRate,
+        uint128 newRate,
+        uint256 maxUpfrontFee
+    ) public {
+        // First register as a batch manager
+        borrowerOperations_registerBatchManager_clamped(
+            0,
+            type(uint128).max,
+            initialRate,
+            1e16, // 1% management fee
+            0
+        );
+        
+        // Immediately try to change the rate (within cooldown period)
+        // Ensure newRate is different from initialRate
+        if (newRate == initialRate) {
+            newRate = initialRate + 1;
+        }
+        
+        borrowerOperations_setBatchManagerAnnualInterestRate_clamped(
+            newRate,
+            0,
+            0,
+            maxUpfrontFee
+        );
+    }
+
+    // Handler 10: BorrowerOperations.openTroveAndJoinInterestBatchManager - fixed version
+    // The existing handler needs better parameter clamping
+    function coverage_openTroveAndJoinBatch_fixed(
+        uint256 collAmount,
+        uint256 boldAmount,
+        uint256 batchEntropy
+    ) public {
+        // First ensure we have at least one registered batch manager
+        // Register as batch manager
+        borrowerOperations_registerBatchManager_clamped(
+            0,
+            type(uint128).max,
+            1e17, // 10% interest rate
+            1e16, // 1% management fee
+            0
+        );
+        
+        // Now call the existing clamped handler
+        borrowerOperations_openTroveAndJoinBatch_clamped(collAmount, boldAmount, batchEntropy);
+    }
+
+    // Handler 11: BorrowerOperations.adjustZombieTrove
+    // To reach lines 480-498, we need zombie troves
+    function coverage_adjustZombieTrove_clamped(
+        uint256 entropy,
+        uint256 collChange,
+        bool isCollIncrease,
+        uint256 boldChange,
+        bool isDebtIncrease
+    ) public {
+        // This requires finding a zombie trove
+        if (troveIds.length == 0) return;
+        
+        // Simply call adjustZombieTrove - the fuzzer will find zombie troves
+        // through redemptions and other operations
+        borrowerOperations_adjustZombieTrove_clamped(
+            collChange,
+            isCollIncrease,
+            boldChange,
+            isDebtIncrease,
+            0, // upperHint
+            0, // lowerHint
+            type(uint256).max, // maxUpfrontFee
+            entropy
+        );
+    }
+
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
 
     function canary_liquidation() public {
