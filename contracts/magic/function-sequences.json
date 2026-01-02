@@ -1,0 +1,140 @@
+{
+  "addColl": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "adjustTrove": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "adjustTroveInterestRate": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "adjustZombieTrove": {
+    "prerequisite_functions": ["openTrove", "liquidate"]
+  },
+  "applyPendingDebt": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "closeTrove": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "lowerBatchManagementFee": {
+    "prerequisite_functions": ["registerBatchManager"]
+  },
+  "onLiquidateTrove": {
+    "prerequisite_functions": ["openTrove", "liquidate"]
+  },
+  "openTrove": {
+    "prerequisite_functions": []
+  },
+  "openTroveAndJoinInterestBatchManager": {
+    "prerequisite_functions": ["registerBatchManager"]
+  },
+  "registerBatchManager": {
+    "prerequisite_functions": []
+  },
+  "removeFromBatch": {
+    "prerequisite_functions": ["registerBatchManager", "setInterestBatchManager"]
+  },
+  "removeInterestIndividualDelegate": {
+    "prerequisite_functions": ["setInterestIndividualDelegate"]
+  },
+  "repayBold": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "setAddManager": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "setBatchManagerAnnualInterestRate": {
+    "prerequisite_functions": ["registerBatchManager"]
+  },
+  "setInterestBatchManager": {
+    "prerequisite_functions": ["openTrove", "registerBatchManager"]
+  },
+  "setInterestIndividualDelegate": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "setRemoveManager": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "setRemoveManagerWithReceiver": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "shutdown": {
+    "prerequisite_functions": ["openTrove", "setPrice"]
+  },
+  "shutdownFromOracleFailure": {
+    "prerequisite_functions": []
+  },
+  "switchBatchManager": {
+    "prerequisite_functions": ["openTrove", "registerBatchManager", "setInterestBatchManager"]
+  },
+  "withdrawBold": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "withdrawColl": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "redeemCollateral": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "approve": {
+    "prerequisite_functions": []
+  },
+  "balanceOf": {
+    "prerequisite_functions": []
+  },
+  "mint": {
+    "prerequisite_functions": []
+  },
+  "transfer": {
+    "prerequisite_functions": []
+  },
+  "transferFrom": {
+    "prerequisite_functions": []
+  },
+  "fetchPrice": {
+    "prerequisite_functions": []
+  },
+  "fetchRedemptionPrice": {
+    "prerequisite_functions": []
+  },
+  "setPrice": {
+    "prerequisite_functions": []
+  },
+  "triggerShutdown": {
+    "prerequisite_functions": []
+  },
+  "claimAllCollGains": {
+    "prerequisite_functions": ["provideToSP", "offset"]
+  },
+  "getCompoundedBoldDeposit": {
+    "prerequisite_functions": []
+  },
+  "getTotalBoldDeposits": {
+    "prerequisite_functions": []
+  },
+  "offset": {
+    "prerequisite_functions": ["provideToSP"]
+  },
+  "provideToSP": {
+    "prerequisite_functions": ["openTrove"]
+  },
+  "stashedColl": {
+    "prerequisite_functions": []
+  },
+  "triggerBoldRewards": {
+    "prerequisite_functions": ["provideToSP"]
+  },
+  "withdrawFromSP": {
+    "prerequisite_functions": ["provideToSP"]
+  },
+  "batchLiquidateTroves": {
+    "prerequisite_functions": ["openTrove", "setPrice"]
+  },
+  "liquidate": {
+    "prerequisite_functions": ["openTrove", "setPrice"]
+  },
+  "urgentRedemption": {
+    "prerequisite_functions": ["openTrove", "shutdown"]
+  }
+}
