@@ -39,7 +39,7 @@
         "target_function": "adjustTroveInterestRate",
         "type": "max",
         "value": "uint256 _newAnnualInterestRate",
-        "access": "borrowerOperations.MAX_ANNUAL_INTEREST_RATE()"
+        "access": "MAX_ANNUAL_INTEREST_RATE"
     },
     {
         "target_function": "adjustTroveInterestRate",
@@ -111,7 +111,7 @@
         "target_function": "lowerBatchManagementFee",
         "type": "max",
         "value": "uint256 _newAnnualManagementFee",
-        "access": "borrowerOperations.MAX_ANNUAL_BATCH_MANAGEMENT_FEE()"
+        "access": "MAX_ANNUAL_BATCH_MANAGEMENT_FEE"
     },
     {
         "target_function": "onLiquidateTrove",
@@ -129,13 +129,13 @@
         "target_function": "openTrove",
         "type": "max",
         "value": "uint256 _boldAmount",
-        "access": "borrowerOperations.MIN_DEBT()"
+        "access": "MIN_DEBT"
     },
     {
         "target_function": "openTrove",
         "type": "max",
         "value": "uint256 _annualInterestRate",
-        "access": "borrowerOperations.MAX_ANNUAL_INTEREST_RATE()"
+        "access": "MAX_ANNUAL_INTEREST_RATE"
     },
     {
         "target_function": "openTrove",
@@ -153,25 +153,25 @@
         "target_function": "registerBatchManager",
         "type": "max",
         "value": "uint128 _minInterestRate",
-        "access": "borrowerOperations.MAX_ANNUAL_INTEREST_RATE()"
+        "access": "MAX_ANNUAL_INTEREST_RATE"
     },
     {
         "target_function": "registerBatchManager",
         "type": "max",
         "value": "uint128 _maxInterestRate",
-        "access": "borrowerOperations.MAX_ANNUAL_INTEREST_RATE()"
+        "access": "MAX_ANNUAL_INTEREST_RATE"
     },
     {
         "target_function": "registerBatchManager",
         "type": "max",
         "value": "uint128 _currentInterestRate",
-        "access": "borrowerOperations.MAX_ANNUAL_INTEREST_RATE()"
+        "access": "MAX_ANNUAL_INTEREST_RATE"
     },
     {
         "target_function": "registerBatchManager",
         "type": "max",
         "value": "uint128 _annualManagementFee",
-        "access": "borrowerOperations.MAX_ANNUAL_BATCH_MANAGEMENT_FEE()"
+        "access": "MAX_ANNUAL_BATCH_MANAGEMENT_FEE"
     },
     {
         "target_function": "removeFromBatch",
@@ -183,7 +183,7 @@
         "target_function": "removeFromBatch",
         "type": "max",
         "value": "uint256 _newAnnualInterestRate",
-        "access": "borrowerOperations.MAX_ANNUAL_INTEREST_RATE()"
+        "access": "MAX_ANNUAL_INTEREST_RATE"
     },
     {
         "target_function": "removeFromBatch",
@@ -225,7 +225,7 @@
         "target_function": "setBatchManagerAnnualInterestRate",
         "type": "max",
         "value": "uint128 _newAnnualInterestRate",
-        "access": "borrowerOperations.MAX_ANNUAL_INTEREST_RATE()"
+        "access": "MAX_ANNUAL_INTEREST_RATE"
     },
     {
         "target_function": "setBatchManagerAnnualInterestRate",
@@ -273,19 +273,19 @@
         "target_function": "setInterestIndividualDelegate",
         "type": "max",
         "value": "uint128 _minInterestRate",
-        "access": "borrowerOperations.MAX_ANNUAL_INTEREST_RATE()"
+        "access": "MAX_ANNUAL_INTEREST_RATE"
     },
     {
         "target_function": "setInterestIndividualDelegate",
         "type": "max",
         "value": "uint128 _maxInterestRate",
-        "access": "borrowerOperations.MAX_ANNUAL_INTEREST_RATE()"
+        "access": "MAX_ANNUAL_INTEREST_RATE"
     },
     {
         "target_function": "setInterestIndividualDelegate",
         "type": "max",
         "value": "uint256 _newAnnualInterestRate",
-        "access": "borrowerOperations.MAX_ANNUAL_INTEREST_RATE()"
+        "access": "MAX_ANNUAL_INTEREST_RATE"
     },
     {
         "target_function": "setInterestIndividualDelegate",
@@ -357,7 +357,7 @@
         "target_function": "withdrawBold",
         "type": "max",
         "value": "uint256 _boldAmount",
-        "access": "borrowerOperations.MIN_DEBT()"
+        "access": "MIN_DEBT"
     },
     {
         "target_function": "withdrawColl",
@@ -372,10 +372,22 @@
         "access": "boldToken.balanceOf(_getActor())"
     },
     {
+        "target_function": "redeemCollateral",
+        "type": "max",
+        "value": "uint256 _maxFeePercentage",
+        "access": "_100pct"
+    },
+    {
         "target_function": "approve",
         "type": "max",
         "value": "uint256 amount",
         "access": "boldToken.balanceOf(_getActor())"
+    },
+    {
+        "target_function": "mint",
+        "type": "max",
+        "value": "uint256 amt",
+        "access": "collToken.totalSupply()"
     },
     {
         "target_function": "transfer",
@@ -430,11 +442,5 @@
         "type": "max",
         "value": "uint256 _boldAmount",
         "access": "boldToken.balanceOf(_getActor())"
-    },
-    {
-        "target_function": "urgentRedemption",
-        "type": "exact",
-        "value": "uint256 _troveId",
-        "access": "clampedTroveId"
     }
 ]
