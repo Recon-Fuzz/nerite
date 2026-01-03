@@ -7,10 +7,23 @@ import {vm} from "@chimera/Hevm.sol";
 import "forge-std/console2.sol";
 
 import {Properties} from "../Properties.sol";
+import {_100pct} from "../../../src/Dependencies/Constants.sol";
 
 abstract contract CollateralRegistryTargets is BaseTargetFunctions, Properties  {
     
     /// CUSTOM TARGET FUNCTIONS - Add your own target functions here ///
+
+    /// === Clamped Handlers === ///
+
+    function collateralRegistry_redeemCollateral_clamped(uint256 _boldAmount, uint256 _maxIterationsPerCollateral, uint256 _maxFeePercentage) public {
+        _boldAmount = _boldAmount % (boldToken.balanceOf(_getActor()) + 1);
+        _maxFeePercentage = _maxFeePercentage % (_100pct + 1);
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(collateralRegistry), _boldAmount);
+        
+        collateralRegistry_redeemCollateral(_boldAmount, _maxIterationsPerCollateral, _maxFeePercentage);
+    }
 
     // Handler to test the redeemCollateral fallback path (lines 140-142)
     // This path is taken when totals.unbacked == 0, which happens when:

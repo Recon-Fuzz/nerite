@@ -12,6 +12,42 @@ abstract contract StabilityPoolTargets is BaseTargetFunctions, Properties  {
 
     /// CUSTOM TARGET FUNCTIONS - Add your own target functions here ///
 
+    /// === Clamped Handlers === ///
+
+    function stabilityPool_provideToSP_clamped(uint256 _topUp, bool _doClaim) public {
+        _topUp = _topUp % (boldToken.balanceOf(_getActor()) + 1);
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _topUp);
+        
+        stabilityPool_provideToSP(_topUp, _doClaim);
+    }
+
+    function stabilityPool_withdrawFromSP_clamped(uint256 _amount, bool _doClaim) public {
+        _amount = _amount % (stabilityPool.getCompoundedBoldDeposit(_getActor()) + 1);
+        
+        stabilityPool_withdrawFromSP(_amount, _doClaim);
+    }
+
+    function stabilityPool_offset_clamped(uint256 _debtToOffset, uint256 _collToAdd) public {
+        _debtToOffset = _debtToOffset % (stabilityPool.getTotalBoldDeposits() + 1);
+        _collToAdd = _collToAdd % (collToken.balanceOf(_getActor()) + 1);
+        
+        vm.prank(_getActor());
+        collToken.approve(address(stabilityPool), _collToAdd);
+        
+        stabilityPool_offset(_debtToOffset, _collToAdd);
+    }
+
+    function stabilityPool_triggerBoldRewards_clamped(uint256 _boldYield) public {
+        _boldYield = _boldYield % (boldToken.balanceOf(_getActor()) + 1);
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _boldYield);
+        
+        stabilityPool_triggerBoldRewards(_boldYield);
+    }
+
     // Handler to do partial offset (not depleting the entire pool)
     // This helps cover the else branch in _computeCollRewardsPerUnitStaked (lines 454-461)
     function stabilityPool_offset_partial(uint256 _debtToOffset, uint256 _collToAdd) public {

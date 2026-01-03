@@ -12,6 +12,23 @@ abstract contract TroveManagerTargets is BaseTargetFunctions, Properties  {
 
     /// CUSTOM TARGET FUNCTIONS - Add your own target functions here ///
 
+    /// === Clamped Handlers === ///
+
+    function troveManager_liquidate_clamped(uint256 _troveId) public {
+        _troveId = setNewClampedTroveId(_troveId);
+        
+        troveManager_liquidate(_troveId);
+    }
+
+    function troveManager_urgentRedemption_clamped(uint256 _boldAmount, uint256[] memory _troveIds, uint256 _minCollateral) public {
+        _boldAmount = _boldAmount % (boldToken.balanceOf(_getActor()) + 1);
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(troveManager), _boldAmount);
+        
+        troveManager_urgentRedemption(_boldAmount, _troveIds, _minCollateral);
+    }
+
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
 
     function troveManager_batchLiquidateTroves(uint256[] memory _troveArray) public updateGhosts asActor {
