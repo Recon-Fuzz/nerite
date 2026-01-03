@@ -21,7 +21,7 @@
     "prerequisite_functions": ["registerBatchManager"]
   },
   "onLiquidateTrove": {
-    "prerequisite_functions": ["openTrove"]
+    "prerequisite_functions": ["openTrove", "liquidate"]
   },
   "openTrove": {
     "prerequisite_functions": []
@@ -33,7 +33,7 @@
     "prerequisite_functions": []
   },
   "removeFromBatch": {
-    "prerequisite_functions": ["openTrove", "registerBatchManager", "setInterestBatchManager"]
+    "prerequisite_functions": ["openTroveAndJoinInterestBatchManager"]
   },
   "removeInterestIndividualDelegate": {
     "prerequisite_functions": ["openTrove", "setInterestIndividualDelegate"]
@@ -60,13 +60,13 @@
     "prerequisite_functions": ["openTrove"]
   },
   "shutdown": {
-    "prerequisite_functions": []
+    "prerequisite_functions": ["openTrove", "setPrice"]
   },
   "shutdownFromOracleFailure": {
     "prerequisite_functions": []
   },
   "switchBatchManager": {
-    "prerequisite_functions": ["openTrove", "registerBatchManager", "setInterestBatchManager"]
+    "prerequisite_functions": ["openTroveAndJoinInterestBatchManager", "registerBatchManager"]
   },
   "withdrawBold": {
     "prerequisite_functions": ["openTrove"]
@@ -90,7 +90,7 @@
     "prerequisite_functions": []
   },
   "transferFrom": {
-    "prerequisite_functions": []
+    "prerequisite_functions": ["approve"]
   },
   "fetchPrice": {
     "prerequisite_functions": []
@@ -105,7 +105,7 @@
     "prerequisite_functions": []
   },
   "claimAllCollGains": {
-    "prerequisite_functions": ["openTrove", "provideToSP", "offset"]
+    "prerequisite_functions": ["provideToSP", "offset"]
   },
   "getCompoundedBoldDeposit": {
     "prerequisite_functions": []
@@ -114,7 +114,7 @@
     "prerequisite_functions": []
   },
   "offset": {
-    "prerequisite_functions": []
+    "prerequisite_functions": ["provideToSP"]
   },
   "provideToSP": {
     "prerequisite_functions": ["openTrove"]
@@ -123,10 +123,10 @@
     "prerequisite_functions": []
   },
   "triggerBoldRewards": {
-    "prerequisite_functions": []
+    "prerequisite_functions": ["provideToSP"]
   },
   "withdrawFromSP": {
-    "prerequisite_functions": ["openTrove", "provideToSP"]
+    "prerequisite_functions": ["provideToSP"]
   },
   "batchLiquidateTroves": {
     "prerequisite_functions": ["openTrove", "setPrice"]
