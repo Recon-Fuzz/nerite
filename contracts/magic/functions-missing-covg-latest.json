@@ -1,6 +1,6 @@
 {
-  "timestamp": "1767396176",
-  "lcov_file": "echidna/covered.1767396176.lcov",
+  "timestamp": "1767398329",
+  "lcov_file": "echidna/covered.1767398329.lcov",
   "missing_coverage": [
     {
       "function": "redeemCollateral",
@@ -21,51 +21,6 @@
         ]
       },
       "complexity": 10
-    },
-    {
-      "function": "urgentRedemption",
-      "contract": "TroveManager",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/TroveManager.sol",
-      "function_range": {
-        "start": 848,
-        "end": 906
-      },
-      "uncovered_code": {
-        "line_range": "850-903",
-        "last_covered_line": 849,
-        "code": [
-          "849: [LAST COVERED]         _requireIsShutDown();",
-          "850:         _requireAmountGreaterThanZero(_boldAmount);",
-          "851:         _requireBoldBalanceCoversRedemption(boldToken, msg.sender, _boldAmount);",
-          "853:         IActivePool activePoolCached = activePool;",
-          "854:         TroveChange memory totalsTroveChange;",
-          "857:         (uint256 price,) = priceFeed.fetchPrice();",
-          "859:         uint256 remainingBold = _boldAmount;",
-          "860:         for (uint256 i = 0; i < _troveIds.length; i++) {",
-          "861:             if (remainingBold == 0) break;",
-          "863:             SingleRedemptionValues memory singleRedemption;",
-          "864:             singleRedemption.troveId = _troveIds[i];",
-          "865:             _getLatestTroveData(singleRedemption.troveId, singleRedemption.trove);",
-          "867:             if (!_isActiveOrZombie(Troves[singleRedemption.troveId].status) || singleRedemption.trove.entireDebt == 0) {",
-          "868:                 continue;",
-          "873:             singleRedemption.batchAddress = _getBatchManager(singleRedemption.troveId);",
-          "874:             if (singleRedemption.batchAddress != address(0)) {",
-          "875:                 _updateBatchInterestPriorToRedemption(activePoolCached, singleRedemption.batchAddress);",
-          "878:             _urgentRedeemCollateralFromTrove(defaultPool, remainingBold, price, singleRedemption);",
-          "880:             totalsTroveChange.collDecrease += singleRedemption.collLot;",
-          "881:             totalsTroveChange.debtDecrease += singleRedemption.boldLot;",
-          "882:             totalsTroveChange.appliedRedistBoldDebtGain += singleRedemption.appliedRedistBoldDebtGain;",
-          "886:             totalsTroveChange.newWeightedRecordedDebt += singleRedemption.newWeightedRecordedDebt;",
-          "887:             totalsTroveChange.oldWeightedRecordedDebt += singleRedemption.oldWeightedRecordedDebt;",
-          "889:             remainingBold -= singleRedemption.boldLot;",
-          "892:         if (totalsTroveChange.collDecrease < _minCollateral) {",
-          "893:             revert MinCollNotReached(totalsTroveChange.collDecrease);",
-          "896:         emit Redemption(_boldAmount, totalsTroveChange.debtDecrease, totalsTroveChange.collDecrease, 0, price);",
-          "900:         activePoolCached.mintAggInterestAndAccountForTroveChange(totalsTroveChange, address(0));",
-          "903:         activePoolCached.sendColl(msg.sender, totalsTroveChange.collDecrease);"
-        ]
-      },
-      "complexity": 6
     },
     {
       "function": "batchLiquidateTroves",
@@ -240,24 +195,6 @@
       "complexity": 1
     },
     {
-      "function": "shutdownFromOracleFailure",
-      "contract": "BorrowerOperations",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
-      "function_range": {
-        "start": 1183,
-        "end": 1191
-      },
-      "uncovered_code": {
-        "line_range": "1188",
-        "last_covered_line": 1184,
-        "code": [
-          "1184: [LAST COVERED]         _requireCallerIsPriceFeed();",
-          "1188:         if (hasBeenShutDown) return;"
-        ]
-      },
-      "complexity": 1
-    },
-    {
       "function": "getTroveManager",
       "contract": "CollateralRegistry",
       "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/CollateralRegistry.sol",
@@ -282,32 +219,12 @@
         ]
       },
       "complexity": 1
-    },
-    {
-      "function": "claimAllCollGains",
-      "contract": "StabilityPool",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/StabilityPool.sol",
-      "function_range": {
-        "start": 353,
-        "end": 366
-      },
-      "uncovered_code": {
-        "line_range": "360-363",
-        "last_covered_line": 359,
-        "code": [
-          "359: [LAST COVERED]         _requireNonZeroAmount(collToSend);",
-          "360:         stashedColl[msg.sender] = 0;",
-          "362:         emit DepositOperation(msg.sender, Operation.claimAllCollGains, 0, 0, 0, 0, 0, collToSend);",
-          "363:         emit DepositUpdated(msg.sender, 0, 0, 0, 0, 0, 0, 0);"
-        ]
-      },
-      "complexity": 1
     }
   ],
   "summary": {
     "functions_analyzed": 184,
-    "functions_with_missing_coverage": 11,
-    "uncovered_sections": 12,
+    "functions_with_missing_coverage": 8,
+    "uncovered_sections": 9,
     "full_coverage": false
   }
 }
