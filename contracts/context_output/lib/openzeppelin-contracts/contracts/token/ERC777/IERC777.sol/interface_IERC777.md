@@ -56,7 +56,7 @@ event Sent(address indexed operator, address indexed from, address indexed to, u
 
 - **Signature**: `name()`
 - **Visibility**: external
-- **Source Range**: 1572:54:100
+- **Source Range**: 1572:54:18
 
 **Signature:**
 ```solidity
@@ -68,7 +68,7 @@ function name() external view returns (string memory);;
 
 - **Signature**: `symbol()`
 - **Visibility**: external
-- **Source Range**: 1739:56:100
+- **Source Range**: 1739:56:18
 
 **Signature:**
 ```solidity
@@ -81,7 +81,7 @@ function symbol() external view returns (string memory);;
 
 - **Signature**: `granularity()`
 - **Visibility**: external
-- **Source Range**: 2093:55:100
+- **Source Range**: 2093:55:18
 
 **Signature:**
 ```solidity
@@ -96,7 +96,7 @@ function granularity() external view returns (uint256);;
 
 - **Signature**: `totalSupply()`
 - **Visibility**: external
-- **Source Range**: 2225:55:100
+- **Source Range**: 2225:55:18
 
 **Signature:**
 ```solidity
@@ -108,7 +108,7 @@ function totalSupply() external view returns (uint256);;
 
 - **Signature**: `balanceOf(address)`
 - **Visibility**: external
-- **Source Range**: 2374:66:100
+- **Source Range**: 2374:66:18
 
 **Signature:**
 ```solidity
@@ -120,7 +120,7 @@ function balanceOf(address owner) external view returns (uint256);;
 
 - **Signature**: `send(address,uint256,bytes)`
 - **Visibility**: external
-- **Source Range**: 3036:79:100
+- **Source Range**: 3036:79:18
 
 **Signature:**
 ```solidity
@@ -141,7 +141,7 @@ function send(address recipient, uint256 amount, bytes calldata data) external;;
 
 - **Signature**: `burn(uint256,bytes)`
 - **Visibility**: external
-- **Source Range**: 3530:60:100
+- **Source Range**: 3530:60:18
 
 **Signature:**
 ```solidity
@@ -159,7 +159,7 @@ function burn(uint256 amount, bytes calldata data) external;;
 
 - **Signature**: `isOperatorFor(address,address)`
 - **Visibility**: external
-- **Source Range**: 3850:91:100
+- **Source Range**: 3850:91:18
 
 **Signature:**
 ```solidity
@@ -174,7 +174,7 @@ function isOperatorFor(address operator, address tokenHolder) external view retu
 
 - **Signature**: `authorizeOperator(address)`
 - **Visibility**: external
-- **Source Range**: 4185:54:100
+- **Source Range**: 4185:54:18
 
 **Signature:**
 ```solidity
@@ -190,7 +190,7 @@ function authorizeOperator(address operator) external;;
 
 - **Signature**: `revokeOperator(address)`
 - **Visibility**: external
-- **Source Range**: 4511:51:100
+- **Source Range**: 4511:51:18
 
 **Signature:**
 ```solidity
@@ -206,7 +206,7 @@ function revokeOperator(address operator) external;;
 
 - **Signature**: `defaultOperators()`
 - **Visibility**: external
-- **Source Range**: 4911:69:100
+- **Source Range**: 4911:69:18
 
 **Signature:**
 ```solidity
@@ -222,7 +222,7 @@ function defaultOperators() external view returns (address[] memory);;
 
 - **Signature**: `operatorSend(address,address,uint256,bytes,bytes)`
 - **Visibility**: external
-- **Source Range**: 5705:178:100
+- **Source Range**: 5705:178:18
 
 **Signature:**
 ```solidity
@@ -246,7 +246,7 @@ function operatorSend(address sender, address recipient, uint256 amount, bytes c
 
 - **Signature**: `operatorBurn(address,uint256,bytes,bytes)`
 - **Visibility**: external
-- **Source Range**: 6426:114:100
+- **Source Range**: 6426:114:18
 
 **Signature:**
 ```solidity

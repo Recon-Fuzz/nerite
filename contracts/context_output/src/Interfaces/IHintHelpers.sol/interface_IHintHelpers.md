@@ -12,7 +12,7 @@
 
 - **Signature**: `getApproxHint(uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 87:215:229
+- **Source Range**: 87:215:78
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function getApproxHint(uint256 _collIndex, uint256 _interestRate, uint256 _numTr
 
 - **Signature**: `predictOpenTroveUpfrontFee(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 308:160:229
+- **Source Range**: 308:160:78
 
 **Signature:**
 ```solidity
@@ -34,7 +34,7 @@ function predictOpenTroveUpfrontFee(uint256 _collIndex, uint256 _borrowedAmount,
 
 - **Signature**: `predictAdjustInterestRateUpfrontFee(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 474:165:229
+- **Source Range**: 474:165:78
 
 **Signature:**
 ```solidity
@@ -45,7 +45,7 @@ function predictAdjustInterestRateUpfrontFee(uint256 _collIndex, uint256 _troveI
 
 - **Signature**: `forcePredictAdjustInterestRateUpfrontFee(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 645:170:229
+- **Source Range**: 645:170:78
 
 **Signature:**
 ```solidity
@@ -56,7 +56,7 @@ function forcePredictAdjustInterestRateUpfrontFee(uint256 _collIndex, uint256 _t
 
 - **Signature**: `predictAdjustTroveUpfrontFee(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 821:155:229
+- **Source Range**: 821:155:78
 
 **Signature:**
 ```solidity
@@ -67,7 +67,7 @@ function predictAdjustTroveUpfrontFee(uint256 _collIndex, uint256 _troveId, uint
 
 - **Signature**: `predictAdjustBatchInterestRateUpfrontFee(uint256,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 982:181:229
+- **Source Range**: 982:181:78
 
 **Signature:**
 ```solidity
@@ -78,7 +78,7 @@ function predictAdjustBatchInterestRateUpfrontFee(uint256 _collIndex, address _b
 
 - **Signature**: `predictJoinBatchInterestRateUpfrontFee(uint256,uint256,address)`
 - **Visibility**: external
-- **Source Range**: 1169:165:229
+- **Source Range**: 1169:165:78
 
 **Signature:**
 ```solidity

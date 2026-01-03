@@ -7,7 +7,7 @@
 - **Contract**: AddRemoveManagers
 - **Signature**: `setAddManager(uint256,address)`
 - **Visibility**: external
-- **Source Range**: 2102:163:209
+- **Source Range**: 2102:163:58
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function setAddManager(uint256 _troveId, address _manager) external {
 ### _requireCallerIsBorrower(uint256)
 
 - **Kind**: internal
-- **Source**: 3740:173:209
+- **Source**: 3740:173:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireCallerIsBorrower(uint256)`
 
 ```solidity
@@ -37,7 +37,7 @@ function _requireCallerIsBorrower(uint256 _troveId) internal view {
 ### _setAddManager(uint256,address)
 
 - **Kind**: internal
-- **Source**: 2271:171:209
+- **Source**: 2271:171:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_setAddManager(uint256,address)`
 
 ```solidity

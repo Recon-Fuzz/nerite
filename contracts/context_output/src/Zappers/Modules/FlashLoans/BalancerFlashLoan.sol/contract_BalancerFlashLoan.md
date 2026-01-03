@@ -48,7 +48,7 @@ enum Operation {
 
 - **Signature**: `makeFlashLoan(contract IERC20,uint256,enum IFlashLoanProvider.Operation,bytes)`
 - **Visibility**: external
-- **Source Range**: 609:1663:310
+- **Source Range**: 609:1663:159
 - **Details**: [function_makeFlashLoan_contract_IERC20_uint256_enum_IFlashLoanProvider_Operation_bytes.md](./function_makeFlashLoan_contract_IERC20_uint256_enum_IFlashLoanProvider_Operation_bytes.md)
 
 **Signature:**
@@ -60,7 +60,7 @@ function makeFlashLoan(IERC20 _token, uint256 _amount, Operation _operation, byt
 
 - **Signature**: `receiveFlashLoan(contract IERC20[],uint256[],uint256[],bytes)`
 - **Visibility**: external
-- **Source Range**: 2278:3705:310
+- **Source Range**: 2278:3705:159
 - **Details**: [function_receiveFlashLoan_contract_IERC20[]_uint256[]_uint256[]_bytes.md](./function_receiveFlashLoan_contract_IERC20[]_uint256[]_uint256[]_bytes.md)
 
 **Signature:**

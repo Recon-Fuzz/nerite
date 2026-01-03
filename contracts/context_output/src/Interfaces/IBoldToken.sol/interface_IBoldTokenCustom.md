@@ -26,7 +26,7 @@ event EIP712DomainChanged();
 
 - **Signature**: `collateralRegistryAddress()`
 - **Visibility**: external
-- **Source Range**: 473:69:223
+- **Source Range**: 473:69:72
 
 **Signature:**
 ```solidity
@@ -37,7 +37,7 @@ function collateralRegistryAddress() external view returns (address);;
 
 - **Signature**: `setBranchAddresses(address,address,address,address)`
 - **Visibility**: external
-- **Source Range**: 553:200:223
+- **Source Range**: 553:200:72
 
 **Signature:**
 ```solidity
@@ -48,7 +48,7 @@ function setBranchAddresses(address _troveManagerAddress, address _stabilityPool
 
 - **Signature**: `setCollateralRegistry(address)`
 - **Visibility**: external
-- **Source Range**: 759:76:223
+- **Source Range**: 759:76:72
 
 **Signature:**
 ```solidity
@@ -59,7 +59,7 @@ function setCollateralRegistry(address _collateralRegistryAddress) external;;
 
 - **Signature**: `mint(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 841:58:223
+- **Source Range**: 841:58:72
 
 **Signature:**
 ```solidity
@@ -70,7 +70,7 @@ function mint(address _account, uint256 _amount) external;;
 
 - **Signature**: `burn(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 905:58:223
+- **Source Range**: 905:58:72
 
 **Signature:**
 ```solidity
@@ -81,7 +81,7 @@ function burn(address _account, uint256 _amount) external;;
 
 - **Signature**: `sendToPool(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 969:84:223
+- **Source Range**: 969:84:72
 
 **Signature:**
 ```solidity
@@ -92,7 +92,7 @@ function sendToPool(address _sender, address poolAddress, uint256 _amount) exter
 
 - **Signature**: `returnFromPool(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 1059:85:223
+- **Source Range**: 1059:85:72
 
 **Signature:**
 ```solidity
@@ -103,7 +103,7 @@ function returnFromPool(address poolAddress, address user, uint256 _amount) exte
 
 - **Signature**: `permit(address,address,uint256,uint256,uint8,bytes32,bytes32)`
 - **Visibility**: external
-- **Source Range**: 2996:183:93
+- **Source Range**: 2996:183:12
 
 **Signature:**
 ```solidity
@@ -129,7 +129,7 @@ function permit(address owner, address spender, uint256 value, uint256 deadline,
 
 - **Signature**: `nonces(address)`
 - **Visibility**: external
-- **Source Range**: 3484:63:93
+- **Source Range**: 3484:63:12
 
 **Signature:**
 ```solidity
@@ -144,7 +144,7 @@ function nonces(address owner) external view returns (uint256);;
 
 - **Signature**: `DOMAIN_SEPARATOR()`
 - **Visibility**: external
-- **Source Range**: 3739:60:93
+- **Source Range**: 3739:60:12
 
 **Signature:**
 ```solidity
@@ -156,7 +156,7 @@ function DOMAIN_SEPARATOR() external view returns (bytes32);;
 
 - **Signature**: `eip712Domain()`
 - **Visibility**: external
-- **Source Range**: 425:310:74
+- **Source Range**: 425:310:3
 
 **Signature:**
 ```solidity

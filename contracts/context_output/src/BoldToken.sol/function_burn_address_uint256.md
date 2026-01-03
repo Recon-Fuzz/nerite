@@ -7,7 +7,7 @@
 - **Contract**: BoldToken
 - **Signature**: `burn(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 4874:184:204
+- **Source Range**: 4874:184:53
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function burn(address _account, uint256 _amount) override external {
 ### _requireCallerIsCRorBOorTMorSP()
 
 - **Kind**: internal
-- **Source**: 6239:377:204
+- **Source**: 6239:377:53
 - **Link**: `src/BoldToken.sol:BoldToken:_requireCallerIsCRorBOorTMorSP()`
 
 ```solidity

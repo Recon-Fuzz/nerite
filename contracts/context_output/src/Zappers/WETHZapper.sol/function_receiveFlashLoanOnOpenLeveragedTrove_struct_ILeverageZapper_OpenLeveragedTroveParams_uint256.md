@@ -7,7 +7,7 @@
 - **Contract**: WETHZapper
 - **Signature**: `receiveFlashLoanOnOpenLeveragedTrove(struct ILeverageZapper.OpenLeveragedTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 12081:190:311
+- **Source Range**: 12081:190:160
 
 ## Implementation
 

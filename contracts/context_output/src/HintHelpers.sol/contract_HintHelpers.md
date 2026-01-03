@@ -32,7 +32,7 @@ ICollateralRegistry public immutable collateralRegistry
 
 - **Signature**: `constructor(contract ICollateralRegistry)`
 - **Visibility**: public
-- **Source Range**: 386:110:218
+- **Source Range**: 386:110:67
 - **Details**: [function_constructor_contract_ICollateralRegistry.md](./function_constructor_contract_ICollateralRegistry.md)
 
 **Signature:**
@@ -44,7 +44,7 @@ constructor(ICollateralRegistry _collateralRegistry);
 
 - **Signature**: `getApproxHint(uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 1102:1595:218
+- **Source Range**: 1102:1595:67
 - **Details**: [function_getApproxHint_uint256_uint256_uint256_uint256.md](./function_getApproxHint_uint256_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -56,7 +56,7 @@ function getApproxHint(uint256 _collIndex, uint256 _interestRate, uint256 _numTr
 
 - **Signature**: `predictOpenTroveUpfrontFee(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 2912:663:218
+- **Source Range**: 2912:663:67
 - **Details**: [function_predictOpenTroveUpfrontFee_uint256_uint256_uint256.md](./function_predictOpenTroveUpfrontFee_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -68,7 +68,7 @@ function predictOpenTroveUpfrontFee(uint256 _collIndex, uint256 _borrowedAmount,
 
 - **Signature**: `predictAdjustInterestRateUpfrontFee(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 3581:706:218
+- **Source Range**: 3581:706:67
 - **Details**: [function_predictAdjustInterestRateUpfrontFee_uint256_uint256_uint256.md](./function_predictAdjustInterestRateUpfrontFee_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -80,7 +80,7 @@ function predictAdjustInterestRateUpfrontFee(uint256 _collIndex, uint256 _troveI
 
 - **Signature**: `forcePredictAdjustInterestRateUpfrontFee(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4293:499:218
+- **Source Range**: 4293:499:67
 - **Details**: [function_forcePredictAdjustInterestRateUpfrontFee_uint256_uint256_uint256.md](./function_forcePredictAdjustInterestRateUpfrontFee_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -92,7 +92,7 @@ function forcePredictAdjustInterestRateUpfrontFee(uint256 _collIndex, uint256 _t
 
 - **Signature**: `predictAdjustTroveUpfrontFee(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 5447:1542:218
+- **Source Range**: 5447:1542:67
 - **Details**: [function_predictAdjustTroveUpfrontFee_uint256_uint256_uint256.md](./function_predictAdjustTroveUpfrontFee_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -104,7 +104,7 @@ function predictAdjustTroveUpfrontFee(uint256 _collIndex, uint256 _troveId, uint
 
 - **Signature**: `predictAdjustBatchInterestRateUpfrontFee(uint256,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 6995:1118:218
+- **Source Range**: 6995:1118:67
 - **Details**: [function_predictAdjustBatchInterestRateUpfrontFee_uint256_address_uint256.md](./function_predictAdjustBatchInterestRateUpfrontFee_uint256_address_uint256.md)
 
 **Signature:**
@@ -116,7 +116,7 @@ function predictAdjustBatchInterestRateUpfrontFee(uint256 _collIndex, address _b
 
 - **Signature**: `predictOpenTroveAndJoinBatchUpfrontFee(uint256,uint256,address)`
 - **Visibility**: external
-- **Source Range**: 8119:959:218
+- **Source Range**: 8119:959:67
 - **Details**: [function_predictOpenTroveAndJoinBatchUpfrontFee_uint256_uint256_address.md](./function_predictOpenTroveAndJoinBatchUpfrontFee_uint256_uint256_address.md)
 
 **Signature:**
@@ -128,7 +128,7 @@ function predictOpenTroveAndJoinBatchUpfrontFee(uint256 _collIndex, uint256 _bor
 
 - **Signature**: `predictJoinBatchInterestRateUpfrontFee(uint256,uint256,address)`
 - **Visibility**: external
-- **Source Range**: 9084:1147:218
+- **Source Range**: 9084:1147:67
 - **Details**: [function_predictJoinBatchInterestRateUpfrontFee_uint256_uint256_address.md](./function_predictJoinBatchInterestRateUpfrontFee_uint256_uint256_address.md)
 
 **Signature:**
@@ -140,7 +140,7 @@ function predictJoinBatchInterestRateUpfrontFee(uint256 _collIndex, uint256 _tro
 
 - **Signature**: `predictRemoveFromBatchUpfrontFee(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 10237:1429:218
+- **Source Range**: 10237:1429:67
 - **Details**: [function_predictRemoveFromBatchUpfrontFee_uint256_uint256_uint256.md](./function_predictRemoveFromBatchUpfrontFee_uint256_uint256_uint256.md)
 
 **Signature:**

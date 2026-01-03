@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `getEntireSystemColl()`
 - **Visibility**: public
-- **Source Range**: 1265:251:214
+- **Source Range**: 1265:251:63
 - **Inherited From**: LiquityBase
 
 ## Implementation

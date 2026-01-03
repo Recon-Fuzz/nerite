@@ -29,7 +29,7 @@ struct TroveData {
 
 - **Signature**: `uri(struct IMetadataNFT.TroveData)`
 - **Visibility**: external
-- **Source Range**: 631:80:253
+- **Source Range**: 631:80:102
 
 **Signature:**
 ```solidity

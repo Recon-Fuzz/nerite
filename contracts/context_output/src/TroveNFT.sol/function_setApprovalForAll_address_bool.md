@@ -7,7 +7,7 @@
 - **Contract**: TroveNFT
 - **Signature**: `setApprovalForAll(address,bool)`
 - **Visibility**: public
-- **Source Range**: 4169:153:96
+- **Source Range**: 4169:153:14
 - **Inherited From**: ERC721
 
 ## Implementation
@@ -24,7 +24,7 @@ function setApprovalForAll(address operator, bool approved) virtual override pub
 ### _setApprovalForAll(address,address,bool)
 
 - **Kind**: internal
-- **Source**: 12879:277:96
+- **Source**: 12879:277:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_setApprovalForAll(address,address,bool)`
 
 ```solidity
@@ -40,7 +40,7 @@ function _setApprovalForAll(address owner, address operator, bool approved) virt
 ### _msgSender()
 
 - **Kind**: internal
-- **Source**: 655:96:104
+- **Source**: 655:96:20
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/Context.sol:Context:_msgSender()`
 
 ```solidity

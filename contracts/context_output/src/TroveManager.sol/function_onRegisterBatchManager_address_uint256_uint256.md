@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `onRegisterBatchManager(address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 72826:874:275
+- **Source Range**: 72826:874:124
 
 ## Implementation
 
@@ -28,7 +28,7 @@ function onRegisterBatchManager(address _account, uint256 _annualInterestRate, u
 ### _requireCallerIsBorrowerOperations()
 
 - **Kind**: internal
-- **Source**: 53483:184:275
+- **Source**: 53483:184:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireCallerIsBorrowerOperations()`
 
 ```solidity

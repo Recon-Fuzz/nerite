@@ -7,7 +7,7 @@
 - **Contract**: WETHPriceFeed
 - **Signature**: `fetchPrice()`
 - **Visibility**: public
-- **Source Range**: 513:423:267
+- **Source Range**: 513:423:116
 
 ## Implementation
 
@@ -24,7 +24,7 @@ function fetchPrice() public returns (uint256, bool) {
 ### _fetchPricePrimary()
 
 - **Kind**: internal
-- **Source**: 1404:523:267
+- **Source**: 1404:523:116
 - **Link**: `src/PriceFeeds/WETHPriceFeed.sol:WETHPriceFeed:_fetchPricePrimary()`
 
 ```solidity
@@ -40,7 +40,7 @@ function _fetchPricePrimary() internal returns (uint256, bool) {
 ### _getOracleAnswer(struct MainnetPriceFeedBase.Oracle)
 
 - **Kind**: internal
-- **Source**: 1938:660:263
+- **Source**: 1938:660:112
 - **Link**: `src/PriceFeeds/MainnetPriceFeedBase.sol:MainnetPriceFeedBase:_getOracleAnswer(struct MainnetPriceFeedBase.Oracle)`
 
 ```solidity
@@ -60,7 +60,7 @@ function _getOracleAnswer(Oracle memory _oracle) internal view returns (uint256,
 ### _getCurrentChainlinkResponse(contract AggregatorV3Interface)
 
 - **Kind**: internal
-- **Source**: 2942:1250:263
+- **Source**: 2942:1250:112
 - **Link**: `src/PriceFeeds/MainnetPriceFeedBase.sol:MainnetPriceFeedBase:_getCurrentChainlinkResponse(contract AggregatorV3Interface)`
 
 ```solidity
@@ -82,7 +82,7 @@ function _getCurrentChainlinkResponse(AggregatorV3Interface _aggregator) interna
 ### _isValidChainlinkPrice(struct MainnetPriceFeedBase.ChainlinkResponse,uint256)
 
 - **Kind**: internal
-- **Source**: 4378:326:263
+- **Source**: 4378:326:112
 - **Link**: `src/PriceFeeds/MainnetPriceFeedBase.sol:MainnetPriceFeedBase:_isValidChainlinkPrice(struct MainnetPriceFeedBase.ChainlinkResponse,uint256)`
 
 ```solidity
@@ -94,7 +94,7 @@ function _isValidChainlinkPrice(ChainlinkResponse memory chainlinkResponse, uint
 ### _scaleChainlinkPriceTo18decimals(int256,uint256)
 
 - **Kind**: internal
-- **Source**: 4820:229:263
+- **Source**: 4820:229:112
 - **Link**: `src/PriceFeeds/MainnetPriceFeedBase.sol:MainnetPriceFeedBase:_scaleChainlinkPriceTo18decimals(int256,uint256)`
 
 ```solidity
@@ -106,7 +106,7 @@ function _scaleChainlinkPriceTo18decimals(int256 _price, uint256 _decimals) inte
 ### _shutDownAndSwitchToLastGoodPrice(address)
 
 - **Kind**: internal
-- **Source**: 2604:332:263
+- **Source**: 2604:332:112
 - **Link**: `src/PriceFeeds/MainnetPriceFeedBase.sol:MainnetPriceFeedBase:_shutDownAndSwitchToLastGoodPrice(address)`
 
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `getEntireSystemDebt()`
 - **Visibility**: public
-- **Source Range**: 1522:237:214
+- **Source Range**: 1522:237:63
 - **Inherited From**: LiquityBase
 
 ## Implementation

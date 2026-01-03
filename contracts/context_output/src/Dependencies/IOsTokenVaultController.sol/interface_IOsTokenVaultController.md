@@ -12,7 +12,7 @@
 
 - **Signature**: `convertToAssets(uint256)`
 - **Visibility**: external
-- **Source Range**: 98:73:212
+- **Source Range**: 98:73:61
 
 **Signature:**
 ```solidity

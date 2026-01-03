@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `setGovernor(address)`
 - **Visibility**: external
-- **Source Range**: 15389:99:202
+- **Source Range**: 15389:99:51
 
 ## Implementation
 
@@ -22,7 +22,7 @@ function setGovernor(address _governor) external onlyGovernor() {
 ### onlyGovernor()
 
 - **Kind**: modifier
-- **Source**: 15262:121:202
+- **Source**: 15262:121:51
 - **Link**: `src/ActivePool.sol:ActivePool:onlyGovernor()`
 
 ```solidity

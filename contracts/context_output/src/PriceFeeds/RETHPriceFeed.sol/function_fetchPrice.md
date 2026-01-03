@@ -7,7 +7,7 @@
 - **Contract**: RETHPriceFeed
 - **Signature**: `fetchPrice()`
 - **Visibility**: public
-- **Source Range**: 1046:277:262
+- **Source Range**: 1046:277:111
 - **Inherited From**: CompositePriceFeed
 
 ## Implementation
@@ -24,7 +24,7 @@ function fetchPrice() public returns (uint256, bool) {
 ### _fetchPricePrimary(bool)
 
 - **Kind**: internal
-- **Source**: 1127:2379:264
+- **Source**: 1127:2379:113
 - **Link**: `src/PriceFeeds/RETHPriceFeed.sol:RETHPriceFeed:_fetchPricePrimary(bool)`
 
 ```solidity
@@ -58,7 +58,7 @@ function _fetchPricePrimary(bool _isRedemption) override internal returns (uint2
 ### _getOracleAnswer(struct MainnetPriceFeedBase.Oracle)
 
 - **Kind**: internal
-- **Source**: 1938:660:263
+- **Source**: 1938:660:112
 - **Link**: `src/PriceFeeds/MainnetPriceFeedBase.sol:MainnetPriceFeedBase:_getOracleAnswer(struct MainnetPriceFeedBase.Oracle)`
 
 ```solidity
@@ -78,7 +78,7 @@ function _getOracleAnswer(Oracle memory _oracle) internal view returns (uint256,
 ### _getCurrentChainlinkResponse(contract AggregatorV3Interface)
 
 - **Kind**: internal
-- **Source**: 2942:1250:263
+- **Source**: 2942:1250:112
 - **Link**: `src/PriceFeeds/MainnetPriceFeedBase.sol:MainnetPriceFeedBase:_getCurrentChainlinkResponse(contract AggregatorV3Interface)`
 
 ```solidity
@@ -100,7 +100,7 @@ function _getCurrentChainlinkResponse(AggregatorV3Interface _aggregator) interna
 ### _isValidChainlinkPrice(struct MainnetPriceFeedBase.ChainlinkResponse,uint256)
 
 - **Kind**: internal
-- **Source**: 4378:326:263
+- **Source**: 4378:326:112
 - **Link**: `src/PriceFeeds/MainnetPriceFeedBase.sol:MainnetPriceFeedBase:_isValidChainlinkPrice(struct MainnetPriceFeedBase.ChainlinkResponse,uint256)`
 
 ```solidity
@@ -112,7 +112,7 @@ function _isValidChainlinkPrice(ChainlinkResponse memory chainlinkResponse, uint
 ### _scaleChainlinkPriceTo18decimals(int256,uint256)
 
 - **Kind**: internal
-- **Source**: 4820:229:263
+- **Source**: 4820:229:112
 - **Link**: `src/PriceFeeds/MainnetPriceFeedBase.sol:MainnetPriceFeedBase:_scaleChainlinkPriceTo18decimals(int256,uint256)`
 
 ```solidity
@@ -124,7 +124,7 @@ function _scaleChainlinkPriceTo18decimals(int256 _price, uint256 _decimals) inte
 ### _getCanonicalRate()
 
 - **Kind**: internal
-- **Source**: 3512:793:264
+- **Source**: 3512:793:113
 - **Link**: `src/PriceFeeds/RETHPriceFeed.sol:RETHPriceFeed:_getCanonicalRate()`
 
 ```solidity
@@ -143,7 +143,7 @@ function _getCanonicalRate() override internal view returns (uint256, bool) {
 ### _shutDownAndSwitchToLastGoodPrice(address)
 
 - **Kind**: internal
-- **Source**: 2604:332:263
+- **Source**: 2604:332:112
 - **Link**: `src/PriceFeeds/MainnetPriceFeedBase.sol:MainnetPriceFeedBase:_shutDownAndSwitchToLastGoodPrice(address)`
 
 ```solidity
@@ -158,7 +158,7 @@ function _shutDownAndSwitchToLastGoodPrice(address _failedOracleAddr) internal r
 ### _shutDownAndSwitchToETHUSDxCanonical(address,uint256)
 
 - **Kind**: internal
-- **Source**: 1623:408:262
+- **Source**: 1623:408:111
 - **Link**: `src/PriceFeeds/CompositePriceFeed.sol:CompositePriceFeed:_shutDownAndSwitchToETHUSDxCanonical(address,uint256)`
 
 ```solidity
@@ -173,7 +173,7 @@ function _shutDownAndSwitchToETHUSDxCanonical(address _failedOracleAddr, uint256
 ### _fetchPriceETHUSDxCanonical(uint256)
 
 - **Kind**: internal
-- **Source**: 3136:847:262
+- **Source**: 3136:847:111
 - **Link**: `src/PriceFeeds/CompositePriceFeed.sol:CompositePriceFeed:_fetchPriceETHUSDxCanonical(uint256)`
 
 ```solidity
@@ -194,7 +194,7 @@ function _fetchPriceETHUSDxCanonical(uint256 _ethUsdPrice) internal returns (uin
 ### _min(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 136:113:215
+- **Source**: 136:113:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_min(uint256,uint256)`
 
 ```solidity
@@ -206,7 +206,7 @@ function _min(uint256 _a, uint256 _b) internal pure returns (uint256) {
 ### _withinDeviationThreshold(uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 3989:518:262
+- **Source**: 3989:518:111
 - **Link**: `src/PriceFeeds/CompositePriceFeed.sol:CompositePriceFeed:_withinDeviationThreshold(uint256,uint256,uint256)`
 
 ```solidity
@@ -220,7 +220,7 @@ function _withinDeviationThreshold(uint256 _priceToCheck, uint256 _referencePric
 ### _max(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 255:114:215
+- **Source**: 255:114:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_max(uint256,uint256)`
 
 ```solidity
@@ -232,7 +232,7 @@ function _max(uint256 _a, uint256 _b) internal pure returns (uint256) {
 ### _fetchPriceDuringShutdown()
 
 - **Kind**: internal
-- **Source**: 2037:952:262
+- **Source**: 2037:952:111
 - **Link**: `src/PriceFeeds/CompositePriceFeed.sol:CompositePriceFeed:_fetchPriceDuringShutdown()`
 
 ```solidity

@@ -88,7 +88,7 @@ event DefaultPoolCollBalanceUpdated(uint256 _collBalance);
 
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 1348:558:208
+- **Source Range**: 1348:558:57
 - **Details**: [function_constructor_contract_IAddressesRegistry.md](./function_constructor_contract_IAddressesRegistry.md)
 
 **Signature:**
@@ -100,7 +100,7 @@ constructor(IAddressesRegistry _addressesRegistry);
 
 - **Signature**: `getCollBalance()`
 - **Visibility**: external
-- **Source Range**: 2162:102:208
+- **Source Range**: 2162:102:57
 - **Details**: [function_getCollBalance.md](./function_getCollBalance.md)
 
 **Signature:**
@@ -112,7 +112,7 @@ function getCollBalance() override external view returns (uint256);
 
 - **Signature**: `getBoldDebt()`
 - **Visibility**: external
-- **Source Range**: 2270:96:208
+- **Source Range**: 2270:96:57
 - **Details**: [function_getBoldDebt.md](./function_getBoldDebt.md)
 
 **Signature:**
@@ -124,7 +124,7 @@ function getBoldDebt() override external view returns (uint256);
 
 - **Signature**: `sendCollToActivePool(uint256)`
 - **Visibility**: external
-- **Source Range**: 2407:403:208
+- **Source Range**: 2407:403:57
 - **Details**: [function_sendCollToActivePool_uint256.md](./function_sendCollToActivePool_uint256.md)
 
 **Signature:**
@@ -136,7 +136,7 @@ function sendCollToActivePool(uint256 _amount) override external;
 
 - **Signature**: `receiveColl(uint256)`
 - **Visibility**: external
-- **Source Range**: 2816:365:208
+- **Source Range**: 2816:365:57
 - **Details**: [function_receiveColl_uint256.md](./function_receiveColl_uint256.md)
 
 **Signature:**
@@ -148,7 +148,7 @@ function receiveColl(uint256 _amount) external;
 
 - **Signature**: `increaseBoldDebt(uint256)`
 - **Visibility**: external
-- **Source Range**: 3187:198:208
+- **Source Range**: 3187:198:57
 - **Details**: [function_increaseBoldDebt_uint256.md](./function_increaseBoldDebt_uint256.md)
 
 **Signature:**
@@ -160,7 +160,7 @@ function increaseBoldDebt(uint256 _amount) override external;
 
 - **Signature**: `decreaseBoldDebt(uint256)`
 - **Visibility**: external
-- **Source Range**: 3391:198:208
+- **Source Range**: 3391:198:57
 - **Details**: [function_decreaseBoldDebt_uint256.md](./function_decreaseBoldDebt_uint256.md)
 
 **Signature:**

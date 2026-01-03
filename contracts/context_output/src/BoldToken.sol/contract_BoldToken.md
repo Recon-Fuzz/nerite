@@ -125,7 +125,7 @@ event ActivePoolAddressAdded(address _newActivePoolAddress);
 
 - **Signature**: `constructor(address,contract ISuperTokenFactory)`
 - **Visibility**: public
-- **Source Range**: 2925:74:204
+- **Source Range**: 2925:74:53
 - **Details**: [function_constructor_address_contract_ISuperTokenFactory.md](./function_constructor_address_contract_ISuperTokenFactory.md)
 
 **Signature:**
@@ -137,7 +137,7 @@ constructor(address _owner, ISuperTokenFactory factory) Ownable(_owner);
 
 - **Signature**: `initialize(contract ISuperTokenFactory)`
 - **Visibility**: external
-- **Source Range**: 3005:614:204
+- **Source Range**: 3005:614:53
 - **Details**: [function_initialize_contract_ISuperTokenFactory.md](./function_initialize_contract_ISuperTokenFactory.md)
 
 **Signature:**
@@ -149,7 +149,7 @@ function initialize(ISuperTokenFactory factory) external;
 
 - **Signature**: `setBranchAddresses(address,address,address,address)`
 - **Visibility**: external
-- **Source Range**: 3625:733:204
+- **Source Range**: 3625:733:53
 - **Details**: [function_setBranchAddresses_address_address_address_address.md](./function_setBranchAddresses_address_address_address_address.md)
 
 **Signature:**
@@ -161,7 +161,7 @@ function setBranchAddresses(address _troveManagerAddress, address _stabilityPool
 
 - **Signature**: `setCollateralRegistry(address)`
 - **Visibility**: external
-- **Source Range**: 4364:272:204
+- **Source Range**: 4364:272:53
 - **Details**: [function_setCollateralRegistry_address.md](./function_setCollateralRegistry_address.md)
 
 **Signature:**
@@ -173,7 +173,7 @@ function setCollateralRegistry(address _collateralRegistryAddress) override exte
 
 - **Signature**: `mint(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 4692:176:204
+- **Source Range**: 4692:176:53
 - **Details**: [function_mint_address_uint256.md](./function_mint_address_uint256.md)
 
 **Signature:**
@@ -185,7 +185,7 @@ function mint(address _account, uint256 _amount) override external;
 
 - **Signature**: `burn(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 4874:184:204
+- **Source Range**: 4874:184:53
 - **Details**: [function_burn_address_uint256.md](./function_burn_address_uint256.md)
 
 **Signature:**
@@ -197,7 +197,7 @@ function burn(address _account, uint256 _amount) override external;
 
 - **Signature**: `sendToPool(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 5125:236:204
+- **Source Range**: 5125:236:53
 - **Details**: [function_sendToPool_address_address_uint256.md](./function_sendToPool_address_address_uint256.md)
 
 **Signature:**
@@ -209,7 +209,7 @@ function sendToPool(address _sender, address _poolAddress, uint256 _amount) over
 
 - **Signature**: `returnFromPool(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 5367:249:204
+- **Source Range**: 5367:249:53
 - **Details**: [function_returnFromPool_address_address_uint256.md](./function_returnFromPool_address_address_uint256.md)
 
 **Signature:**
@@ -221,7 +221,7 @@ function returnFromPool(address _poolAddress, address _receiver, uint256 _amount
 
 - **Signature**: `DOMAIN_SEPARATOR()`
 - **Visibility**: public
-- **Source Range**: 7060:422:204
+- **Source Range**: 7060:422:53
 - **Details**: [function_DOMAIN_SEPARATOR.md](./function_DOMAIN_SEPARATOR.md)
 
 **Signature:**
@@ -234,7 +234,7 @@ function DOMAIN_SEPARATOR() public view returns (bytes32);
 
 - **Signature**: `eip712Domain()`
 - **Visibility**: external
-- **Source Range**: 7588:553:204
+- **Source Range**: 7588:553:53
 - **Details**: [function_eip712Domain.md](./function_eip712Domain.md)
 
 **Signature:**
@@ -246,7 +246,7 @@ function eip712Domain() override external view returns (bytes1 fields, string me
 
 - **Signature**: `nonces(address)`
 - **Visibility**: external
-- **Source Range**: 8147:110:204
+- **Source Range**: 8147:110:53
 - **Details**: [function_nonces_address.md](./function_nonces_address.md)
 
 **Signature:**
@@ -258,7 +258,7 @@ function nonces(address owner) override external view returns (uint256);
 
 - **Signature**: `permit(address,address,uint256,uint256,uint8,bytes32,bytes32)`
 - **Visibility**: external
-- **Source Range**: 8263:1122:204
+- **Source Range**: 8263:1122:53
 - **Details**: [function_permit_address_address_uint256_uint256_uint8_bytes32_bytes32.md](./function_permit_address_address_uint256_uint256_uint8_bytes32_bytes32.md)
 
 **Signature:**
@@ -270,7 +270,7 @@ function permit(address owner, address spender, uint256 value, uint256 deadline,
 
 - **Signature**: `constructor(address)`
 - **Visibility**: public
-- **Source Range**: 806:133:216
+- **Source Range**: 806:133:65
 - **Details**: [function_constructor_address.md](./function_constructor_address.md)
 
 **Signature:**
@@ -283,7 +283,7 @@ constructor(address initialOwner);
 
 - **Signature**: `owner()`
 - **Visibility**: public
-- **Source Range**: 1015:77:216
+- **Source Range**: 1015:77:65
 - **Details**: [function_owner.md](./function_owner.md)
 
 **Signature:**
@@ -296,7 +296,7 @@ function owner() public view returns (address);
 
 - **Signature**: `isOwner()`
 - **Visibility**: public
-- **Source Range**: 1366:90:216
+- **Source Range**: 1366:90:65
 - **Details**: [function_isOwner.md](./function_isOwner.md)
 
 **Signature:**
@@ -309,7 +309,7 @@ function isOwner() public view returns (bool);
 
 - **Signature**: `fallback()`
 - **Visibility**: external
-- **Source Range**: 2629:64:80
+- **Source Range**: 2629:64:6
 - **Details**: [function_fallback.md](./function_fallback.md)
 
 **Signature:**
@@ -323,7 +323,7 @@ fallback() virtual external payable;
 
 - **Signature**: `receive()`
 - **Visibility**: external
-- **Source Range**: 2853:63:80
+- **Source Range**: 2853:63:6
 - **Details**: [function_receive.md](./function_receive.md)
 
 **Signature:**
@@ -337,7 +337,7 @@ receive() virtual external payable;
 
 - **Signature**: `initializeProxy(address)`
 - **Visibility**: external
-- **Source Range**: 898:285:170
+- **Source Range**: 898:285:49
 - **Details**: [function_initializeProxy_address.md](./function_initializeProxy_address.md)
 
 **Signature:**

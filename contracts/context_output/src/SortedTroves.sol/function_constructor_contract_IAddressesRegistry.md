@@ -7,7 +7,7 @@
 - **Contract**: SortedTroves
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 2988:552:273
+- **Source Range**: 2988:552:122
 
 ## Implementation
 

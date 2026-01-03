@@ -7,7 +7,7 @@
 - **Contract**: ERC20
 - **Signature**: `symbol()`
 - **Visibility**: public
-- **Source Range**: 2369:102:86
+- **Source Range**: 2369:102:7
 
 ## Implementation
 

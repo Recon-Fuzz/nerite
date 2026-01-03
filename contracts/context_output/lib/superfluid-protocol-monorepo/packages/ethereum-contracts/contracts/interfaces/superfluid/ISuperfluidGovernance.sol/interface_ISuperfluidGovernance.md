@@ -28,7 +28,7 @@ error SF_GOV_MUST_BE_CONTRACT();
 
 - **Signature**: `replaceGovernance(contract ISuperfluid,address)`
 - **Visibility**: external
-- **Source Range**: 733:87:145
+- **Source Range**: 733:87:46
 
 **Signature:**
 ```solidity
@@ -40,7 +40,7 @@ function replaceGovernance(ISuperfluid host, address newGov) external;;
 
 - **Signature**: `registerAgreementClass(contract ISuperfluid,address)`
 - **Visibility**: external
-- **Source Range**: 885:100:145
+- **Source Range**: 885:100:46
 
 **Signature:**
 ```solidity
@@ -52,7 +52,7 @@ function registerAgreementClass(ISuperfluid host, address agreementClass) extern
 
 - **Signature**: `updateContracts(contract ISuperfluid,address,address[],address,address)`
 - **Visibility**: external
-- **Source Range**: 1188:223:145
+- **Source Range**: 1188:223:46
 
 **Signature:**
 ```solidity
@@ -66,7 +66,7 @@ function updateContracts(ISuperfluid host, address hostNewLogic, address[] calld
 
 - **Signature**: `batchUpdateSuperTokenLogic(contract ISuperfluid,contract ISuperToken[])`
 - **Visibility**: external
-- **Source Range**: 1535:111:145
+- **Source Range**: 1535:111:46
 
 **Signature:**
 ```solidity
@@ -78,7 +78,7 @@ function batchUpdateSuperTokenLogic(ISuperfluid host, ISuperToken[] calldata tok
 
 - **Signature**: `batchUpdateSuperTokenLogic(contract ISuperfluid,contract ISuperToken[],address[])`
 - **Visibility**: external
-- **Source Range**: 1842:151:145
+- **Source Range**: 1842:151:46
 
 **Signature:**
 ```solidity
@@ -91,7 +91,7 @@ function batchUpdateSuperTokenLogic(ISuperfluid host, ISuperToken[] calldata tok
 
 - **Signature**: `setConfig(contract ISuperfluid,contract ISuperfluidToken,bytes32,address)`
 - **Visibility**: external
-- **Source Range**: 2062:141:145
+- **Source Range**: 2062:141:46
 
 **Signature:**
 ```solidity
@@ -103,7 +103,7 @@ function setConfig(ISuperfluid host, ISuperfluidToken superToken, bytes32 key, a
 
 - **Signature**: `setConfig(contract ISuperfluid,contract ISuperfluidToken,bytes32,uint256)`
 - **Visibility**: external
-- **Source Range**: 2272:141:145
+- **Source Range**: 2272:141:46
 
 **Signature:**
 ```solidity
@@ -115,7 +115,7 @@ function setConfig(ISuperfluid host, ISuperfluidToken superToken, bytes32 key, u
 
 - **Signature**: `clearConfig(contract ISuperfluid,contract ISuperfluidToken,bytes32)`
 - **Visibility**: external
-- **Source Range**: 2467:120:145
+- **Source Range**: 2467:120:46
 
 **Signature:**
 ```solidity
@@ -127,7 +127,7 @@ function clearConfig(ISuperfluid host, ISuperfluidToken superToken, bytes32 key)
 
 - **Signature**: `getConfigAsAddress(contract ISuperfluid,contract ISuperfluidToken,bytes32)`
 - **Visibility**: external
-- **Source Range**: 2656:151:145
+- **Source Range**: 2656:151:46
 
 **Signature:**
 ```solidity
@@ -139,7 +139,7 @@ function getConfigAsAddress(ISuperfluid host, ISuperfluidToken superToken, bytes
 
 - **Signature**: `getConfigAsUint256(contract ISuperfluid,contract ISuperfluidToken,bytes32)`
 - **Visibility**: external
-- **Source Range**: 2876:151:145
+- **Source Range**: 2876:151:46
 
 **Signature:**
 ```solidity

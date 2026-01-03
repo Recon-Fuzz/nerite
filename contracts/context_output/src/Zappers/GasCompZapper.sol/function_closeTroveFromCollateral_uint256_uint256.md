@@ -7,7 +7,7 @@
 - **Contract**: GasCompZapper
 - **Signature**: `closeTroveFromCollateral(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 9246:954:283
+- **Source Range**: 9246:954:132
 
 ## Implementation
 
@@ -30,7 +30,7 @@ function closeTroveFromCollateral(uint256 _troveId, uint256 _flashLoanAmount) ov
 ### _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)
 
 - **Kind**: internal
-- **Source**: 4222:544:209
+- **Source**: 4222:544:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)`
 
 ```solidity
@@ -50,7 +50,7 @@ function _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256 _troveId, ad
 ### _setInitialBalancesAndReceiver(struct LeftoversSweep.InitialBalances,address)
 
 - **Kind**: internal
-- **Source**: 1293:420:290
+- **Source**: 1293:420:139
 - **Link**: `src/Zappers/LeftoversSweep.sol:LeftoversSweep:_setInitialBalancesAndReceiver(struct LeftoversSweep.InitialBalances,address)`
 
 ```solidity
@@ -66,7 +66,7 @@ function _setInitialBalancesAndReceiver(InitialBalances memory _initialBalances,
 ### _returnLeftovers(struct LeftoversSweep.InitialBalances)
 
 - **Kind**: internal
-- **Source**: 1719:577:290
+- **Source**: 1719:577:139
 - **Link**: `src/Zappers/LeftoversSweep.sol:LeftoversSweep:_returnLeftovers(struct LeftoversSweep.InitialBalances)`
 
 ```solidity

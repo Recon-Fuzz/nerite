@@ -14,7 +14,7 @@
 
 - **Signature**: `agreementType()`
 - **Visibility**: external
-- **Source Range**: 283:57:140
+- **Source Range**: 283:57:41
 
 **Signature:**
 ```solidity
@@ -26,7 +26,7 @@ function agreementType() external view returns (bytes32);;
 
 - **Signature**: `realtimeBalanceOf(contract ISuperfluidToken,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 776:266:140
+- **Source Range**: 776:266:41
 
 **Signature:**
 ```solidity

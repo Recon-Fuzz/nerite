@@ -15,7 +15,7 @@
 
 - **Signature**: `onERC721Received(address,address,uint256,bytes)`
 - **Visibility**: external
-- **Source Range**: 824:160:98
+- **Source Range**: 824:160:16
 
 **Signature:**
 ```solidity

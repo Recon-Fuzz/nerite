@@ -12,7 +12,7 @@
 
 - **Signature**: `troveManagerAddress()`
 - **Visibility**: external
-- **Source Range**: 87:63:228
+- **Source Range**: 87:63:77
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function troveManagerAddress() external view returns (address);;
 
 - **Signature**: `activePoolAddress()`
 - **Visibility**: external
-- **Source Range**: 155:61:228
+- **Source Range**: 155:61:77
 
 **Signature:**
 ```solidity
@@ -34,7 +34,7 @@ function activePoolAddress() external view returns (address);;
 
 - **Signature**: `getCollBalance()`
 - **Visibility**: external
-- **Source Range**: 246:58:228
+- **Source Range**: 246:58:77
 
 **Signature:**
 ```solidity
@@ -45,7 +45,7 @@ function getCollBalance() external view returns (uint256);;
 
 - **Signature**: `getBoldDebt()`
 - **Visibility**: external
-- **Source Range**: 309:55:228
+- **Source Range**: 309:55:77
 
 **Signature:**
 ```solidity
@@ -56,7 +56,7 @@ function getBoldDebt() external view returns (uint256);;
 
 - **Signature**: `sendCollToActivePool(uint256)`
 - **Visibility**: external
-- **Source Range**: 369:56:228
+- **Source Range**: 369:56:77
 
 **Signature:**
 ```solidity
@@ -67,7 +67,7 @@ function sendCollToActivePool(uint256 _amount) external;;
 
 - **Signature**: `receiveColl(uint256)`
 - **Visibility**: external
-- **Source Range**: 430:47:228
+- **Source Range**: 430:47:77
 
 **Signature:**
 ```solidity
@@ -78,7 +78,7 @@ function receiveColl(uint256 _amount) external;;
 
 - **Signature**: `increaseBoldDebt(uint256)`
 - **Visibility**: external
-- **Source Range**: 483:52:228
+- **Source Range**: 483:52:77
 
 **Signature:**
 ```solidity
@@ -89,7 +89,7 @@ function increaseBoldDebt(uint256 _amount) external;;
 
 - **Signature**: `decreaseBoldDebt(uint256)`
 - **Visibility**: external
-- **Source Range**: 540:52:228
+- **Source Range**: 540:52:77
 
 **Signature:**
 ```solidity

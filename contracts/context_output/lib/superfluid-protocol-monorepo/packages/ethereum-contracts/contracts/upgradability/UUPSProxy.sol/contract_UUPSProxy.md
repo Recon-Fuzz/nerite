@@ -19,7 +19,7 @@
 
 - **Signature**: `initializeProxy(address)`
 - **Visibility**: external
-- **Source Range**: 898:285:170
+- **Source Range**: 898:285:49
 - **Details**: [function_initializeProxy_address.md](./function_initializeProxy_address.md)
 
 **Signature:**
@@ -34,7 +34,7 @@ function initializeProxy(address initialAddress) external;
 
 - **Signature**: `fallback()`
 - **Visibility**: external
-- **Source Range**: 2629:64:80
+- **Source Range**: 2629:64:6
 - **Details**: [function_fallback.md](./function_fallback.md)
 
 **Signature:**
@@ -48,7 +48,7 @@ fallback() virtual external payable;
 
 - **Signature**: `receive()`
 - **Visibility**: external
-- **Source Range**: 2853:63:80
+- **Source Range**: 2853:63:6
 - **Details**: [function_receive.md](./function_receive.md)
 
 **Signature:**

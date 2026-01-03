@@ -7,7 +7,7 @@
 - **Contract**: UUPSProxy
 - **Signature**: `receive()`
 - **Visibility**: external
-- **Source Range**: 2853:63:80
+- **Source Range**: 2853:63:6
 - **Inherited From**: Proxy
 
 ## Implementation
@@ -25,7 +25,7 @@ receive() virtual external payable {
 ### _fallback()
 
 - **Kind**: internal
-- **Source**: 2322:110:80
+- **Source**: 2322:110:6
 - **Link**: `lib/openzeppelin-contracts/contracts/proxy/Proxy.sol:Proxy:_fallback()`
 
 ```solidity
@@ -40,7 +40,7 @@ function _fallback() virtual internal {
 ### _beforeFallback()
 
 - **Kind**: internal
-- **Source**: 3198:46:80
+- **Source**: 3198:46:6
 - **Link**: `lib/openzeppelin-contracts/contracts/proxy/Proxy.sol:Proxy:_beforeFallback()`
 
 ```solidity
@@ -53,7 +53,7 @@ function _beforeFallback() virtual internal {}
 ### _delegate(address)
 
 - **Kind**: internal
-- **Source**: 948:895:80
+- **Source**: 948:895:6
 - **Link**: `lib/openzeppelin-contracts/contracts/proxy/Proxy.sol:Proxy:_delegate(address)`
 
 ```solidity
@@ -78,7 +78,7 @@ function _delegate(address implementation) virtual internal {
 ### _implementation()
 
 - **Kind**: internal
-- **Source**: 1239:130:170
+- **Source**: 1239:130:49
 - **Link**: `lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/upgradability/UUPSProxy.sol:UUPSProxy:_implementation()`
 
 ```solidity
@@ -91,7 +91,7 @@ function _implementation() virtual override internal view returns (address) {
 ### implementation()
 
 - **Kind**: internal
-- **Source**: 619:170:171
+- **Source**: 619:170:50
 - **Link**: `lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/upgradability/UUPSUtils.sol:UUPSUtils:implementation()`
 
 ```solidity
@@ -102,10 +102,6 @@ function implementation() internal view returns (address impl) {
     }
 }
 ```
-
-## External Calls
-
-- **IBeacon::implementation()**
 
 ## Call Tree
 

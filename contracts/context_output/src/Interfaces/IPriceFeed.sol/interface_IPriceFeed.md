@@ -12,7 +12,7 @@
 
 - **Signature**: `fetchPrice()`
 - **Visibility**: external
-- **Source Range**: 85:55:236
+- **Source Range**: 85:55:85
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function fetchPrice() external returns (uint256, bool);;
 
 - **Signature**: `fetchRedemptionPrice()`
 - **Visibility**: external
-- **Source Range**: 145:65:236
+- **Source Range**: 145:65:85
 
 **Signature:**
 ```solidity
@@ -34,7 +34,7 @@ function fetchRedemptionPrice() external returns (uint256, bool);;
 
 - **Signature**: `lastGoodPrice()`
 - **Visibility**: external
-- **Source Range**: 215:57:236
+- **Source Range**: 215:57:85
 
 **Signature:**
 ```solidity
@@ -45,7 +45,7 @@ function lastGoodPrice() external view returns (uint256);;
 
 - **Signature**: `setAddresses(address)`
 - **Visibility**: external
-- **Source Range**: 277:67:236
+- **Source Range**: 277:67:85
 
 **Signature:**
 ```solidity

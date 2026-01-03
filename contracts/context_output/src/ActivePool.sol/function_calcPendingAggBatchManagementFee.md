@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `calcPendingAggBatchManagementFee()`
 - **Visibility**: public
-- **Source Range**: 5346:372:202
+- **Source Range**: 5346:372:51
 
 ## Implementation
 
@@ -24,7 +24,7 @@ function calcPendingAggBatchManagementFee() public view returns (uint256) {
 ### min(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 588:104:114
+- **Source**: 588:104:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:min(uint256,uint256)`
 
 ```solidity
@@ -37,7 +37,7 @@ function min(uint256 a, uint256 b) internal pure returns (uint256) {
 ### ceilDiv(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 1157:194:114
+- **Source**: 1157:194:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:ceilDiv(uint256,uint256)`
 
 ```solidity

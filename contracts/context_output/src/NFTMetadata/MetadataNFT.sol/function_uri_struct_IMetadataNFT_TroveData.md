@@ -7,7 +7,7 @@
 - **Contract**: MetadataNFT
 - **Signature**: `uri(struct IMetadataNFT.TroveData)`
 - **Visibility**: public
-- **Source Range**: 1027:230:253
+- **Source Range**: 1027:230:102
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function uri(TroveData memory _troveData) public view returns (string memory) {
 ### attributes(struct IMetadataNFT.TroveData)
 
 - **Kind**: internal
-- **Source**: 1682:966:253
+- **Source**: 1682:966:102
 - **Link**: `src/NFTMetadata/MetadataNFT.sol:MetadataNFT:attributes(struct IMetadataNFT.TroveData)`
 
 ```solidity
@@ -35,7 +35,7 @@ function attributes(TroveData memory _troveData) public pure returns (string mem
 ### toHexString(address)
 
 - **Kind**: internal
-- **Source**: 14338:436:1
+- **Source**: 14338:436:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toHexString(address)`
 
 ```solidity
@@ -56,7 +56,7 @@ function toHexString(address value) internal pure returns (string memory str) {
 ### toHexStringNoPrefix(address)
 
 - **Kind**: internal
-- **Source**: 14911:1330:1
+- **Source**: 14911:1330:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toHexStringNoPrefix(address)`
 
 ```solidity
@@ -92,7 +92,7 @@ function toHexStringNoPrefix(address value) internal pure returns (string memory
 ### toString(uint256)
 
 - **Kind**: internal
-- **Source**: 3513:1535:1
+- **Source**: 3513:1535:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toString(uint256)`
 
 ```solidity
@@ -125,7 +125,7 @@ function toString(uint256 value) internal pure returns (string memory str) {
 ### _status2Str(enum ITroveManager.Status)
 
 - **Kind**: internal
-- **Source**: 3333:418:253
+- **Source**: 3333:418:102
 - **Link**: `src/NFTMetadata/MetadataNFT.sol:MetadataNFT:_status2Str(enum ITroveManager.Status)`
 
 ```solidity
@@ -141,7 +141,7 @@ function _status2Str(ITroveManager.Status status) internal pure returns (string 
 ### formattedMetadata(string,string,string,string)
 
 - **Kind**: internal
-- **Source**: 613:705:255
+- **Source**: 613:705:104
 - **Link**: `src/NFTMetadata/utils/JSON.sol:json:formattedMetadata(string,string,string,string)`
 
 ```solidity
@@ -153,7 +153,7 @@ function formattedMetadata(string memory name, string memory description, string
 ### renderSVGImage(struct IMetadataNFT.TroveData)
 
 - **Kind**: internal
-- **Source**: 1263:413:253
+- **Source**: 1263:413:102
 - **Link**: `src/NFTMetadata/MetadataNFT.sol:MetadataNFT:renderSVGImage(struct IMetadataNFT.TroveData)`
 
 ```solidity
@@ -165,7 +165,7 @@ function renderSVGImage(TroveData memory _troveData) internal view returns (stri
 ### _svg(string,string)
 
 - **Kind**: internal
-- **Source**: 841:177:256
+- **Source**: 841:177:105
 - **Link**: `src/NFTMetadata/utils/SVG.sol:svg:_svg(string,string)`
 
 ```solidity
@@ -177,7 +177,7 @@ function _svg(string memory _props, string memory _children) internal pure retur
 ### _svgProps()
 
 - **Kind**: internal
-- **Source**: 342:281:258
+- **Source**: 342:281:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_svgProps()`
 
 ```solidity
@@ -189,7 +189,7 @@ function _svgProps() internal pure returns (string memory) {
 ### prop(string,string)
 
 - **Kind**: internal
-- **Source**: 6496:157:256
+- **Source**: 6496:157:105
 - **Link**: `src/NFTMetadata/utils/SVG.sol:svg:prop(string,string)`
 
 ```solidity
@@ -201,7 +201,7 @@ function prop(string memory _key, string memory _val) internal pure returns (str
 ### _baseElements(contract FixedAssetReader)
 
 - **Kind**: internal
-- **Source**: 629:538:258
+- **Source**: 629:538:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_baseElements(contract FixedAssetReader)`
 
 ```solidity
@@ -213,7 +213,7 @@ function _baseElements(FixedAssetReader _assetReader) internal view returns (str
 ### rect(string)
 
 - **Kind**: internal
-- **Source**: 4144:116:256
+- **Source**: 4144:116:105
 - **Link**: `src/NFTMetadata/utils/SVG.sol:svg:rect(string)`
 
 ```solidity
@@ -225,7 +225,7 @@ function rect(string memory _props) internal pure returns (string memory) {
 ### el(string,string)
 
 - **Kind**: internal
-- **Source**: 6307:159:256
+- **Source**: 6307:159:105
 - **Link**: `src/NFTMetadata/utils/SVG.sol:svg:el(string,string)`
 
 ```solidity
@@ -237,7 +237,7 @@ function el(string memory _tag, string memory _props) internal pure returns (str
 ### _styles(contract FixedAssetReader)
 
 - **Kind**: internal
-- **Source**: 1173:398:258
+- **Source**: 1173:398:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_styles(contract FixedAssetReader)`
 
 ```solidity
@@ -249,7 +249,7 @@ function _styles(FixedAssetReader _assetReader) private view returns (string mem
 ### el(string,string,string)
 
 - **Kind**: internal
-- **Source**: 5971:239:256
+- **Source**: 5971:239:105
 - **Link**: `src/NFTMetadata/utils/SVG.sol:svg:el(string,string,string)`
 
 ```solidity
@@ -261,7 +261,7 @@ function el(string memory _tag, string memory _props, string memory _children) i
 ### _leverageLogo()
 
 - **Kind**: internal
-- **Source**: 1577:545:258
+- **Source**: 1577:545:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_leverageLogo()`
 
 ```solidity
@@ -273,7 +273,7 @@ function _leverageLogo() internal pure returns (string memory) {
 ### path(string,string)
 
 - **Kind**: internal
-- **Source**: 1334:164:256
+- **Source**: 1334:164:105
 - **Link**: `src/NFTMetadata/utils/SVG.sol:svg:path(string,string)`
 
 ```solidity
@@ -285,7 +285,7 @@ function path(string memory _d, string memory _props) internal pure returns (str
 ### _boldLogo(contract FixedAssetReader)
 
 - **Kind**: internal
-- **Source**: 2128:539:258
+- **Source**: 2128:539:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_boldLogo(contract FixedAssetReader)`
 
 ```solidity
@@ -297,7 +297,7 @@ function _boldLogo(FixedAssetReader _assetReader) internal view returns (string 
 ### _staticTextEls()
 
 - **Kind**: internal
-- **Source**: 2673:1700:258
+- **Source**: 2673:1700:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_staticTextEls()`
 
 ```solidity
@@ -309,7 +309,7 @@ function _staticTextEls() internal pure returns (string memory) {
 ### text(string,string)
 
 - **Kind**: internal
-- **Source**: 1738:152:256
+- **Source**: 1738:152:105
 - **Link**: `src/NFTMetadata/utils/SVG.sol:svg:text(string,string)`
 
 ```solidity
@@ -321,7 +321,7 @@ function text(string memory _props, string memory _children) internal pure retur
 ### _bauhaus(string,uint256)
 
 - **Kind**: internal
-- **Source**: 511:458:259
+- **Source**: 511:458:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_bauhaus(string,uint256)`
 
 ```solidity
@@ -341,7 +341,7 @@ function _bauhaus(string memory _collName, uint256 _troveId) internal pure retur
 ### _img1(uint256)
 
 - **Kind**: internal
-- **Source**: 3743:215:259
+- **Source**: 3743:215:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_img1(uint256)`
 
 ```solidity
@@ -354,7 +354,7 @@ function _img1(uint256 _variant) internal pure returns (string memory) {
 ### _colors1(uint256)
 
 - **Kind**: internal
-- **Source**: 1820:1917:259
+- **Source**: 1820:1917:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_colors1(uint256)`
 
 ```solidity
@@ -374,7 +374,7 @@ function _colors1(uint256 _variant) internal pure returns (COLORS memory) {
 ### _rects1(struct bauhaus.COLORS)
 
 - **Kind**: internal
-- **Source**: 3964:2329:259
+- **Source**: 3964:2329:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_rects1(struct bauhaus.COLORS)`
 
 ```solidity
@@ -386,7 +386,7 @@ function _rects1(COLORS memory _colors) internal pure returns (string memory) {
 ### _colorCode2Hex(enum bauhaus.colorCode)
 
 - **Kind**: internal
-- **Source**: 975:582:259
+- **Source**: 975:582:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_colorCode2Hex(enum bauhaus.colorCode)`
 
 ```solidity
@@ -412,7 +412,7 @@ function _colorCode2Hex(colorCode _color) private pure returns (string memory) {
 ### _polygons1(struct bauhaus.COLORS)
 
 - **Kind**: internal
-- **Source**: 6299:524:259
+- **Source**: 6299:524:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_polygons1(struct bauhaus.COLORS)`
 
 ```solidity
@@ -424,7 +424,7 @@ function _polygons1(COLORS memory _colors) internal pure returns (string memory)
 ### polygon(string)
 
 - **Kind**: internal
-- **Source**: 3556:122:256
+- **Source**: 3556:122:105
 - **Link**: `src/NFTMetadata/utils/SVG.sol:svg:polygon(string)`
 
 ```solidity
@@ -436,7 +436,7 @@ function polygon(string memory _props) internal pure returns (string memory) {
 ### _circles1(struct bauhaus.COLORS)
 
 - **Kind**: internal
-- **Source**: 6829:1129:259
+- **Source**: 6829:1129:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_circles1(struct bauhaus.COLORS)`
 
 ```solidity
@@ -448,7 +448,7 @@ function _circles1(COLORS memory _colors) internal pure returns (string memory) 
 ### circle(string)
 
 - **Kind**: internal
-- **Source**: 2176:120:256
+- **Source**: 2176:120:105
 - **Link**: `src/NFTMetadata/utils/SVG.sol:svg:circle(string)`
 
 ```solidity
@@ -460,7 +460,7 @@ function circle(string memory _props) internal pure returns (string memory) {
 ### _img2(uint256)
 
 - **Kind**: internal
-- **Source**: 9883:195:259
+- **Source**: 9883:195:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_img2(uint256)`
 
 ```solidity
@@ -473,7 +473,7 @@ function _img2(uint256 _variant) internal pure returns (string memory) {
 ### _colors2(uint256)
 
 - **Kind**: internal
-- **Source**: 7964:1913:259
+- **Source**: 7964:1913:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_colors2(uint256)`
 
 ```solidity
@@ -493,7 +493,7 @@ function _colors2(uint256 _variant) internal pure returns (COLORS memory) {
 ### _rects2(struct bauhaus.COLORS)
 
 - **Kind**: internal
-- **Source**: 10084:2338:259
+- **Source**: 10084:2338:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_rects2(struct bauhaus.COLORS)`
 
 ```solidity
@@ -505,7 +505,7 @@ function _rects2(COLORS memory _colors) internal pure returns (string memory) {
 ### _circles2(struct bauhaus.COLORS)
 
 - **Kind**: internal
-- **Source**: 12428:1197:259
+- **Source**: 12428:1197:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_circles2(struct bauhaus.COLORS)`
 
 ```solidity
@@ -517,7 +517,7 @@ function _circles2(COLORS memory _colors) internal pure returns (string memory) 
 ### _img3(uint256)
 
 - **Kind**: internal
-- **Source**: 15557:195:259
+- **Source**: 15557:195:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_img3(uint256)`
 
 ```solidity
@@ -530,7 +530,7 @@ function _img3(uint256 _variant) internal pure returns (string memory) {
 ### _colors3(uint256)
 
 - **Kind**: internal
-- **Source**: 13631:1920:259
+- **Source**: 13631:1920:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_colors3(uint256)`
 
 ```solidity
@@ -550,7 +550,7 @@ function _colors3(uint256 _variant) internal pure returns (COLORS memory) {
 ### _rects3(struct bauhaus.COLORS)
 
 - **Kind**: internal
-- **Source**: 15758:1934:259
+- **Source**: 15758:1934:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_rects3(struct bauhaus.COLORS)`
 
 ```solidity
@@ -562,7 +562,7 @@ function _rects3(COLORS memory _colors) internal pure returns (string memory) {
 ### _circles3(struct bauhaus.COLORS)
 
 - **Kind**: internal
-- **Source**: 17698:989:259
+- **Source**: 17698:989:108
 - **Link**: `src/NFTMetadata/utils/bauhaus.sol:bauhaus:_circles3(struct bauhaus.COLORS)`
 
 ```solidity
@@ -574,7 +574,7 @@ function _circles3(COLORS memory _colors) internal pure returns (string memory) 
 ### dynamicTextComponents(struct IMetadataNFT.TroveData)
 
 - **Kind**: internal
-- **Source**: 2654:673:253
+- **Source**: 2654:673:102
 - **Link**: `src/NFTMetadata/MetadataNFT.sol:MetadataNFT:dynamicTextComponents(struct IMetadataNFT.TroveData)`
 
 ```solidity
@@ -588,7 +588,7 @@ function dynamicTextComponents(TroveData memory _troveData) public view returns 
 ### toHexString(uint256)
 
 - **Kind**: internal
-- **Source**: 9321:436:1
+- **Source**: 9321:436:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toHexString(uint256)`
 
 ```solidity
@@ -611,7 +611,7 @@ function toHexString(uint256 value) internal pure returns (string memory str) {
 ### toHexStringNoPrefix(uint256)
 
 - **Kind**: internal
-- **Source**: 11657:1411:1
+- **Source**: 11657:1411:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toHexStringNoPrefix(uint256)`
 
 ```solidity
@@ -649,7 +649,7 @@ function toHexStringNoPrefix(uint256 value) internal pure returns (string memory
 ### slice(string,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 33520:1207:1
+- **Source**: 33520:1207:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:slice(string,uint256,uint256)`
 
 ```solidity
@@ -690,7 +690,7 @@ function slice(string memory subject, uint256 start, uint256 end) internal pure 
 ### _formattedIdEl(string)
 
 - **Kind**: internal
-- **Source**: 4870:415:258
+- **Source**: 4870:415:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_formattedIdEl(string)`
 
 ```solidity
@@ -702,7 +702,7 @@ function _formattedIdEl(string memory _id) internal pure returns (string memory)
 ### _formattedAddressEl(address)
 
 - **Kind**: internal
-- **Source**: 5291:635:258
+- **Source**: 5291:635:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_formattedAddressEl(address)`
 
 ```solidity
@@ -714,7 +714,7 @@ function _formattedAddressEl(address _address) internal pure returns (string mem
 ### toHexStringChecksummed(address)
 
 - **Kind**: internal
-- **Source**: 13340:838:1
+- **Source**: 13340:838:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toHexStringChecksummed(address)`
 
 ```solidity
@@ -749,7 +749,7 @@ function toHexStringChecksummed(address value) internal pure returns (string mem
 ### _collLogo(string,contract FixedAssetReader)
 
 - **Kind**: internal
-- **Source**: 5932:620:258
+- **Source**: 5932:620:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_collLogo(string,contract FixedAssetReader)`
 
 ```solidity
@@ -761,7 +761,7 @@ function _collLogo(string memory _collName, FixedAssetReader _assetReader) inter
 ### _statusEl(string)
 
 - **Kind**: internal
-- **Source**: 6558:305:258
+- **Source**: 6558:305:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_statusEl(string)`
 
 ```solidity
@@ -773,7 +773,7 @@ function _statusEl(string memory _status) internal pure returns (string memory) 
 ### _dynamicTextEls(uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 6869:457:258
+- **Source**: 6869:457:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_dynamicTextEls(uint256,uint256,uint256)`
 
 ```solidity
@@ -785,7 +785,7 @@ function _dynamicTextEls(uint256 _debt, uint256 _coll, uint256 _annualInterestRa
 ### _formattedDynamicEl(string,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 4379:485:258
+- **Source**: 4379:485:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_formattedDynamicEl(string,uint256,uint256)`
 
 ```solidity
@@ -797,7 +797,7 @@ function _formattedDynamicEl(string memory _value, uint256 _x, uint256 _y) inter
 ### toLocaleString(uint256,uint8,uint8)
 
 - **Kind**: internal
-- **Source**: 918:1824:257
+- **Source**: 918:1824:106
 - **Link**: `src/NFTMetadata/utils/Utils.sol:numUtils:toLocaleString(uint256,uint8,uint8)`
 
 ```solidity
@@ -840,7 +840,7 @@ function toLocaleString(uint256 _value, uint8 _divisor, uint8 _precision) intern
 ### toLocale(string)
 
 - **Kind**: internal
-- **Source**: 125:684:257
+- **Source**: 125:684:106
 - **Link**: `src/NFTMetadata/utils/Utils.sol:numUtils:toLocale(string)`
 
 ```solidity
@@ -868,7 +868,7 @@ function toLocale(string memory _wholeNumber) internal pure returns (string memo
 ### encode(bytes)
 
 - **Kind**: internal
-- **Source**: 2453:2941:255
+- **Source**: 2453:2941:104
 - **Link**: `src/NFTMetadata/utils/JSON.sol:json:encode(bytes)`
 
 ```solidity
@@ -913,7 +913,7 @@ function encode(bytes memory data) internal pure returns (string memory) {
 ### _prop(string,string)
 
 - **Kind**: internal
-- **Source**: 1523:166:255
+- **Source**: 1523:166:104
 - **Link**: `src/NFTMetadata/utils/JSON.sol:json:_prop(string,string)`
 
 ```solidity
@@ -925,7 +925,7 @@ function _prop(string memory _key, string memory _val) internal pure returns (st
 ### _xmlImage(string)
 
 - **Kind**: internal
-- **Source**: 1324:193:255
+- **Source**: 1324:193:104
 - **Link**: `src/NFTMetadata/utils/JSON.sol:json:_xmlImage(string)`
 
 ```solidity
@@ -937,7 +937,7 @@ function _xmlImage(string memory _svgImg) internal pure returns (string memory) 
 ### _prop(string,string,bool)
 
 - **Kind**: internal
-- **Source**: 1695:296:255
+- **Source**: 1695:296:104
 - **Link**: `src/NFTMetadata/utils/JSON.sol:json:_prop(string,string,bool)`
 
 ```solidity

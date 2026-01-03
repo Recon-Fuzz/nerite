@@ -7,7 +7,7 @@
 - **Contract**: LiquityBase
 - **Signature**: `getEntireSystemColl()`
 - **Visibility**: public
-- **Source Range**: 1265:251:214
+- **Source Range**: 1265:251:63
 
 ## Implementation
 

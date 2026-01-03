@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `onLiquidateTrove(uint256)`
 - **Visibility**: external
-- **Source Range**: 47668:139:205
+- **Source Range**: 47668:139:54
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function onLiquidateTrove(uint256 _troveId) external {
 ### _requireCallerIsTroveManager()
 
 - **Kind**: internal
-- **Source**: 61270:166:205
+- **Source**: 61270:166:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireCallerIsTroveManager()`
 
 ```solidity
@@ -37,7 +37,7 @@ function _requireCallerIsTroveManager() internal view {
 ### _wipeTroveMappings(uint256)
 
 - **Kind**: internal
-- **Source**: 47813:208:205
+- **Source**: 47813:208:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_wipeTroveMappings(uint256)`
 
 ```solidity
@@ -51,7 +51,7 @@ function _wipeTroveMappings(uint256 _troveId) internal {
 ### _wipeAddRemoveManagers(uint256)
 
 - **Kind**: internal
-- **Source**: 3227:289:209
+- **Source**: 3227:289:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_wipeAddRemoveManagers(uint256)`
 
 ```solidity

@@ -82,7 +82,7 @@ event CollSent(address indexed _to, uint256 _amount);
 
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 997:407:206
+- **Source Range**: 997:407:55
 - **Details**: [function_constructor_contract_IAddressesRegistry.md](./function_constructor_contract_IAddressesRegistry.md)
 
 **Signature:**
@@ -94,7 +94,7 @@ constructor(IAddressesRegistry _addressesRegistry);
 
 - **Signature**: `getCollBalance()`
 - **Visibility**: external
-- **Source Range**: 1554:102:206
+- **Source Range**: 1554:102:55
 - **Details**: [function_getCollBalance.md](./function_getCollBalance.md)
 
 **Signature:**
@@ -106,7 +106,7 @@ function getCollBalance() override external view returns (uint256);
 
 - **Signature**: `getCollateral(address)`
 - **Visibility**: external
-- **Source Range**: 1662:124:206
+- **Source Range**: 1662:124:55
 - **Details**: [function_getCollateral_address.md](./function_getCollateral_address.md)
 
 **Signature:**
@@ -118,7 +118,7 @@ function getCollateral(address _account) override external view returns (uint256
 
 - **Signature**: `accountSurplus(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 1827:323:206
+- **Source Range**: 1827:323:55
 - **Details**: [function_accountSurplus_address_uint256.md](./function_accountSurplus_address_uint256.md)
 
 **Signature:**
@@ -130,7 +130,7 @@ function accountSurplus(address _account, uint256 _amount) override external;
 
 - **Signature**: `claimColl(address)`
 - **Visibility**: external
-- **Source Range**: 2156:486:206
+- **Source Range**: 2156:486:55
 - **Details**: [function_claimColl_address.md](./function_claimColl_address.md)
 
 **Signature:**

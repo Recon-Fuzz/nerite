@@ -7,7 +7,7 @@
 - **Contract**: CollSurplusPool
 - **Signature**: `getCollBalance()`
 - **Visibility**: external
-- **Source Range**: 1554:102:206
+- **Source Range**: 1554:102:55
 
 ## Implementation
 

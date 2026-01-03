@@ -7,7 +7,7 @@
 - **Contract**: HintHelpers
 - **Signature**: `predictOpenTroveAndJoinBatchUpfrontFee(uint256,uint256,address)`
 - **Visibility**: external
-- **Source Range**: 8119:959:218
+- **Source Range**: 8119:959:67
 
 ## Implementation
 
@@ -31,7 +31,7 @@ function predictOpenTroveAndJoinBatchUpfrontFee(uint256 _collIndex, uint256 _bor
 ### _calcUpfrontFee(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2703:203:218
+- **Source**: 2703:203:67
 - **Link**: `src/HintHelpers.sol:HintHelpers:_calcUpfrontFee(uint256,uint256)`
 
 ```solidity

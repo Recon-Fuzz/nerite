@@ -102,7 +102,7 @@ struct InitialBalances {
 
 - **Signature**: `constructor(contract IERC20,contract IBoldToken,contract IERC20,contract IWETH,contract ICurveStableswapNGPool,uint128,uint128,uint24,uint24,contract ISwapRouter)`
 - **Visibility**: public
-- **Source Range**: 1108:709:298
+- **Source Range**: 1108:709:147
 - **Details**: [function_constructor_contract_IERC20_contract_IBoldToken_contract_IERC20_contract_IWETH_contract_ICurveStableswapNGPool_uint128_uint128_uint24_uint24_contract_ISwapRouter.md](./function_constructor_contract_IERC20_contract_IBoldToken_contract_IERC20_contract_IWETH_contract_ICurveStableswapNGPool_uint128_uint128_uint24_uint24_contract_ISwapRouter.md)
 
 **Signature:**
@@ -114,7 +114,7 @@ constructor(IERC20 _collToken, IBoldToken _boldToken, IERC20 _usdc, IWETH _weth,
 
 - **Signature**: `swapFromBold(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 1910:1305:298
+- **Source Range**: 1910:1305:147
 - **Details**: [function_swapFromBold_uint256_uint256.md](./function_swapFromBold_uint256_uint256.md)
 
 **Signature:**
@@ -126,7 +126,7 @@ function swapFromBold(uint256 _boldAmount, uint256 _minCollAmount) external;
 
 - **Signature**: `swapToBold(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 3307:1441:298
+- **Source Range**: 3307:1441:147
 - **Details**: [function_swapToBold_uint256_uint256.md](./function_swapToBold_uint256_uint256.md)
 
 **Signature:**

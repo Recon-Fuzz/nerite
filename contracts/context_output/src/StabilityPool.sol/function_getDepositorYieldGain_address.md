@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `getDepositorYieldGain(address)`
 - **Visibility**: public
-- **Source Range**: 29122:1117:274
+- **Source Range**: 29122:1117:123
 
 ## Implementation
 
@@ -32,7 +32,7 @@ function getDepositorYieldGain(address _depositor) override public view returns 
 ### _min(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 136:113:215
+- **Source**: 136:113:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_min(uint256,uint256)`
 
 ```solidity

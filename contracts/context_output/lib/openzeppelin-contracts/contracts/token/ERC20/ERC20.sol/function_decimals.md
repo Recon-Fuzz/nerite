@@ -7,7 +7,7 @@
 - **Contract**: ERC20
 - **Signature**: `decimals()`
 - **Visibility**: public
-- **Source Range**: 3104:91:86
+- **Source Range**: 3104:91:7
 
 ## Implementation
 

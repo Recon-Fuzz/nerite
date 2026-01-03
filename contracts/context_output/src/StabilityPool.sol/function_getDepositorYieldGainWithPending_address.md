@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `getDepositorYieldGainWithPending(address)`
 - **Visibility**: external
-- **Source Range**: 30245:1552:274
+- **Source Range**: 30245:1552:123
 
 ## Implementation
 
@@ -38,7 +38,7 @@ function getDepositorYieldGainWithPending(address _depositor) override external 
 ### _min(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 136:113:215
+- **Source**: 136:113:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_min(uint256,uint256)`
 
 ```solidity

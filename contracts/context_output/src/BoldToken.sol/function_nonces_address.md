@@ -7,7 +7,7 @@
 - **Contract**: BoldToken
 - **Signature**: `nonces(address)`
 - **Visibility**: external
-- **Source Range**: 8147:110:204
+- **Source Range**: 8147:110:53
 
 ## Implementation
 

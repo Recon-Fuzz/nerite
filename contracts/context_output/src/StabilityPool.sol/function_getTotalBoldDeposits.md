@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `getTotalBoldDeposits()`
 - **Visibility**: external
-- **Source Range**: 10916:114:274
+- **Source Range**: 10916:114:123
 
 ## Implementation
 

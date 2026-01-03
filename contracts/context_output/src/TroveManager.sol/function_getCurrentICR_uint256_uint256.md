@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `getCurrentICR(uint256,uint256)`
 - **Visibility**: public
-- **Source Range**: 41949:270:275
+- **Source Range**: 41949:270:124
 
 ## Implementation
 
@@ -24,7 +24,7 @@ function getCurrentICR(uint256 _troveId, uint256 _price) override public view re
 ### _getLatestTroveData(uint256,struct LatestTroveData)
 
 - **Kind**: internal
-- **Source**: 42508:1397:275
+- **Source**: 42508:1397:124
 - **Link**: `src/TroveManager.sol:TroveManager:_getLatestTroveData(uint256,struct LatestTroveData)`
 
 ```solidity
@@ -53,7 +53,7 @@ function _getLatestTroveData(uint256 _troveId, LatestTroveData memory trove) int
 ### _getBatchManager(uint256)
 
 - **Kind**: internal
-- **Source**: 46292:137:275
+- **Source**: 46292:137:124
 - **Link**: `src/TroveManager.sol:TroveManager:_getBatchManager(uint256)`
 
 ```solidity
@@ -65,7 +65,7 @@ function _getBatchManager(uint256 _troveId) internal view returns (address) {
 ### _getLatestBatchData(address,struct LatestBatchData)
 
 - **Kind**: internal
-- **Source**: 46668:1309:275
+- **Source**: 46668:1309:124
 - **Link**: `src/TroveManager.sol:TroveManager:_getLatestBatchData(address,struct LatestBatchData)`
 
 ```solidity
@@ -89,7 +89,7 @@ function _getLatestBatchData(address _batchAddress, LatestBatchData memory lates
 ### _getInterestPeriod(uint256)
 
 - **Kind**: internal
-- **Source**: 52678:755:275
+- **Source**: 52678:755:124
 - **Link**: `src/TroveManager.sol:TroveManager:_getInterestPeriod(uint256)`
 
 ```solidity
@@ -107,7 +107,7 @@ function _getInterestPeriod(uint256 _lastDebtUpdateTime) internal view returns (
 ### _calcInterest(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2244:173:214
+- **Source**: 2244:173:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:_calcInterest(uint256,uint256)`
 
 ```solidity
@@ -119,7 +119,7 @@ function _calcInterest(uint256 _weightedDebt, uint256 _period) internal pure ret
 ### _getLatestTroveDataFromBatch(uint256,address,struct LatestTroveData,struct LatestBatchData)
 
 - **Kind**: internal
-- **Source**: 43911:1861:275
+- **Source**: 43911:1861:124
 - **Link**: `src/TroveManager.sol:TroveManager:_getLatestTroveDataFromBatch(uint256,address,struct LatestTroveData,struct LatestBatchData)`
 
 ```solidity
@@ -146,7 +146,7 @@ function _getLatestTroveDataFromBatch(uint256 _troveId, address _batchAddress, L
 ### _max(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 255:114:215
+- **Source**: 255:114:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_max(uint256,uint256)`
 
 ```solidity
@@ -158,7 +158,7 @@ function _max(uint256 _a, uint256 _b) internal pure returns (uint256) {
 ### _computeCR(uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2640:414:215
+- **Source**: 2640:414:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_computeCR(uint256,uint256,uint256)`
 
 ```solidity

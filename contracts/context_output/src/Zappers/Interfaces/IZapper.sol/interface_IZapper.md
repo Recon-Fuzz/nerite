@@ -43,7 +43,7 @@ struct CloseTroveParams {
 
 - **Signature**: `flashLoanProvider()`
 - **Visibility**: external
-- **Source Range**: 644:72:289
+- **Source Range**: 644:72:138
 
 **Signature:**
 ```solidity
@@ -54,7 +54,7 @@ function flashLoanProvider() external view returns (IFlashLoanProvider);;
 
 - **Signature**: `exchange()`
 - **Visibility**: external
-- **Source Range**: 722:54:289
+- **Source Range**: 722:54:138
 
 **Signature:**
 ```solidity
@@ -65,7 +65,7 @@ function exchange() external view returns (IExchange);;
 
 - **Signature**: `openTroveWithRawETH(struct IZapper.OpenTroveParams)`
 - **Visibility**: external
-- **Source Range**: 782:98:289
+- **Source Range**: 782:98:138
 
 **Signature:**
 ```solidity
@@ -76,7 +76,7 @@ function openTroveWithRawETH(OpenTroveParams calldata _params) external payable 
 
 - **Signature**: `closeTroveFromCollateral(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 886:87:289
+- **Source Range**: 886:87:138
 
 **Signature:**
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: MetadataNFT
 - **Signature**: `dynamicTextComponents(struct IMetadataNFT.TroveData)`
 - **Visibility**: public
-- **Source Range**: 2654:673:253
+- **Source Range**: 2654:673:102
 
 ## Implementation
 
@@ -24,7 +24,7 @@ function dynamicTextComponents(TroveData memory _troveData) public view returns 
 ### toHexString(uint256)
 
 - **Kind**: internal
-- **Source**: 9321:436:1
+- **Source**: 9321:436:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toHexString(uint256)`
 
 ```solidity
@@ -47,7 +47,7 @@ function toHexString(uint256 value) internal pure returns (string memory str) {
 ### toHexStringNoPrefix(uint256)
 
 - **Kind**: internal
-- **Source**: 11657:1411:1
+- **Source**: 11657:1411:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toHexStringNoPrefix(uint256)`
 
 ```solidity
@@ -85,7 +85,7 @@ function toHexStringNoPrefix(uint256 value) internal pure returns (string memory
 ### slice(string,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 33520:1207:1
+- **Source**: 33520:1207:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:slice(string,uint256,uint256)`
 
 ```solidity
@@ -126,7 +126,7 @@ function slice(string memory subject, uint256 start, uint256 end) internal pure 
 ### _formattedIdEl(string)
 
 - **Kind**: internal
-- **Source**: 4870:415:258
+- **Source**: 4870:415:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_formattedIdEl(string)`
 
 ```solidity
@@ -138,7 +138,7 @@ function _formattedIdEl(string memory _id) internal pure returns (string memory)
 ### text(string,string)
 
 - **Kind**: internal
-- **Source**: 1738:152:256
+- **Source**: 1738:152:105
 - **Link**: `src/NFTMetadata/utils/SVG.sol:svg:text(string,string)`
 
 ```solidity
@@ -150,7 +150,7 @@ function text(string memory _props, string memory _children) internal pure retur
 ### prop(string,string)
 
 - **Kind**: internal
-- **Source**: 6496:157:256
+- **Source**: 6496:157:105
 - **Link**: `src/NFTMetadata/utils/SVG.sol:svg:prop(string,string)`
 
 ```solidity
@@ -162,7 +162,7 @@ function prop(string memory _key, string memory _val) internal pure returns (str
 ### el(string,string,string)
 
 - **Kind**: internal
-- **Source**: 5971:239:256
+- **Source**: 5971:239:105
 - **Link**: `src/NFTMetadata/utils/SVG.sol:svg:el(string,string,string)`
 
 ```solidity
@@ -174,7 +174,7 @@ function el(string memory _tag, string memory _props, string memory _children) i
 ### _formattedAddressEl(address)
 
 - **Kind**: internal
-- **Source**: 5291:635:258
+- **Source**: 5291:635:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_formattedAddressEl(address)`
 
 ```solidity
@@ -186,7 +186,7 @@ function _formattedAddressEl(address _address) internal pure returns (string mem
 ### toHexStringChecksummed(address)
 
 - **Kind**: internal
-- **Source**: 13340:838:1
+- **Source**: 13340:838:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toHexStringChecksummed(address)`
 
 ```solidity
@@ -221,7 +221,7 @@ function toHexStringChecksummed(address value) internal pure returns (string mem
 ### toHexString(address)
 
 - **Kind**: internal
-- **Source**: 14338:436:1
+- **Source**: 14338:436:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toHexString(address)`
 
 ```solidity
@@ -242,7 +242,7 @@ function toHexString(address value) internal pure returns (string memory str) {
 ### toHexStringNoPrefix(address)
 
 - **Kind**: internal
-- **Source**: 14911:1330:1
+- **Source**: 14911:1330:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toHexStringNoPrefix(address)`
 
 ```solidity
@@ -278,7 +278,7 @@ function toHexStringNoPrefix(address value) internal pure returns (string memory
 ### _collLogo(string,contract FixedAssetReader)
 
 - **Kind**: internal
-- **Source**: 5932:620:258
+- **Source**: 5932:620:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_collLogo(string,contract FixedAssetReader)`
 
 ```solidity
@@ -290,7 +290,7 @@ function _collLogo(string memory _collName, FixedAssetReader _assetReader) inter
 ### el(string,string)
 
 - **Kind**: internal
-- **Source**: 6307:159:256
+- **Source**: 6307:159:105
 - **Link**: `src/NFTMetadata/utils/SVG.sol:svg:el(string,string)`
 
 ```solidity
@@ -302,7 +302,7 @@ function el(string memory _tag, string memory _props) internal pure returns (str
 ### _statusEl(string)
 
 - **Kind**: internal
-- **Source**: 6558:305:258
+- **Source**: 6558:305:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_statusEl(string)`
 
 ```solidity
@@ -314,7 +314,7 @@ function _statusEl(string memory _status) internal pure returns (string memory) 
 ### _status2Str(enum ITroveManager.Status)
 
 - **Kind**: internal
-- **Source**: 3333:418:253
+- **Source**: 3333:418:102
 - **Link**: `src/NFTMetadata/MetadataNFT.sol:MetadataNFT:_status2Str(enum ITroveManager.Status)`
 
 ```solidity
@@ -330,7 +330,7 @@ function _status2Str(ITroveManager.Status status) internal pure returns (string 
 ### _dynamicTextEls(uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 6869:457:258
+- **Source**: 6869:457:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_dynamicTextEls(uint256,uint256,uint256)`
 
 ```solidity
@@ -342,7 +342,7 @@ function _dynamicTextEls(uint256 _debt, uint256 _coll, uint256 _annualInterestRa
 ### _formattedDynamicEl(string,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 4379:485:258
+- **Source**: 4379:485:107
 - **Link**: `src/NFTMetadata/utils/baseSVG.sol:baseSVG:_formattedDynamicEl(string,uint256,uint256)`
 
 ```solidity
@@ -354,7 +354,7 @@ function _formattedDynamicEl(string memory _value, uint256 _x, uint256 _y) inter
 ### toLocaleString(uint256,uint8,uint8)
 
 - **Kind**: internal
-- **Source**: 918:1824:257
+- **Source**: 918:1824:106
 - **Link**: `src/NFTMetadata/utils/Utils.sol:numUtils:toLocaleString(uint256,uint8,uint8)`
 
 ```solidity
@@ -397,7 +397,7 @@ function toLocaleString(uint256 _value, uint8 _divisor, uint8 _precision) intern
 ### toLocale(string)
 
 - **Kind**: internal
-- **Source**: 125:684:257
+- **Source**: 125:684:106
 - **Link**: `src/NFTMetadata/utils/Utils.sol:numUtils:toLocale(string)`
 
 ```solidity
@@ -425,7 +425,7 @@ function toLocale(string memory _wholeNumber) internal pure returns (string memo
 ### toString(uint256)
 
 - **Kind**: internal
-- **Source**: 3513:1535:1
+- **Source**: 3513:1535:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toString(uint256)`
 
 ```solidity

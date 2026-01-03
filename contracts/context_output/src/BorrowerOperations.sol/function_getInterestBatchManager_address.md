@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `getInterestBatchManager(address)`
 - **Visibility**: external
-- **Source Range**: 33219:158:205
+- **Source Range**: 33219:158:54
 
 ## Implementation
 

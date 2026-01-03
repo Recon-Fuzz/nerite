@@ -7,7 +7,7 @@
 - **Contract**: BoldToken
 - **Signature**: `DOMAIN_SEPARATOR()`
 - **Visibility**: public
-- **Source Range**: 7060:422:204
+- **Source Range**: 7060:422:53
 
 ## Implementation
 

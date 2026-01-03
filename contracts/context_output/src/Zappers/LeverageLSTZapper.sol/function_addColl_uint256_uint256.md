@@ -7,7 +7,7 @@
 - **Contract**: LeverageLSTZapper
 - **Signature**: `addColl(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 3782:412:283
+- **Source Range**: 3782:412:132
 - **Inherited From**: GasCompZapper
 
 ## Implementation
@@ -27,7 +27,7 @@ function addColl(uint256 _troveId, uint256 _amount) external {
 ### _requireSenderIsOwnerOrAddManager(uint256,address)
 
 - **Kind**: internal
-- **Source**: 3919:297:209
+- **Source**: 3919:297:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrAddManager(uint256,address)`
 
 ```solidity

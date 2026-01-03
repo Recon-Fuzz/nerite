@@ -14,7 +14,7 @@
 
 - **Signature**: `upgradeByETH()`
 - **Visibility**: external
-- **Source Range**: 257:41:148
+- **Source Range**: 257:41:48
 
 **Signature:**
 ```solidity
@@ -25,7 +25,7 @@ function upgradeByETH() external payable;;
 
 - **Signature**: `upgradeByETHTo(address)`
 - **Visibility**: external
-- **Source Range**: 303:53:148
+- **Source Range**: 303:53:48
 
 **Signature:**
 ```solidity
@@ -36,7 +36,7 @@ function upgradeByETHTo(address to) external payable;;
 
 - **Signature**: `downgradeToETH(uint256)`
 - **Visibility**: external
-- **Source Range**: 361:43:148
+- **Source Range**: 361:43:48
 
 **Signature:**
 ```solidity

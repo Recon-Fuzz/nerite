@@ -7,7 +7,7 @@
 - **Contract**: DefaultPool
 - **Signature**: `sendCollToActivePool(uint256)`
 - **Visibility**: external
-- **Source Range**: 2407:403:208
+- **Source Range**: 2407:403:57
 
 ## Implementation
 
@@ -26,7 +26,7 @@ function sendCollToActivePool(uint256 _amount) override external {
 ### _requireCallerIsTroveManager()
 
 - **Kind**: internal
-- **Source**: 3791:160:208
+- **Source**: 3791:160:57
 - **Link**: `src/DefaultPool.sol:DefaultPool:_requireCallerIsTroveManager()`
 
 ```solidity

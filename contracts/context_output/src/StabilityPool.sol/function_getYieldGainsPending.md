@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `getYieldGainsPending()`
 - **Visibility**: external
-- **Source Range**: 11150:114:274
+- **Source Range**: 11150:114:123
 
 ## Implementation
 

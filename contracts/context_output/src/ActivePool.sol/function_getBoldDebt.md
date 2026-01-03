@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `getBoldDebt()`
 - **Visibility**: external
-- **Source Range**: 7274:183:202
+- **Source Range**: 7274:183:51
 
 ## Implementation
 
@@ -22,7 +22,7 @@ function getBoldDebt() external view returns (uint256) {
 ### calcPendingAggBatchManagementFee()
 
 - **Kind**: internal
-- **Source**: 5346:372:202
+- **Source**: 5346:372:51
 - **Link**: `src/ActivePool.sol:ActivePool:calcPendingAggBatchManagementFee()`
 
 ```solidity
@@ -36,7 +36,7 @@ function calcPendingAggBatchManagementFee() public view returns (uint256) {
 ### min(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 588:104:114
+- **Source**: 588:104:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:min(uint256,uint256)`
 
 ```solidity
@@ -49,7 +49,7 @@ function min(uint256 a, uint256 b) internal pure returns (uint256) {
 ### ceilDiv(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 1157:194:114
+- **Source**: 1157:194:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:ceilDiv(uint256,uint256)`
 
 ```solidity
@@ -64,7 +64,7 @@ function ceilDiv(uint256 a, uint256 b) internal pure returns (uint256) {
 ### calcPendingAggInterest()
 
 - **Kind**: internal
-- **Source**: 4503:684:202
+- **Source**: 4503:684:51
 - **Link**: `src/ActivePool.sol:ActivePool:calcPendingAggInterest()`
 
 ```solidity

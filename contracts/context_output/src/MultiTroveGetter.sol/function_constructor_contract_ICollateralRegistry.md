@@ -7,7 +7,7 @@
 - **Contract**: MultiTroveGetter
 - **Signature**: `constructor(contract ICollateralRegistry)`
 - **Visibility**: public
-- **Source Range**: 404:110:252
+- **Source Range**: 404:110:101
 
 ## Implementation
 

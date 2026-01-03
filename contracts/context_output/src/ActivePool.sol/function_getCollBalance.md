@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `getCollBalance()`
 - **Visibility**: external
-- **Source Range**: 4395:102:202
+- **Source Range**: 4395:102:51
 
 ## Implementation
 

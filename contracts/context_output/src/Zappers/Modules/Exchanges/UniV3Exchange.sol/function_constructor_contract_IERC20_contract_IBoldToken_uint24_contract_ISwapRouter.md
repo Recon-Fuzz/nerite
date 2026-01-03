@@ -7,7 +7,7 @@
 - **Contract**: UniV3Exchange
 - **Signature**: `constructor(contract IERC20,contract IBoldToken,uint24,contract ISwapRouter)`
 - **Visibility**: public
-- **Source Range**: 744:220:300
+- **Source Range**: 744:220:149
 
 ## Implementation
 

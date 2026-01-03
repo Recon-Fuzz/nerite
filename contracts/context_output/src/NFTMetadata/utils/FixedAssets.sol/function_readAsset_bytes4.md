@@ -7,7 +7,7 @@
 - **Contract**: FixedAssetReader
 - **Signature**: `readAsset(bytes4)`
 - **Visibility**: public
-- **Source Range**: 286:177:254
+- **Source Range**: 286:177:103
 
 ## Implementation
 
@@ -22,7 +22,7 @@ function readAsset(bytes4 _sig) public view returns (string memory) {
 ### read(address,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 11649:912:2
+- **Source**: 11649:912:1
 - **Link**: `lib/Solady/src/utils/SSTORE2.sol:SSTORE2:read(address,uint256,uint256)`
 
 ```solidity

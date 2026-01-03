@@ -7,7 +7,7 @@
 - **Contract**: BoldToken
 - **Signature**: `permit(address,address,uint256,uint256,uint8,bytes32,bytes32)`
 - **Visibility**: external
-- **Source Range**: 8263:1122:204
+- **Source Range**: 8263:1122:53
 
 ## Implementation
 
@@ -28,7 +28,7 @@ function permit(address owner, address spender, uint256 value, uint256 deadline,
 ### DOMAIN_SEPARATOR()
 
 - **Kind**: internal
-- **Source**: 7060:422:204
+- **Source**: 7060:422:53
 - **Link**: `src/BoldToken.sol:BoldToken:DOMAIN_SEPARATOR()`
 
 ```solidity

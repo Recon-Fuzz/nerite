@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `getTroveFromTroveIdsArray(uint256)`
 - **Visibility**: external
-- **Source Range**: 8517:132:275
+- **Source Range**: 8517:132:124
 
 ## Implementation
 

@@ -7,7 +7,7 @@
 - **Contract**: HintHelpers
 - **Signature**: `getApproxHint(uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 1102:1595:218
+- **Source Range**: 1102:1595:67
 
 ## Implementation
 
@@ -42,7 +42,7 @@ function getApproxHint(uint256 _collIndex, uint256 _interestRate, uint256 _numTr
 ### _getAbsoluteDifference(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2492:142:215
+- **Source**: 2492:142:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_getAbsoluteDifference(uint256,uint256)`
 
 ```solidity

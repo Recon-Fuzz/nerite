@@ -17,7 +17,7 @@
 
 - **Signature**: `boldToken()`
 - **Visibility**: external
-- **Source Range**: 1534:56:240
+- **Source Range**: 1534:56:89
 
 **Signature:**
 ```solidity
@@ -28,7 +28,7 @@ function boldToken() external view returns (IBoldToken);;
 
 - **Signature**: `troveManager()`
 - **Visibility**: external
-- **Source Range**: 1595:62:240
+- **Source Range**: 1595:62:89
 
 **Signature:**
 ```solidity
@@ -39,7 +39,7 @@ function troveManager() external view returns (ITroveManager);;
 
 - **Signature**: `provideToSP(uint256,bool)`
 - **Visibility**: external
-- **Source Range**: 1913:62:240
+- **Source Range**: 1913:62:89
 
 **Signature:**
 ```solidity
@@ -50,7 +50,7 @@ function provideToSP(uint256 _amount, bool _doClaim) external;;
 
 - **Signature**: `withdrawFromSP(uint256,bool)`
 - **Visibility**: external
-- **Source Range**: 2335:64:240
+- **Source Range**: 2335:64:89
 
 **Signature:**
 ```solidity
@@ -61,7 +61,7 @@ function withdrawFromSP(uint256 _amount, bool doClaim) external;;
 
 - **Signature**: `claimAllCollGains()`
 - **Visibility**: external
-- **Source Range**: 2405:38:240
+- **Source Range**: 2405:38:89
 
 **Signature:**
 ```solidity
@@ -72,7 +72,7 @@ function claimAllCollGains() external;;
 
 - **Signature**: `offset(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 2781:55:240
+- **Source Range**: 2781:55:89
 
 **Signature:**
 ```solidity
@@ -83,7 +83,7 @@ function offset(uint256 _debt, uint256 _coll) external;;
 
 - **Signature**: `deposits(address)`
 - **Visibility**: external
-- **Source Range**: 2842:83:240
+- **Source Range**: 2842:83:89
 
 **Signature:**
 ```solidity
@@ -94,7 +94,7 @@ function deposits(address _depositor) external view returns (uint256 initialValu
 
 - **Signature**: `stashedColl(address)`
 - **Visibility**: external
-- **Source Range**: 2930:73:240
+- **Source Range**: 2930:73:89
 
 **Signature:**
 ```solidity
@@ -105,7 +105,7 @@ function stashedColl(address _depositor) external view returns (uint256);;
 
 - **Signature**: `getCollBalance()`
 - **Visibility**: external
-- **Source Range**: 3208:58:240
+- **Source Range**: 3208:58:89
 
 **Signature:**
 ```solidity
@@ -116,7 +116,7 @@ function getCollBalance() external view returns (uint256);;
 
 - **Signature**: `getTotalBoldDeposits()`
 - **Visibility**: external
-- **Source Range**: 3393:64:240
+- **Source Range**: 3393:64:89
 
 **Signature:**
 ```solidity
@@ -127,7 +127,7 @@ function getTotalBoldDeposits() external view returns (uint256);;
 
 - **Signature**: `getYieldGainsOwed()`
 - **Visibility**: external
-- **Source Range**: 3463:61:240
+- **Source Range**: 3463:61:89
 
 **Signature:**
 ```solidity
@@ -138,7 +138,7 @@ function getYieldGainsOwed() external view returns (uint256);;
 
 - **Signature**: `getYieldGainsPending()`
 - **Visibility**: external
-- **Source Range**: 3529:64:240
+- **Source Range**: 3529:64:89
 
 **Signature:**
 ```solidity
@@ -149,7 +149,7 @@ function getYieldGainsPending() external view returns (uint256);;
 
 - **Signature**: `getDepositorCollGain(address)`
 - **Visibility**: external
-- **Source Range**: 3705:82:240
+- **Source Range**: 3705:82:89
 
 **Signature:**
 ```solidity
@@ -160,7 +160,7 @@ function getDepositorCollGain(address _depositor) external view returns (uint256
 
 - **Signature**: `getDepositorYieldGain(address)`
 - **Visibility**: external
-- **Source Range**: 3905:83:240
+- **Source Range**: 3905:83:89
 
 **Signature:**
 ```solidity
@@ -171,7 +171,7 @@ function getDepositorYieldGain(address _depositor) external view returns (uint25
 
 - **Signature**: `getDepositorYieldGainWithPending(address)`
 - **Visibility**: external
-- **Source Range**: 4091:94:240
+- **Source Range**: 4091:94:89
 
 **Signature:**
 ```solidity
@@ -182,7 +182,7 @@ function getDepositorYieldGainWithPending(address _depositor) external view retu
 
 - **Signature**: `getCompoundedBoldDeposit(address)`
 - **Visibility**: external
-- **Source Range**: 4251:86:240
+- **Source Range**: 4251:86:89
 
 **Signature:**
 ```solidity
@@ -193,7 +193,7 @@ function getCompoundedBoldDeposit(address _depositor) external view returns (uin
 
 - **Signature**: `epochToScaleToS(uint128,uint128)`
 - **Visibility**: external
-- **Source Range**: 4343:89:240
+- **Source Range**: 4343:89:89
 
 **Signature:**
 ```solidity
@@ -204,7 +204,7 @@ function epochToScaleToS(uint128 _epoch, uint128 _scale) external view returns (
 
 - **Signature**: `epochToScaleToB(uint128,uint128)`
 - **Visibility**: external
-- **Source Range**: 4438:89:240
+- **Source Range**: 4438:89:89
 
 **Signature:**
 ```solidity
@@ -215,7 +215,7 @@ function epochToScaleToB(uint128 _epoch, uint128 _scale) external view returns (
 
 - **Signature**: `P()`
 - **Visibility**: external
-- **Source Range**: 4533:45:240
+- **Source Range**: 4533:45:89
 
 **Signature:**
 ```solidity
@@ -226,7 +226,7 @@ function P() external view returns (uint256);;
 
 - **Signature**: `currentScale()`
 - **Visibility**: external
-- **Source Range**: 4583:56:240
+- **Source Range**: 4583:56:89
 
 **Signature:**
 ```solidity
@@ -237,7 +237,7 @@ function currentScale() external view returns (uint128);;
 
 - **Signature**: `currentEpoch()`
 - **Visibility**: external
-- **Source Range**: 4644:56:240
+- **Source Range**: 4644:56:89
 
 **Signature:**
 ```solidity
@@ -248,7 +248,7 @@ function currentEpoch() external view returns (uint128);;
 
 - **Signature**: `activePool()`
 - **Visibility**: external
-- **Source Range**: 172:58:233
+- **Source Range**: 172:58:82
 
 **Signature:**
 ```solidity
@@ -259,7 +259,7 @@ function activePool() external view returns (IActivePool);;
 
 - **Signature**: `getEntireSystemDebt()`
 - **Visibility**: external
-- **Source Range**: 235:63:233
+- **Source Range**: 235:63:82
 
 **Signature:**
 ```solidity
@@ -270,7 +270,7 @@ function getEntireSystemDebt() external view returns (uint256);;
 
 - **Signature**: `getEntireSystemColl()`
 - **Visibility**: external
-- **Source Range**: 303:63:233
+- **Source Range**: 303:63:82
 
 **Signature:**
 ```solidity
@@ -281,7 +281,7 @@ function getEntireSystemColl() external view returns (uint256);;
 
 - **Signature**: `triggerBoldRewards(uint256)`
 - **Visibility**: external
-- **Source Range**: 95:57:222
+- **Source Range**: 95:57:71
 
 **Signature:**
 ```solidity

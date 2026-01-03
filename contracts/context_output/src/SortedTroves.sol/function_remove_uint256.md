@@ -7,7 +7,7 @@
 - **Contract**: SortedTroves
 - **Signature**: `remove(uint256)`
 - **Visibility**: external
-- **Source Range**: 6185:347:273
+- **Source Range**: 6185:347:122
 
 ## Implementation
 
@@ -27,7 +27,7 @@ function remove(uint256 _id) override external {
 ### _requireCallerIsBOorTM()
 
 - **Kind**: internal
-- **Source**: 21802:253:273
+- **Source**: 21802:253:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:_requireCallerIsBOorTM()`
 
 ```solidity
@@ -39,7 +39,7 @@ function _requireCallerIsBOorTM() internal view {
 ### contains(uint256)
 
 - **Kind**: internal
-- **Source**: 11484:108:273
+- **Source**: 11484:108:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:contains(uint256)`
 
 ```solidity
@@ -51,7 +51,7 @@ function contains(uint256 _id) override public view returns (bool) {
 ### isBatchedNode(uint256)
 
 - **Kind**: internal
-- **Source**: 11668:126:273
+- **Source**: 11668:126:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:isBatchedNode(uint256)`
 
 ```solidity
@@ -63,7 +63,7 @@ function isBatchedNode(uint256 _id) override public view returns (bool) {
 ### isNotZero(BatchId)
 
 - **Kind**: free-function
-- **Source**: 447:77:277
+- **Source**: 447:77:126
 - **Link**: `src/Types/BatchId.sol:isNotZero(BatchId)`
 
 ```solidity
@@ -75,7 +75,7 @@ function isNotZero(BatchId x) pure returns (bool) {
 ### isZero(BatchId)
 
 - **Kind**: free-function
-- **Source**: 364:81:277
+- **Source**: 364:81:126
 - **Link**: `src/Types/BatchId.sol:isZero(BatchId)`
 
 ```solidity
@@ -87,7 +87,7 @@ function isZero(BatchId x) pure returns (bool) {
 ### _removeSlice(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 5854:228:273
+- **Source**: 5854:228:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:_removeSlice(uint256,uint256)`
 
 ```solidity

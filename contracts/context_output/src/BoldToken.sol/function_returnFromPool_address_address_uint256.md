@@ -7,7 +7,7 @@
 - **Contract**: BoldToken
 - **Signature**: `returnFromPool(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 5367:249:204
+- **Source Range**: 5367:249:53
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function returnFromPool(address _poolAddress, address _receiver, uint256 _amount
 ### _requireCallerIsStabilityPool()
 
 - **Kind**: internal
-- **Source**: 6622:156:204
+- **Source**: 6622:156:53
 - **Link**: `src/BoldToken.sol:BoldToken:_requireCallerIsStabilityPool()`
 
 ```solidity

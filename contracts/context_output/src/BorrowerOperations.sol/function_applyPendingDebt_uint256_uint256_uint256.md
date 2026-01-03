@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `applyPendingDebt(uint256,uint256,uint256)`
 - **Visibility**: public
-- **Source Range**: 29143:2339:205
+- **Source Range**: 29143:2339:54
 
 ## Implementation
 
@@ -48,7 +48,7 @@ function applyPendingDebt(uint256 _troveId, uint256 _lowerHint, uint256 _upperHi
 ### _requireIsNotShutDown()
 
 - **Kind**: internal
-- **Source**: 51954:128:205
+- **Source**: 51954:128:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireIsNotShutDown()`
 
 ```solidity
@@ -62,7 +62,7 @@ function _requireIsNotShutDown() internal view {
 ### _requireTroveIsOpen(contract ITroveManager,uint256)
 
 - **Kind**: internal
-- **Source**: 54280:314:205
+- **Source**: 54280:314:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireTroveIsOpen(contract ITroveManager,uint256)`
 
 ```solidity
@@ -77,7 +77,7 @@ function _requireTroveIsOpen(ITroveManager _troveManager, uint256 _troveId) inte
 ### _requireNonZeroDebt(uint256)
 
 - **Kind**: internal
-- **Source**: 55346:151:205
+- **Source**: 55346:151:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireNonZeroDebt(uint256)`
 
 ```solidity
@@ -91,7 +91,7 @@ function _requireNonZeroDebt(uint256 _troveDebt) internal pure {
 ### _checkTroveIsZombie(contract ITroveManager,uint256)
 
 - **Kind**: internal
-- **Source**: 55096:244:205
+- **Source**: 55096:244:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_checkTroveIsZombie(contract ITroveManager,uint256)`
 
 ```solidity
@@ -104,7 +104,7 @@ function _checkTroveIsZombie(ITroveManager _troveManager, uint256 _troveId) inte
 ### _reInsertIntoSortedTroves(uint256,uint256,uint256,uint256,address,uint256)
 
 - **Kind**: internal
-- **Source**: 49545:667:205
+- **Source**: 49545:667:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_reInsertIntoSortedTroves(uint256,uint256,uint256,uint256,address,uint256)`
 
 ```solidity

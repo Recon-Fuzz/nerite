@@ -7,7 +7,7 @@
 - **Contract**: LeverageLSTZapper
 - **Signature**: `receiveFlashLoanOnLeverDownTrove(struct ILeverageZapper.LeverDownTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 7345:1063:291
+- **Source Range**: 7345:1063:140
 
 ## Implementation
 

@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `registerBatchManager(uint128,uint128,uint128,uint128,uint128)`
 - **Visibility**: external
-- **Source Range**: 33383:1271:205
+- **Source Range**: 33383:1271:54
 
 ## Implementation
 
@@ -31,7 +31,7 @@ function registerBatchManager(uint128 _minInterestRate, uint128 _maxInterestRate
 ### _requireIsNotShutDown()
 
 - **Kind**: internal
-- **Source**: 51954:128:205
+- **Source**: 51954:128:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireIsNotShutDown()`
 
 ```solidity
@@ -45,7 +45,7 @@ function _requireIsNotShutDown() internal view {
 ### _requireNonExistentInterestBatchManager(address)
 
 - **Kind**: internal
-- **Source**: 60747:246:205
+- **Source**: 60747:246:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireNonExistentInterestBatchManager(address)`
 
 ```solidity
@@ -59,7 +59,7 @@ function _requireNonExistentInterestBatchManager(address _interestBatchManagerAd
 ### _requireValidAnnualInterestRate(uint256)
 
 - **Kind**: internal
-- **Source**: 58154:318:205
+- **Source**: 58154:318:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireValidAnnualInterestRate(uint256)`
 
 ```solidity
@@ -76,7 +76,7 @@ function _requireValidAnnualInterestRate(uint256 _annualInterestRate) internal p
 ### _requireOrderedRange(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 58745:172:205
+- **Source**: 58745:172:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireOrderedRange(uint256,uint256)`
 
 ```solidity
@@ -88,7 +88,7 @@ function _requireOrderedRange(uint256 _minInterestRate, uint256 _maxInterestRate
 ### _requireInterestRateInRange(uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 59354:316:205
+- **Source**: 59354:316:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireInterestRateInRange(uint256,uint256,uint256)`
 
 ```solidity

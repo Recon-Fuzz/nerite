@@ -7,7 +7,7 @@
 - **Contract**: ERC721
 - **Signature**: `ownerOf(uint256)`
 - **Visibility**: public
-- **Source Range**: 2190:219:96
+- **Source Range**: 2190:219:14
 
 ## Implementation
 
@@ -25,7 +25,7 @@ function ownerOf(uint256 tokenId) virtual override public view returns (address)
 ### _ownerOf(uint256)
 
 - **Kind**: internal
-- **Source**: 6702:115:96
+- **Source**: 6702:115:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_ownerOf(uint256)`
 
 ```solidity

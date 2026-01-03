@@ -7,7 +7,7 @@
 - **Contract**: WETHZapper
 - **Signature**: `receiveFlashLoanOnLeverDownTrove(struct ILeverageZapper.LeverDownTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 12459:182:311
+- **Source Range**: 12459:182:160
 
 ## Implementation
 

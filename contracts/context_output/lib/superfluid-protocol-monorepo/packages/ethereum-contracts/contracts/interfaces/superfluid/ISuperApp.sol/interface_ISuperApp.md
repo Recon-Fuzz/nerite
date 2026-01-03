@@ -15,7 +15,7 @@
 
 - **Signature**: `beforeAgreementCreated(contract ISuperToken,address,bytes32,bytes,bytes)`
 - **Visibility**: external
-- **Source Range**: 906:265:141
+- **Source Range**: 906:265:42
 
 **Signature:**
 ```solidity
@@ -37,7 +37,7 @@ function beforeAgreementCreated(ISuperToken superToken, address agreementClass, 
 
 - **Signature**: `afterAgreementCreated(contract ISuperToken,address,bytes32,bytes,bytes,bytes)`
 - **Visibility**: external
-- **Source Range**: 1761:282:141
+- **Source Range**: 1761:282:42
 
 **Signature:**
 ```solidity
@@ -59,7 +59,7 @@ function afterAgreementCreated(ISuperToken superToken, address agreementClass, b
 
 - **Signature**: `beforeAgreementUpdated(contract ISuperToken,address,bytes32,bytes,bytes)`
 - **Visibility**: external
-- **Source Range**: 2684:265:141
+- **Source Range**: 2684:265:42
 
 **Signature:**
 ```solidity
@@ -81,7 +81,7 @@ function beforeAgreementUpdated(ISuperToken superToken, address agreementClass, 
 
 - **Signature**: `afterAgreementUpdated(contract ISuperToken,address,bytes32,bytes,bytes,bytes)`
 - **Visibility**: external
-- **Source Range**: 3527:282:141
+- **Source Range**: 3527:282:42
 
 **Signature:**
 ```solidity
@@ -103,7 +103,7 @@ function afterAgreementUpdated(ISuperToken superToken, address agreementClass, b
 
 - **Signature**: `beforeAgreementTerminated(contract ISuperToken,address,bytes32,bytes,bytes)`
 - **Visibility**: external
-- **Source Range**: 4422:268:141
+- **Source Range**: 4422:268:42
 
 **Signature:**
 ```solidity
@@ -125,7 +125,7 @@ function beforeAgreementTerminated(ISuperToken superToken, address agreementClas
 
 - **Signature**: `afterAgreementTerminated(contract ISuperToken,address,bytes32,bytes,bytes,bytes)`
 - **Visibility**: external
-- **Source Range**: 5253:285:141
+- **Source Range**: 5253:285:42
 
 **Signature:**
 ```solidity

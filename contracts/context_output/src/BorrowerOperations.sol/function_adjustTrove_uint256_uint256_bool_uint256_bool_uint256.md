@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `adjustTrove(uint256,uint256,bool,uint256,bool,uint256)`
 - **Visibility**: external
-- **Source Range**: 16139:567:205
+- **Source Range**: 16139:567:54
 
 ## Implementation
 
@@ -26,7 +26,7 @@ function adjustTrove(uint256 _troveId, uint256 _collChange, bool _isCollIncrease
 ### _requireTroveIsActive(contract ITroveManager,uint256)
 
 - **Kind**: internal
-- **Source**: 54600:277:205
+- **Source**: 54600:277:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireTroveIsActive(contract ITroveManager,uint256)`
 
 ```solidity
@@ -41,7 +41,7 @@ function _requireTroveIsActive(ITroveManager _troveManager, uint256 _troveId) in
 ### _initTroveChange(struct TroveChange,uint256,bool,uint256,bool)
 
 - **Kind**: internal
-- **Source**: 15592:541:205
+- **Source**: 15592:541:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_initTroveChange(struct TroveChange,uint256,bool,uint256,bool)`
 
 ```solidity
@@ -62,7 +62,7 @@ function _initTroveChange(TroveChange memory _troveChange, uint256 _collChange, 
 ### _adjustTrove(contract ITroveManager,uint256,struct TroveChange,uint256)
 
 - **Kind**: internal
-- **Source**: 20153:5865:205
+- **Source**: 20153:5865:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_adjustTrove(contract ITroveManager,uint256,struct TroveChange,uint256)`
 
 ```solidity
@@ -145,7 +145,7 @@ function _adjustTrove(ITroveManager _troveManager, uint256 _troveId, TroveChange
 ### _requireIsNotShutDown()
 
 - **Kind**: internal
-- **Source**: 51954:128:205
+- **Source**: 51954:128:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireIsNotShutDown()`
 
 ```solidity
@@ -159,7 +159,7 @@ function _requireIsNotShutDown() internal view {
 ### _requireOraclesLive()
 
 - **Kind**: internal
-- **Source**: 61605:266:205
+- **Source**: 61605:266:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireOraclesLive()`
 
 ```solidity
@@ -175,7 +175,7 @@ function _requireOraclesLive() internal returns (uint256) {
 ### _checkBelowCriticalThreshold(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2067:171:214
+- **Source**: 2067:171:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:_checkBelowCriticalThreshold(uint256,uint256)`
 
 ```solidity
@@ -188,7 +188,7 @@ function _checkBelowCriticalThreshold(uint256 _price, uint256 _CCR) internal vie
 ### _getTCR(uint256)
 
 - **Kind**: internal
-- **Source**: 1765:296:214
+- **Source**: 1765:296:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:_getTCR(uint256)`
 
 ```solidity
@@ -203,7 +203,7 @@ function _getTCR(uint256 _price) internal view returns (uint256 TCR) {
 ### getEntireSystemColl()
 
 - **Kind**: internal
-- **Source**: 1265:251:214
+- **Source**: 1265:251:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:getEntireSystemColl()`
 
 ```solidity
@@ -217,7 +217,7 @@ function getEntireSystemColl() public view returns (uint256 entireSystemColl) {
 ### getEntireSystemDebt()
 
 - **Kind**: internal
-- **Source**: 1522:237:214
+- **Source**: 1522:237:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:getEntireSystemDebt()`
 
 ```solidity
@@ -231,7 +231,7 @@ function getEntireSystemDebt() public view returns (uint256 entireSystemDebt) {
 ### _computeCR(uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2640:414:215
+- **Source**: 2640:414:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_computeCR(uint256,uint256,uint256)`
 
 ```solidity
@@ -248,7 +248,7 @@ function _computeCR(uint256 _coll, uint256 _debt, uint256 _price) internal pure 
 ### _requireTroveIsOpen(contract ITroveManager,uint256)
 
 - **Kind**: internal
-- **Source**: 54280:314:205
+- **Source**: 54280:314:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireTroveIsOpen(contract ITroveManager,uint256)`
 
 ```solidity
@@ -263,7 +263,7 @@ function _requireTroveIsOpen(ITroveManager _troveManager, uint256 _troveId) inte
 ### _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)
 
 - **Kind**: internal
-- **Source**: 4222:544:209
+- **Source**: 4222:544:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)`
 
 ```solidity
@@ -283,7 +283,7 @@ function _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256 _troveId, ad
 ### _requireSenderIsOwnerOrAddManager(uint256,address)
 
 - **Kind**: internal
-- **Source**: 3919:297:209
+- **Source**: 3919:297:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrAddManager(uint256,address)`
 
 ```solidity
@@ -298,7 +298,7 @@ function _requireSenderIsOwnerOrAddManager(uint256 _troveId, address _owner) int
 ### _requireSufficientBoldBalance(contract IBoldToken,address,uint256)
 
 - **Kind**: internal
-- **Source**: 57885:263:205
+- **Source**: 57885:263:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireSufficientBoldBalance(contract IBoldToken,address,uint256)`
 
 ```solidity
@@ -312,7 +312,7 @@ function _requireSufficientBoldBalance(IBoldToken _boldToken, address _borrower,
 ### _requireNonZeroAdjustment(struct TroveChange)
 
 - **Kind**: internal
-- **Source**: 52088:322:205
+- **Source**: 52088:322:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireNonZeroAdjustment(struct TroveChange)`
 
 ```solidity
@@ -326,7 +326,7 @@ function _requireNonZeroAdjustment(TroveChange memory _troveChange) internal pur
 ### _requireValidCollWithdrawal(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 57674:205:205
+- **Source**: 57674:205:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireValidCollWithdrawal(uint256,uint256)`
 
 ```solidity
@@ -340,7 +340,7 @@ function _requireValidCollWithdrawal(uint256 _currentColl, uint256 _collWithdraw
 ### _calcUpfrontFee(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 47436:186:205
+- **Source**: 47436:186:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_calcUpfrontFee(uint256,uint256)`
 
 ```solidity
@@ -352,7 +352,7 @@ function _calcUpfrontFee(uint256 _debt, uint256 _avgInterestRate) internal pure 
 ### _calcInterest(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2244:173:214
+- **Source**: 2244:173:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:_calcInterest(uint256,uint256)`
 
 ```solidity
@@ -364,7 +364,7 @@ function _calcInterest(uint256 _weightedDebt, uint256 _period) internal pure ret
 ### _requireUserAcceptsUpfrontFee(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 55503:171:205
+- **Source**: 55503:171:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireUserAcceptsUpfrontFee(uint256,uint256)`
 
 ```solidity
@@ -378,7 +378,7 @@ function _requireUserAcceptsUpfrontFee(uint256 _fee, uint256 _maxFee) internal p
 ### _requireAtLeastMinDebt(uint256)
 
 - **Kind**: internal
-- **Source**: 57523:145:205
+- **Source**: 57523:145:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireAtLeastMinDebt(uint256)`
 
 ```solidity
@@ -392,7 +392,7 @@ function _requireAtLeastMinDebt(uint256 _debt) internal pure {
 ### _requireValidAdjustmentInCurrentMode(struct TroveChange,struct BorrowerOperations.LocalVariables_adjustTrove)
 
 - **Kind**: internal
-- **Source**: 55680:1036:205
+- **Source**: 55680:1036:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireValidAdjustmentInCurrentMode(struct TroveChange,struct BorrowerOperations.LocalVariables_adjustTrove)`
 
 ```solidity
@@ -411,7 +411,7 @@ function _requireValidAdjustmentInCurrentMode(TroveChange memory _troveChange, L
 ### _requireICRisAboveMCR(uint256)
 
 - **Kind**: internal
-- **Source**: 56722:142:205
+- **Source**: 56722:142:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireICRisAboveMCR(uint256)`
 
 ```solidity
@@ -425,7 +425,7 @@ function _requireICRisAboveMCR(uint256 _newICR) internal view {
 ### _getNewTCRFromTroveChange(struct TroveChange,uint256)
 
 - **Kind**: internal
-- **Source**: 61913:571:205
+- **Source**: 61913:571:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_getNewTCRFromTroveChange(struct TroveChange,uint256)`
 
 ```solidity
@@ -444,7 +444,7 @@ function _getNewTCRFromTroveChange(TroveChange memory _troveChange, uint256 _pri
 ### _requireNoBorrowingUnlessNewTCRisAboveCCR(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 56870:206:205
+- **Source**: 56870:206:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireNoBorrowingUnlessNewTCRisAboveCCR(uint256,uint256)`
 
 ```solidity
@@ -458,7 +458,7 @@ function _requireNoBorrowingUnlessNewTCRisAboveCCR(uint256 _debtIncrease, uint25
 ### _requireDebtRepaymentGeCollWithdrawal(struct TroveChange,uint256)
 
 - **Kind**: internal
-- **Source**: 57082:284:205
+- **Source**: 57082:284:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireDebtRepaymentGeCollWithdrawal(struct TroveChange,uint256)`
 
 ```solidity
@@ -472,7 +472,7 @@ function _requireDebtRepaymentGeCollWithdrawal(TroveChange memory _troveChange, 
 ### _requireNewTCRisAboveCCR(uint256)
 
 - **Kind**: internal
-- **Source**: 57372:145:205
+- **Source**: 57372:145:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireNewTCRisAboveCCR(uint256)`
 
 ```solidity
@@ -486,7 +486,7 @@ function _requireNewTCRisAboveCCR(uint256 _newTCR) internal view {
 ### _moveTokensFromAdjustment(address,struct TroveChange,contract IBoldToken,contract IActivePool)
 
 - **Kind**: internal
-- **Source**: 50355:1035:205
+- **Source**: 50355:1035:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_moveTokensFromAdjustment(address,struct TroveChange,contract IBoldToken,contract IActivePool)`
 
 ```solidity
@@ -508,7 +508,7 @@ function _moveTokensFromAdjustment(address withdrawalReceiver, TroveChange memor
 ### _pullCollAndSendToActivePool(contract IActivePool,uint256)
 
 - **Kind**: internal
-- **Source**: 51396:337:205
+- **Source**: 51396:337:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_pullCollAndSendToActivePool(contract IActivePool,uint256)`
 
 ```solidity

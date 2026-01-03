@@ -7,7 +7,7 @@
 - **Contract**: WETHPriceFeed
 - **Signature**: `setAddresses(address)`
 - **Visibility**: external
-- **Source Range**: 1743:189:263
+- **Source Range**: 1743:189:112
 - **Inherited From**: MainnetPriceFeedBase
 
 ## Implementation
@@ -24,7 +24,7 @@ function setAddresses(address _borrowOperationsAddress) external onlyOwner() {
 ### _renounceOwnership()
 
 - **Kind**: internal
-- **Source**: 1896:130:216
+- **Source**: 1896:130:65
 - **Link**: `src/Dependencies/Ownable.sol:Ownable:_renounceOwnership()`
 
 ```solidity
@@ -43,7 +43,7 @@ function _renounceOwnership() internal {
 ### onlyOwner()
 
 - **Kind**: modifier
-- **Source**: 1180:103:216
+- **Source**: 1180:103:65
 - **Link**: `src/Dependencies/Ownable.sol:Ownable:onlyOwner()`
 
 ```solidity
@@ -57,7 +57,7 @@ modifier onlyOwner() {
 ### isOwner()
 
 - **Kind**: internal
-- **Source**: 1366:90:216
+- **Source**: 1366:90:65
 - **Link**: `src/Dependencies/Ownable.sol:Ownable:isOwner()`
 
 ```solidity

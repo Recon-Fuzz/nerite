@@ -57,7 +57,7 @@ struct DebtPerInterestRate {
 
 - **Signature**: `constructor(contract ICollateralRegistry)`
 - **Visibility**: public
-- **Source Range**: 404:110:252
+- **Source Range**: 404:110:101
 - **Details**: [function_constructor_contract_ICollateralRegistry.md](./function_constructor_contract_ICollateralRegistry.md)
 
 **Signature:**
@@ -69,7 +69,7 @@ constructor(ICollateralRegistry _collateralRegistry);
 
 - **Signature**: `getMultipleSortedTroves(uint256,int256,uint256)`
 - **Visibility**: external
-- **Source Range**: 520:1329:252
+- **Source Range**: 520:1329:101
 - **Details**: [function_getMultipleSortedTroves_uint256_int256_uint256.md](./function_getMultipleSortedTroves_uint256_int256_uint256.md)
 
 **Signature:**
@@ -81,7 +81,7 @@ function getMultipleSortedTroves(uint256 _collIndex, int256 _startIdx, uint256 _
 
 - **Signature**: `getDebtPerInterestRateAscending(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 3839:1122:252
+- **Source Range**: 3839:1122:101
 - **Details**: [function_getDebtPerInterestRateAscending_uint256_uint256_uint256.md](./function_getDebtPerInterestRateAscending_uint256_uint256_uint256.md)
 
 **Signature:**

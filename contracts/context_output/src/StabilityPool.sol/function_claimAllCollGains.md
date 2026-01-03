@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `claimAllCollGains()`
 - **Visibility**: external
-- **Source Range**: 16227:474:274
+- **Source Range**: 16227:474:123
 
 ## Implementation
 
@@ -29,7 +29,7 @@ function claimAllCollGains() external {
 ### _requireUserHasNoDeposit(address)
 
 - **Kind**: internal
-- **Source**: 37140:221:274
+- **Source**: 37140:221:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_requireUserHasNoDeposit(address)`
 
 ```solidity
@@ -42,7 +42,7 @@ function _requireUserHasNoDeposit(address _address) internal view {
 ### _requireNonZeroAmount(uint256)
 
 - **Kind**: internal
-- **Source**: 37367:141:274
+- **Source**: 37367:141:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_requireNonZeroAmount(uint256)`
 
 ```solidity
@@ -54,7 +54,7 @@ function _requireNonZeroAmount(uint256 _amount) internal pure {
 ### _sendCollGainToDepositor(uint256)
 
 - **Kind**: internal
-- **Source**: 34555:327:274
+- **Source**: 34555:327:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_sendCollGainToDepositor(uint256)`
 
 ```solidity

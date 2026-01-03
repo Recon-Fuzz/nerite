@@ -7,7 +7,7 @@
 - **Contract**: ERC20
 - **Signature**: `balanceOf(address)`
 - **Visibility**: public
-- **Source Range**: 3419:125:86
+- **Source Range**: 3419:125:7
 
 ## Implementation
 

@@ -7,7 +7,7 @@
 - **Contract**: MetadataNFT
 - **Signature**: `constructor(contract FixedAssetReader)`
 - **Visibility**: public
-- **Source Range**: 935:86:253
+- **Source Range**: 935:86:102
 
 ## Implementation
 

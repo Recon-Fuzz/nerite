@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `mintBatchManagementFeeAndAccountForChange(struct TroveChange,address)`
 - **Visibility**: external
-- **Source Range**: 12078:275:202
+- **Source Range**: 12078:275:51
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function mintBatchManagementFeeAndAccountForChange(TroveChange calldata _troveCh
 ### _requireCallerIsTroveManager()
 
 - **Kind**: internal
-- **Source**: 15101:155:202
+- **Source**: 15101:155:51
 - **Link**: `src/ActivePool.sol:ActivePool:_requireCallerIsTroveManager()`
 
 ```solidity
@@ -35,7 +35,7 @@ function _requireCallerIsTroveManager() internal view {
 ### _mintBatchManagementFeeAndAccountForChange(struct TroveChange,address)
 
 - **Kind**: internal
-- **Source**: 12359:1313:202
+- **Source**: 12359:1313:51
 - **Link**: `src/ActivePool.sol:ActivePool:_mintBatchManagementFeeAndAccountForChange(struct TroveChange,address)`
 
 ```solidity
@@ -59,7 +59,7 @@ function _mintBatchManagementFeeAndAccountForChange(TroveChange memory _troveCha
 ### calcPendingAggBatchManagementFee()
 
 - **Kind**: internal
-- **Source**: 5346:372:202
+- **Source**: 5346:372:51
 - **Link**: `src/ActivePool.sol:ActivePool:calcPendingAggBatchManagementFee()`
 
 ```solidity
@@ -73,7 +73,7 @@ function calcPendingAggBatchManagementFee() public view returns (uint256) {
 ### min(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 588:104:114
+- **Source**: 588:104:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:min(uint256,uint256)`
 
 ```solidity
@@ -86,7 +86,7 @@ function min(uint256 a, uint256 b) internal pure returns (uint256) {
 ### ceilDiv(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 1157:194:114
+- **Source**: 1157:194:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:ceilDiv(uint256,uint256)`
 
 ```solidity

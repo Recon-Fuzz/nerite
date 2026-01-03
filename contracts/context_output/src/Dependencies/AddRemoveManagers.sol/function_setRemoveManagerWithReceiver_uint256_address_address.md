@@ -7,7 +7,7 @@
 - **Contract**: AddRemoveManagers
 - **Signature**: `setRemoveManagerWithReceiver(uint256,address,address)`
 - **Visibility**: public
-- **Source Range**: 2618:220:209
+- **Source Range**: 2618:220:58
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function setRemoveManagerWithReceiver(uint256 _troveId, address _manager, addres
 ### _requireCallerIsBorrower(uint256)
 
 - **Kind**: internal
-- **Source**: 3740:173:209
+- **Source**: 3740:173:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireCallerIsBorrower(uint256)`
 
 ```solidity
@@ -37,7 +37,7 @@ function _requireCallerIsBorrower(uint256 _troveId) internal view {
 ### _setRemoveManagerAndReceiver(uint256,address,address)
 
 - **Kind**: internal
-- **Source**: 2844:377:209
+- **Source**: 2844:377:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_setRemoveManagerAndReceiver(uint256,address,address)`
 
 ```solidity
@@ -52,7 +52,7 @@ function _setRemoveManagerAndReceiver(uint256 _troveId, address _manager, addres
 ### _requireNonZeroManagerUnlessWiping(address,address)
 
 - **Kind**: internal
-- **Source**: 3522:212:209
+- **Source**: 3522:212:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireNonZeroManagerUnlessWiping(address,address)`
 
 ```solidity

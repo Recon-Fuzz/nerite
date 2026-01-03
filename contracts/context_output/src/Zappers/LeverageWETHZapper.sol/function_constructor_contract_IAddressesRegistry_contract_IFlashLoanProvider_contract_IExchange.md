@@ -7,7 +7,7 @@
 - **Contract**: LeverageWETHZapper
 - **Signature**: `constructor(contract IAddressesRegistry,contract IFlashLoanProvider,contract IExchange)`
 - **Visibility**: public
-- **Source Range**: 276:427:292
+- **Source Range**: 276:427:141
 
 ## Implementation
 
@@ -22,7 +22,7 @@ constructor(IAddressesRegistry _addressesRegistry, IFlashLoanProvider _flashLoan
 ### (contract IAddressesRegistry,contract IFlashLoanProvider,contract IExchange)
 
 - **Kind**: internal
-- **Source**: 166:544:311
+- **Source**: 166:544:160
 - **Link**: `src/Zappers/WETHZapper.sol:WETHZapper:constructor(contract IAddressesRegistry,contract IFlashLoanProvider,contract IExchange)`
 
 ```solidity
@@ -36,7 +36,7 @@ constructor(IAddressesRegistry _addressesRegistry, IFlashLoanProvider _flashLoan
 ### (contract IAddressesRegistry,contract IFlashLoanProvider,contract IExchange)
 
 - **Kind**: internal
-- **Source**: 865:469:282
+- **Source**: 865:469:131
 - **Link**: `src/Zappers/BaseZapper.sol:BaseZapper:constructor(contract IAddressesRegistry,contract IFlashLoanProvider,contract IExchange)`
 
 ```solidity
@@ -53,7 +53,7 @@ constructor(IAddressesRegistry _addressesRegistry, IFlashLoanProvider _flashLoan
 ### (contract IAddressesRegistry)
 
 - **Kind**: internal
-- **Source**: 1932:164:209
+- **Source**: 1932:164:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:constructor(contract IAddressesRegistry)`
 
 ```solidity

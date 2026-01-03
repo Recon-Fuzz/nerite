@@ -12,7 +12,7 @@
 
 - **Signature**: `factory()`
 - **Visibility**: external
-- **Source Range**: 245:51:306
+- **Source Range**: 245:51:155
 
 **Signature:**
 ```solidity
@@ -25,7 +25,7 @@ function factory() external view returns (address);;
 
 - **Signature**: `token0()`
 - **Visibility**: external
-- **Source Range**: 420:50:306
+- **Source Range**: 420:50:155
 
 **Signature:**
 ```solidity
@@ -38,7 +38,7 @@ function token0() external view returns (address);;
 
 - **Signature**: `token1()`
 - **Visibility**: external
-- **Source Range**: 595:50:306
+- **Source Range**: 595:50:155
 
 **Signature:**
 ```solidity
@@ -51,7 +51,7 @@ function token1() external view returns (address);;
 
 - **Signature**: `fee()`
 - **Visibility**: external
-- **Source Range**: 740:46:306
+- **Source Range**: 740:46:155
 
 **Signature:**
 ```solidity
@@ -64,7 +64,7 @@ function fee() external view returns (uint24);;
 
 - **Signature**: `tickSpacing()`
 - **Visibility**: external
-- **Source Range**: 1155:53:306
+- **Source Range**: 1155:53:155
 
 **Signature:**
 ```solidity
@@ -80,7 +80,7 @@ function tickSpacing() external view returns (int24);;
 
 - **Signature**: `maxLiquidityPerTick()`
 - **Visibility**: external
-- **Source Range**: 1582:63:306
+- **Source Range**: 1582:63:155
 
 **Signature:**
 ```solidity
@@ -95,7 +95,7 @@ function maxLiquidityPerTick() external view returns (uint128);;
 
 - **Signature**: `slot0()`
 - **Visibility**: external
-- **Source Range**: 2796:317:306
+- **Source Range**: 2796:317:155
 
 **Signature:**
 ```solidity
@@ -119,7 +119,7 @@ function slot0() external view returns (uint160 sqrtPriceX96, int24 tick, uint16
 
 - **Signature**: `feeGrowthGlobal0X128()`
 - **Visibility**: external
-- **Source Range**: 3292:64:306
+- **Source Range**: 3292:64:155
 
 **Signature:**
 ```solidity
@@ -132,7 +132,7 @@ function feeGrowthGlobal0X128() external view returns (uint256);;
 
 - **Signature**: `feeGrowthGlobal1X128()`
 - **Visibility**: external
-- **Source Range**: 3535:64:306
+- **Source Range**: 3535:64:155
 
 **Signature:**
 ```solidity
@@ -145,7 +145,7 @@ function feeGrowthGlobal1X128() external view returns (uint256);;
 
 - **Signature**: `protocolFees()`
 - **Visibility**: external
-- **Source Range**: 3757:79:306
+- **Source Range**: 3757:79:155
 
 **Signature:**
 ```solidity
@@ -158,7 +158,7 @@ function protocolFees() external view returns (uint128 token0, uint128 token1);;
 
 - **Signature**: `liquidity()`
 - **Visibility**: external
-- **Source Range**: 3997:53:306
+- **Source Range**: 3997:53:155
 
 **Signature:**
 ```solidity
@@ -171,7 +171,7 @@ function liquidity() external view returns (uint128);;
 
 - **Signature**: `ticks(int24)`
 - **Visibility**: external
-- **Source Range**: 5305:397:306
+- **Source Range**: 5305:397:155
 
 **Signature:**
 ```solidity
@@ -196,7 +196,7 @@ function ticks(int24 tick) external view returns (uint128 liquidityGross, int128
 
 - **Signature**: `tickBitmap(int16)`
 - **Visibility**: external
-- **Source Range**: 5812:72:306
+- **Source Range**: 5812:72:155
 
 **Signature:**
 ```solidity
@@ -208,7 +208,7 @@ function tickBitmap(int16 wordPosition) external view returns (uint256);;
 
 - **Signature**: `positions(bytes32)`
 - **Visibility**: external
-- **Source Range**: 6595:279:306
+- **Source Range**: 6595:279:155
 
 **Signature:**
 ```solidity
@@ -226,7 +226,7 @@ function positions(bytes32 key) external view returns (uint128 _liquidity, uint2
 
 - **Signature**: `observations(uint256)`
 - **Visibility**: external
-- **Source Range**: 7634:248:306
+- **Source Range**: 7634:248:155
 
 **Signature:**
 ```solidity
@@ -245,7 +245,7 @@ function observations(uint256 index) external view returns (uint32 blockTimestam
 
 - **Signature**: `observe(uint32[])`
 - **Visibility**: external
-- **Source Range**: 8937:180:306
+- **Source Range**: 8937:180:155
 
 **Signature:**
 ```solidity
@@ -266,7 +266,7 @@ function observe(uint32[] calldata secondsAgos) external view returns (int56[] m
 
 - **Signature**: `snapshotCumulativesInside(int24,int24)`
 - **Visibility**: external
-- **Source Range**: 9899:205:306
+- **Source Range**: 9899:205:155
 
 **Signature:**
 ```solidity
@@ -286,7 +286,7 @@ function snapshotCumulativesInside(int24 tickLower, int24 tickUpper) external vi
 
 - **Signature**: `initialize(uint160)`
 - **Visibility**: external
-- **Source Range**: 10321:51:306
+- **Source Range**: 10321:51:155
 
 **Signature:**
 ```solidity
@@ -300,7 +300,7 @@ function initialize(uint160 sqrtPriceX96) external;;
 
 - **Signature**: `mint(address,int24,int24,uint128,bytes)`
 - **Visibility**: external
-- **Source Range**: 11412:172:306
+- **Source Range**: 11412:172:155
 
 **Signature:**
 ```solidity
@@ -322,7 +322,7 @@ function mint(address recipient, int24 tickLower, int24 tickUpper, uint128 amoun
 
 - **Signature**: `collect(address,int24,int24,uint128,uint128)`
 - **Visibility**: external
-- **Source Range**: 12648:220:306
+- **Source Range**: 12648:220:155
 
 **Signature:**
 ```solidity
@@ -345,7 +345,7 @@ function collect(address recipient, int24 tickLower, int24 tickUpper, uint128 am
 
 - **Signature**: `burn(int24,int24,uint128)`
 - **Visibility**: external
-- **Source Range**: 13510:132:306
+- **Source Range**: 13510:132:155
 
 **Signature:**
 ```solidity
@@ -364,7 +364,7 @@ function burn(int24 tickLower, int24 tickUpper, uint128 amount) external returns
 
 - **Signature**: `swap(address,bool,int256,uint160,bytes)`
 - **Visibility**: external
-- **Source Range**: 14668:218:306
+- **Source Range**: 14668:218:155
 
 **Signature:**
 ```solidity
@@ -385,7 +385,7 @@ function swap(address recipient, bool zeroForOne, int256 amountSpecified, uint16
 
 - **Signature**: `flash(address,uint256,uint256,bytes)`
 - **Visibility**: external
-- **Source Range**: 15554:98:306
+- **Source Range**: 15554:98:155
 
 **Signature:**
 ```solidity
@@ -404,7 +404,7 @@ function flash(address recipient, uint256 amount0, uint256 amount1, bytes callda
 
 - **Signature**: `increaseObservationCardinalityNext(uint16)`
 - **Visibility**: external
-- **Source Range**: 16030:88:306
+- **Source Range**: 16030:88:155
 
 **Signature:**
 ```solidity
@@ -419,7 +419,7 @@ function increaseObservationCardinalityNext(uint16 observationCardinalityNext) e
 
 - **Signature**: `setFeeProtocol(uint8,uint8)`
 - **Visibility**: external
-- **Source Range**: 16334:73:306
+- **Source Range**: 16334:73:155
 
 **Signature:**
 ```solidity
@@ -433,7 +433,7 @@ function setFeeProtocol(uint8 feeProtocol0, uint8 feeProtocol1) external;;
 
 - **Signature**: `collectProtocol(address,uint128,uint128)`
 - **Visibility**: external
-- **Source Range**: 16901:164:306
+- **Source Range**: 16901:164:155
 
 **Signature:**
 ```solidity

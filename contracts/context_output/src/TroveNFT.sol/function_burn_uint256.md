@@ -7,7 +7,7 @@
 - **Contract**: TroveNFT
 - **Signature**: `burn(uint256)`
 - **Visibility**: external
-- **Source Range**: 2019:122:276
+- **Source Range**: 2019:122:125
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function burn(uint256 _troveId) override external {
 ### _requireCallerIsTroveManager()
 
 - **Kind**: internal
-- **Source**: 2147:168:276
+- **Source**: 2147:168:125
 - **Link**: `src/TroveNFT.sol:TroveNFT:_requireCallerIsTroveManager()`
 
 ```solidity
@@ -35,7 +35,7 @@ function _requireCallerIsTroveManager() internal view {
 ### _burn(uint256)
 
 - **Kind**: internal
-- **Source**: 10171:762:96
+- **Source**: 10171:762:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_burn(uint256)`
 
 ```solidity
@@ -62,7 +62,7 @@ function _burn(uint256 tokenId) virtual internal {
 ### ownerOf(uint256)
 
 - **Kind**: internal
-- **Source**: 2190:219:96
+- **Source**: 2190:219:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:ownerOf(uint256)`
 
 ```solidity
@@ -77,7 +77,7 @@ function ownerOf(uint256 tokenId) virtual override public view returns (address)
 ### _ownerOf(uint256)
 
 - **Kind**: internal
-- **Source**: 6702:115:96
+- **Source**: 6702:115:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_ownerOf(uint256)`
 
 ```solidity
@@ -90,7 +90,7 @@ function _ownerOf(uint256 tokenId) virtual internal view returns (address) {
 ### _beforeTokenTransfer(address,address,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 15472:116:96
+- **Source**: 15472:116:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_beforeTokenTransfer(address,address,uint256,uint256)`
 
 ```solidity
@@ -109,7 +109,7 @@ function _beforeTokenTransfer(address from, address to, uint256 firstTokenId, ui
 ### _afterTokenTransfer(address,address,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 16294:115:96
+- **Source**: 16294:115:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_afterTokenTransfer(address,address,uint256,uint256)`
 
 ```solidity

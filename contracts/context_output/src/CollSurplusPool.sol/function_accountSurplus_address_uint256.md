@@ -7,7 +7,7 @@
 - **Contract**: CollSurplusPool
 - **Signature**: `accountSurplus(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 1827:323:206
+- **Source Range**: 1827:323:55
 
 ## Implementation
 
@@ -26,7 +26,7 @@ function accountSurplus(address _account, uint256 _amount) override external {
 ### _requireCallerIsTroveManager()
 
 - **Kind**: internal
-- **Source**: 2869:160:206
+- **Source**: 2869:160:55
 - **Link**: `src/CollSurplusPool.sol:CollSurplusPool:_requireCallerIsTroveManager()`
 
 ```solidity

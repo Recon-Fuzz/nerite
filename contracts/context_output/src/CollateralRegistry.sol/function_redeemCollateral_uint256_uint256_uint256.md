@@ -7,7 +7,7 @@
 - **Contract**: CollateralRegistry
 - **Signature**: `redeemCollateral(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4093:3847:207
+- **Source Range**: 4093:3847:56
 
 ## Implementation
 
@@ -65,7 +65,7 @@ function redeemCollateral(uint256 _boldAmount, uint256 _maxIterationsPerCollater
 ### _requireValidMaxFeePercentage(uint256)
 
 - **Kind**: internal
-- **Source**: 13257:275:207
+- **Source**: 13257:275:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:_requireValidMaxFeePercentage(uint256)`
 
 ```solidity
@@ -77,7 +77,7 @@ function _requireValidMaxFeePercentage(uint256 _maxFeePercentage) internal pure 
 ### _requireAmountGreaterThanZero(uint256)
 
 - **Kind**: internal
-- **Source**: 13538:163:207
+- **Source**: 13538:163:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:_requireAmountGreaterThanZero(uint256)`
 
 ```solidity
@@ -89,7 +89,7 @@ function _requireAmountGreaterThanZero(uint256 _amount) internal pure {
 ### _calcRedemptionRate(uint256)
 
 - **Kind**: internal
-- **Source**: 10355:235:207
+- **Source**: 10355:235:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:_calcRedemptionRate(uint256)`
 
 ```solidity
@@ -101,7 +101,7 @@ function _calcRedemptionRate(uint256 _baseRate) internal pure returns (uint256) 
 ### _getUpdatedBaseRateFromRedemption(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 9419:631:207
+- **Source**: 9419:631:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:_getUpdatedBaseRateFromRedemption(uint256,uint256)`
 
 ```solidity
@@ -117,7 +117,7 @@ function _getUpdatedBaseRateFromRedemption(uint256 _redeemAmount, uint256 _total
 ### _calcDecayedBaseRate()
 
 - **Kind**: internal
-- **Source**: 10056:293:207
+- **Source**: 10056:293:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:_calcDecayedBaseRate()`
 
 ```solidity
@@ -131,7 +131,7 @@ function _calcDecayedBaseRate() internal view returns (uint256) {
 ### _minutesPassedSinceLastFeeOp()
 
 - **Kind**: internal
-- **Source**: 8382:149:207
+- **Source**: 8382:149:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:_minutesPassedSinceLastFeeOp()`
 
 ```solidity
@@ -143,7 +143,7 @@ function _minutesPassedSinceLastFeeOp() internal view returns (uint256) {
 ### _decPow(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 1800:686:215
+- **Source**: 1800:686:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_decPow(uint256,uint256)`
 
 ```solidity
@@ -170,7 +170,7 @@ function _decPow(uint256 _base, uint256 _minutes) internal pure returns (uint256
 ### decMul(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 752:192:215
+- **Source**: 752:192:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:decMul(uint256,uint256)`
 
 ```solidity
@@ -183,7 +183,7 @@ function decMul(uint256 x, uint256 y) internal pure returns (uint256 decProd) {
 ### _min(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 136:113:215
+- **Source**: 136:113:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_min(uint256,uint256)`
 
 ```solidity
@@ -195,7 +195,7 @@ function _min(uint256 _a, uint256 _b) internal pure returns (uint256) {
 ### getTroveManager(uint256)
 
 - **Kind**: internal
-- **Source**: 12588:637:207
+- **Source**: 12588:637:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:getTroveManager(uint256)`
 
 ```solidity
@@ -207,7 +207,7 @@ function getTroveManager(uint256 _index) public view returns (ITroveManager) {
 ### _updateBaseRateAndGetRedemptionRate(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 8624:493:207
+- **Source**: 8624:493:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:_updateBaseRateAndGetRedemptionRate(uint256,uint256)`
 
 ```solidity
@@ -222,7 +222,7 @@ function _updateBaseRateAndGetRedemptionRate(uint256 _boldAmount, uint256 _total
 ### _updateLastFeeOpTime()
 
 - **Kind**: internal
-- **Source**: 8100:276:207
+- **Source**: 8100:276:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:_updateLastFeeOpTime()`
 
 ```solidity

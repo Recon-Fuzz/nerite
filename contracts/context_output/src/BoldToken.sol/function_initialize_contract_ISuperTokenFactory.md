@@ -7,7 +7,7 @@
 - **Contract**: BoldToken
 - **Signature**: `initialize(contract ISuperTokenFactory)`
 - **Visibility**: external
-- **Source Range**: 3005:614:204
+- **Source Range**: 3005:614:53
 
 ## Implementation
 

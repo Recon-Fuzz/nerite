@@ -7,7 +7,7 @@
 - **Contract**: SortedTroves
 - **Signature**: `getPrev(uint256)`
 - **Visibility**: external
-- **Source Range**: 13091:112:273
+- **Source Range**: 13091:112:122
 
 ## Implementation
 

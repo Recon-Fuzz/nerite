@@ -7,7 +7,7 @@
 - **Contract**: WETHZapper
 - **Signature**: `withdrawCollToRawETH(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 3717:484:311
+- **Source Range**: 3717:484:160
 
 ## Implementation
 
@@ -27,7 +27,7 @@ function withdrawCollToRawETH(uint256 _troveId, uint256 _amount) external {
 ### _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)
 
 - **Kind**: internal
-- **Source**: 4222:544:209
+- **Source**: 4222:544:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)`
 
 ```solidity

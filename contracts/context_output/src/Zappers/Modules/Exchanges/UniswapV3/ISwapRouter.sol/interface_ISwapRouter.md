@@ -70,7 +70,7 @@ struct ExactOutputParams {
 
 - **Signature**: `exactInputSingle(struct ISwapRouter.ExactInputSingleParams)`
 - **Visibility**: external
-- **Source Range**: 740:111:304
+- **Source Range**: 740:111:153
 
 **Signature:**
 ```solidity
@@ -84,7 +84,7 @@ function exactInputSingle(ExactInputSingleParams calldata params) external payab
 
 - **Signature**: `exactInput(struct ISwapRouter.ExactInputParams)`
 - **Visibility**: external
-- **Source Range**: 1305:99:304
+- **Source Range**: 1305:99:153
 
 **Signature:**
 ```solidity
@@ -98,7 +98,7 @@ function exactInput(ExactInputParams calldata params) external payable returns (
 
 - **Signature**: `exactOutputSingle(struct ISwapRouter.ExactOutputSingleParams)`
 - **Visibility**: external
-- **Source Range**: 1928:112:304
+- **Source Range**: 1928:112:153
 
 **Signature:**
 ```solidity
@@ -112,7 +112,7 @@ function exactOutputSingle(ExactOutputSingleParams calldata params) external pay
 
 - **Signature**: `exactOutput(struct ISwapRouter.ExactOutputParams)`
 - **Visibility**: external
-- **Source Range**: 2506:100:304
+- **Source Range**: 2506:100:153
 
 **Signature:**
 ```solidity

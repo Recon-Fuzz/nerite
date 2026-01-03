@@ -7,7 +7,7 @@
 - **Contract**: DefaultPool
 - **Signature**: `receiveColl(uint256)`
 - **Visibility**: external
-- **Source Range**: 2816:365:208
+- **Source Range**: 2816:365:57
 
 ## Implementation
 
@@ -26,7 +26,7 @@ function receiveColl(uint256 _amount) external {
 ### _requireCallerIsActivePool()
 
 - **Kind**: internal
-- **Source**: 3631:154:208
+- **Source**: 3631:154:57
 - **Link**: `src/DefaultPool.sol:DefaultPool:_requireCallerIsActivePool()`
 
 ```solidity

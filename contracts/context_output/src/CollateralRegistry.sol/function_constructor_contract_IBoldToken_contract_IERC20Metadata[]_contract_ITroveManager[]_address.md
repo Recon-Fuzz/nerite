@@ -7,7 +7,7 @@
 - **Contract**: CollateralRegistry
 - **Signature**: `constructor(contract IBoldToken,contract IERC20Metadata[],contract ITroveManager[],address)`
 - **Visibility**: public
-- **Source Range**: 1856:2069:207
+- **Source Range**: 1856:2069:56
 
 ## Implementation
 

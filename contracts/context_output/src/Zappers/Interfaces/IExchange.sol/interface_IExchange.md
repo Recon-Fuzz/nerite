@@ -12,7 +12,7 @@
 
 - **Signature**: `swapFromBold(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 84:76:284
+- **Source Range**: 84:76:133
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function swapFromBold(uint256 _boldAmount, uint256 _minCollAmount) external;;
 
 - **Signature**: `swapToBold(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 166:92:284
+- **Source Range**: 166:92:133
 
 **Signature:**
 ```solidity

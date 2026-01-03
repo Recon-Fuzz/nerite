@@ -7,7 +7,7 @@
 - **Contract**: BoldToken
 - **Signature**: `setBranchAddresses(address,address,address,address)`
 - **Visibility**: external
-- **Source Range**: 3625:733:204
+- **Source Range**: 3625:733:53
 
 ## Implementation
 
@@ -29,7 +29,7 @@ function setBranchAddresses(address _troveManagerAddress, address _stabilityPool
 ### onlyOwner()
 
 - **Kind**: modifier
-- **Source**: 1180:103:216
+- **Source**: 1180:103:65
 - **Link**: `src/Dependencies/Ownable.sol:Ownable:onlyOwner()`
 
 ```solidity
@@ -43,7 +43,7 @@ modifier onlyOwner() {
 ### isOwner()
 
 - **Kind**: internal
-- **Source**: 1366:90:216
+- **Source**: 1366:90:65
 - **Link**: `src/Dependencies/Ownable.sol:Ownable:isOwner()`
 
 ```solidity

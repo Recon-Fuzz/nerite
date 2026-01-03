@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `setBatchManagerAnnualInterestRate(uint128,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 36020:3091:205
+- **Source Range**: 36020:3091:54
 
 ## Implementation
 
@@ -51,7 +51,7 @@ function setBatchManagerAnnualInterestRate(uint128 _newAnnualInterestRate, uint2
 ### _requireIsNotShutDown()
 
 - **Kind**: internal
-- **Source**: 51954:128:205
+- **Source**: 51954:128:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireIsNotShutDown()`
 
 ```solidity
@@ -65,7 +65,7 @@ function _requireIsNotShutDown() internal view {
 ### _requireValidInterestBatchManager(address)
 
 - **Kind**: internal
-- **Source**: 60491:250:205
+- **Source**: 60491:250:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireValidInterestBatchManager(address)`
 
 ```solidity
@@ -79,7 +79,7 @@ function _requireValidInterestBatchManager(address _interestBatchManagerAddress)
 ### _requireInterestRateInBatchManagerRange(address,uint256)
 
 - **Kind**: internal
-- **Source**: 58923:425:205
+- **Source**: 58923:425:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireInterestRateInBatchManagerRange(address,uint256)`
 
 ```solidity
@@ -92,7 +92,7 @@ function _requireInterestRateInBatchManagerRange(address _interestBatchManagerAd
 ### _requireInterestRateInRange(uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 59354:316:205
+- **Source**: 59354:316:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireInterestRateInRange(uint256,uint256,uint256)`
 
 ```solidity
@@ -106,7 +106,7 @@ function _requireInterestRateInRange(uint256 _annualInterestRate, uint256 _minIn
 ### _requireBatchInterestRateChangePeriodPassed(address,uint256)
 
 - **Kind**: internal
-- **Source**: 59676:469:205
+- **Source**: 59676:469:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireBatchInterestRateChangePeriodPassed(address,uint256)`
 
 ```solidity
@@ -121,7 +121,7 @@ function _requireBatchInterestRateChangePeriodPassed(address _interestBatchManag
 ### _requireOraclesLive()
 
 - **Kind**: internal
-- **Source**: 61605:266:205
+- **Source**: 61605:266:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireOraclesLive()`
 
 ```solidity
@@ -137,7 +137,7 @@ function _requireOraclesLive() internal returns (uint256) {
 ### _calcUpfrontFee(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 47436:186:205
+- **Source**: 47436:186:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_calcUpfrontFee(uint256,uint256)`
 
 ```solidity
@@ -149,7 +149,7 @@ function _calcUpfrontFee(uint256 _debt, uint256 _avgInterestRate) internal pure 
 ### _calcInterest(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2244:173:214
+- **Source**: 2244:173:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:_calcInterest(uint256,uint256)`
 
 ```solidity
@@ -161,7 +161,7 @@ function _calcInterest(uint256 _weightedDebt, uint256 _period) internal pure ret
 ### _requireUserAcceptsUpfrontFee(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 55503:171:205
+- **Source**: 55503:171:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireUserAcceptsUpfrontFee(uint256,uint256)`
 
 ```solidity
@@ -175,7 +175,7 @@ function _requireUserAcceptsUpfrontFee(uint256 _fee, uint256 _maxFee) internal p
 ### _getNewTCRFromTroveChange(struct TroveChange,uint256)
 
 - **Kind**: internal
-- **Source**: 61913:571:205
+- **Source**: 61913:571:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_getNewTCRFromTroveChange(struct TroveChange,uint256)`
 
 ```solidity
@@ -194,7 +194,7 @@ function _getNewTCRFromTroveChange(TroveChange memory _troveChange, uint256 _pri
 ### getEntireSystemColl()
 
 - **Kind**: internal
-- **Source**: 1265:251:214
+- **Source**: 1265:251:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:getEntireSystemColl()`
 
 ```solidity
@@ -208,7 +208,7 @@ function getEntireSystemColl() public view returns (uint256 entireSystemColl) {
 ### getEntireSystemDebt()
 
 - **Kind**: internal
-- **Source**: 1522:237:214
+- **Source**: 1522:237:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:getEntireSystemDebt()`
 
 ```solidity
@@ -222,7 +222,7 @@ function getEntireSystemDebt() public view returns (uint256 entireSystemDebt) {
 ### _computeCR(uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2640:414:215
+- **Source**: 2640:414:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_computeCR(uint256,uint256,uint256)`
 
 ```solidity
@@ -239,7 +239,7 @@ function _computeCR(uint256 _coll, uint256 _debt, uint256 _price) internal pure 
 ### _requireNewTCRisAboveCCR(uint256)
 
 - **Kind**: internal
-- **Source**: 57372:145:205
+- **Source**: 57372:145:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireNewTCRisAboveCCR(uint256)`
 
 ```solidity

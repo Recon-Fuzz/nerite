@@ -7,7 +7,7 @@
 - **Contract**: HintHelpers
 - **Signature**: `predictAdjustBatchInterestRateUpfrontFee(uint256,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 6995:1118:218
+- **Source Range**: 6995:1118:67
 
 ## Implementation
 
@@ -33,7 +33,7 @@ function predictAdjustBatchInterestRateUpfrontFee(uint256 _collIndex, address _b
 ### _calcUpfrontFee(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2703:203:218
+- **Source**: 2703:203:67
 - **Link**: `src/HintHelpers.sol:HintHelpers:_calcUpfrontFee(uint256,uint256)`
 
 ```solidity

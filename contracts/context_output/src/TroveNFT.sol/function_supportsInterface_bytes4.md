@@ -7,7 +7,7 @@
 - **Contract**: TroveNFT
 - **Signature**: `supportsInterface(bytes4)`
 - **Visibility**: public
-- **Source Range**: 829:155:111
+- **Source Range**: 829:155:27
 - **Inherited From**: ERC165
 
 ## Implementation

@@ -7,7 +7,7 @@
 - **Contract**: GasCompZapper
 - **Signature**: `receiveFlashLoanOnOpenLeveragedTrove(struct ILeverageZapper.OpenLeveragedTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 11703:190:283
+- **Source Range**: 11703:190:132
 
 ## Implementation
 

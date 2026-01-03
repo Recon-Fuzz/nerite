@@ -7,7 +7,7 @@
 - **Contract**: HintHelpers
 - **Signature**: `predictAdjustTroveUpfrontFee(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 5447:1542:218
+- **Source Range**: 5447:1542:67
 
 ## Implementation
 
@@ -40,7 +40,7 @@ function predictAdjustTroveUpfrontFee(uint256 _collIndex, uint256 _troveId, uint
 ### _calcUpfrontFee(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2703:203:218
+- **Source**: 2703:203:67
 - **Link**: `src/HintHelpers.sol:HintHelpers:_calcUpfrontFee(uint256,uint256)`
 
 ```solidity

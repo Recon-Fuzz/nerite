@@ -7,7 +7,7 @@
 - **Contract**: ERC20
 - **Signature**: `constructor(string,string)`
 - **Visibility**: public
-- **Source Range**: 1980:113:86
+- **Source Range**: 1980:113:7
 
 ## Implementation
 

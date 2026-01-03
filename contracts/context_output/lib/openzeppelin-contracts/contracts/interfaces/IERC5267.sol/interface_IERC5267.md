@@ -21,7 +21,7 @@ event EIP712DomainChanged();
 
 - **Signature**: `eip712Domain()`
 - **Visibility**: external
-- **Source Range**: 425:310:74
+- **Source Range**: 425:310:3
 
 **Signature:**
 ```solidity

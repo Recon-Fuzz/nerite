@@ -7,7 +7,7 @@
 - **Contract**: ERC721
 - **Signature**: `name()`
 - **Visibility**: public
-- **Source Range**: 2471:98:96
+- **Source Range**: 2471:98:14
 
 ## Implementation
 

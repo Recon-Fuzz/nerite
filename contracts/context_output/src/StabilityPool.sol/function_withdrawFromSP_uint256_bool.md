@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `withdrawFromSP(uint256,bool)`
 - **Visibility**: external
-- **Source Range**: 13936:1708:274
+- **Source Range**: 13936:1708:123
 
 ## Implementation
 
@@ -38,7 +38,7 @@ function withdrawFromSP(uint256 _amount, bool _doClaim) override external {
 ### _requireUserHasDeposit(uint256)
 
 - **Kind**: internal
-- **Source**: 36966:168:274
+- **Source**: 36966:168:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_requireUserHasDeposit(uint256)`
 
 ```solidity
@@ -50,7 +50,7 @@ function _requireUserHasDeposit(uint256 _initialDeposit) internal pure {
 ### getDepositorCollGain(address)
 
 - **Kind**: internal
-- **Source**: 28005:1111:274
+- **Source**: 28005:1111:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:getDepositorCollGain(address)`
 
 ```solidity
@@ -72,7 +72,7 @@ function getDepositorCollGain(address _depositor) override public view returns (
 ### _min(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 136:113:215
+- **Source**: 136:113:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_min(uint256,uint256)`
 
 ```solidity
@@ -84,7 +84,7 @@ function _min(uint256 _a, uint256 _b) internal pure returns (uint256) {
 ### getDepositorYieldGain(address)
 
 - **Kind**: internal
-- **Source**: 29122:1117:274
+- **Source**: 29122:1117:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:getDepositorYieldGain(address)`
 
 ```solidity
@@ -106,7 +106,7 @@ function getDepositorYieldGain(address _depositor) override public view returns 
 ### getCompoundedBoldDeposit(address)
 
 - **Kind**: internal
-- **Source**: 32042:411:274
+- **Source**: 32042:411:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:getCompoundedBoldDeposit(address)`
 
 ```solidity
@@ -122,7 +122,7 @@ function getCompoundedBoldDeposit(address _depositor) override public view retur
 ### _getCompoundedStakeFromSnapshots(uint256,struct StabilityPool.Snapshots)
 
 - **Kind**: internal
-- **Source**: 32557:1927:274
+- **Source**: 32557:1927:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_getCompoundedStakeFromSnapshots(uint256,struct StabilityPool.Snapshots)`
 
 ```solidity
@@ -150,7 +150,7 @@ function _getCompoundedStakeFromSnapshots(uint256 initialStake, Snapshots memory
 ### _getYieldToKeepOrSend(uint256,bool)
 
 - **Kind**: internal
-- **Source**: 13153:423:274
+- **Source**: 13153:423:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_getYieldToKeepOrSend(uint256,bool)`
 
 ```solidity
@@ -171,7 +171,7 @@ function _getYieldToKeepOrSend(uint256 _currentYieldGain, bool _doClaim) interna
 ### _getNewStashedCollAndCollToSend(address,uint256,bool)
 
 - **Kind**: internal
-- **Source**: 15650:457:274
+- **Source**: 15650:457:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_getNewStashedCollAndCollToSend(address,uint256,bool)`
 
 ```solidity
@@ -189,7 +189,7 @@ function _getNewStashedCollAndCollToSend(address _depositor, uint256 _currentCol
 ### _updateDepositAndSnapshots(address,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 35197:1401:274
+- **Source**: 35197:1401:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_updateDepositAndSnapshots(address,uint256,uint256)`
 
 ```solidity
@@ -218,7 +218,7 @@ function _updateDepositAndSnapshots(address _depositor, uint256 _newDeposit, uin
 ### _decreaseYieldGainsOwed(uint256)
 
 - **Kind**: internal
-- **Source**: 27440:206:274
+- **Source**: 27440:206:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_decreaseYieldGainsOwed(uint256)`
 
 ```solidity
@@ -232,7 +232,7 @@ function _decreaseYieldGainsOwed(uint256 _amount) internal {
 ### _updateTotalBoldDeposits(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 27050:384:274
+- **Source**: 27050:384:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_updateTotalBoldDeposits(uint256,uint256)`
 
 ```solidity
@@ -247,7 +247,7 @@ function _updateTotalBoldDeposits(uint256 _depositIncrease, uint256 _depositDecr
 ### _sendBoldtoDepositor(address,uint256)
 
 - **Kind**: internal
-- **Source**: 34939:199:274
+- **Source**: 34939:199:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_sendBoldtoDepositor(address,uint256)`
 
 ```solidity
@@ -260,7 +260,7 @@ function _sendBoldtoDepositor(address _depositor, uint256 _boldToSend) internal 
 ### _sendCollGainToDepositor(uint256)
 
 - **Kind**: internal
-- **Source**: 34555:327:274
+- **Source**: 34555:327:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_sendCollGainToDepositor(uint256)`
 
 ```solidity
@@ -276,7 +276,7 @@ function _sendCollGainToDepositor(uint256 _collAmount) internal {
 ### _updateYieldRewardsSum(uint256)
 
 - **Kind**: internal
-- **Source**: 16963:1935:274
+- **Source**: 16963:1935:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_updateYieldRewardsSum(uint256)`
 
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 6883:1490:275
+- **Source Range**: 6883:1490:124
 
 ## Implementation
 
@@ -44,7 +44,7 @@ constructor(IAddressesRegistry _addressesRegistry) LiquityBase(_addressesRegistr
 ### (contract IAddressesRegistry)
 
 - **Kind**: internal
-- **Source**: 816:401:214
+- **Source**: 816:401:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:constructor(contract IAddressesRegistry)`
 
 ```solidity

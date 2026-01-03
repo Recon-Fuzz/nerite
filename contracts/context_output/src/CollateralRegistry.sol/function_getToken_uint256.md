@@ -7,7 +7,7 @@
 - **Contract**: CollateralRegistry
 - **Signature**: `getToken(uint256)`
 - **Visibility**: external
-- **Source Range**: 12019:563:207
+- **Source Range**: 12019:563:56
 
 ## Implementation
 

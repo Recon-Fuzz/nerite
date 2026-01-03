@@ -7,7 +7,7 @@
 - **Contract**: ERC20
 - **Signature**: `transfer(address,uint256)`
 - **Visibility**: public
-- **Source Range**: 3740:189:86
+- **Source Range**: 3740:189:7
 
 ## Implementation
 
@@ -28,7 +28,7 @@ function transfer(address to, uint256 amount) virtual override public returns (b
 ### _msgSender()
 
 - **Kind**: internal
-- **Source**: 655:96:104
+- **Source**: 655:96:20
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/Context.sol:Context:_msgSender()`
 
 ```solidity
@@ -40,7 +40,7 @@ function _msgSender() virtual internal view returns (address) {
 ### _transfer(address,address,uint256)
 
 - **Kind**: internal
-- **Source**: 7456:788:86
+- **Source**: 7456:788:7
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol:ERC20:_transfer(address,address,uint256)`
 
 ```solidity
@@ -70,7 +70,7 @@ function _transfer(address from, address to, uint256 amount) virtual internal {
 ### _beforeTokenTransfer(address,address,uint256)
 
 - **Kind**: internal
-- **Source**: 12073:91:86
+- **Source**: 12073:91:7
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol:ERC20:_beforeTokenTransfer(address,address,uint256)`
 
 ```solidity
@@ -89,7 +89,7 @@ function _beforeTokenTransfer(address from, address to, uint256 amount) virtual 
 ### _afterTokenTransfer(address,address,uint256)
 
 - **Kind**: internal
-- **Source**: 12752:90:86
+- **Source**: 12752:90:7
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol:ERC20:_afterTokenTransfer(address,address,uint256)`
 
 ```solidity

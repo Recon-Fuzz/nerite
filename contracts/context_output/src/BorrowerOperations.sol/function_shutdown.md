@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `shutdown()`
 - **Visibility**: external
-- **Source Range**: 48296:640:205
+- **Source Range**: 48296:640:54
 
 ## Implementation
 
@@ -30,7 +30,7 @@ function shutdown() external {
 ### getEntireSystemColl()
 
 - **Kind**: internal
-- **Source**: 1265:251:214
+- **Source**: 1265:251:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:getEntireSystemColl()`
 
 ```solidity
@@ -44,7 +44,7 @@ function getEntireSystemColl() public view returns (uint256 entireSystemColl) {
 ### getEntireSystemDebt()
 
 - **Kind**: internal
-- **Source**: 1522:237:214
+- **Source**: 1522:237:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:getEntireSystemDebt()`
 
 ```solidity
@@ -58,7 +58,7 @@ function getEntireSystemDebt() public view returns (uint256 entireSystemDebt) {
 ### _computeCR(uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2640:414:215
+- **Source**: 2640:414:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_computeCR(uint256,uint256,uint256)`
 
 ```solidity
@@ -75,7 +75,7 @@ function _computeCR(uint256 _coll, uint256 _debt, uint256 _price) internal pure 
 ### _applyShutdown()
 
 - **Kind**: internal
-- **Source**: 49361:145:205
+- **Source**: 49361:145:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_applyShutdown()`
 
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: GasPool
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 710:534:217
+- **Source Range**: 710:534:66
 
 ## Implementation
 

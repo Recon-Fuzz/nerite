@@ -91,7 +91,7 @@ enum Upgradability {
 
 - **Signature**: `getHost()`
 - **Visibility**: external
-- **Source Range**: 1023:55:143
+- **Source Range**: 1023:55:44
 
 **Signature:**
 ```solidity
@@ -103,7 +103,7 @@ function getHost() external view returns (address host);;
 
 - **Signature**: `initialize()`
 - **Visibility**: external
-- **Source Range**: 1121:31:143
+- **Source Range**: 1121:31:44
 
 **Signature:**
 ```solidity
@@ -115,7 +115,7 @@ function initialize() external;;
 
 - **Signature**: `getSuperTokenLogic()`
 - **Visibility**: external
-- **Source Range**: 1226:77:143
+- **Source Range**: 1226:77:44
 
 **Signature:**
 ```solidity
@@ -127,7 +127,7 @@ function getSuperTokenLogic() external view returns (ISuperToken superToken);;
 
 - **Signature**: `createERC20Wrapper(contract IERC20Metadata,uint8,enum ISuperTokenFactory.Upgradability,string,string,address)`
 - **Visibility**: external
-- **Source Range**: 2104:288:143
+- **Source Range**: 2104:288:44
 
 **Signature:**
 ```solidity
@@ -146,7 +146,7 @@ function createERC20Wrapper(IERC20Metadata underlyingToken, uint8 underlyingDeci
 
 - **Signature**: `createERC20Wrapper(contract IERC20Metadata,uint8,enum ISuperTokenFactory.Upgradability,string,string)`
 - **Visibility**: external
-- **Source Range**: 2801:265:143
+- **Source Range**: 2801:265:44
 
 **Signature:**
 ```solidity
@@ -164,7 +164,7 @@ function createERC20Wrapper(IERC20Metadata underlyingToken, uint8 underlyingDeci
 
 - **Signature**: `createERC20Wrapper(contract IERC20Metadata,enum ISuperTokenFactory.Upgradability,string,string,address)`
 - **Visibility**: external
-- **Source Range**: 3450:254:143
+- **Source Range**: 3450:254:44
 
 **Signature:**
 ```solidity
@@ -182,7 +182,7 @@ function createERC20Wrapper(IERC20Metadata underlyingToken, Upgradability upgrad
 
 - **Signature**: `createERC20Wrapper(contract IERC20Metadata,enum ISuperTokenFactory.Upgradability,string,string)`
 - **Visibility**: external
-- **Source Range**: 4148:231:143
+- **Source Range**: 4148:231:44
 
 **Signature:**
 ```solidity
@@ -201,7 +201,7 @@ function createERC20Wrapper(IERC20Metadata underlyingToken, Upgradability upgrad
 
 - **Signature**: `createCanonicalERC20Wrapper(contract IERC20Metadata)`
 - **Visibility**: external
-- **Source Range**: 4708:117:143
+- **Source Range**: 4708:117:44
 
 **Signature:**
 ```solidity
@@ -216,7 +216,7 @@ function createCanonicalERC20Wrapper(IERC20Metadata _underlyingToken) external r
 
 - **Signature**: `computeCanonicalERC20WrapperAddress(address)`
 - **Visibility**: external
-- **Source Range**: 5338:162:143
+- **Source Range**: 5338:162:44
 
 **Signature:**
 ```solidity
@@ -233,7 +233,7 @@ function computeCanonicalERC20WrapperAddress(address _underlyingToken) external 
 
 - **Signature**: `getCanonicalERC20Wrapper(address)`
 - **Visibility**: external
-- **Source Range**: 5825:141:143
+- **Source Range**: 5825:141:44
 
 **Signature:**
 ```solidity
@@ -248,7 +248,7 @@ function getCanonicalERC20Wrapper(address _underlyingTokenAddress) external view
 
 - **Signature**: `initializeCustomSuperToken(address)`
 - **Visibility**: external
-- **Source Range**: 6108:98:143
+- **Source Range**: 6108:98:44
 
 **Signature:**
 ```solidity

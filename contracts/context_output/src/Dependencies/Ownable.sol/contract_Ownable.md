@@ -36,7 +36,7 @@ event OwnershipTransferred(address indexed previousOwner, address indexed newOwn
 
 - **Signature**: `constructor(address)`
 - **Visibility**: public
-- **Source Range**: 806:133:216
+- **Source Range**: 806:133:65
 - **Details**: [function_constructor_address.md](./function_constructor_address.md)
 
 **Signature:**
@@ -49,7 +49,7 @@ constructor(address initialOwner);
 
 - **Signature**: `owner()`
 - **Visibility**: public
-- **Source Range**: 1015:77:216
+- **Source Range**: 1015:77:65
 - **Details**: [function_owner.md](./function_owner.md)
 
 **Signature:**
@@ -62,7 +62,7 @@ function owner() public view returns (address);
 
 - **Signature**: `isOwner()`
 - **Visibility**: public
-- **Source Range**: 1366:90:216
+- **Source Range**: 1366:90:65
 - **Details**: [function_isOwner.md](./function_isOwner.md)
 
 **Signature:**

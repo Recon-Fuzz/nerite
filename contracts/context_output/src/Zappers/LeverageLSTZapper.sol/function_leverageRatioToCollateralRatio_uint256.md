@@ -7,7 +7,7 @@
 - **Contract**: LeverageLSTZapper
 - **Signature**: `leverageRatioToCollateralRatio(uint256)`
 - **Visibility**: external
-- **Source Range**: 8478:184:291
+- **Source Range**: 8478:184:140
 
 ## Implementation
 

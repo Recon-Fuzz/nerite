@@ -237,7 +237,7 @@ event LastFeeOpTimeUpdated(uint256 _lastFeeOpTime);
 
 - **Signature**: `constructor(contract IBoldToken,contract IERC20Metadata[],contract ITroveManager[],address)`
 - **Visibility**: public
-- **Source Range**: 1856:2069:207
+- **Source Range**: 1856:2069:56
 - **Details**: [function_constructor_contract_IBoldToken_contract_IERC20Metadata[]_contract_ITroveManager[]_address.md](./function_constructor_contract_IBoldToken_contract_IERC20Metadata[]_contract_ITroveManager[]_address.md)
 
 **Signature:**
@@ -249,7 +249,7 @@ constructor(IBoldToken _boldToken, IERC20Metadata[] memory _tokens, ITroveManage
 
 - **Signature**: `redeemCollateral(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4093:3847:207
+- **Source Range**: 4093:3847:56
 - **Details**: [function_redeemCollateral_uint256_uint256_uint256.md](./function_redeemCollateral_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -261,7 +261,7 @@ function redeemCollateral(uint256 _boldAmount, uint256 _maxIterationsPerCollater
 
 - **Signature**: `getRedemptionRate()`
 - **Visibility**: external
-- **Source Range**: 10865:123:207
+- **Source Range**: 10865:123:56
 - **Details**: [function_getRedemptionRate.md](./function_getRedemptionRate.md)
 
 **Signature:**
@@ -273,7 +273,7 @@ function getRedemptionRate() override external view returns (uint256);
 
 - **Signature**: `getRedemptionRateWithDecay()`
 - **Visibility**: public
-- **Source Range**: 10994:144:207
+- **Source Range**: 10994:144:56
 - **Details**: [function_getRedemptionRateWithDecay.md](./function_getRedemptionRateWithDecay.md)
 
 **Signature:**
@@ -285,7 +285,7 @@ function getRedemptionRateWithDecay() override public view returns (uint256);
 
 - **Signature**: `getRedemptionRateForRedeemedAmount(uint256)`
 - **Visibility**: external
-- **Source Range**: 11144:311:207
+- **Source Range**: 11144:311:56
 - **Details**: [function_getRedemptionRateForRedeemedAmount_uint256.md](./function_getRedemptionRateForRedeemedAmount_uint256.md)
 
 **Signature:**
@@ -297,7 +297,7 @@ function getRedemptionRateForRedeemedAmount(uint256 _redeemAmount) external view
 
 - **Signature**: `getRedemptionFeeWithDecay(uint256)`
 - **Visibility**: external
-- **Source Range**: 11461:178:207
+- **Source Range**: 11461:178:56
 - **Details**: [function_getRedemptionFeeWithDecay_uint256.md](./function_getRedemptionFeeWithDecay_uint256.md)
 
 **Signature:**
@@ -309,7 +309,7 @@ function getRedemptionFeeWithDecay(uint256 _ETHDrawn) override external view ret
 
 - **Signature**: `getEffectiveRedemptionFeeInBold(uint256)`
 - **Visibility**: external
-- **Source Range**: 11645:352:207
+- **Source Range**: 11645:352:56
 - **Details**: [function_getEffectiveRedemptionFeeInBold_uint256.md](./function_getEffectiveRedemptionFeeInBold_uint256.md)
 
 **Signature:**
@@ -321,7 +321,7 @@ function getEffectiveRedemptionFeeInBold(uint256 _redeemAmount) override externa
 
 - **Signature**: `getToken(uint256)`
 - **Visibility**: external
-- **Source Range**: 12019:563:207
+- **Source Range**: 12019:563:56
 - **Details**: [function_getToken_uint256.md](./function_getToken_uint256.md)
 
 **Signature:**
@@ -333,7 +333,7 @@ function getToken(uint256 _index) external view returns (IERC20Metadata);
 
 - **Signature**: `getTroveManager(uint256)`
 - **Visibility**: public
-- **Source Range**: 12588:637:207
+- **Source Range**: 12588:637:56
 - **Details**: [function_getTroveManager_uint256.md](./function_getTroveManager_uint256.md)
 
 **Signature:**
@@ -345,7 +345,7 @@ function getTroveManager(uint256 _index) public view returns (ITroveManager);
 
 - **Signature**: `updateDebtLimit(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 13764:539:207
+- **Source Range**: 13764:539:56
 - **Details**: [function_updateDebtLimit_uint256_uint256.md](./function_updateDebtLimit_uint256_uint256.md)
 
 **Signature:**
@@ -357,7 +357,7 @@ function updateDebtLimit(uint256 _indexTroveManager, uint256 _newDebtLimit) exte
 
 - **Signature**: `getDebtLimit(uint256)`
 - **Visibility**: external
-- **Source Range**: 14309:156:207
+- **Source Range**: 14309:156:56
 - **Details**: [function_getDebtLimit_uint256.md](./function_getDebtLimit_uint256.md)
 
 **Signature:**
@@ -369,7 +369,7 @@ function getDebtLimit(uint256 _indexTroveManager) external view returns (uint256
 
 - **Signature**: `updateGovernor(address)`
 - **Visibility**: external
-- **Source Range**: 14471:108:207
+- **Source Range**: 14471:108:56
 - **Details**: [function_updateGovernor_address.md](./function_updateGovernor_address.md)
 
 **Signature:**

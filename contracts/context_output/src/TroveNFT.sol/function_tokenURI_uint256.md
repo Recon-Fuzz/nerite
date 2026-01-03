@@ -7,7 +7,7 @@
 - **Contract**: TroveNFT
 - **Signature**: `tokenURI(uint256)`
 - **Visibility**: public
-- **Source Range**: 1137:724:276
+- **Source Range**: 1137:724:125
 
 ## Implementation
 
@@ -24,7 +24,7 @@ function tokenURI(uint256 _tokenId) override(ERC721, IERC721Metadata) public vie
 ### ownerOf(uint256)
 
 - **Kind**: internal
-- **Source**: 2190:219:96
+- **Source**: 2190:219:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:ownerOf(uint256)`
 
 ```solidity
@@ -39,7 +39,7 @@ function ownerOf(uint256 tokenId) virtual override public view returns (address)
 ### _ownerOf(uint256)
 
 - **Kind**: internal
-- **Source**: 6702:115:96
+- **Source**: 6702:115:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_ownerOf(uint256)`
 
 ```solidity

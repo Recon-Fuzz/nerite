@@ -7,7 +7,7 @@
 - **Contract**: WETHZapper
 - **Signature**: `addCollWithRawETH(uint256)`
 - **Visibility**: external
-- **Source Range**: 3399:312:311
+- **Source Range**: 3399:312:160
 
 ## Implementation
 
@@ -25,7 +25,7 @@ function addCollWithRawETH(uint256 _troveId) external payable {
 ### _requireSenderIsOwnerOrAddManager(uint256,address)
 
 - **Kind**: internal
-- **Source**: 3919:297:209
+- **Source**: 3919:297:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrAddManager(uint256,address)`
 
 ```solidity

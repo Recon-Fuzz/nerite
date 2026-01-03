@@ -543,7 +543,7 @@ enum BatchOperation {
 
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 6883:1490:275
+- **Source Range**: 6883:1490:124
 - **Details**: [function_constructor_contract_IAddressesRegistry.md](./function_constructor_contract_IAddressesRegistry.md)
 
 **Signature:**
@@ -555,7 +555,7 @@ constructor(IAddressesRegistry _addressesRegistry) LiquityBase(_addressesRegistr
 
 - **Signature**: `getTroveIdsCount()`
 - **Visibility**: external
-- **Source Range**: 8403:108:275
+- **Source Range**: 8403:108:124
 - **Details**: [function_getTroveIdsCount.md](./function_getTroveIdsCount.md)
 
 **Signature:**
@@ -567,7 +567,7 @@ function getTroveIdsCount() override external view returns (uint256);
 
 - **Signature**: `getTroveFromTroveIdsArray(uint256)`
 - **Visibility**: external
-- **Source Range**: 8517:132:275
+- **Source Range**: 8517:132:124
 - **Details**: [function_getTroveFromTroveIdsArray_uint256.md](./function_getTroveFromTroveIdsArray_uint256.md)
 
 **Signature:**
@@ -579,7 +579,7 @@ function getTroveFromTroveIdsArray(uint256 _index) override external view return
 
 - **Signature**: `batchLiquidateTroves(uint256[])`
 - **Visibility**: public
-- **Source Range**: 16330:2140:275
+- **Source Range**: 16330:2140:124
 - **Details**: [function_batchLiquidateTroves_uint256[].md](./function_batchLiquidateTroves_uint256[].md)
 
 **Signature:**
@@ -591,7 +591,7 @@ function batchLiquidateTroves(uint256[] memory _troveArray) override public;
 
 - **Signature**: `redeemCollateral(address,uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 32492:4338:275
+- **Source Range**: 32492:4338:124
 - **Details**: [function_redeemCollateral_address_uint256_uint256_uint256_uint256.md](./function_redeemCollateral_address_uint256_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -603,7 +603,7 @@ function redeemCollateral(address _redeemer, uint256 _boldamount, uint256 _price
 
 - **Signature**: `urgentRedemption(uint256,uint256[],uint256)`
 - **Visibility**: external
-- **Source Range**: 38431:3165:275
+- **Source Range**: 38431:3165:124
 - **Details**: [function_urgentRedemption_uint256_uint256[]_uint256.md](./function_urgentRedemption_uint256_uint256[]_uint256.md)
 
 **Signature:**
@@ -615,7 +615,7 @@ function urgentRedemption(uint256 _boldAmount, uint256[] calldata _troveIds, uin
 
 - **Signature**: `shutdown()`
 - **Visibility**: external
-- **Source Range**: 41602:160:275
+- **Source Range**: 41602:160:124
 - **Details**: [function_shutdown.md](./function_shutdown.md)
 
 **Signature:**
@@ -627,7 +627,7 @@ function shutdown() external;
 
 - **Signature**: `getCurrentICR(uint256,uint256)`
 - **Visibility**: public
-- **Source Range**: 41949:270:275
+- **Source Range**: 41949:270:124
 - **Details**: [function_getCurrentICR_uint256_uint256.md](./function_getCurrentICR_uint256_uint256.md)
 
 **Signature:**
@@ -639,7 +639,7 @@ function getCurrentICR(uint256 _troveId, uint256 _price) override public view re
 
 - **Signature**: `getLatestTroveData(uint256)`
 - **Visibility**: external
-- **Source Range**: 45778:152:275
+- **Source Range**: 45778:152:124
 - **Details**: [function_getLatestTroveData_uint256.md](./function_getLatestTroveData_uint256.md)
 
 **Signature:**
@@ -651,7 +651,7 @@ function getLatestTroveData(uint256 _troveId) external view returns (LatestTrove
 
 - **Signature**: `getTroveAnnualInterestRate(uint256)`
 - **Visibility**: external
-- **Source Range**: 45936:350:275
+- **Source Range**: 45936:350:124
 - **Details**: [function_getTroveAnnualInterestRate_uint256.md](./function_getTroveAnnualInterestRate_uint256.md)
 
 **Signature:**
@@ -663,7 +663,7 @@ function getTroveAnnualInterestRate(uint256 _troveId) external view returns (uin
 
 - **Signature**: `getLatestBatchData(address)`
 - **Visibility**: external
-- **Source Range**: 47983:162:275
+- **Source Range**: 47983:162:124
 - **Details**: [function_getLatestBatchData_address.md](./function_getLatestBatchData_address.md)
 
 **Signature:**
@@ -675,7 +675,7 @@ function getLatestBatchData(address _batchAddress) external view returns (Latest
 
 - **Signature**: `getTroveStatus(uint256)`
 - **Visibility**: external
-- **Source Range**: 52500:129:275
+- **Source Range**: 52500:129:124
 - **Details**: [function_getTroveStatus_uint256.md](./function_getTroveStatus_uint256.md)
 
 **Signature:**
@@ -687,7 +687,7 @@ function getTroveStatus(uint256 _troveId) override external view returns (Status
 
 - **Signature**: `getUnbackedPortionPriceAndRedeemability()`
 - **Visibility**: external
-- **Source Range**: 54681:584:275
+- **Source Range**: 54681:584:124
 - **Details**: [function_getUnbackedPortionPriceAndRedeemability.md](./function_getUnbackedPortionPriceAndRedeemability.md)
 
 **Signature:**
@@ -699,7 +699,7 @@ function getUnbackedPortionPriceAndRedeemability() external returns (uint256, ui
 
 - **Signature**: `onOpenTrove(address,uint256,struct TroveChange,uint256)`
 - **Visibility**: external
-- **Source Range**: 55340:1943:275
+- **Source Range**: 55340:1943:124
 - **Details**: [function_onOpenTrove_address_uint256_struct_TroveChange_uint256.md](./function_onOpenTrove_address_uint256_struct_TroveChange_uint256.md)
 
 **Signature:**
@@ -711,7 +711,7 @@ function onOpenTrove(address _owner, uint256 _troveId, TroveChange memory _trove
 
 - **Signature**: `onOpenTroveAndJoinBatch(address,uint256,struct TroveChange,address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 57289:2854:275
+- **Source Range**: 57289:2854:124
 - **Details**: [function_onOpenTroveAndJoinBatch_address_uint256_struct_TroveChange_address_uint256_uint256.md](./function_onOpenTroveAndJoinBatch_address_uint256_struct_TroveChange_address_uint256_uint256.md)
 
 **Signature:**
@@ -723,7 +723,7 @@ function onOpenTroveAndJoinBatch(address _owner, uint256 _troveId, TroveChange m
 
 - **Signature**: `setTroveStatusToActive(uint256)`
 - **Visibility**: external
-- **Source Range**: 60149:251:275
+- **Source Range**: 60149:251:124
 - **Details**: [function_setTroveStatusToActive_uint256.md](./function_setTroveStatusToActive_uint256.md)
 
 **Signature:**
@@ -735,7 +735,7 @@ function setTroveStatusToActive(uint256 _troveId) external;
 
 - **Signature**: `onAdjustTroveInterestRate(uint256,uint256,uint256,uint256,struct TroveChange)`
 - **Visibility**: external
-- **Source Range**: 60406:1591:275
+- **Source Range**: 60406:1591:124
 - **Details**: [function_onAdjustTroveInterestRate_uint256_uint256_uint256_uint256_struct_TroveChange.md](./function_onAdjustTroveInterestRate_uint256_uint256_uint256_uint256_struct_TroveChange.md)
 
 **Signature:**
@@ -747,7 +747,7 @@ function onAdjustTroveInterestRate(uint256 _troveId, uint256 _newColl, uint256 _
 
 - **Signature**: `onAdjustTrove(uint256,uint256,uint256,struct TroveChange)`
 - **Visibility**: external
-- **Source Range**: 62003:1578:275
+- **Source Range**: 62003:1578:124
 - **Details**: [function_onAdjustTrove_uint256_uint256_uint256_struct_TroveChange.md](./function_onAdjustTrove_uint256_uint256_uint256_struct_TroveChange.md)
 
 **Signature:**
@@ -759,7 +759,7 @@ function onAdjustTrove(uint256 _troveId, uint256 _newColl, uint256 _newDebt, Tro
 
 - **Signature**: `onCloseTrove(uint256,struct TroveChange,address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 63587:2085:275
+- **Source Range**: 63587:2085:124
 - **Details**: [function_onCloseTrove_uint256_struct_TroveChange_address_uint256_uint256.md](./function_onCloseTrove_uint256_struct_TroveChange_address_uint256_uint256.md)
 
 **Signature:**
@@ -771,7 +771,7 @@ function onCloseTrove(uint256 _troveId, TroveChange memory _troveChange, address
 
 - **Signature**: `onAdjustTroveInsideBatch(uint256,uint256,uint256,struct TroveChange,address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 67599:2732:275
+- **Source Range**: 67599:2732:124
 - **Details**: [function_onAdjustTroveInsideBatch_uint256_uint256_uint256_struct_TroveChange_address_uint256_uint256.md](./function_onAdjustTroveInsideBatch_uint256_uint256_uint256_struct_TroveChange_address_uint256_uint256.md)
 
 **Signature:**
@@ -783,7 +783,7 @@ function onAdjustTroveInsideBatch(uint256 _troveId, uint256 _newTroveColl, uint2
 
 - **Signature**: `onApplyTroveInterest(uint256,uint256,uint256,address,uint256,uint256,struct TroveChange)`
 - **Visibility**: external
-- **Source Range**: 70337:2483:275
+- **Source Range**: 70337:2483:124
 - **Details**: [function_onApplyTroveInterest_uint256_uint256_uint256_address_uint256_uint256_struct_TroveChange.md](./function_onApplyTroveInterest_uint256_uint256_uint256_address_uint256_uint256_struct_TroveChange.md)
 
 **Signature:**
@@ -795,7 +795,7 @@ function onApplyTroveInterest(uint256 _troveId, uint256 _newTroveColl, uint256 _
 
 - **Signature**: `onRegisterBatchManager(address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 72826:874:275
+- **Source Range**: 72826:874:124
 - **Details**: [function_onRegisterBatchManager_address_uint256_uint256.md](./function_onRegisterBatchManager_address_uint256_uint256.md)
 
 **Signature:**
@@ -807,7 +807,7 @@ function onRegisterBatchManager(address _account, uint256 _annualInterestRate, u
 
 - **Signature**: `onLowerBatchManagerAnnualFee(address,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 73706:946:275
+- **Source Range**: 73706:946:124
 - **Details**: [function_onLowerBatchManagerAnnualFee_address_uint256_uint256_uint256.md](./function_onLowerBatchManagerAnnualFee_address_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -819,7 +819,7 @@ function onLowerBatchManagerAnnualFee(address _batchAddress, uint256 _newColl, u
 
 - **Signature**: `onSetBatchManagerAnnualInterestRate(address,uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 74658:1078:275
+- **Source Range**: 74658:1078:124
 - **Details**: [function_onSetBatchManagerAnnualInterestRate_address_uint256_uint256_uint256_uint256.md](./function_onSetBatchManagerAnnualInterestRate_address_uint256_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -831,7 +831,7 @@ function onSetBatchManagerAnnualInterestRate(address _batchAddress, uint256 _new
 
 - **Signature**: `onSetInterestBatchManager(struct ITroveManager.OnSetInterestBatchManagerParams)`
 - **Visibility**: external
-- **Source Range**: 75742:3104:275
+- **Source Range**: 75742:3104:124
 - **Details**: [function_onSetInterestBatchManager_struct_ITroveManager_OnSetInterestBatchManagerParams.md](./function_onSetInterestBatchManager_struct_ITroveManager_OnSetInterestBatchManagerParams.md)
 
 **Signature:**
@@ -843,7 +843,7 @@ function onSetInterestBatchManager(OnSetInterestBatchManagerParams calldata _par
 
 - **Signature**: `onRemoveFromBatch(uint256,uint256,uint256,struct TroveChange,address,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 83848:2770:275
+- **Source Range**: 83848:2770:124
 - **Details**: [function_onRemoveFromBatch_uint256_uint256_uint256_struct_TroveChange_address_uint256_uint256_uint256.md](./function_onRemoveFromBatch_uint256_uint256_uint256_struct_TroveChange_address_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -855,7 +855,7 @@ function onRemoveFromBatch(uint256 _troveId, uint256 _newTroveColl, uint256 _new
 
 - **Signature**: `getDebtLimit()`
 - **Visibility**: external
-- **Source Range**: 88084:89:275
+- **Source Range**: 88084:89:124
 - **Details**: [function_getDebtLimit.md](./function_getDebtLimit.md)
 
 **Signature:**
@@ -867,7 +867,7 @@ function getDebtLimit() external view returns (uint256);
 
 - **Signature**: `setDebtLimit(uint256)`
 - **Visibility**: external
-- **Source Range**: 88179:142:275
+- **Source Range**: 88179:142:124
 - **Details**: [function_setDebtLimit_uint256.md](./function_setDebtLimit_uint256.md)
 
 **Signature:**
@@ -879,7 +879,7 @@ function setDebtLimit(uint256 _newDebtLimit) external;
 
 - **Signature**: `getEntireSystemColl()`
 - **Visibility**: public
-- **Source Range**: 1265:251:214
+- **Source Range**: 1265:251:63
 - **Details**: [function_getEntireSystemColl.md](./function_getEntireSystemColl.md)
 
 **Signature:**
@@ -891,7 +891,7 @@ function getEntireSystemColl() public view returns (uint256 entireSystemColl);
 
 - **Signature**: `getEntireSystemDebt()`
 - **Visibility**: public
-- **Source Range**: 1522:237:214
+- **Source Range**: 1522:237:63
 - **Details**: [function_getEntireSystemDebt.md](./function_getEntireSystemDebt.md)
 
 **Signature:**

@@ -7,7 +7,7 @@
 - **Contract**: DefaultPool
 - **Signature**: `decreaseBoldDebt(uint256)`
 - **Visibility**: external
-- **Source Range**: 3391:198:208
+- **Source Range**: 3391:198:57
 
 ## Implementation
 
@@ -24,7 +24,7 @@ function decreaseBoldDebt(uint256 _amount) override external {
 ### _requireCallerIsTroveManager()
 
 - **Kind**: internal
-- **Source**: 3791:160:208
+- **Source**: 3791:160:57
 - **Link**: `src/DefaultPool.sol:DefaultPool:_requireCallerIsTroveManager()`
 
 ```solidity

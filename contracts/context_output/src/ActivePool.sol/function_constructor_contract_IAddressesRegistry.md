@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 3021:1126:202
+- **Source Range**: 3021:1126:51
 
 ## Implementation
 

@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `onAdjustTrove(uint256,uint256,uint256,struct TroveChange)`
 - **Visibility**: external
-- **Source Range**: 62003:1578:275
+- **Source Range**: 62003:1578:124
 
 ## Implementation
 
@@ -30,7 +30,7 @@ function onAdjustTrove(uint256 _troveId, uint256 _newColl, uint256 _newDebt, Tro
 ### _requireCallerIsBorrowerOperations()
 
 - **Kind**: internal
-- **Source**: 53483:184:275
+- **Source**: 53483:184:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireCallerIsBorrowerOperations()`
 
 ```solidity
@@ -44,7 +44,7 @@ function _requireCallerIsBorrowerOperations() internal view {
 ### _movePendingTroveRewardsToActivePool(contract IDefaultPool,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 21499:294:275
+- **Source**: 21499:294:124
 - **Link**: `src/TroveManager.sol:TroveManager:_movePendingTroveRewardsToActivePool(contract IDefaultPool,uint256,uint256)`
 
 ```solidity
@@ -61,7 +61,7 @@ function _movePendingTroveRewardsToActivePool(IDefaultPool _defaultPool, uint256
 ### _updateStakeAndTotalStakes(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 48221:308:275
+- **Source**: 48221:308:124
 - **Link**: `src/TroveManager.sol:TroveManager:_updateStakeAndTotalStakes(uint256,uint256)`
 
 ```solidity
@@ -76,7 +76,7 @@ function _updateStakeAndTotalStakes(uint256 _troveId, uint256 _coll) internal re
 ### _computeNewStake(uint256)
 
 - **Kind**: internal
-- **Source**: 48656:715:275
+- **Source**: 48656:715:124
 - **Link**: `src/TroveManager.sol:TroveManager:_computeNewStake(uint256)`
 
 ```solidity
@@ -94,7 +94,7 @@ function _computeNewStake(uint256 _coll) internal view returns (uint256) {
 ### _updateTroveRewardSnapshots(uint256)
 
 - **Kind**: internal
-- **Source**: 42225:177:275
+- **Source**: 42225:177:124
 - **Link**: `src/TroveManager.sol:TroveManager:_updateTroveRewardSnapshots(uint256)`
 
 ```solidity

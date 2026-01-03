@@ -7,7 +7,7 @@
 - **Contract**: Ownable
 - **Signature**: `owner()`
 - **Visibility**: public
-- **Source Range**: 1015:77:216
+- **Source Range**: 1015:77:65
 
 ## Implementation
 

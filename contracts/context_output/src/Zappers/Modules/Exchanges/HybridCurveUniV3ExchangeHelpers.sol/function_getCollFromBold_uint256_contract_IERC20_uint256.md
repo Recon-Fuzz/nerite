@@ -7,7 +7,7 @@
 - **Contract**: HybridCurveUniV3ExchangeHelpers
 - **Signature**: `getCollFromBold(uint256,contract IERC20,uint256)`
 - **Visibility**: external
-- **Source Range**: 1861:905:299
+- **Source Range**: 1861:905:148
 
 ## Implementation
 

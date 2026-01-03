@@ -7,7 +7,7 @@
 - **Contract**: MultiTroveGetter
 - **Signature**: `getDebtPerInterestRateAscending(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 3839:1122:252
+- **Source Range**: 3839:1122:101
 
 ## Implementation
 

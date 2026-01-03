@@ -7,7 +7,7 @@
 - **Contract**: TroveNFT
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 660:471:276
+- **Source Range**: 660:471:125
 
 ## Implementation
 
@@ -25,7 +25,7 @@ constructor(IAddressesRegistry _addressesRegistry) ERC721(string.concat("Liquity
 ### (string,string)
 
 - **Kind**: internal
-- **Source**: 1390:113:96
+- **Source**: 1390:113:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:constructor(string,string)`
 
 ```solidity

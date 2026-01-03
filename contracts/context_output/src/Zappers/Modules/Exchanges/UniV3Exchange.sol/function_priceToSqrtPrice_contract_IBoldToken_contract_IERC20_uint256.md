@@ -7,7 +7,7 @@
 - **Contract**: UniV3Exchange
 - **Signature**: `priceToSqrtPrice(contract IBoldToken,contract IERC20,uint256)`
 - **Visibility**: public
-- **Source Range**: 3178:327:300
+- **Source Range**: 3178:327:149
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function priceToSqrtPrice(IBoldToken _boldToken, IERC20 _collToken, uint256 _pri
 ### _zeroForOne(contract IBoldToken,contract IERC20)
 
 - **Kind**: internal
-- **Source**: 3616:157:300
+- **Source**: 3616:157:149
 - **Link**: `src/Zappers/Modules/Exchanges/UniV3Exchange.sol:UniV3Exchange:_zeroForOne(contract IBoldToken,contract IERC20)`
 
 ```solidity
@@ -35,7 +35,7 @@ function _zeroForOne(IBoldToken _boldToken, IERC20 _collToken) internal pure ret
 ### priceToSqrtPriceX96(uint256)
 
 - **Kind**: internal
-- **Source**: 230:378:307
+- **Source**: 230:378:156
 - **Link**: `src/Zappers/Modules/Exchanges/UniswapV3/UniPriceConverter.sol:UniPriceConverter:priceToSqrtPriceX96(uint256)`
 
 ```solidity
@@ -51,7 +51,7 @@ function priceToSqrtPriceX96(uint256 _price) public pure returns (uint160 sqrtPr
 ### sqrt(uint256)
 
 - **Kind**: internal
-- **Source**: 6530:1642:114
+- **Source**: 6530:1642:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:sqrt(uint256)`
 
 ```solidity
@@ -78,7 +78,7 @@ function sqrt(uint256 a) internal pure returns (uint256) {
 ### log2(uint256)
 
 - **Kind**: internal
-- **Source**: 8633:983:114
+- **Source**: 8633:983:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:log2(uint256)`
 
 ```solidity
@@ -126,7 +126,7 @@ function log2(uint256 value) internal pure returns (uint256) {
 ### min(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 588:104:114
+- **Source**: 588:104:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:min(uint256,uint256)`
 
 ```solidity

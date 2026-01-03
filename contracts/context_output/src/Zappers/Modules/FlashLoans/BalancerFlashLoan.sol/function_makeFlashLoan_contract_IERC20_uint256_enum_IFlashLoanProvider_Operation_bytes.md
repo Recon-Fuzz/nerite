@@ -7,7 +7,7 @@
 - **Contract**: BalancerFlashLoan
 - **Signature**: `makeFlashLoan(contract IERC20,uint256,enum IFlashLoanProvider.Operation,bytes)`
 - **Visibility**: external
-- **Source Range**: 609:1663:310
+- **Source Range**: 609:1663:159
 
 ## Implementation
 

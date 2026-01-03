@@ -7,7 +7,7 @@
 - **Contract**: CollSurplusPool
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 997:407:206
+- **Source Range**: 997:407:55
 
 ## Implementation
 

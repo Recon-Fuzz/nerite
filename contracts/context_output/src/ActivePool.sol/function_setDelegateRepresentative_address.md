@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `setDelegateRepresentative(address)`
 - **Visibility**: external
-- **Source Range**: 15494:155:202
+- **Source Range**: 15494:155:51
 
 ## Implementation
 
@@ -22,7 +22,7 @@ function setDelegateRepresentative(address _delegateRepresentative) external onl
 ### onlyGovernor()
 
 - **Kind**: modifier
-- **Source**: 15262:121:202
+- **Source**: 15262:121:51
 - **Link**: `src/ActivePool.sol:ActivePool:onlyGovernor()`
 
 ```solidity

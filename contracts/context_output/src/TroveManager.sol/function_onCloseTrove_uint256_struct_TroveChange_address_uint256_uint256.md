@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `onCloseTrove(uint256,struct TroveChange,address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 63587:2085:275
+- **Source Range**: 63587:2085:124
 
 ## Implementation
 
@@ -29,7 +29,7 @@ function onCloseTrove(uint256 _troveId, TroveChange memory _troveChange, address
 ### _requireCallerIsBorrowerOperations()
 
 - **Kind**: internal
-- **Source**: 53483:184:275
+- **Source**: 53483:184:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireCallerIsBorrowerOperations()`
 
 ```solidity
@@ -43,7 +43,7 @@ function _requireCallerIsBorrowerOperations() internal view {
 ### _closeTrove(uint256,struct TroveChange,address,uint256,uint256,enum ITroveManager.Status)
 
 - **Kind**: internal
-- **Source**: 65678:1915:275
+- **Source**: 65678:1915:124
 - **Link**: `src/TroveManager.sol:TroveManager:_closeTrove(uint256,struct TroveChange,address,uint256,uint256,enum ITroveManager.Status)`
 
 ```solidity
@@ -78,7 +78,7 @@ function _closeTrove(uint256 _troveId, TroveChange memory _troveChange, address 
 ### _requireMoreThanOneTroveInSystem(uint256)
 
 - **Kind**: internal
-- **Source**: 53863:181:275
+- **Source**: 53863:181:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireMoreThanOneTroveInSystem(uint256)`
 
 ```solidity
@@ -92,7 +92,7 @@ function _requireMoreThanOneTroveInSystem(uint256 TroveIdsArrayLength) internal 
 ### _removeTroveId(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 52112:382:275
+- **Source**: 52112:382:124
 - **Link**: `src/TroveManager.sol:TroveManager:_removeTroveId(uint256,uint256)`
 
 ```solidity
@@ -109,7 +109,7 @@ function _removeTroveId(uint256 _troveId, uint256 TroveIdsArrayLength) internal 
 ### _removeTroveSharesFromBatch(uint256,uint256,uint256,struct TroveChange,address,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 86624:1454:275
+- **Source**: 86624:1454:124
 - **Link**: `src/TroveManager.sol:TroveManager:_removeTroveSharesFromBatch(uint256,uint256,uint256,struct TroveChange,address,uint256,uint256)`
 
 ```solidity
@@ -129,7 +129,7 @@ function _removeTroveSharesFromBatch(uint256 _troveId, uint256 _newTroveColl, ui
 ### _movePendingTroveRewardsToActivePool(contract IDefaultPool,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 21499:294:275
+- **Source**: 21499:294:124
 - **Link**: `src/TroveManager.sol:TroveManager:_movePendingTroveRewardsToActivePool(contract IDefaultPool,uint256,uint256)`
 
 ```solidity

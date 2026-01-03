@@ -192,7 +192,7 @@ event RemoveManagerAndReceiverUpdated(uint256 indexed _troveId, address _newRemo
 
 - **Signature**: `constructor(contract IAddressesRegistry,contract IFlashLoanProvider,contract IExchange)`
 - **Visibility**: public
-- **Source Range**: 318:702:283
+- **Source Range**: 318:702:132
 - **Details**: [function_constructor_contract_IAddressesRegistry_contract_IFlashLoanProvider_contract_IExchange.md](./function_constructor_contract_IAddressesRegistry_contract_IFlashLoanProvider_contract_IExchange.md)
 
 **Signature:**
@@ -204,7 +204,7 @@ constructor(IAddressesRegistry _addressesRegistry, IFlashLoanProvider _flashLoan
 
 - **Signature**: `openTroveWithRawETH(struct IZapper.OpenTroveParams)`
 - **Visibility**: external
-- **Source Range**: 1026:2750:283
+- **Source Range**: 1026:2750:132
 - **Details**: [function_openTroveWithRawETH_struct_IZapper_OpenTroveParams.md](./function_openTroveWithRawETH_struct_IZapper_OpenTroveParams.md)
 
 **Signature:**
@@ -216,7 +216,7 @@ function openTroveWithRawETH(OpenTroveParams calldata _params) external payable 
 
 - **Signature**: `addColl(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 3782:412:283
+- **Source Range**: 3782:412:132
 - **Details**: [function_addColl_uint256_uint256.md](./function_addColl_uint256_uint256.md)
 
 **Signature:**
@@ -228,7 +228,7 @@ function addColl(uint256 _troveId, uint256 _amount) external;
 
 - **Signature**: `withdrawColl(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4200:360:283
+- **Source Range**: 4200:360:132
 - **Details**: [function_withdrawColl_uint256_uint256.md](./function_withdrawColl_uint256_uint256.md)
 
 **Signature:**
@@ -240,7 +240,7 @@ function withdrawColl(uint256 _troveId, uint256 _amount) external;
 
 - **Signature**: `withdrawBold(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4566:403:283
+- **Source Range**: 4566:403:132
 - **Details**: [function_withdrawBold_uint256_uint256_uint256.md](./function_withdrawBold_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -252,7 +252,7 @@ function withdrawBold(uint256 _troveId, uint256 _boldAmount, uint256 _maxUpfront
 
 - **Signature**: `repayBold(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4975:616:283
+- **Source Range**: 4975:616:132
 - **Details**: [function_repayBold_uint256_uint256.md](./function_repayBold_uint256_uint256.md)
 
 **Signature:**
@@ -264,7 +264,7 @@ function repayBold(uint256 _troveId, uint256 _boldAmount) external;
 
 - **Signature**: `adjustTrove(uint256,uint256,bool,uint256,bool,uint256)`
 - **Visibility**: external
-- **Source Range**: 5597:671:283
+- **Source Range**: 5597:671:132
 - **Details**: [function_adjustTrove_uint256_uint256_bool_uint256_bool_uint256.md](./function_adjustTrove_uint256_uint256_bool_uint256_bool_uint256.md)
 
 **Signature:**
@@ -276,7 +276,7 @@ function adjustTrove(uint256 _troveId, uint256 _collChange, bool _isCollIncrease
 
 - **Signature**: `adjustZombieTrove(uint256,uint256,bool,uint256,bool,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 6274:763:283
+- **Source Range**: 6274:763:132
 - **Details**: [function_adjustZombieTrove_uint256_uint256_bool_uint256_bool_uint256_uint256_uint256.md](./function_adjustZombieTrove_uint256_uint256_bool_uint256_bool_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -288,7 +288,7 @@ function adjustZombieTrove(uint256 _troveId, uint256 _collChange, bool _isCollIn
 
 - **Signature**: `closeTroveToRawETH(uint256)`
 - **Visibility**: external
-- **Source Range**: 8475:765:283
+- **Source Range**: 8475:765:132
 - **Details**: [function_closeTroveToRawETH_uint256.md](./function_closeTroveToRawETH_uint256.md)
 
 **Signature:**
@@ -300,7 +300,7 @@ function closeTroveToRawETH(uint256 _troveId) external;
 
 - **Signature**: `closeTroveFromCollateral(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 9246:954:283
+- **Source Range**: 9246:954:132
 - **Details**: [function_closeTroveFromCollateral_uint256_uint256.md](./function_closeTroveFromCollateral_uint256_uint256.md)
 
 **Signature:**
@@ -312,7 +312,7 @@ function closeTroveFromCollateral(uint256 _troveId, uint256 _flashLoanAmount) ov
 
 - **Signature**: `receiveFlashLoanOnCloseTroveFromCollateral(struct IZapper.CloseTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 10206:1393:283
+- **Source Range**: 10206:1393:132
 - **Details**: [function_receiveFlashLoanOnCloseTroveFromCollateral_struct_IZapper_CloseTroveParams_uint256.md](./function_receiveFlashLoanOnCloseTroveFromCollateral_struct_IZapper_CloseTroveParams_uint256.md)
 
 **Signature:**
@@ -324,7 +324,7 @@ function receiveFlashLoanOnCloseTroveFromCollateral(CloseTroveParams calldata _p
 
 - **Signature**: `receive()`
 - **Visibility**: external
-- **Source Range**: 11605:29:283
+- **Source Range**: 11605:29:132
 - **Details**: [function_receive.md](./function_receive.md)
 
 **Signature:**
@@ -336,7 +336,7 @@ receive() external payable;
 
 - **Signature**: `receiveFlashLoanOnOpenLeveragedTrove(struct ILeverageZapper.OpenLeveragedTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 11703:190:283
+- **Source Range**: 11703:190:132
 - **Details**: [function_receiveFlashLoanOnOpenLeveragedTrove_struct_ILeverageZapper_OpenLeveragedTroveParams_uint256.md](./function_receiveFlashLoanOnOpenLeveragedTrove_struct_ILeverageZapper_OpenLeveragedTroveParams_uint256.md)
 
 **Signature:**
@@ -348,7 +348,7 @@ function receiveFlashLoanOnOpenLeveragedTrove(ILeverageZapper.OpenLeveragedTrove
 
 - **Signature**: `receiveFlashLoanOnLeverUpTrove(struct ILeverageZapper.LeverUpTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 11898:178:283
+- **Source Range**: 11898:178:132
 - **Details**: [function_receiveFlashLoanOnLeverUpTrove_struct_ILeverageZapper_LeverUpTroveParams_uint256.md](./function_receiveFlashLoanOnLeverUpTrove_struct_ILeverageZapper_LeverUpTroveParams_uint256.md)
 
 **Signature:**
@@ -360,7 +360,7 @@ function receiveFlashLoanOnLeverUpTrove(ILeverageZapper.LeverUpTroveParams calld
 
 - **Signature**: `receiveFlashLoanOnLeverDownTrove(struct ILeverageZapper.LeverDownTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 12081:182:283
+- **Source Range**: 12081:182:132
 - **Details**: [function_receiveFlashLoanOnLeverDownTrove_struct_ILeverageZapper_LeverDownTroveParams_uint256.md](./function_receiveFlashLoanOnLeverDownTrove_struct_ILeverageZapper_LeverDownTroveParams_uint256.md)
 
 **Signature:**
@@ -372,7 +372,7 @@ function receiveFlashLoanOnLeverDownTrove(ILeverageZapper.LeverDownTroveParams c
 
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 1932:164:209
+- **Source Range**: 1932:164:58
 - **Details**: [function_constructor_contract_IAddressesRegistry.md](./function_constructor_contract_IAddressesRegistry.md)
 
 **Signature:**
@@ -384,7 +384,7 @@ constructor(IAddressesRegistry _addressesRegistry);
 
 - **Signature**: `setAddManager(uint256,address)`
 - **Visibility**: external
-- **Source Range**: 2102:163:209
+- **Source Range**: 2102:163:58
 - **Details**: [function_setAddManager_uint256_address.md](./function_setAddManager_uint256_address.md)
 
 **Signature:**
@@ -396,7 +396,7 @@ function setAddManager(uint256 _troveId, address _manager) external;
 
 - **Signature**: `setRemoveManager(uint256,address)`
 - **Visibility**: external
-- **Source Range**: 2448:164:209
+- **Source Range**: 2448:164:58
 - **Details**: [function_setRemoveManager_uint256_address.md](./function_setRemoveManager_uint256_address.md)
 
 **Signature:**
@@ -408,7 +408,7 @@ function setRemoveManager(uint256 _troveId, address _manager) external;
 
 - **Signature**: `setRemoveManagerWithReceiver(uint256,address,address)`
 - **Visibility**: public
-- **Source Range**: 2618:220:209
+- **Source Range**: 2618:220:58
 - **Details**: [function_setRemoveManagerWithReceiver_uint256_address_address.md](./function_setRemoveManagerWithReceiver_uint256_address_address.md)
 
 **Signature:**

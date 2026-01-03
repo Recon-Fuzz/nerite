@@ -7,7 +7,7 @@
 - **Contract**: HintHelpers
 - **Signature**: `forcePredictAdjustInterestRateUpfrontFee(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4293:499:218
+- **Source Range**: 4293:499:67
 
 ## Implementation
 
@@ -25,7 +25,7 @@ function forcePredictAdjustInterestRateUpfrontFee(uint256 _collIndex, uint256 _t
 ### _predictAdjustInterestRateUpfrontFee(contract IActivePool,struct LatestTroveData,uint256)
 
 - **Kind**: internal
-- **Source**: 4798:643:218
+- **Source**: 4798:643:67
 - **Link**: `src/HintHelpers.sol:HintHelpers:_predictAdjustInterestRateUpfrontFee(contract IActivePool,struct LatestTroveData,uint256)`
 
 ```solidity
@@ -42,7 +42,7 @@ function _predictAdjustInterestRateUpfrontFee(IActivePool _activePool, LatestTro
 ### _calcUpfrontFee(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2703:203:218
+- **Source**: 2703:203:67
 - **Link**: `src/HintHelpers.sol:HintHelpers:_calcUpfrontFee(uint256,uint256)`
 
 ```solidity

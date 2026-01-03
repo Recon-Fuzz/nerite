@@ -7,7 +7,7 @@
 - **Contract**: SortedTroves
 - **Signature**: `isEmptyBatch(BatchId)`
 - **Visibility**: external
-- **Source Range**: 11800:134:273
+- **Source Range**: 11800:134:122
 
 ## Implementation
 

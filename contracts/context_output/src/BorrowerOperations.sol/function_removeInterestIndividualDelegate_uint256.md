@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `removeInterestIndividualDelegate(uint256)`
 - **Visibility**: external
-- **Source Range**: 33038:175:205
+- **Source Range**: 33038:175:54
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function removeInterestIndividualDelegate(uint256 _troveId) external {
 ### _requireCallerIsBorrower(uint256)
 
 - **Kind**: internal
-- **Source**: 3740:173:209
+- **Source**: 3740:173:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireCallerIsBorrower(uint256)`
 
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: TroveNFT
 - **Signature**: `mint(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 1867:146:276
+- **Source Range**: 1867:146:125
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function mint(address _owner, uint256 _troveId) override external {
 ### _requireCallerIsTroveManager()
 
 - **Kind**: internal
-- **Source**: 2147:168:276
+- **Source**: 2147:168:125
 - **Link**: `src/TroveNFT.sol:TroveNFT:_requireCallerIsTroveManager()`
 
 ```solidity
@@ -35,7 +35,7 @@ function _requireCallerIsTroveManager() internal view {
 ### _mint(address,uint256)
 
 - **Kind**: internal
-- **Source**: 8925:920:96
+- **Source**: 8925:920:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_mint(address,uint256)`
 
 ```solidity
@@ -62,7 +62,7 @@ function _mint(address to, uint256 tokenId) virtual internal {
 ### _exists(uint256)
 
 - **Kind**: internal
-- **Source**: 7120:126:96
+- **Source**: 7120:126:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_exists(uint256)`
 
 ```solidity
@@ -78,7 +78,7 @@ function _exists(uint256 tokenId) virtual internal view returns (bool) {
 ### _ownerOf(uint256)
 
 - **Kind**: internal
-- **Source**: 6702:115:96
+- **Source**: 6702:115:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_ownerOf(uint256)`
 
 ```solidity
@@ -91,7 +91,7 @@ function _ownerOf(uint256 tokenId) virtual internal view returns (address) {
 ### _beforeTokenTransfer(address,address,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 15472:116:96
+- **Source**: 15472:116:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_beforeTokenTransfer(address,address,uint256,uint256)`
 
 ```solidity
@@ -110,7 +110,7 @@ function _beforeTokenTransfer(address from, address to, uint256 firstTokenId, ui
 ### _afterTokenTransfer(address,address,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 16294:115:96
+- **Source**: 16294:115:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_afterTokenTransfer(address,address,uint256,uint256)`
 
 ```solidity

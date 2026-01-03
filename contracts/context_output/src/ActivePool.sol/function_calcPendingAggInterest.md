@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `calcPendingAggInterest()`
 - **Visibility**: public
-- **Source Range**: 4503:684:202
+- **Source Range**: 4503:684:51
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function calcPendingAggInterest() public view returns (uint256) {
 ### ceilDiv(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 1157:194:114
+- **Source**: 1157:194:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:ceilDiv(uint256,uint256)`
 
 ```solidity

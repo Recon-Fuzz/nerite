@@ -113,7 +113,7 @@ event BorrowerOperationsAddressChanged(address _borrowerOperationsAddress);
 
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 2988:552:273
+- **Source Range**: 2988:552:122
 - **Details**: [function_constructor_contract_IAddressesRegistry.md](./function_constructor_contract_IAddressesRegistry.md)
 
 **Signature:**
@@ -125,7 +125,7 @@ constructor(IAddressesRegistry _addressesRegistry);
 
 - **Signature**: `insert(uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 5044:468:273
+- **Source Range**: 5044:468:122
 - **Details**: [function_insert_uint256_uint256_uint256_uint256.md](./function_insert_uint256_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -137,7 +137,7 @@ function insert(uint256 _id, uint256 _annualInterestRate, uint256 _prevId, uint2
 
 - **Signature**: `remove(uint256)`
 - **Visibility**: external
-- **Source Range**: 6185:347:273
+- **Source Range**: 6185:347:122
 - **Details**: [function_remove_uint256.md](./function_remove_uint256.md)
 
 **Signature:**
@@ -149,7 +149,7 @@ function remove(uint256 _id) override external;
 
 - **Signature**: `reInsert(uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 7748:445:273
+- **Source Range**: 7748:445:122
 - **Details**: [function_reInsert_uint256_uint256_uint256_uint256.md](./function_reInsert_uint256_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -161,7 +161,7 @@ function reInsert(uint256 _id, uint256 _newAnnualInterestRate, uint256 _prevId, 
 
 - **Signature**: `insertIntoBatch(uint256,BatchId,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 8582:1162:273
+- **Source Range**: 8582:1162:122
 - **Details**: [function_insertIntoBatch_uint256_BatchId_uint256_uint256_uint256.md](./function_insertIntoBatch_uint256_BatchId_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -173,7 +173,7 @@ function insertIntoBatch(uint256 _troveId, BatchId _batchId, uint256 _annualInte
 
 - **Signature**: `removeFromBatch(uint256)`
 - **Visibility**: external
-- **Source Range**: 9843:768:273
+- **Source Range**: 9843:768:122
 - **Details**: [function_removeFromBatch_uint256.md](./function_removeFromBatch_uint256.md)
 
 **Signature:**
@@ -185,7 +185,7 @@ function removeFromBatch(uint256 _id) override external;
 
 - **Signature**: `reInsertBatch(BatchId,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 10976:440:273
+- **Source Range**: 10976:440:122
 - **Details**: [function_reInsertBatch_BatchId_uint256_uint256_uint256.md](./function_reInsertBatch_BatchId_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -197,7 +197,7 @@ function reInsertBatch(BatchId _id, uint256 _newAnnualInterestRate, uint256 _pre
 
 - **Signature**: `contains(uint256)`
 - **Visibility**: public
-- **Source Range**: 11484:108:273
+- **Source Range**: 11484:108:122
 - **Details**: [function_contains_uint256.md](./function_contains_uint256.md)
 
 **Signature:**
@@ -209,7 +209,7 @@ function contains(uint256 _id) override public view returns (bool);
 
 - **Signature**: `isBatchedNode(uint256)`
 - **Visibility**: public
-- **Source Range**: 11668:126:273
+- **Source Range**: 11668:126:122
 - **Details**: [function_isBatchedNode_uint256.md](./function_isBatchedNode_uint256.md)
 
 **Signature:**
@@ -221,7 +221,7 @@ function isBatchedNode(uint256 _id) override public view returns (bool);
 
 - **Signature**: `isEmptyBatch(BatchId)`
 - **Visibility**: external
-- **Source Range**: 11800:134:273
+- **Source Range**: 11800:134:122
 - **Details**: [function_isEmptyBatch_BatchId.md](./function_isEmptyBatch_BatchId.md)
 
 **Signature:**
@@ -233,7 +233,7 @@ function isEmptyBatch(BatchId _id) override external view returns (bool);
 
 - **Signature**: `isEmpty()`
 - **Visibility**: external
-- **Source Range**: 11995:90:273
+- **Source Range**: 11995:90:122
 - **Details**: [function_isEmpty.md](./function_isEmpty.md)
 
 **Signature:**
@@ -245,7 +245,7 @@ function isEmpty() override external view returns (bool);
 
 - **Signature**: `getSize()`
 - **Visibility**: external
-- **Source Range**: 12155:88:273
+- **Source Range**: 12155:88:122
 - **Details**: [function_getSize.md](./function_getSize.md)
 
 **Signature:**
@@ -257,7 +257,7 @@ function getSize() override external view returns (uint256);
 
 - **Signature**: `getFirst()`
 - **Visibility**: external
-- **Source Range**: 12356:111:273
+- **Source Range**: 12356:111:122
 - **Details**: [function_getFirst.md](./function_getFirst.md)
 
 **Signature:**
@@ -269,7 +269,7 @@ function getFirst() override external view returns (uint256);
 
 - **Signature**: `getLast()`
 - **Visibility**: external
-- **Source Range**: 12580:110:273
+- **Source Range**: 12580:110:122
 - **Details**: [function_getLast.md](./function_getLast.md)
 
 **Signature:**
@@ -281,7 +281,7 @@ function getLast() override external view returns (uint256);
 
 - **Signature**: `getNext(uint256)`
 - **Visibility**: external
-- **Source Range**: 12833:112:273
+- **Source Range**: 12833:112:122
 - **Details**: [function_getNext_uint256.md](./function_getNext_uint256.md)
 
 **Signature:**
@@ -293,7 +293,7 @@ function getNext(uint256 _id) override external view returns (uint256);
 
 - **Signature**: `getPrev(uint256)`
 - **Visibility**: external
-- **Source Range**: 13091:112:273
+- **Source Range**: 13091:112:122
 - **Details**: [function_getPrev_uint256.md](./function_getPrev_uint256.md)
 
 **Signature:**
@@ -305,7 +305,7 @@ function getPrev(uint256 _id) override external view returns (uint256);
 
 - **Signature**: `validInsertPosition(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 13522:263:273
+- **Source Range**: 13522:263:122
 - **Details**: [function_validInsertPosition_uint256_uint256_uint256.md](./function_validInsertPosition_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -317,7 +317,7 @@ function validInsertPosition(uint256 _annualInterestRate, uint256 _prevId, uint2
 
 - **Signature**: `findInsertPosition(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 18564:273:273
+- **Source Range**: 18564:273:122
 - **Details**: [function_findInsertPosition_uint256_uint256_uint256.md](./function_findInsertPosition_uint256_uint256_uint256.md)
 
 **Signature:**

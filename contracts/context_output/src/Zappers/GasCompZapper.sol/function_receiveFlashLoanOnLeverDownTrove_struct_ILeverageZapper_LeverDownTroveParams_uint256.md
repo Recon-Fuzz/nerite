@@ -7,7 +7,7 @@
 - **Contract**: GasCompZapper
 - **Signature**: `receiveFlashLoanOnLeverDownTrove(struct ILeverageZapper.LeverDownTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 12081:182:283
+- **Source Range**: 12081:182:132
 
 ## Implementation
 

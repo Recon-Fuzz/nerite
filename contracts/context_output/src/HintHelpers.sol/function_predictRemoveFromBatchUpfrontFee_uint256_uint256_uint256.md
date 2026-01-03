@@ -7,7 +7,7 @@
 - **Contract**: HintHelpers
 - **Signature**: `predictRemoveFromBatchUpfrontFee(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 10237:1429:218
+- **Source Range**: 10237:1429:67
 
 ## Implementation
 
@@ -36,7 +36,7 @@ function predictRemoveFromBatchUpfrontFee(uint256 _collIndex, uint256 _troveId, 
 ### _calcUpfrontFee(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2703:203:218
+- **Source**: 2703:203:67
 - **Link**: `src/HintHelpers.sol:HintHelpers:_calcUpfrontFee(uint256,uint256)`
 
 ```solidity

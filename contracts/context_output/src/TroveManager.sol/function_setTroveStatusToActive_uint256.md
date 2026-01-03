@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `setTroveStatusToActive(uint256)`
 - **Visibility**: external
-- **Source Range**: 60149:251:275
+- **Source Range**: 60149:251:124
 
 ## Implementation
 
@@ -26,7 +26,7 @@ function setTroveStatusToActive(uint256 _troveId) external {
 ### _requireCallerIsBorrowerOperations()
 
 - **Kind**: internal
-- **Source**: 53483:184:275
+- **Source**: 53483:184:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireCallerIsBorrowerOperations()`
 
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: CollateralRegistry
 - **Signature**: `getTroveManager(uint256)`
 - **Visibility**: public
-- **Source Range**: 12588:637:207
+- **Source Range**: 12588:637:56
 
 ## Implementation
 

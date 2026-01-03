@@ -12,7 +12,7 @@
 
 - **Signature**: `triggerBoldRewards(uint256)`
 - **Visibility**: external
-- **Source Range**: 95:57:222
+- **Source Range**: 95:57:71
 
 **Signature:**
 ```solidity

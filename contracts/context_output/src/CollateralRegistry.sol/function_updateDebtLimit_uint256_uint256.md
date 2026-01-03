@@ -7,7 +7,7 @@
 - **Contract**: CollateralRegistry
 - **Signature**: `updateDebtLimit(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 13764:539:207
+- **Source Range**: 13764:539:56
 
 ## Implementation
 
@@ -26,7 +26,7 @@ function updateDebtLimit(uint256 _indexTroveManager, uint256 _newDebtLimit) exte
 ### getTroveManager(uint256)
 
 - **Kind**: internal
-- **Source**: 12588:637:207
+- **Source**: 12588:637:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:getTroveManager(uint256)`
 
 ```solidity
@@ -38,7 +38,7 @@ function getTroveManager(uint256 _index) public view returns (ITroveManager) {
 ### onlyGovernor()
 
 - **Kind**: modifier
-- **Source**: 14585:143:207
+- **Source**: 14585:143:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:onlyGovernor()`
 
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: ERC20
 - **Signature**: `allowance(address,address)`
 - **Visibility**: public
-- **Source Range**: 3987:149:86
+- **Source Range**: 3987:149:7
 
 ## Implementation
 

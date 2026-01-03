@@ -7,7 +7,7 @@
 - **Contract**: LeverageLSTZapper
 - **Signature**: `constructor(contract IAddressesRegistry,contract IFlashLoanProvider,contract IExchange)`
 - **Visibility**: public
-- **Source Range**: 305:438:291
+- **Source Range**: 305:438:140
 
 ## Implementation
 
@@ -22,7 +22,7 @@ constructor(IAddressesRegistry _addressesRegistry, IFlashLoanProvider _flashLoan
 ### (contract IAddressesRegistry,contract IFlashLoanProvider,contract IExchange)
 
 - **Kind**: internal
-- **Source**: 318:702:283
+- **Source**: 318:702:132
 - **Link**: `src/Zappers/GasCompZapper.sol:GasCompZapper:constructor(contract IAddressesRegistry,contract IFlashLoanProvider,contract IExchange)`
 
 ```solidity
@@ -38,7 +38,7 @@ constructor(IAddressesRegistry _addressesRegistry, IFlashLoanProvider _flashLoan
 ### (contract IAddressesRegistry,contract IFlashLoanProvider,contract IExchange)
 
 - **Kind**: internal
-- **Source**: 865:469:282
+- **Source**: 865:469:131
 - **Link**: `src/Zappers/BaseZapper.sol:BaseZapper:constructor(contract IAddressesRegistry,contract IFlashLoanProvider,contract IExchange)`
 
 ```solidity
@@ -55,7 +55,7 @@ constructor(IAddressesRegistry _addressesRegistry, IFlashLoanProvider _flashLoan
 ### (contract IAddressesRegistry)
 
 - **Kind**: internal
-- **Source**: 1932:164:209
+- **Source**: 1932:164:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:constructor(contract IAddressesRegistry)`
 
 ```solidity

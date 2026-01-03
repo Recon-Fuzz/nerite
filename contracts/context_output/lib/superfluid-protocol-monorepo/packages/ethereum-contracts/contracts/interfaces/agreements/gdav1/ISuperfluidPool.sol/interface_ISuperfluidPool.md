@@ -93,7 +93,7 @@ event DistributionClaimed(ISuperfluidToken indexed token, address indexed member
 
 - **Signature**: `transferabilityForUnitsOwner()`
 - **Visibility**: external
-- **Source Range**: 1288:69:137
+- **Source Range**: 1288:69:38
 
 **Signature:**
 ```solidity
@@ -105,7 +105,7 @@ function transferabilityForUnitsOwner() external view returns (bool);;
 
 - **Signature**: `distributionFromAnyAddress()`
 - **Visibility**: external
-- **Source Range**: 1472:67:137
+- **Source Range**: 1472:67:38
 
 **Signature:**
 ```solidity
@@ -117,7 +117,7 @@ function distributionFromAnyAddress() external view returns (bool);;
 
 - **Signature**: `admin()`
 - **Visibility**: external
-- **Source Range**: 1726:49:137
+- **Source Range**: 1726:49:38
 
 **Signature:**
 ```solidity
@@ -131,7 +131,7 @@ function admin() external view returns (address);;
 
 - **Signature**: `superToken()`
 - **Visibility**: external
-- **Source Range**: 1825:63:137
+- **Source Range**: 1825:63:38
 
 **Signature:**
 ```solidity
@@ -143,7 +143,7 @@ function superToken() external view returns (ISuperfluidToken);;
 
 - **Signature**: `getTotalUnits()`
 - **Visibility**: external
-- **Source Range**: 1938:57:137
+- **Source Range**: 1938:57:38
 
 **Signature:**
 ```solidity
@@ -155,7 +155,7 @@ function getTotalUnits() external view returns (uint128);;
 
 - **Signature**: `getTotalConnectedUnits()`
 - **Visibility**: external
-- **Source Range**: 2064:66:137
+- **Source Range**: 2064:66:38
 
 **Signature:**
 ```solidity
@@ -167,7 +167,7 @@ function getTotalConnectedUnits() external view returns (uint128);;
 
 - **Signature**: `getTotalDisconnectedUnits()`
 - **Visibility**: external
-- **Source Range**: 2202:69:137
+- **Source Range**: 2202:69:38
 
 **Signature:**
 ```solidity
@@ -179,7 +179,7 @@ function getTotalDisconnectedUnits() external view returns (uint128);;
 
 - **Signature**: `getUnits(address)`
 - **Visibility**: external
-- **Source Range**: 2388:70:137
+- **Source Range**: 2388:70:38
 
 **Signature:**
 ```solidity
@@ -192,7 +192,7 @@ function getUnits(address memberAddr) external view returns (uint128);;
 
 - **Signature**: `getTotalFlowRate()`
 - **Visibility**: external
-- **Source Range**: 2512:58:137
+- **Source Range**: 2512:58:38
 
 **Signature:**
 ```solidity
@@ -204,7 +204,7 @@ function getTotalFlowRate() external view returns (int96);;
 
 - **Signature**: `getTotalConnectedFlowRate()`
 - **Visibility**: external
-- **Source Range**: 2631:67:137
+- **Source Range**: 2631:67:38
 
 **Signature:**
 ```solidity
@@ -216,7 +216,7 @@ function getTotalConnectedFlowRate() external view returns (int96);;
 
 - **Signature**: `getTotalDisconnectedFlowRate()`
 - **Visibility**: external
-- **Source Range**: 2762:70:137
+- **Source Range**: 2762:70:38
 
 **Signature:**
 ```solidity
@@ -228,7 +228,7 @@ function getTotalDisconnectedFlowRate() external view returns (int96);;
 
 - **Signature**: `getDisconnectedBalance(uint32)`
 - **Visibility**: external
-- **Source Range**: 2946:84:137
+- **Source Range**: 2946:84:38
 
 **Signature:**
 ```solidity
@@ -241,7 +241,7 @@ function getDisconnectedBalance(uint32 time) external view returns (int256 balan
 
 - **Signature**: `getTotalAmountReceivedByMember(address)`
 - **Visibility**: external
-- **Source Range**: 3234:112:137
+- **Source Range**: 3234:112:38
 
 **Signature:**
 ```solidity
@@ -255,7 +255,7 @@ function getTotalAmountReceivedByMember(address memberAddr) external view return
 
 - **Signature**: `getMemberFlowRate(address)`
 - **Visibility**: external
-- **Source Range**: 3470:77:137
+- **Source Range**: 3470:77:38
 
 **Signature:**
 ```solidity
@@ -268,7 +268,7 @@ function getMemberFlowRate(address memberAddr) external view returns (int96);;
 
 - **Signature**: `getClaimable(address,uint32)`
 - **Visibility**: external
-- **Source Range**: 3720:86:137
+- **Source Range**: 3720:86:38
 
 **Signature:**
 ```solidity
@@ -282,7 +282,7 @@ function getClaimable(address memberAddr, uint32 time) external view returns (in
 
 - **Signature**: `getClaimableNow(address)`
 - **Visibility**: external
-- **Source Range**: 3952:112:137
+- **Source Range**: 3952:112:38
 
 **Signature:**
 ```solidity
@@ -295,7 +295,7 @@ function getClaimableNow(address memberAddr) external view returns (int256 claim
 
 - **Signature**: `updateMemberUnits(address,uint128)`
 - **Visibility**: external
-- **Source Range**: 4234:89:137
+- **Source Range**: 4234:89:38
 
 **Signature:**
 ```solidity
@@ -309,7 +309,7 @@ function updateMemberUnits(address memberAddr, uint128 newUnits) external return
 
 - **Signature**: `claimAll(address)`
 - **Visibility**: external
-- **Source Range**: 4464:62:137
+- **Source Range**: 4464:62:38
 
 **Signature:**
 ```solidity
@@ -322,7 +322,7 @@ function claimAll(address memberAddr) external returns (bool);;
 
 - **Signature**: `claimAll()`
 - **Visibility**: external
-- **Source Range**: 4615:44:137
+- **Source Range**: 4615:44:38
 
 **Signature:**
 ```solidity
@@ -334,7 +334,7 @@ function claimAll() external returns (bool);;
 
 - **Signature**: `increaseAllowance(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 4885:88:137
+- **Source Range**: 4885:88:38
 
 **Signature:**
 ```solidity
@@ -349,7 +349,7 @@ function increaseAllowance(address spender, uint256 addedValue) external returns
 
 - **Signature**: `decreaseAllowance(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 5209:93:137
+- **Source Range**: 5209:93:38
 
 **Signature:**
 ```solidity
@@ -364,7 +364,7 @@ function decreaseAllowance(address spender, uint256 subtractedValue) external re
 
 - **Signature**: `totalSupply()`
 - **Visibility**: external
-- **Source Range**: 774:55:87
+- **Source Range**: 774:55:8
 
 **Signature:**
 ```solidity
@@ -376,7 +376,7 @@ function totalSupply() external view returns (uint256);;
 
 - **Signature**: `balanceOf(address)`
 - **Visibility**: external
-- **Source Range**: 912:68:87
+- **Source Range**: 912:68:8
 
 **Signature:**
 ```solidity
@@ -388,7 +388,7 @@ function balanceOf(address account) external view returns (uint256);;
 
 - **Signature**: `transfer(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 1193:70:87
+- **Source Range**: 1193:70:8
 
 **Signature:**
 ```solidity
@@ -402,7 +402,7 @@ function transfer(address to, uint256 amount) external returns (bool);;
 
 - **Signature**: `allowance(address,address)`
 - **Visibility**: external
-- **Source Range**: 1538:83:87
+- **Source Range**: 1538:83:8
 
 **Signature:**
 ```solidity
@@ -417,7 +417,7 @@ function allowance(address owner, address spender) external view returns (uint25
 
 - **Signature**: `approve(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 2274:74:87
+- **Source Range**: 2274:74:8
 
 **Signature:**
 ```solidity
@@ -437,7 +437,7 @@ function approve(address spender, uint256 amount) external returns (bool);;
 
 - **Signature**: `transferFrom(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 2646:88:87
+- **Source Range**: 2646:88:8
 
 **Signature:**
 ```solidity
@@ -453,7 +453,7 @@ function transferFrom(address from, address to, uint256 amount) external returns
 
 - **Signature**: `name()`
 - **Visibility**: external
-- **Source Range**: 377:54:92
+- **Source Range**: 377:54:11
 
 **Signature:**
 ```solidity
@@ -465,7 +465,7 @@ function name() external view returns (string memory);;
 
 - **Signature**: `symbol()`
 - **Visibility**: external
-- **Source Range**: 498:56:92
+- **Source Range**: 498:56:11
 
 **Signature:**
 ```solidity
@@ -477,7 +477,7 @@ function symbol() external view returns (string memory);;
 
 - **Signature**: `decimals()`
 - **Visibility**: external
-- **Source Range**: 630:50:92
+- **Source Range**: 630:50:11
 
 **Signature:**
 ```solidity

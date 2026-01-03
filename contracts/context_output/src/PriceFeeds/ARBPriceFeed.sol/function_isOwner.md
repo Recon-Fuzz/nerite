@@ -7,7 +7,7 @@
 - **Contract**: ARBPriceFeed
 - **Signature**: `isOwner()`
 - **Visibility**: public
-- **Source Range**: 1366:90:216
+- **Source Range**: 1366:90:65
 - **Inherited From**: Ownable
 
 ## Implementation

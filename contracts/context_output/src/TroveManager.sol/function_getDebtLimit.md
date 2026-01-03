@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `getDebtLimit()`
 - **Visibility**: external
-- **Source Range**: 88084:89:275
+- **Source Range**: 88084:89:124
 
 ## Implementation
 

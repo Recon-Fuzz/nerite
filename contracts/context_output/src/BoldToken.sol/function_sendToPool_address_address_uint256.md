@@ -7,7 +7,7 @@
 - **Contract**: BoldToken
 - **Signature**: `sendToPool(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 5125:236:204
+- **Source Range**: 5125:236:53
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function sendToPool(address _sender, address _poolAddress, uint256 _amount) over
 ### _requireCallerIsStabilityPool()
 
 - **Kind**: internal
-- **Source**: 6622:156:204
+- **Source**: 6622:156:53
 - **Link**: `src/BoldToken.sol:BoldToken:_requireCallerIsStabilityPool()`
 
 ```solidity

@@ -17,7 +17,7 @@
 
 - **Signature**: `supportsInterface(bytes4)`
 - **Visibility**: external
-- **Source Range**: 774:76:112
+- **Source Range**: 774:76:28
 
 **Signature:**
 ```solidity

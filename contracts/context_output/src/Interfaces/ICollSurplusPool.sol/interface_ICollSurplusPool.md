@@ -12,7 +12,7 @@
 
 - **Signature**: `getCollBalance()`
 - **Visibility**: external
-- **Source Range**: 91:58:225
+- **Source Range**: 91:58:74
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function getCollBalance() external view returns (uint256);;
 
 - **Signature**: `getCollateral(address)`
 - **Visibility**: external
-- **Source Range**: 155:73:225
+- **Source Range**: 155:73:74
 
 **Signature:**
 ```solidity
@@ -34,7 +34,7 @@ function getCollateral(address _account) external view returns (uint256);;
 
 - **Signature**: `accountSurplus(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 234:68:225
+- **Source Range**: 234:68:74
 
 **Signature:**
 ```solidity
@@ -45,7 +45,7 @@ function accountSurplus(address _account, uint256 _amount) external;;
 
 - **Signature**: `claimColl(address)`
 - **Visibility**: external
-- **Source Range**: 308:46:225
+- **Source Range**: 308:46:74
 
 **Signature:**
 ```solidity

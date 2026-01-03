@@ -7,7 +7,7 @@
 - **Contract**: LeverageLSTZapper
 - **Signature**: `leverUpTrove(struct ILeverageZapper.LeverUpTroveParams)`
 - **Visibility**: external
-- **Source Range**: 4597:720:291
+- **Source Range**: 4597:720:140
 
 ## Implementation
 
@@ -27,7 +27,7 @@ function leverUpTrove(LeverUpTroveParams calldata _params) external {
 ### _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)
 
 - **Kind**: internal
-- **Source**: 4222:544:209
+- **Source**: 4222:544:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)`
 
 ```solidity
@@ -47,7 +47,7 @@ function _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256 _troveId, ad
 ### _setInitialTokensBalancesAndReceiver(contract IERC20,contract IBoldToken,struct LeftoversSweep.InitialBalances,address)
 
 - **Kind**: internal
-- **Source**: 746:374:290
+- **Source**: 746:374:139
 - **Link**: `src/Zappers/LeftoversSweep.sol:LeftoversSweep:_setInitialTokensBalancesAndReceiver(contract IERC20,contract IBoldToken,struct LeftoversSweep.InitialBalances,address)`
 
 ```solidity
@@ -61,7 +61,7 @@ function _setInitialTokensBalancesAndReceiver(IERC20 _collToken, IBoldToken _bol
 ### _setInitialBalancesAndReceiver(struct LeftoversSweep.InitialBalances,address)
 
 - **Kind**: internal
-- **Source**: 1293:420:290
+- **Source**: 1293:420:139
 - **Link**: `src/Zappers/LeftoversSweep.sol:LeftoversSweep:_setInitialBalancesAndReceiver(struct LeftoversSweep.InitialBalances,address)`
 
 ```solidity
@@ -77,7 +77,7 @@ function _setInitialBalancesAndReceiver(InitialBalances memory _initialBalances,
 ### _returnLeftovers(struct LeftoversSweep.InitialBalances)
 
 - **Kind**: internal
-- **Source**: 1719:577:290
+- **Source**: 1719:577:139
 - **Link**: `src/Zappers/LeftoversSweep.sol:LeftoversSweep:_returnLeftovers(struct LeftoversSweep.InitialBalances)`
 
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: TroveNFT
 - **Signature**: `balanceOf(address)`
 - **Visibility**: public
-- **Source Range**: 1929:204:96
+- **Source Range**: 1929:204:14
 - **Inherited From**: ERC721
 
 ## Implementation

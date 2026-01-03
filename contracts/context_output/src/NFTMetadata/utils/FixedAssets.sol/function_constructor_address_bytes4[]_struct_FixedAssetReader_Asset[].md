@@ -7,7 +7,7 @@
 - **Contract**: FixedAssetReader
 - **Signature**: `constructor(address,bytes4[],struct FixedAssetReader.Asset[])`
 - **Visibility**: public
-- **Source Range**: 469:302:254
+- **Source Range**: 469:302:103
 
 ## Implementation
 

@@ -43,7 +43,7 @@ struct DebtPerInterestRate {
 
 - **Signature**: `getMultipleSortedTroves(uint256,int256,uint256)`
 - **Visibility**: external
-- **Source Range**: 627:170:235
+- **Source Range**: 627:170:84
 
 **Signature:**
 ```solidity
@@ -54,7 +54,7 @@ function getMultipleSortedTroves(uint256 _collIndex, int256 _startIdx, uint256 _
 
 - **Signature**: `getDebtPerInterestRateAscending(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 803:196:235
+- **Source Range**: 803:196:84
 
 **Signature:**
 ```solidity

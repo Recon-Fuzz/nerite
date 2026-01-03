@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `getLatestBatchData(address)`
 - **Visibility**: external
-- **Source Range**: 47983:162:275
+- **Source Range**: 47983:162:124
 
 ## Implementation
 
@@ -22,7 +22,7 @@ function getLatestBatchData(address _batchAddress) external view returns (Latest
 ### _getLatestBatchData(address,struct LatestBatchData)
 
 - **Kind**: internal
-- **Source**: 46668:1309:275
+- **Source**: 46668:1309:124
 - **Link**: `src/TroveManager.sol:TroveManager:_getLatestBatchData(address,struct LatestBatchData)`
 
 ```solidity
@@ -46,7 +46,7 @@ function _getLatestBatchData(address _batchAddress, LatestBatchData memory lates
 ### _getInterestPeriod(uint256)
 
 - **Kind**: internal
-- **Source**: 52678:755:275
+- **Source**: 52678:755:124
 - **Link**: `src/TroveManager.sol:TroveManager:_getInterestPeriod(uint256)`
 
 ```solidity
@@ -64,7 +64,7 @@ function _getInterestPeriod(uint256 _lastDebtUpdateTime) internal view returns (
 ### _calcInterest(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2244:173:214
+- **Source**: 2244:173:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:_calcInterest(uint256,uint256)`
 
 ```solidity

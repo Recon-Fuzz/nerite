@@ -7,7 +7,7 @@
 - **Contract**: TroveNFT
 - **Signature**: `approve(address,uint256)`
 - **Visibility**: public
-- **Source Range**: 3468:406:96
+- **Source Range**: 3468:406:14
 - **Inherited From**: ERC721
 
 ## Implementation
@@ -27,7 +27,7 @@ function approve(address to, uint256 tokenId) virtual override public {
 ### ownerOf(uint256)
 
 - **Kind**: internal
-- **Source**: 2190:219:96
+- **Source**: 2190:219:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:ownerOf(uint256)`
 
 ```solidity
@@ -42,7 +42,7 @@ function ownerOf(uint256 tokenId) virtual override public view returns (address)
 ### _ownerOf(uint256)
 
 - **Kind**: internal
-- **Source**: 6702:115:96
+- **Source**: 6702:115:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_ownerOf(uint256)`
 
 ```solidity
@@ -55,7 +55,7 @@ function _ownerOf(uint256 tokenId) virtual internal view returns (address) {
 ### isApprovedForAll(address,address)
 
 - **Kind**: internal
-- **Source**: 4388:162:96
+- **Source**: 4388:162:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:isApprovedForAll(address,address)`
 
 ```solidity
@@ -68,7 +68,7 @@ function isApprovedForAll(address owner, address operator) virtual override publ
 ### _msgSender()
 
 - **Kind**: internal
-- **Source**: 655:96:104
+- **Source**: 655:96:20
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/Context.sol:Context:_msgSender()`
 
 ```solidity
@@ -80,7 +80,7 @@ function _msgSender() virtual internal view returns (address) {
 ### _approve(address,uint256)
 
 - **Kind**: internal
-- **Source**: 12572:171:96
+- **Source**: 12572:171:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_approve(address,uint256)`
 
 ```solidity

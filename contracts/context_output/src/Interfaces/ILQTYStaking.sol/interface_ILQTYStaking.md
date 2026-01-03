@@ -12,7 +12,7 @@
 
 - **Signature**: `setAddresses(address,address,address,address,address)`
 - **Visibility**: external
-- **Source Range**: 87:225:231
+- **Source Range**: 87:225:80
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function setAddresses(address _lqtyTokenAddress, address _boldTokenAddress, addr
 
 - **Signature**: `stake(uint256)`
 - **Visibility**: external
-- **Source Range**: 318:45:231
+- **Source Range**: 318:45:80
 
 **Signature:**
 ```solidity
@@ -34,7 +34,7 @@ function stake(uint256 _LQTYamount) external;;
 
 - **Signature**: `unstake(uint256)`
 - **Visibility**: external
-- **Source Range**: 369:47:231
+- **Source Range**: 369:47:80
 
 **Signature:**
 ```solidity
@@ -45,7 +45,7 @@ function unstake(uint256 _LQTYamount) external;;
 
 - **Signature**: `increaseF_ETH(uint256)`
 - **Visibility**: external
-- **Source Range**: 422:49:231
+- **Source Range**: 422:49:80
 
 **Signature:**
 ```solidity
@@ -56,7 +56,7 @@ function increaseF_ETH(uint256 _ETHFee) external;;
 
 - **Signature**: `increaseF_bold(uint256)`
 - **Visibility**: external
-- **Source Range**: 477:51:231
+- **Source Range**: 477:51:80
 
 **Signature:**
 ```solidity
@@ -67,7 +67,7 @@ function increaseF_bold(uint256 _LQTYFee) external;;
 
 - **Signature**: `getPendingETHGain(address)`
 - **Visibility**: external
-- **Source Range**: 534:74:231
+- **Source Range**: 534:74:80
 
 **Signature:**
 ```solidity
@@ -78,7 +78,7 @@ function getPendingETHGain(address _user) external view returns (uint256);;
 
 - **Signature**: `getPendingBoldGain(address)`
 - **Visibility**: external
-- **Source Range**: 614:75:231
+- **Source Range**: 614:75:80
 
 **Signature:**
 ```solidity

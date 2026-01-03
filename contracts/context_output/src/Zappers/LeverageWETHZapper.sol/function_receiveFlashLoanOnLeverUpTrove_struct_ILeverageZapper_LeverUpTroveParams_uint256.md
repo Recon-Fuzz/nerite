@@ -7,7 +7,7 @@
 - **Contract**: LeverageWETHZapper
 - **Signature**: `receiveFlashLoanOnLeverUpTrove(struct ILeverageZapper.LeverUpTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 5332:1185:292
+- **Source Range**: 5332:1185:141
 
 ## Implementation
 

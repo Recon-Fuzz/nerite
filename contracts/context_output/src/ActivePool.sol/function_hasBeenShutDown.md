@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `hasBeenShutDown()`
 - **Visibility**: external
-- **Source Range**: 13832:97:202
+- **Source Range**: 13832:97:51
 
 ## Implementation
 

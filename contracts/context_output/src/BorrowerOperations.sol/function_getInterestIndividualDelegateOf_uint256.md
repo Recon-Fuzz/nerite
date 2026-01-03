@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `getInterestIndividualDelegateOf(uint256)`
 - **Visibility**: external
-- **Source Range**: 31488:207:205
+- **Source Range**: 31488:207:54
 
 ## Implementation
 

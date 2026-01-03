@@ -378,7 +378,7 @@ event PoolMemberNFTCreated(IPoolMemberNFT indexed poolMemberNFT);
 
 - **Signature**: `permit(address,address,uint256,uint256,uint8,bytes32,bytes32)`
 - **Visibility**: external
-- **Source Range**: 2996:183:93
+- **Source Range**: 2996:183:12
 
 **Signature:**
 ```solidity
@@ -404,7 +404,7 @@ function permit(address owner, address spender, uint256 value, uint256 deadline,
 
 - **Signature**: `nonces(address)`
 - **Visibility**: external
-- **Source Range**: 3484:63:93
+- **Source Range**: 3484:63:12
 
 **Signature:**
 ```solidity
@@ -419,7 +419,7 @@ function nonces(address owner) external view returns (uint256);;
 
 - **Signature**: `DOMAIN_SEPARATOR()`
 - **Visibility**: external
-- **Source Range**: 3739:60:93
+- **Source Range**: 3739:60:12
 
 **Signature:**
 ```solidity
@@ -431,7 +431,7 @@ function DOMAIN_SEPARATOR() external view returns (bytes32);;
 
 - **Signature**: `eip712Domain()`
 - **Visibility**: external
-- **Source Range**: 425:310:74
+- **Source Range**: 425:310:3
 
 **Signature:**
 ```solidity
@@ -444,7 +444,7 @@ function eip712Domain() external view returns (bytes1 fields, string memory name
 
 - **Signature**: `collateralRegistryAddress()`
 - **Visibility**: external
-- **Source Range**: 473:69:223
+- **Source Range**: 473:69:72
 
 **Signature:**
 ```solidity
@@ -455,7 +455,7 @@ function collateralRegistryAddress() external view returns (address);;
 
 - **Signature**: `setBranchAddresses(address,address,address,address)`
 - **Visibility**: external
-- **Source Range**: 553:200:223
+- **Source Range**: 553:200:72
 
 **Signature:**
 ```solidity
@@ -466,7 +466,7 @@ function setBranchAddresses(address _troveManagerAddress, address _stabilityPool
 
 - **Signature**: `setCollateralRegistry(address)`
 - **Visibility**: external
-- **Source Range**: 759:76:223
+- **Source Range**: 759:76:72
 
 **Signature:**
 ```solidity
@@ -477,7 +477,7 @@ function setCollateralRegistry(address _collateralRegistryAddress) external;;
 
 - **Signature**: `mint(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 841:58:223
+- **Source Range**: 841:58:72
 
 **Signature:**
 ```solidity
@@ -488,7 +488,7 @@ function mint(address _account, uint256 _amount) external;;
 
 - **Signature**: `burn(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 905:58:223
+- **Source Range**: 905:58:72
 
 **Signature:**
 ```solidity
@@ -499,7 +499,7 @@ function burn(address _account, uint256 _amount) external;;
 
 - **Signature**: `sendToPool(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 969:84:223
+- **Source Range**: 969:84:72
 
 **Signature:**
 ```solidity
@@ -510,7 +510,7 @@ function sendToPool(address _sender, address poolAddress, uint256 _amount) exter
 
 - **Signature**: `returnFromPool(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 1059:85:223
+- **Source Range**: 1059:85:72
 
 **Signature:**
 ```solidity
@@ -521,7 +521,7 @@ function returnFromPool(address poolAddress, address user, uint256 _amount) exte
 
 - **Signature**: `getHost()`
 - **Visibility**: external
-- **Source Range**: 1017:55:146
+- **Source Range**: 1017:55:47
 
 **Signature:**
 ```solidity
@@ -533,7 +533,7 @@ function getHost() external view returns (address host);;
 
 - **Signature**: `realtimeBalanceOf(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 2078:222:146
+- **Source Range**: 2078:222:47
 
 **Signature:**
 ```solidity
@@ -550,7 +550,7 @@ function realtimeBalanceOf(address account, uint256 timestamp) external view ret
 
 - **Signature**: `realtimeBalanceOfNow(address)`
 - **Visibility**: external
-- **Source Range**: 2650:230:146
+- **Source Range**: 2650:230:47
 
 **Signature:**
 ```solidity
@@ -567,7 +567,7 @@ function realtimeBalanceOfNow(address account) external view returns (int256 ava
 
 - **Signature**: `isAccountCritical(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 3200:140:146
+- **Source Range**: 3200:140:47
 
 **Signature:**
 ```solidity
@@ -583,7 +583,7 @@ function isAccountCritical(address account, uint256 timestamp) external view ret
 
 - **Signature**: `isAccountCriticalNow(address)`
 - **Visibility**: external
-- **Source Range**: 3590:116:146
+- **Source Range**: 3590:116:47
 
 **Signature:**
 ```solidity
@@ -598,7 +598,7 @@ function isAccountCriticalNow(address account) external view returns (bool isCri
 
 - **Signature**: `isAccountSolvent(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 4100:138:146
+- **Source Range**: 4100:138:47
 
 **Signature:**
 ```solidity
@@ -614,7 +614,7 @@ function isAccountSolvent(address account, uint256 timestamp) external view retu
 
 - **Signature**: `isAccountSolventNow(address)`
 - **Visibility**: external
-- **Source Range**: 4538:114:146
+- **Source Range**: 4538:114:47
 
 **Signature:**
 ```solidity
@@ -629,7 +629,7 @@ function isAccountSolventNow(address account) external view returns (bool isSolv
 
 - **Signature**: `getAccountActiveAgreements(address)`
 - **Visibility**: external
-- **Source Range**: 4940:132:146
+- **Source Range**: 4940:132:47
 
 **Signature:**
 ```solidity
@@ -644,7 +644,7 @@ function getAccountActiveAgreements(address account) external view returns (ISup
 
 - **Signature**: `createAgreement(bytes32,bytes32[])`
 - **Visibility**: external
-- **Source Range**: 5393:101:146
+- **Source Range**: 5393:101:47
 
 **Signature:**
 ```solidity
@@ -658,7 +658,7 @@ function createAgreement(bytes32 id, bytes32[] calldata data) external;;
 
 - **Signature**: `getAgreementData(address,bytes32,uint256)`
 - **Visibility**: external
-- **Source Range**: 5986:170:146
+- **Source Range**: 5986:170:47
 
 **Signature:**
 ```solidity
@@ -673,7 +673,7 @@ function getAgreementData(address agreementClass, bytes32 id, uint dataLength) e
 
 - **Signature**: `updateAgreementData(bytes32,bytes32[])`
 - **Visibility**: external
-- **Source Range**: 6277:105:146
+- **Source Range**: 6277:105:47
 
 **Signature:**
 ```solidity
@@ -687,7 +687,7 @@ function updateAgreementData(bytes32 id, bytes32[] calldata data) external;;
 
 - **Signature**: `terminateAgreement(bytes32,uint256)`
 - **Visibility**: external
-- **Source Range**: 6763:96:146
+- **Source Range**: 6763:96:47
 
 **Signature:**
 ```solidity
@@ -700,7 +700,7 @@ function terminateAgreement(bytes32 id, uint dataLength) external;;
 
 - **Signature**: `updateAgreementStateSlot(address,uint256,bytes32[])`
 - **Visibility**: external
-- **Source Range**: 7314:143:146
+- **Source Range**: 7314:143:47
 
 **Signature:**
 ```solidity
@@ -715,7 +715,7 @@ function updateAgreementStateSlot(address account, uint256 slotId, bytes32[] cal
 
 - **Signature**: `getAgreementStateSlot(address,address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 8090:209:146
+- **Source Range**: 8090:209:47
 
 **Signature:**
 ```solidity
@@ -731,7 +731,7 @@ function getAgreementStateSlot(address agreementClass, address account, uint256 
 
 - **Signature**: `settleBalance(address,int256)`
 - **Visibility**: external
-- **Source Range**: 8630:93:146
+- **Source Range**: 8630:93:47
 
 **Signature:**
 ```solidity
@@ -748,7 +748,7 @@ function settleBalance(address account, int256 delta) external;;
 
 - **Signature**: `makeLiquidationPayoutsV2(bytes32,bytes,address,bool,address,uint256,int256)`
 - **Visibility**: external
-- **Source Range**: 9888:292:146
+- **Source Range**: 9888:292:47
 
 **Signature:**
 ```solidity
@@ -778,7 +778,7 @@ function makeLiquidationPayoutsV2(bytes32 id, bytes memory liquidationTypeData, 
 
 - **Signature**: `totalSupply()`
 - **Visibility**: external
-- **Source Range**: 774:55:87
+- **Source Range**: 774:55:8
 
 **Signature:**
 ```solidity
@@ -790,7 +790,7 @@ function totalSupply() external view returns (uint256);;
 
 - **Signature**: `balanceOf(address)`
 - **Visibility**: external
-- **Source Range**: 912:68:87
+- **Source Range**: 912:68:8
 
 **Signature:**
 ```solidity
@@ -802,7 +802,7 @@ function balanceOf(address account) external view returns (uint256);;
 
 - **Signature**: `transfer(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 1193:70:87
+- **Source Range**: 1193:70:8
 
 **Signature:**
 ```solidity
@@ -816,7 +816,7 @@ function transfer(address to, uint256 amount) external returns (bool);;
 
 - **Signature**: `allowance(address,address)`
 - **Visibility**: external
-- **Source Range**: 1538:83:87
+- **Source Range**: 1538:83:8
 
 **Signature:**
 ```solidity
@@ -831,7 +831,7 @@ function allowance(address owner, address spender) external view returns (uint25
 
 - **Signature**: `approve(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 2274:74:87
+- **Source Range**: 2274:74:8
 
 **Signature:**
 ```solidity
@@ -851,7 +851,7 @@ function approve(address spender, uint256 amount) external returns (bool);;
 
 - **Signature**: `transferFrom(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 2646:88:87
+- **Source Range**: 2646:88:8
 
 **Signature:**
 ```solidity
@@ -867,7 +867,7 @@ function transferFrom(address from, address to, uint256 amount) external returns
 
 - **Signature**: `name()`
 - **Visibility**: external
-- **Source Range**: 377:54:92
+- **Source Range**: 377:54:11
 
 **Signature:**
 ```solidity
@@ -879,7 +879,7 @@ function name() external view returns (string memory);;
 
 - **Signature**: `symbol()`
 - **Visibility**: external
-- **Source Range**: 498:56:92
+- **Source Range**: 498:56:11
 
 **Signature:**
 ```solidity
@@ -891,7 +891,7 @@ function symbol() external view returns (string memory);;
 
 - **Signature**: `decimals()`
 - **Visibility**: external
-- **Source Range**: 630:50:92
+- **Source Range**: 630:50:11
 
 **Signature:**
 ```solidity
@@ -903,7 +903,7 @@ function decimals() external view returns (uint8);;
 
 - **Signature**: `granularity()`
 - **Visibility**: external
-- **Source Range**: 2093:55:100
+- **Source Range**: 2093:55:18
 
 **Signature:**
 ```solidity
@@ -918,7 +918,7 @@ function granularity() external view returns (uint256);;
 
 - **Signature**: `send(address,uint256,bytes)`
 - **Visibility**: external
-- **Source Range**: 3036:79:100
+- **Source Range**: 3036:79:18
 
 **Signature:**
 ```solidity
@@ -939,7 +939,7 @@ function send(address recipient, uint256 amount, bytes calldata data) external;;
 
 - **Signature**: `burn(uint256,bytes)`
 - **Visibility**: external
-- **Source Range**: 3530:60:100
+- **Source Range**: 3530:60:18
 
 **Signature:**
 ```solidity
@@ -957,7 +957,7 @@ function burn(uint256 amount, bytes calldata data) external;;
 
 - **Signature**: `isOperatorFor(address,address)`
 - **Visibility**: external
-- **Source Range**: 3850:91:100
+- **Source Range**: 3850:91:18
 
 **Signature:**
 ```solidity
@@ -972,7 +972,7 @@ function isOperatorFor(address operator, address tokenHolder) external view retu
 
 - **Signature**: `authorizeOperator(address)`
 - **Visibility**: external
-- **Source Range**: 4185:54:100
+- **Source Range**: 4185:54:18
 
 **Signature:**
 ```solidity
@@ -988,7 +988,7 @@ function authorizeOperator(address operator) external;;
 
 - **Signature**: `revokeOperator(address)`
 - **Visibility**: external
-- **Source Range**: 4511:51:100
+- **Source Range**: 4511:51:18
 
 **Signature:**
 ```solidity
@@ -1004,7 +1004,7 @@ function revokeOperator(address operator) external;;
 
 - **Signature**: `defaultOperators()`
 - **Visibility**: external
-- **Source Range**: 4911:69:100
+- **Source Range**: 4911:69:18
 
 **Signature:**
 ```solidity
@@ -1020,7 +1020,7 @@ function defaultOperators() external view returns (address[] memory);;
 
 - **Signature**: `operatorSend(address,address,uint256,bytes,bytes)`
 - **Visibility**: external
-- **Source Range**: 5705:178:100
+- **Source Range**: 5705:178:18
 
 **Signature:**
 ```solidity
@@ -1044,7 +1044,7 @@ function operatorSend(address sender, address recipient, uint256 amount, bytes c
 
 - **Signature**: `operatorBurn(address,uint256,bytes,bytes)`
 - **Visibility**: external
-- **Source Range**: 6426:114:100
+- **Source Range**: 6426:114:18
 
 **Signature:**
 ```solidity
@@ -1064,7 +1064,7 @@ function operatorBurn(address account, uint256 amount, bytes calldata data, byte
 
 - **Signature**: `initialize(contract IERC20,uint8,string,string)`
 - **Visibility**: external
-- **Source Range**: 1953:155:142
+- **Source Range**: 1953:155:43
 
 **Signature:**
 ```solidity
@@ -1076,7 +1076,7 @@ function initialize(IERC20 underlyingToken, uint8 underlyingDecimals, string cal
 
 - **Signature**: `initializeWithAdmin(contract IERC20,uint8,string,string,address)`
 - **Visibility**: external
-- **Source Range**: 2180:187:142
+- **Source Range**: 2180:187:43
 
 **Signature:**
 ```solidity
@@ -1088,7 +1088,7 @@ function initializeWithAdmin(IERC20 underlyingToken, uint8 underlyingDecimals, s
 
 - **Signature**: `changeAdmin(address)`
 - **Visibility**: external
-- **Source Range**: 2605:48:142
+- **Source Range**: 2605:48:43
 
 **Signature:**
 ```solidity
@@ -1103,7 +1103,7 @@ function changeAdmin(address newAdmin) external;;
 
 - **Signature**: `getAdmin()`
 - **Visibility**: external
-- **Source Range**: 2809:58:142
+- **Source Range**: 2809:58:43
 
 **Signature:**
 ```solidity
@@ -1115,7 +1115,7 @@ function getAdmin() external view returns (address admin);;
 
 - **Signature**: `POOL_ADMIN_NFT()`
 - **Visibility**: external
-- **Source Range**: 3112:64:142
+- **Source Range**: 3112:64:43
 
 **Signature:**
 ```solidity
@@ -1126,7 +1126,7 @@ function POOL_ADMIN_NFT() external view returns (IPoolAdminNFT);;
 
 - **Signature**: `POOL_MEMBER_NFT()`
 - **Visibility**: external
-- **Source Range**: 3234:66:142
+- **Source Range**: 3234:66:43
 
 **Signature:**
 ```solidity
@@ -1137,7 +1137,7 @@ function POOL_MEMBER_NFT() external view returns (IPoolMemberNFT);;
 
 - **Signature**: `increaseAllowance(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 7661:88:142
+- **Source Range**: 7661:88:43
 
 **Signature:**
 ```solidity
@@ -1154,7 +1154,7 @@ function increaseAllowance(address spender, uint256 addedValue) external returns
 
 - **Signature**: `decreaseAllowance(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 8245:93:142
+- **Source Range**: 8245:93:43
 
 **Signature:**
 ```solidity
@@ -1173,7 +1173,7 @@ function decreaseAllowance(address spender, uint256 subtractedValue) external re
 
 - **Signature**: `selfMint(address,uint256,bytes)`
 - **Visibility**: external
-- **Source Range**: 13774:113:142
+- **Source Range**: 13774:113:43
 
 **Signature:**
 ```solidity
@@ -1188,7 +1188,7 @@ function selfMint(address account, uint256 amount, bytes memory userData) extern
 
 - **Signature**: `selfBurn(address,uint256,bytes)`
 - **Visibility**: external
-- **Source Range**: 14102:109:142
+- **Source Range**: 14102:109:43
 
 **Signature:**
 ```solidity
@@ -1203,7 +1203,7 @@ function selfBurn(address account, uint256 amount, bytes memory userData) extern
 
 - **Signature**: `selfTransferFrom(address,address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 14464:140:142
+- **Source Range**: 14464:140:43
 
 **Signature:**
 ```solidity
@@ -1219,7 +1219,7 @@ function selfTransferFrom(address sender, address spender, address recipient, ui
 
 - **Signature**: `selfApproveFor(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 14757:112:142
+- **Source Range**: 14757:112:43
 
 **Signature:**
 ```solidity
@@ -1234,7 +1234,7 @@ function selfApproveFor(address account, address spender, uint256 amount) extern
 
 - **Signature**: `transferAll(address)`
 - **Visibility**: external
-- **Source Range**: 15162:49:142
+- **Source Range**: 15162:49:43
 
 **Signature:**
 ```solidity
@@ -1246,7 +1246,7 @@ function transferAll(address recipient) external;;
 
 - **Signature**: `getUnderlyingToken()`
 - **Visibility**: external
-- **Source Range**: 15515:71:142
+- **Source Range**: 15515:71:43
 
 **Signature:**
 ```solidity
@@ -1259,7 +1259,7 @@ function getUnderlyingToken() external view returns (address tokenAddr);;
 
 - **Signature**: `getUnderlyingDecimals()`
 - **Visibility**: external
-- **Source Range**: 15717:82:142
+- **Source Range**: 15717:82:43
 
 **Signature:**
 ```solidity
@@ -1272,7 +1272,7 @@ function getUnderlyingDecimals() external view returns (uint8 underlyingDecimals
 
 - **Signature**: `toUnderlyingAmount(uint256)`
 - **Visibility**: external
-- **Source Range**: 16088:141:142
+- **Source Range**: 16088:141:43
 
 **Signature:**
 ```solidity
@@ -1287,7 +1287,7 @@ function toUnderlyingAmount(uint256 amount) external view returns (uint256 under
 
 - **Signature**: `upgrade(uint256)`
 - **Visibility**: external
-- **Source Range**: 16502:42:142
+- **Source Range**: 16502:42:43
 
 **Signature:**
 ```solidity
@@ -1302,7 +1302,7 @@ function upgrade(uint256 amount) external;;
 
 - **Signature**: `upgradeTo(address,uint256,bytes)`
 - **Visibility**: external
-- **Source Range**: 17249:81:142
+- **Source Range**: 17249:81:43
 
 **Signature:**
 ```solidity
@@ -1324,7 +1324,7 @@ function upgradeTo(address to, uint256 amount, bytes calldata userData) external
 
 - **Signature**: `downgrade(uint256)`
 - **Visibility**: external
-- **Source Range**: 17759:44:142
+- **Source Range**: 17759:44:43
 
 **Signature:**
 ```solidity
@@ -1338,7 +1338,7 @@ function downgrade(uint256 amount) external;;
 
 - **Signature**: `downgradeTo(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 18022:58:142
+- **Source Range**: 18022:58:43
 
 **Signature:**
 ```solidity
@@ -1352,7 +1352,7 @@ function downgradeTo(address to, uint256 amount) external;;
 
 - **Signature**: `operationApprove(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 18798:115:142
+- **Source Range**: 18798:115:43
 
 **Signature:**
 ```solidity
@@ -1369,7 +1369,7 @@ function operationApprove(address account, address spender, uint256 amount) exte
 
 - **Signature**: `operationIncreaseAllowance(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 18919:129:142
+- **Source Range**: 18919:129:43
 
 **Signature:**
 ```solidity
@@ -1380,7 +1380,7 @@ function operationIncreaseAllowance(address account, address spender, uint256 ad
 
 - **Signature**: `operationDecreaseAllowance(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 19054:134:142
+- **Source Range**: 19054:134:43
 
 **Signature:**
 ```solidity
@@ -1391,7 +1391,7 @@ function operationDecreaseAllowance(address account, address spender, uint256 su
 
 - **Signature**: `operationTransferFrom(address,address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 19541:147:142
+- **Source Range**: 19541:147:43
 
 **Signature:**
 ```solidity
@@ -1409,7 +1409,7 @@ function operationTransferFrom(address account, address spender, address recipie
 
 - **Signature**: `operationSend(address,address,uint256,bytes)`
 - **Visibility**: external
-- **Source Range**: 20027:145:142
+- **Source Range**: 20027:145:43
 
 **Signature:**
 ```solidity
@@ -1427,7 +1427,7 @@ function operationSend(address spender, address recipient, uint256 amount, bytes
 
 - **Signature**: `operationUpgrade(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 20415:68:142
+- **Source Range**: 20415:68:43
 
 **Signature:**
 ```solidity
@@ -1443,7 +1443,7 @@ function operationUpgrade(address account, uint256 amount) external;;
 
 - **Signature**: `operationDowngrade(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 20730:70:142
+- **Source Range**: 20730:70:43
 
 **Signature:**
 ```solidity
@@ -1459,7 +1459,7 @@ function operationDowngrade(address account, uint256 amount) external;;
 
 - **Signature**: `operationUpgradeTo(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 21123:82:142
+- **Source Range**: 21123:82:43
 
 **Signature:**
 ```solidity
@@ -1476,7 +1476,7 @@ function operationUpgradeTo(address account, address to, uint256 amount) externa
 
 - **Signature**: `operationDowngradeTo(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 21534:84:142
+- **Source Range**: 21534:84:43
 
 **Signature:**
 ```solidity

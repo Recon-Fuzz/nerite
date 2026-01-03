@@ -7,7 +7,7 @@
 - **Contract**: ERC721
 - **Signature**: `tokenURI(uint256)`
 - **Visibility**: public
-- **Source Range**: 2801:276:96
+- **Source Range**: 2801:276:14
 
 ## Implementation
 
@@ -25,7 +25,7 @@ function tokenURI(uint256 tokenId) virtual override public view returns (string 
 ### _requireMinted(uint256)
 
 - **Kind**: internal
-- **Source**: 13240:133:96
+- **Source**: 13240:133:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_requireMinted(uint256)`
 
 ```solidity
@@ -38,7 +38,7 @@ function _requireMinted(uint256 tokenId) virtual internal view {
 ### _exists(uint256)
 
 - **Kind**: internal
-- **Source**: 7120:126:96
+- **Source**: 7120:126:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_exists(uint256)`
 
 ```solidity
@@ -54,7 +54,7 @@ function _exists(uint256 tokenId) virtual internal view returns (bool) {
 ### _ownerOf(uint256)
 
 - **Kind**: internal
-- **Source**: 6702:115:96
+- **Source**: 6702:115:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_ownerOf(uint256)`
 
 ```solidity
@@ -67,7 +67,7 @@ function _ownerOf(uint256 tokenId) virtual internal view returns (address) {
 ### _baseURI()
 
 - **Kind**: internal
-- **Source**: 3319:92:96
+- **Source**: 3319:92:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_baseURI()`
 
 ```solidity
@@ -82,7 +82,7 @@ function _baseURI() virtual internal view returns (string memory) {
 ### toString(uint256)
 
 - **Kind**: internal
-- **Source**: 447:696:108
+- **Source**: 447:696:24
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/Strings.sol:Strings:toString(uint256)`
 
 ```solidity
@@ -113,7 +113,7 @@ function toString(uint256 value) internal pure returns (string memory) {
 ### log10(uint256)
 
 - **Kind**: internal
-- **Source**: 10139:916:114
+- **Source**: 10139:916:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:log10(uint256)`
 
 ```solidity

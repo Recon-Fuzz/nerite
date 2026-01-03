@@ -7,7 +7,7 @@
 - **Contract**: SortedTroves
 - **Signature**: `removeFromBatch(uint256)`
 - **Visibility**: external
-- **Source Range**: 9843:768:273
+- **Source Range**: 9843:768:122
 
 ## Implementation
 
@@ -35,7 +35,7 @@ function removeFromBatch(uint256 _id) override external {
 ### _requireCallerIsBOorTM()
 
 - **Kind**: internal
-- **Source**: 21802:253:273
+- **Source**: 21802:253:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:_requireCallerIsBOorTM()`
 
 ```solidity
@@ -47,7 +47,7 @@ function _requireCallerIsBOorTM() internal view {
 ### isNotZero(BatchId)
 
 - **Kind**: free-function
-- **Source**: 447:77:277
+- **Source**: 447:77:126
 - **Link**: `src/Types/BatchId.sol:isNotZero(BatchId)`
 
 ```solidity
@@ -59,7 +59,7 @@ function isNotZero(BatchId x) pure returns (bool) {
 ### isZero(BatchId)
 
 - **Kind**: free-function
-- **Source**: 364:81:277
+- **Source**: 364:81:126
 - **Link**: `src/Types/BatchId.sol:isZero(BatchId)`
 
 ```solidity
@@ -71,7 +71,7 @@ function isZero(BatchId x) pure returns (bool) {
 ### _removeSlice(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 5854:228:273
+- **Source**: 5854:228:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:_removeSlice(uint256,uint256)`
 
 ```solidity

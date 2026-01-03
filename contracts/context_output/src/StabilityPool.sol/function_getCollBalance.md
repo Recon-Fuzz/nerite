@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `getCollBalance()`
 - **Visibility**: external
-- **Source Range**: 10808:102:274
+- **Source Range**: 10808:102:123
 
 ## Implementation
 

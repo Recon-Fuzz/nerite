@@ -46,7 +46,7 @@ enum Status {
 
 - **Signature**: `shutdownTime()`
 - **Visibility**: external
-- **Source Range**: 540:56:245
+- **Source Range**: 540:56:94
 
 **Signature:**
 ```solidity
@@ -57,7 +57,7 @@ function shutdownTime() external view returns (uint256);;
 
 - **Signature**: `troveNFT()`
 - **Visibility**: external
-- **Source Range**: 602:54:245
+- **Source Range**: 602:54:94
 
 **Signature:**
 ```solidity
@@ -68,7 +68,7 @@ function troveNFT() external view returns (ITroveNFT);;
 
 - **Signature**: `stabilityPool()`
 - **Visibility**: external
-- **Source Range**: 661:64:245
+- **Source Range**: 661:64:94
 
 **Signature:**
 ```solidity
@@ -79,7 +79,7 @@ function stabilityPool() external view returns (IStabilityPool);;
 
 - **Signature**: `sortedTroves()`
 - **Visibility**: external
-- **Source Range**: 793:62:245
+- **Source Range**: 793:62:94
 
 **Signature:**
 ```solidity
@@ -90,7 +90,7 @@ function sortedTroves() external view returns (ISortedTroves);;
 
 - **Signature**: `borrowerOperations()`
 - **Visibility**: external
-- **Source Range**: 860:74:245
+- **Source Range**: 860:74:94
 
 **Signature:**
 ```solidity
@@ -101,7 +101,7 @@ function borrowerOperations() external view returns (IBorrowerOperations);;
 
 - **Signature**: `Troves(uint256)`
 - **Visibility**: external
-- **Source Range**: 940:425:245
+- **Source Range**: 940:425:94
 
 **Signature:**
 ```solidity
@@ -112,7 +112,7 @@ function Troves(uint256 _id) external view returns (uint256 debt, uint256 coll, 
 
 - **Signature**: `rewardSnapshots(uint256)`
 - **Visibility**: external
-- **Source Range**: 1371:93:245
+- **Source Range**: 1371:93:94
 
 **Signature:**
 ```solidity
@@ -123,7 +123,7 @@ function rewardSnapshots(uint256 _id) external view returns (uint256 coll, uint2
 
 - **Signature**: `getTroveIdsCount()`
 - **Visibility**: external
-- **Source Range**: 1470:60:245
+- **Source Range**: 1470:60:94
 
 **Signature:**
 ```solidity
@@ -134,7 +134,7 @@ function getTroveIdsCount() external view returns (uint256);;
 
 - **Signature**: `getTroveFromTroveIdsArray(uint256)`
 - **Visibility**: external
-- **Source Range**: 1536:83:245
+- **Source Range**: 1536:83:94
 
 **Signature:**
 ```solidity
@@ -145,7 +145,7 @@ function getTroveFromTroveIdsArray(uint256 _index) external view returns (uint25
 
 - **Signature**: `getCurrentICR(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 1625:89:245
+- **Source Range**: 1625:89:94
 
 **Signature:**
 ```solidity
@@ -156,7 +156,7 @@ function getCurrentICR(uint256 _troveId, uint256 _price) external view returns (
 
 - **Signature**: `lastZombieTroveId()`
 - **Visibility**: external
-- **Source Range**: 1720:61:245
+- **Source Range**: 1720:61:94
 
 **Signature:**
 ```solidity
@@ -167,7 +167,7 @@ function lastZombieTroveId() external view returns (uint256);;
 
 - **Signature**: `batchLiquidateTroves(uint256[])`
 - **Visibility**: external
-- **Source Range**: 1787:71:245
+- **Source Range**: 1787:71:94
 
 **Signature:**
 ```solidity
@@ -178,7 +178,7 @@ function batchLiquidateTroves(uint256[] calldata _troveArray) external;;
 
 - **Signature**: `redeemCollateral(address,uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 1864:218:245
+- **Source Range**: 1864:218:94
 
 **Signature:**
 ```solidity
@@ -189,7 +189,7 @@ function redeemCollateral(address _sender, uint256 _boldAmount, uint256 _price, 
 
 - **Signature**: `shutdown()`
 - **Visibility**: external
-- **Source Range**: 2088:29:245
+- **Source Range**: 2088:29:94
 
 **Signature:**
 ```solidity
@@ -200,7 +200,7 @@ function shutdown() external;;
 
 - **Signature**: `urgentRedemption(uint256,uint256[],uint256)`
 - **Visibility**: external
-- **Source Range**: 2122:110:245
+- **Source Range**: 2122:110:94
 
 **Signature:**
 ```solidity
@@ -211,7 +211,7 @@ function urgentRedemption(uint256 _boldAmount, uint256[] calldata _troveIds, uin
 
 - **Signature**: `getUnbackedPortionPriceAndRedeemability()`
 - **Visibility**: external
-- **Source Range**: 2238:93:245
+- **Source Range**: 2238:93:94
 
 **Signature:**
 ```solidity
@@ -222,7 +222,7 @@ function getUnbackedPortionPriceAndRedeemability() external returns (uint256, ui
 
 - **Signature**: `getLatestTroveData(uint256)`
 - **Visibility**: external
-- **Source Range**: 2337:93:245
+- **Source Range**: 2337:93:94
 
 **Signature:**
 ```solidity
@@ -233,7 +233,7 @@ function getLatestTroveData(uint256 _troveId) external view returns (LatestTrove
 
 - **Signature**: `getTroveAnnualInterestRate(uint256)`
 - **Visibility**: external
-- **Source Range**: 2435:86:245
+- **Source Range**: 2435:86:94
 
 **Signature:**
 ```solidity
@@ -244,7 +244,7 @@ function getTroveAnnualInterestRate(uint256 _troveId) external view returns (uin
 
 - **Signature**: `getTroveStatus(uint256)`
 - **Visibility**: external
-- **Source Range**: 2527:73:245
+- **Source Range**: 2527:73:94
 
 **Signature:**
 ```solidity
@@ -255,7 +255,7 @@ function getTroveStatus(uint256 _troveId) external view returns (Status);;
 
 - **Signature**: `getLatestBatchData(address)`
 - **Visibility**: external
-- **Source Range**: 2606:98:245
+- **Source Range**: 2606:98:94
 
 **Signature:**
 ```solidity
@@ -266,7 +266,7 @@ function getLatestBatchData(address _batchAddress) external view returns (Latest
 
 - **Signature**: `onOpenTrove(address,uint256,struct TroveChange,uint256)`
 - **Visibility**: external
-- **Source Range**: 2773:134:245
+- **Source Range**: 2773:134:94
 
 **Signature:**
 ```solidity
@@ -277,7 +277,7 @@ function onOpenTrove(address _owner, uint256 _troveId, TroveChange memory _trove
 
 - **Signature**: `onOpenTroveAndJoinBatch(address,uint256,struct TroveChange,address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 2912:226:245
+- **Source Range**: 2912:226:94
 
 **Signature:**
 ```solidity
@@ -288,7 +288,7 @@ function onOpenTroveAndJoinBatch(address _owner, uint256 _troveId, TroveChange m
 
 - **Signature**: `setTroveStatusToActive(uint256)`
 - **Visibility**: external
-- **Source Range**: 3185:59:245
+- **Source Range**: 3185:59:94
 
 **Signature:**
 ```solidity
@@ -299,7 +299,7 @@ function setTroveStatusToActive(uint256 _troveId) external;;
 
 - **Signature**: `onAdjustTroveInterestRate(uint256,uint256,uint256,uint256,struct TroveChange)`
 - **Visibility**: external
-- **Source Range**: 3250:211:245
+- **Source Range**: 3250:211:94
 
 **Signature:**
 ```solidity
@@ -310,7 +310,7 @@ function onAdjustTroveInterestRate(uint256 _troveId, uint256 _newColl, uint256 _
 
 - **Signature**: `onAdjustTrove(uint256,uint256,uint256,struct TroveChange)`
 - **Visibility**: external
-- **Source Range**: 3467:129:245
+- **Source Range**: 3467:129:94
 
 **Signature:**
 ```solidity
@@ -321,7 +321,7 @@ function onAdjustTrove(uint256 _troveId, uint256 _newColl, uint256 _newDebt, Tro
 
 - **Signature**: `onAdjustTroveInsideBatch(uint256,uint256,uint256,struct TroveChange,address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 3602:271:245
+- **Source Range**: 3602:271:94
 
 **Signature:**
 ```solidity
@@ -332,7 +332,7 @@ function onAdjustTroveInsideBatch(uint256 _troveId, uint256 _newTroveColl, uint2
 
 - **Signature**: `onApplyTroveInterest(uint256,uint256,uint256,address,uint256,uint256,struct TroveChange)`
 - **Visibility**: external
-- **Source Range**: 3879:269:245
+- **Source Range**: 3879:269:94
 
 **Signature:**
 ```solidity
@@ -343,7 +343,7 @@ function onApplyTroveInterest(uint256 _troveId, uint256 _newTroveColl, uint256 _
 
 - **Signature**: `onCloseTrove(uint256,struct TroveChange,address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4154:306:245
+- **Source Range**: 4154:306:94
 
 **Signature:**
 ```solidity
@@ -354,7 +354,7 @@ function onCloseTrove(uint256 _troveId, TroveChange memory _troveChange, address
 
 - **Signature**: `onRegisterBatchManager(address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4487:113:245
+- **Source Range**: 4487:113:94
 
 **Signature:**
 ```solidity
@@ -365,7 +365,7 @@ function onRegisterBatchManager(address _batchAddress, uint256 _annualInterestRa
 
 - **Signature**: `onLowerBatchManagerAnnualFee(address,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4605:177:245
+- **Source Range**: 4605:177:94
 
 **Signature:**
 ```solidity
@@ -376,7 +376,7 @@ function onLowerBatchManagerAnnualFee(address _batchAddress, uint256 _newColl, u
 
 - **Signature**: `onSetBatchManagerAnnualInterestRate(address,uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4787:244:245
+- **Source Range**: 4787:244:94
 
 **Signature:**
 ```solidity
@@ -387,7 +387,7 @@ function onSetBatchManagerAnnualInterestRate(address _batchAddress, uint256 _new
 
 - **Signature**: `onSetInterestBatchManager(struct ITroveManager.OnSetInterestBatchManagerParams)`
 - **Visibility**: external
-- **Source Range**: 5462:94:245
+- **Source Range**: 5462:94:94
 
 **Signature:**
 ```solidity
@@ -398,7 +398,7 @@ function onSetInterestBatchManager(OnSetInterestBatchManagerParams calldata _par
 
 - **Signature**: `onRemoveFromBatch(uint256,uint256,uint256,struct TroveChange,address,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 5561:429:245
+- **Source Range**: 5561:429:94
 
 **Signature:**
 ```solidity
@@ -409,7 +409,7 @@ function onRemoveFromBatch(uint256 _troveId, uint256 _newTroveColl, uint256 _new
 
 - **Signature**: `setDebtLimit(uint256)`
 - **Visibility**: external
-- **Source Range**: 5996:54:245
+- **Source Range**: 5996:54:94
 
 **Signature:**
 ```solidity
@@ -420,7 +420,7 @@ function setDebtLimit(uint256 _newDebtLimit) external;;
 
 - **Signature**: `getDebtLimit()`
 - **Visibility**: external
-- **Source Range**: 6055:56:245
+- **Source Range**: 6055:56:94
 
 **Signature:**
 ```solidity
@@ -431,7 +431,7 @@ function getDebtLimit() external view returns (uint256);;
 
 - **Signature**: `activePool()`
 - **Visibility**: external
-- **Source Range**: 172:58:233
+- **Source Range**: 172:58:82
 
 **Signature:**
 ```solidity
@@ -442,7 +442,7 @@ function activePool() external view returns (IActivePool);;
 
 - **Signature**: `getEntireSystemDebt()`
 - **Visibility**: external
-- **Source Range**: 235:63:233
+- **Source Range**: 235:63:82
 
 **Signature:**
 ```solidity
@@ -453,7 +453,7 @@ function getEntireSystemDebt() external view returns (uint256);;
 
 - **Signature**: `getEntireSystemColl()`
 - **Visibility**: external
-- **Source Range**: 303:63:233
+- **Source Range**: 303:63:82
 
 **Signature:**
 ```solidity

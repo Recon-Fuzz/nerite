@@ -7,7 +7,7 @@
 - **Contract**: XVSPriceFeed
 - **Signature**: `constructor(address,address,uint256)`
 - **Visibility**: public
-- **Source Range**: 144:319:270
+- **Source Range**: 144:319:119
 
 ## Implementation
 
@@ -23,7 +23,7 @@ constructor(address _owner, address _xvsUsdOracleAddress, uint256 _xvsUsdStalene
 ### _fetchPricePrimary()
 
 - **Kind**: internal
-- **Source**: 1359:537:270
+- **Source**: 1359:537:119
 - **Link**: `src/PriceFeeds/XVSPriceFeed.sol:XVSPriceFeed:_fetchPricePrimary()`
 
 ```solidity
@@ -39,7 +39,7 @@ function _fetchPricePrimary() internal returns (uint256, bool) {
 ### _getOracleAnswer(struct TokenPriceFeedBase.Oracle)
 
 - **Kind**: internal
-- **Source**: 1902:660:265
+- **Source**: 1902:660:114
 - **Link**: `src/PriceFeeds/TokenPriceFeedBase.sol:TokenPriceFeedBase:_getOracleAnswer(struct TokenPriceFeedBase.Oracle)`
 
 ```solidity
@@ -59,7 +59,7 @@ function _getOracleAnswer(Oracle memory _oracle) internal view returns (uint256,
 ### _getCurrentChainlinkResponse(contract AggregatorV3Interface)
 
 - **Kind**: internal
-- **Source**: 2906:1250:265
+- **Source**: 2906:1250:114
 - **Link**: `src/PriceFeeds/TokenPriceFeedBase.sol:TokenPriceFeedBase:_getCurrentChainlinkResponse(contract AggregatorV3Interface)`
 
 ```solidity
@@ -81,7 +81,7 @@ function _getCurrentChainlinkResponse(AggregatorV3Interface _aggregator) interna
 ### _isValidChainlinkPrice(struct TokenPriceFeedBase.ChainlinkResponse,uint256)
 
 - **Kind**: internal
-- **Source**: 4342:326:265
+- **Source**: 4342:326:114
 - **Link**: `src/PriceFeeds/TokenPriceFeedBase.sol:TokenPriceFeedBase:_isValidChainlinkPrice(struct TokenPriceFeedBase.ChainlinkResponse,uint256)`
 
 ```solidity
@@ -93,7 +93,7 @@ function _isValidChainlinkPrice(ChainlinkResponse memory chainlinkResponse, uint
 ### _scaleChainlinkPriceTo18decimals(int256,uint256)
 
 - **Kind**: internal
-- **Source**: 4784:229:265
+- **Source**: 4784:229:114
 - **Link**: `src/PriceFeeds/TokenPriceFeedBase.sol:TokenPriceFeedBase:_scaleChainlinkPriceTo18decimals(int256,uint256)`
 
 ```solidity
@@ -105,7 +105,7 @@ function _scaleChainlinkPriceTo18decimals(int256 _price, uint256 _decimals) inte
 ### _shutDownAndSwitchToLastGoodPrice(address)
 
 - **Kind**: internal
-- **Source**: 2568:332:265
+- **Source**: 2568:332:114
 - **Link**: `src/PriceFeeds/TokenPriceFeedBase.sol:TokenPriceFeedBase:_shutDownAndSwitchToLastGoodPrice(address)`
 
 ```solidity
@@ -120,7 +120,7 @@ function _shutDownAndSwitchToLastGoodPrice(address _failedOracleAddr) internal r
 ### (address,address,uint256)
 
 - **Kind**: internal
-- **Source**: 1191:429:265
+- **Source**: 1191:429:114
 - **Link**: `src/PriceFeeds/TokenPriceFeedBase.sol:TokenPriceFeedBase:constructor(address,address,uint256)`
 
 ```solidity
@@ -135,7 +135,7 @@ constructor(address _owner, address _tokenUsdOracleAddress, uint256 _tokenUsdSta
 ### (address)
 
 - **Kind**: internal
-- **Source**: 806:133:216
+- **Source**: 806:133:65
 - **Link**: `src/Dependencies/Ownable.sol:Ownable:constructor(address)`
 
 ```solidity

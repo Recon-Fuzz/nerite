@@ -7,7 +7,7 @@
 - **Contract**: AddressesRegistry
 - **Signature**: `constructor(address,uint256,uint256,uint256,uint256,uint256,uint256)`
 - **Visibility**: public
-- **Source Range**: 3298:1031:203
+- **Source Range**: 3298:1031:52
 
 ## Implementation
 
@@ -34,7 +34,7 @@ constructor(address _owner, uint256 _ccr, uint256 _mcr, uint256 _scr, uint256 _d
 ### (address)
 
 - **Kind**: internal
-- **Source**: 806:133:216
+- **Source**: 806:133:65
 - **Link**: `src/Dependencies/Ownable.sol:Ownable:constructor(address)`
 
 ```solidity

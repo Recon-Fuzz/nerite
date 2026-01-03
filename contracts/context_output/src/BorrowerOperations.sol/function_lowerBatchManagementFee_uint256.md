@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `lowerBatchManagementFee(uint256)`
 - **Visibility**: external
-- **Source Range**: 34660:1354:205
+- **Source Range**: 34660:1354:54
 
 ## Implementation
 
@@ -36,7 +36,7 @@ function lowerBatchManagementFee(uint256 _newAnnualManagementFee) external {
 ### _requireIsNotShutDown()
 
 - **Kind**: internal
-- **Source**: 51954:128:205
+- **Source**: 51954:128:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireIsNotShutDown()`
 
 ```solidity
@@ -50,7 +50,7 @@ function _requireIsNotShutDown() internal view {
 ### _requireValidInterestBatchManager(address)
 
 - **Kind**: internal
-- **Source**: 60491:250:205
+- **Source**: 60491:250:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireValidInterestBatchManager(address)`
 
 ```solidity

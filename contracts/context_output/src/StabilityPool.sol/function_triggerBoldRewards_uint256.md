@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `triggerBoldRewards(uint256)`
 - **Visibility**: external
-- **Source Range**: 16745:212:274
+- **Source Range**: 16745:212:123
 
 ## Implementation
 
@@ -24,7 +24,7 @@ function triggerBoldRewards(uint256 _boldYield) external {
 ### _requireCallerIsActivePool()
 
 - **Kind**: internal
-- **Source**: 36640:154:274
+- **Source**: 36640:154:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_requireCallerIsActivePool()`
 
 ```solidity
@@ -36,7 +36,7 @@ function _requireCallerIsActivePool() internal view {
 ### _updateYieldRewardsSum(uint256)
 
 - **Kind**: internal
-- **Source**: 16963:1935:274
+- **Source**: 16963:1935:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_updateYieldRewardsSum(uint256)`
 
 ```solidity

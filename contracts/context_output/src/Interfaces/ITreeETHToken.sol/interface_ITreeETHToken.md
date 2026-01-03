@@ -12,7 +12,7 @@
 
 - **Signature**: `getExchangeRate()`
 - **Visibility**: external
-- **Source Range**: 88:59:243
+- **Source Range**: 88:59:92
 
 **Signature:**
 ```solidity

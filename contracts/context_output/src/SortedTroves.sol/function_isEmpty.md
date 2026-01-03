@@ -7,7 +7,7 @@
 - **Contract**: SortedTroves
 - **Signature**: `isEmpty()`
 - **Visibility**: external
-- **Source Range**: 11995:90:273
+- **Source Range**: 11995:90:122
 
 ## Implementation
 

@@ -7,7 +7,7 @@
 - **Contract**: BoldToken
 - **Signature**: `setCollateralRegistry(address)`
 - **Visibility**: external
-- **Source Range**: 4364:272:204
+- **Source Range**: 4364:272:53
 
 ## Implementation
 
@@ -24,7 +24,7 @@ function setCollateralRegistry(address _collateralRegistryAddress) override exte
 ### _renounceOwnership()
 
 - **Kind**: internal
-- **Source**: 1896:130:216
+- **Source**: 1896:130:65
 - **Link**: `src/Dependencies/Ownable.sol:Ownable:_renounceOwnership()`
 
 ```solidity
@@ -43,7 +43,7 @@ function _renounceOwnership() internal {
 ### onlyOwner()
 
 - **Kind**: modifier
-- **Source**: 1180:103:216
+- **Source**: 1180:103:65
 - **Link**: `src/Dependencies/Ownable.sol:Ownable:onlyOwner()`
 
 ```solidity
@@ -57,7 +57,7 @@ modifier onlyOwner() {
 ### isOwner()
 
 - **Kind**: internal
-- **Source**: 1366:90:216
+- **Source**: 1366:90:65
 - **Link**: `src/Dependencies/Ownable.sol:Ownable:isOwner()`
 
 ```solidity

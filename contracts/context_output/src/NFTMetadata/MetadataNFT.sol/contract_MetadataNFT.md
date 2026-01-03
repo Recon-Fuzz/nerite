@@ -55,7 +55,7 @@ struct TroveData {
 
 - **Signature**: `constructor(contract FixedAssetReader)`
 - **Visibility**: public
-- **Source Range**: 935:86:253
+- **Source Range**: 935:86:102
 - **Details**: [function_constructor_contract_FixedAssetReader.md](./function_constructor_contract_FixedAssetReader.md)
 
 **Signature:**
@@ -67,7 +67,7 @@ constructor(FixedAssetReader _assetReader);
 
 - **Signature**: `uri(struct IMetadataNFT.TroveData)`
 - **Visibility**: public
-- **Source Range**: 1027:230:253
+- **Source Range**: 1027:230:102
 - **Details**: [function_uri_struct_IMetadataNFT_TroveData.md](./function_uri_struct_IMetadataNFT_TroveData.md)
 
 **Signature:**
@@ -79,7 +79,7 @@ function uri(TroveData memory _troveData) public view returns (string memory);
 
 - **Signature**: `attributes(struct IMetadataNFT.TroveData)`
 - **Visibility**: public
-- **Source Range**: 1682:966:253
+- **Source Range**: 1682:966:102
 - **Details**: [function_attributes_struct_IMetadataNFT_TroveData.md](./function_attributes_struct_IMetadataNFT_TroveData.md)
 
 **Signature:**
@@ -91,7 +91,7 @@ function attributes(TroveData memory _troveData) public pure returns (string mem
 
 - **Signature**: `dynamicTextComponents(struct IMetadataNFT.TroveData)`
 - **Visibility**: public
-- **Source Range**: 2654:673:253
+- **Source Range**: 2654:673:102
 - **Details**: [function_dynamicTextComponents_struct_IMetadataNFT_TroveData.md](./function_dynamicTextComponents_struct_IMetadataNFT_TroveData.md)
 
 **Signature:**

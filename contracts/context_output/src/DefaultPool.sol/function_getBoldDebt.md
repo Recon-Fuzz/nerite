@@ -7,7 +7,7 @@
 - **Contract**: DefaultPool
 - **Signature**: `getBoldDebt()`
 - **Visibility**: external
-- **Source Range**: 2270:96:208
+- **Source Range**: 2270:96:57
 
 ## Implementation
 

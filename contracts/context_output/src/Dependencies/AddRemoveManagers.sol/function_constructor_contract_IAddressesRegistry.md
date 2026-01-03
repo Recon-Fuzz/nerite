@@ -7,7 +7,7 @@
 - **Contract**: AddRemoveManagers
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 1932:164:209
+- **Source Range**: 1932:164:58
 
 ## Implementation
 

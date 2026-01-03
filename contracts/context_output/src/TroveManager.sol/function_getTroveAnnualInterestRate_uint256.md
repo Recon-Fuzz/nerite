@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `getTroveAnnualInterestRate(uint256)`
 - **Visibility**: external
-- **Source Range**: 45936:350:275
+- **Source Range**: 45936:350:124
 
 ## Implementation
 
@@ -27,7 +27,7 @@ function getTroveAnnualInterestRate(uint256 _troveId) external view returns (uin
 ### _getBatchManager(struct TroveManager.Trove)
 
 - **Kind**: internal
-- **Source**: 46435:128:275
+- **Source**: 46435:128:124
 - **Link**: `src/TroveManager.sol:TroveManager:_getBatchManager(struct TroveManager.Trove)`
 
 ```solidity

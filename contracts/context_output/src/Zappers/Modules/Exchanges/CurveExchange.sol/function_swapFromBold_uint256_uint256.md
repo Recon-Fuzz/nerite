@@ -7,7 +7,7 @@
 - **Contract**: CurveExchange
 - **Signature**: `swapFromBold(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 899:735:297
+- **Source Range**: 899:735:146
 
 ## Implementation
 

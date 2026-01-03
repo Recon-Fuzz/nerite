@@ -36,7 +36,7 @@ event Approval(address indexed owner, address indexed spender, uint256 value);
 
 - **Signature**: `sendToLQTYStaking(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 259:70:232
+- **Source Range**: 259:70:81
 
 **Signature:**
 ```solidity
@@ -47,7 +47,7 @@ function sendToLQTYStaking(address _sender, uint256 _amount) external;;
 
 - **Signature**: `getDeploymentStartTime()`
 - **Visibility**: external
-- **Source Range**: 335:66:232
+- **Source Range**: 335:66:81
 
 **Signature:**
 ```solidity
@@ -58,7 +58,7 @@ function getDeploymentStartTime() external view returns (uint256);;
 
 - **Signature**: `getLpRewardsEntitlement()`
 - **Visibility**: external
-- **Source Range**: 407:67:232
+- **Source Range**: 407:67:81
 
 **Signature:**
 ```solidity
@@ -69,7 +69,7 @@ function getLpRewardsEntitlement() external view returns (uint256);;
 
 - **Signature**: `totalSupply()`
 - **Visibility**: external
-- **Source Range**: 774:55:87
+- **Source Range**: 774:55:8
 
 **Signature:**
 ```solidity
@@ -81,7 +81,7 @@ function totalSupply() external view returns (uint256);;
 
 - **Signature**: `balanceOf(address)`
 - **Visibility**: external
-- **Source Range**: 912:68:87
+- **Source Range**: 912:68:8
 
 **Signature:**
 ```solidity
@@ -93,7 +93,7 @@ function balanceOf(address account) external view returns (uint256);;
 
 - **Signature**: `transfer(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 1193:70:87
+- **Source Range**: 1193:70:8
 
 **Signature:**
 ```solidity
@@ -107,7 +107,7 @@ function transfer(address to, uint256 amount) external returns (bool);;
 
 - **Signature**: `allowance(address,address)`
 - **Visibility**: external
-- **Source Range**: 1538:83:87
+- **Source Range**: 1538:83:8
 
 **Signature:**
 ```solidity
@@ -122,7 +122,7 @@ function allowance(address owner, address spender) external view returns (uint25
 
 - **Signature**: `approve(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 2274:74:87
+- **Source Range**: 2274:74:8
 
 **Signature:**
 ```solidity
@@ -142,7 +142,7 @@ function approve(address spender, uint256 amount) external returns (bool);;
 
 - **Signature**: `transferFrom(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 2646:88:87
+- **Source Range**: 2646:88:8
 
 **Signature:**
 ```solidity
@@ -158,7 +158,7 @@ function transferFrom(address from, address to, uint256 amount) external returns
 
 - **Signature**: `permit(address,address,uint256,uint256,uint8,bytes32,bytes32)`
 - **Visibility**: external
-- **Source Range**: 2996:183:93
+- **Source Range**: 2996:183:12
 
 **Signature:**
 ```solidity
@@ -184,7 +184,7 @@ function permit(address owner, address spender, uint256 value, uint256 deadline,
 
 - **Signature**: `nonces(address)`
 - **Visibility**: external
-- **Source Range**: 3484:63:93
+- **Source Range**: 3484:63:12
 
 **Signature:**
 ```solidity
@@ -199,7 +199,7 @@ function nonces(address owner) external view returns (uint256);;
 
 - **Signature**: `DOMAIN_SEPARATOR()`
 - **Visibility**: external
-- **Source Range**: 3739:60:93
+- **Source Range**: 3739:60:12
 
 **Signature:**
 ```solidity

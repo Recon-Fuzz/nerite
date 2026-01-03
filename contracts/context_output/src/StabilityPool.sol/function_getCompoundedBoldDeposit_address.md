@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `getCompoundedBoldDeposit(address)`
 - **Visibility**: public
-- **Source Range**: 32042:411:274
+- **Source Range**: 32042:411:123
 
 ## Implementation
 
@@ -26,7 +26,7 @@ function getCompoundedBoldDeposit(address _depositor) override public view retur
 ### _getCompoundedStakeFromSnapshots(uint256,struct StabilityPool.Snapshots)
 
 - **Kind**: internal
-- **Source**: 32557:1927:274
+- **Source**: 32557:1927:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_getCompoundedStakeFromSnapshots(uint256,struct StabilityPool.Snapshots)`
 
 ```solidity

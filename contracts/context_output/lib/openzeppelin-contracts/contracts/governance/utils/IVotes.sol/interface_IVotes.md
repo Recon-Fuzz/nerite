@@ -30,7 +30,7 @@ event DelegateVotesChanged(address indexed delegate, uint256 previousBalance, ui
 
 - **Signature**: `getVotes(address)`
 - **Visibility**: external
-- **Source Range**: 797:67:72
+- **Source Range**: 797:67:2
 
 **Signature:**
 ```solidity
@@ -42,7 +42,7 @@ function getVotes(address account) external view returns (uint256);;
 
 - **Signature**: `getPastVotes(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 1105:90:72
+- **Source Range**: 1105:90:2
 
 **Signature:**
 ```solidity
@@ -55,7 +55,7 @@ function getPastVotes(address account, uint256 timepoint) external view returns 
 
 - **Signature**: `getPastTotalSupply(uint256)`
 - **Visibility**: external
-- **Source Range**: 1687:79:72
+- **Source Range**: 1687:79:2
 
 **Signature:**
 ```solidity
@@ -71,7 +71,7 @@ function getPastTotalSupply(uint256 timepoint) external view returns (uint256);;
 
 - **Signature**: `delegates(address)`
 - **Visibility**: external
-- **Source Range**: 1848:68:72
+- **Source Range**: 1848:68:2
 
 **Signature:**
 ```solidity
@@ -83,7 +83,7 @@ function delegates(address account) external view returns (address);;
 
 - **Signature**: `delegate(address)`
 - **Visibility**: external
-- **Source Range**: 1998:46:72
+- **Source Range**: 1998:46:2
 
 **Signature:**
 ```solidity
@@ -95,7 +95,7 @@ function delegate(address delegatee) external;;
 
 - **Signature**: `delegateBySig(address,uint256,uint256,uint8,bytes32,bytes32)`
 - **Visibility**: external
-- **Source Range**: 2122:113:72
+- **Source Range**: 2122:113:2
 
 **Signature:**
 ```solidity

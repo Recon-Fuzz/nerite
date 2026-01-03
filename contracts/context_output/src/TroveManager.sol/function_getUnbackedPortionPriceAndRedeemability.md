@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `getUnbackedPortionPriceAndRedeemability()`
 - **Visibility**: external
-- **Source Range**: 54681:584:275
+- **Source Range**: 54681:584:124
 
 ## Implementation
 
@@ -27,7 +27,7 @@ function getUnbackedPortionPriceAndRedeemability() external returns (uint256, ui
 ### getEntireSystemDebt()
 
 - **Kind**: internal
-- **Source**: 1522:237:214
+- **Source**: 1522:237:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:getEntireSystemDebt()`
 
 ```solidity
@@ -41,7 +41,7 @@ function getEntireSystemDebt() public view returns (uint256 entireSystemDebt) {
 ### _getTCR(uint256)
 
 - **Kind**: internal
-- **Source**: 1765:296:214
+- **Source**: 1765:296:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:_getTCR(uint256)`
 
 ```solidity
@@ -56,7 +56,7 @@ function _getTCR(uint256 _price) internal view returns (uint256 TCR) {
 ### getEntireSystemColl()
 
 - **Kind**: internal
-- **Source**: 1265:251:214
+- **Source**: 1265:251:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:getEntireSystemColl()`
 
 ```solidity
@@ -70,7 +70,7 @@ function getEntireSystemColl() public view returns (uint256 entireSystemColl) {
 ### _computeCR(uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2640:414:215
+- **Source**: 2640:414:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_computeCR(uint256,uint256,uint256)`
 
 ```solidity

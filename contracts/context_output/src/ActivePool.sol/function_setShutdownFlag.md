@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `setShutdownFlag()`
 - **Visibility**: external
-- **Source Range**: 13703:123:202
+- **Source Range**: 13703:123:51
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function setShutdownFlag() external {
 ### _requireCallerIsTroveManager()
 
 - **Kind**: internal
-- **Source**: 15101:155:202
+- **Source**: 15101:155:51
 - **Link**: `src/ActivePool.sol:ActivePool:_requireCallerIsTroveManager()`
 
 ```solidity

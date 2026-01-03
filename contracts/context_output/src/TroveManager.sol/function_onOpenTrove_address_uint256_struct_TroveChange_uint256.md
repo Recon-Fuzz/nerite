@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `onOpenTrove(address,uint256,struct TroveChange,uint256)`
 - **Visibility**: external
-- **Source Range**: 55340:1943:275
+- **Source Range**: 55340:1943:124
 
 ## Implementation
 
@@ -38,7 +38,7 @@ function onOpenTrove(address _owner, uint256 _troveId, TroveChange memory _trove
 ### _requireCallerIsBorrowerOperations()
 
 - **Kind**: internal
-- **Source**: 53483:184:275
+- **Source**: 53483:184:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireCallerIsBorrowerOperations()`
 
 ```solidity
@@ -52,7 +52,7 @@ function _requireCallerIsBorrowerOperations() internal view {
 ### _computeNewStake(uint256)
 
 - **Kind**: internal
-- **Source**: 48656:715:275
+- **Source**: 48656:715:124
 - **Link**: `src/TroveManager.sol:TroveManager:_computeNewStake(uint256)`
 
 ```solidity
@@ -70,7 +70,7 @@ function _computeNewStake(uint256 _coll) internal view returns (uint256) {
 ### _updateTroveRewardSnapshots(uint256)
 
 - **Kind**: internal
-- **Source**: 42225:177:275
+- **Source**: 42225:177:124
 - **Link**: `src/TroveManager.sol:TroveManager:_updateTroveRewardSnapshots(uint256)`
 
 ```solidity

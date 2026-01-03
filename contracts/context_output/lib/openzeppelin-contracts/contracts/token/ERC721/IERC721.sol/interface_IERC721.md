@@ -40,7 +40,7 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 
 - **Signature**: `balanceOf(address)`
 - **Visibility**: external
-- **Source Range**: 954:74:97
+- **Source Range**: 954:74:15
 
 **Signature:**
 ```solidity
@@ -52,7 +52,7 @@ function balanceOf(address owner) external view returns (uint256 balance);;
 
 - **Signature**: `ownerOf(uint256)`
 - **Visibility**: external
-- **Source Range**: 1170:72:97
+- **Source Range**: 1170:72:15
 
 **Signature:**
 ```solidity
@@ -66,7 +66,7 @@ function ownerOf(uint256 tokenId) external view returns (address owner);;
 
 - **Signature**: `safeTransferFrom(address,address,uint256,bytes)`
 - **Visibility**: external
-- **Source Range**: 1809:99:97
+- **Source Range**: 1809:99:15
 
 **Signature:**
 ```solidity
@@ -85,7 +85,7 @@ function safeTransferFrom(address from, address to, uint256 tokenId, bytes calld
 
 - **Signature**: `safeTransferFrom(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 2606:78:97
+- **Source Range**: 2606:78:15
 
 **Signature:**
 ```solidity
@@ -105,7 +105,7 @@ function safeTransferFrom(address from, address to, uint256 tokenId) external;;
 
 - **Signature**: `transferFrom(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 3427:74:97
+- **Source Range**: 3427:74:15
 
 **Signature:**
 ```solidity
@@ -126,7 +126,7 @@ function transferFrom(address from, address to, uint256 tokenId) external;;
 
 - **Signature**: `approve(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 3964:55:97
+- **Source Range**: 3964:55:15
 
 **Signature:**
 ```solidity
@@ -144,7 +144,7 @@ function approve(address to, uint256 tokenId) external;;
 
 - **Signature**: `setApprovalForAll(address,bool)`
 - **Visibility**: external
-- **Source Range**: 4339:69:97
+- **Source Range**: 4339:69:15
 
 **Signature:**
 ```solidity
@@ -160,7 +160,7 @@ function setApprovalForAll(address operator, bool approved) external;;
 
 - **Signature**: `getApproved(uint256)`
 - **Visibility**: external
-- **Source Range**: 4558:79:97
+- **Source Range**: 4558:79:15
 
 **Signature:**
 ```solidity
@@ -174,7 +174,7 @@ function getApproved(uint256 tokenId) external view returns (address operator);;
 
 - **Signature**: `isApprovedForAll(address,address)`
 - **Visibility**: external
-- **Source Range**: 4786:88:97
+- **Source Range**: 4786:88:15
 
 **Signature:**
 ```solidity
@@ -187,7 +187,7 @@ function isApprovedForAll(address owner, address operator) external view returns
 
 - **Signature**: `supportsInterface(bytes4)`
 - **Visibility**: external
-- **Source Range**: 774:76:112
+- **Source Range**: 774:76:28
 
 **Signature:**
 ```solidity

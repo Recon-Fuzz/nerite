@@ -7,7 +7,7 @@
 - **Contract**: LeverageLSTZapper
 - **Signature**: `withdrawBold(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4566:403:283
+- **Source Range**: 4566:403:132
 - **Inherited From**: GasCompZapper
 
 ## Implementation
@@ -26,7 +26,7 @@ function withdrawBold(uint256 _troveId, uint256 _boldAmount, uint256 _maxUpfront
 ### _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)
 
 - **Kind**: internal
-- **Source**: 4222:544:209
+- **Source**: 4222:544:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)`
 
 ```solidity

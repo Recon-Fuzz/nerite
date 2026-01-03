@@ -270,7 +270,7 @@ event Jail(ISuperApp indexed app, uint256 reason);
 
 - **Signature**: `getNow()`
 - **Visibility**: external
-- **Source Range**: 4779:50:144
+- **Source Range**: 4779:50:45
 
 **Signature:**
 ```solidity
@@ -281,7 +281,7 @@ function getNow() external view returns (uint256);;
 
 - **Signature**: `getGovernance()`
 - **Visibility**: external
-- **Source Range**: 5100:81:144
+- **Source Range**: 5100:81:45
 
 **Signature:**
 ```solidity
@@ -293,7 +293,7 @@ function getGovernance() external view returns (ISuperfluidGovernance governance
 
 - **Signature**: `replaceGovernance(contract ISuperfluidGovernance)`
 - **Visibility**: external
-- **Source Range**: 5261:66:144
+- **Source Range**: 5261:66:45
 
 **Signature:**
 ```solidity
@@ -305,7 +305,7 @@ function replaceGovernance(ISuperfluidGovernance newGov) external;;
 
 - **Signature**: `registerAgreementClass(contract ISuperAgreement)`
 - **Visibility**: external
-- **Source Range**: 5980:78:144
+- **Source Range**: 5980:78:45
 
 **Signature:**
 ```solidity
@@ -320,7 +320,7 @@ function registerAgreementClass(ISuperAgreement agreementClassLogic) external;;
 
 - **Signature**: `updateAgreementClass(contract ISuperAgreement)`
 - **Visibility**: external
-- **Source Range**: 6602:76:144
+- **Source Range**: 6602:76:45
 
 **Signature:**
 ```solidity
@@ -335,7 +335,7 @@ function updateAgreementClass(ISuperAgreement agreementClassLogic) external;;
 
 - **Signature**: `isAgreementTypeListed(bytes32)`
 - **Visibility**: external
-- **Source Range**: 7219:86:144
+- **Source Range**: 7219:86:45
 
 **Signature:**
 ```solidity
@@ -348,7 +348,7 @@ function isAgreementTypeListed(bytes32 agreementType) external view returns (boo
 
 - **Signature**: `isAgreementClassListed(contract ISuperAgreement)`
 - **Visibility**: external
-- **Source Range**: 7381:96:144
+- **Source Range**: 7381:96:45
 
 **Signature:**
 ```solidity
@@ -360,7 +360,7 @@ function isAgreementClassListed(ISuperAgreement agreementClass) external view re
 
 - **Signature**: `getAgreementClass(bytes32)`
 - **Visibility**: external
-- **Source Range**: 7646:104:144
+- **Source Range**: 7646:104:45
 
 **Signature:**
 ```solidity
@@ -373,7 +373,7 @@ function getAgreementClass(bytes32 agreementType) external view returns (ISuperA
 
 - **Signature**: `mapAgreementClasses(uint256)`
 - **Visibility**: external
-- **Source Range**: 7874:127:144
+- **Source Range**: 7874:127:45
 
 **Signature:**
 ```solidity
@@ -386,7 +386,7 @@ function mapAgreementClasses(uint256 bitmap) external view returns (ISuperAgreem
 
 - **Signature**: `addToAgreementClassesBitmap(uint256,bytes32)`
 - **Visibility**: external
-- **Source Range**: 8248:134:144
+- **Source Range**: 8248:134:45
 
 **Signature:**
 ```solidity
@@ -400,7 +400,7 @@ function addToAgreementClassesBitmap(uint256 bitmap, bytes32 agreementType) exte
 
 - **Signature**: `removeFromAgreementClassesBitmap(uint256,bytes32)`
 - **Visibility**: external
-- **Source Range**: 8633:139:144
+- **Source Range**: 8633:139:45
 
 **Signature:**
 ```solidity
@@ -414,7 +414,7 @@ function removeFromAgreementClassesBitmap(uint256 bitmap, bytes32 agreementType)
 
 - **Signature**: `getSuperTokenFactory()`
 - **Visibility**: external
-- **Source Range**: 9056:83:144
+- **Source Range**: 9056:83:45
 
 **Signature:**
 ```solidity
@@ -427,7 +427,7 @@ function getSuperTokenFactory() external view returns (ISuperTokenFactory factor
 
 - **Signature**: `getSuperTokenFactoryLogic()`
 - **Visibility**: external
-- **Source Range**: 9284:75:144
+- **Source Range**: 9284:75:45
 
 **Signature:**
 ```solidity
@@ -440,7 +440,7 @@ function getSuperTokenFactoryLogic() external view returns (address logic);;
 
 - **Signature**: `updateSuperTokenFactory(contract ISuperTokenFactory)`
 - **Visibility**: external
-- **Source Range**: 9463:73:144
+- **Source Range**: 9463:73:45
 
 **Signature:**
 ```solidity
@@ -453,7 +453,7 @@ function updateSuperTokenFactory(ISuperTokenFactory newFactory) external;;
 
 - **Signature**: `updateSuperTokenLogic(contract ISuperToken,address)`
 - **Visibility**: external
-- **Source Range**: 10019:85:144
+- **Source Range**: 10019:85:45
 
 **Signature:**
 ```solidity
@@ -468,7 +468,7 @@ function updateSuperTokenLogic(ISuperToken token, address newLogicOverride) exte
 
 - **Signature**: `changeSuperTokenAdmin(contract ISuperToken,address)`
 - **Visibility**: external
-- **Source Range**: 10578:77:144
+- **Source Range**: 10578:77:45
 
 **Signature:**
 ```solidity
@@ -482,7 +482,7 @@ function changeSuperTokenAdmin(ISuperToken token, address newAdmin) external;;
 
 - **Signature**: `updatePoolBeaconLogic(address)`
 - **Visibility**: external
-- **Source Range**: 10864:64:144
+- **Source Range**: 10864:64:45
 
 **Signature:**
 ```solidity
@@ -495,7 +495,7 @@ function updatePoolBeaconLogic(address newBeaconLogic) external;;
 
 - **Signature**: `registerApp(uint256)`
 - **Visibility**: external
-- **Source Range**: 11800:50:144
+- **Source Range**: 11800:50:45
 
 **Signature:**
 ```solidity
@@ -511,7 +511,7 @@ function registerApp(uint256 configWord) external;;
 
 - **Signature**: `registerApp(contract ISuperApp,uint256)`
 - **Visibility**: external
-- **Source Range**: 12304:65:144
+- **Source Range**: 12304:65:45
 
 **Signature:**
 ```solidity
@@ -528,7 +528,7 @@ function registerApp(ISuperApp app, uint256 configWord) external;;
 
 - **Signature**: `registerAppWithKey(uint256,string)`
 - **Visibility**: external
-- **Source Range**: 12655:90:144
+- **Source Range**: 12655:90:45
 
 **Signature:**
 ```solidity
@@ -541,7 +541,7 @@ function registerAppWithKey(uint256 configWord, string calldata registrationKey)
 
 - **Signature**: `registerAppByFactory(contract ISuperApp,uint256)`
 - **Visibility**: external
-- **Source Range**: 12908:74:144
+- **Source Range**: 12908:74:45
 
 **Signature:**
 ```solidity
@@ -554,7 +554,7 @@ function registerAppByFactory(ISuperApp app, uint256 configWord) external;;
 
 - **Signature**: `isApp(contract ISuperApp)`
 - **Visibility**: external
-- **Source Range**: 13083:58:144
+- **Source Range**: 13083:58:45
 
 **Signature:**
 ```solidity
@@ -567,7 +567,7 @@ function isApp(ISuperApp app) external view returns (bool);;
 
 - **Signature**: `getAppCallbackLevel(contract ISuperApp)`
 - **Visibility**: external
-- **Source Range**: 13235:90:144
+- **Source Range**: 13235:90:45
 
 **Signature:**
 ```solidity
@@ -580,7 +580,7 @@ function getAppCallbackLevel(ISuperApp app) external view returns (uint8 appCall
 
 - **Signature**: `getAppManifest(contract ISuperApp)`
 - **Visibility**: external
-- **Source Range**: 13429:188:144
+- **Source Range**: 13429:188:45
 
 **Signature:**
 ```solidity
@@ -593,7 +593,7 @@ function getAppManifest(ISuperApp app) external view returns (bool isSuperApp, b
 
 - **Signature**: `isAppJailed(contract ISuperApp)`
 - **Visibility**: external
-- **Source Range**: 13720:72:144
+- **Source Range**: 13720:72:45
 
 **Signature:**
 ```solidity
@@ -606,7 +606,7 @@ function isAppJailed(ISuperApp app) external view returns (bool isJail);;
 
 - **Signature**: `allowCompositeApp(contract ISuperApp)`
 - **Visibility**: external
-- **Source Range**: 13956:57:144
+- **Source Range**: 13956:57:45
 
 **Signature:**
 ```solidity
@@ -619,7 +619,7 @@ function allowCompositeApp(ISuperApp targetApp) external;;
 
 - **Signature**: `isCompositeAppAllowed(contract ISuperApp,contract ISuperApp)`
 - **Visibility**: external
-- **Source Range**: 14208:147:144
+- **Source Range**: 14208:147:45
 
 **Signature:**
 ```solidity
@@ -633,7 +633,7 @@ function isCompositeAppAllowed(ISuperApp app, ISuperApp targetApp) external view
 
 - **Signature**: `callAppBeforeCallback(contract ISuperApp,bytes,bool,bytes)`
 - **Visibility**: external
-- **Source Range**: 15145:259:144
+- **Source Range**: 15145:259:45
 
 **Signature:**
 ```solidity
@@ -650,7 +650,7 @@ function callAppBeforeCallback(ISuperApp app, bytes calldata callData, bool isTe
 
 - **Signature**: `callAppAfterCallback(contract ISuperApp,bytes,bool,bytes)`
 - **Visibility**: external
-- **Source Range**: 15808:258:144
+- **Source Range**: 15808:258:45
 
 **Signature:**
 ```solidity
@@ -667,7 +667,7 @@ function callAppAfterCallback(ISuperApp app, bytes calldata callData, bool isTer
 
 - **Signature**: `appCallbackPush(bytes,contract ISuperApp,uint256,int256,contract ISuperfluidToken)`
 - **Visibility**: external
-- **Source Range**: 16485:298:144
+- **Source Range**: 16485:298:45
 
 **Signature:**
 ```solidity
@@ -684,7 +684,7 @@ function appCallbackPush(bytes calldata ctx, ISuperApp app, uint256 appCreditGra
 
 - **Signature**: `appCallbackPop(bytes,int256)`
 - **Visibility**: external
-- **Source Range**: 17348:173:144
+- **Source Range**: 17348:173:45
 
 **Signature:**
 ```solidity
@@ -702,7 +702,7 @@ function appCallbackPop(bytes calldata ctx, int256 appCreditUsedDelta) external 
 
 - **Signature**: `ctxUseCredit(bytes,int256)`
 - **Visibility**: external
-- **Source Range**: 17820:201:144
+- **Source Range**: 17820:201:45
 
 **Signature:**
 ```solidity
@@ -717,7 +717,7 @@ function ctxUseCredit(bytes calldata ctx, int256 appCreditUsedMore) external ret
 
 - **Signature**: `jailApp(bytes,contract ISuperApp,uint256)`
 - **Visibility**: external
-- **Source Range**: 18276:209:144
+- **Source Range**: 18276:209:45
 
 **Signature:**
 ```solidity
@@ -732,7 +732,7 @@ function jailApp(bytes calldata ctx, ISuperApp app, uint256 reason) external ret
 
 - **Signature**: `callAgreement(contract ISuperAgreement,bytes,bytes)`
 - **Visibility**: external
-- **Source Range**: 19550:256:144
+- **Source Range**: 19550:256:45
 
 **Signature:**
 ```solidity
@@ -747,7 +747,7 @@ function callAgreement(ISuperAgreement agreementClass, bytes calldata callData, 
 
 - **Signature**: `callAppAction(contract ISuperApp,bytes)`
 - **Visibility**: external
-- **Source Range**: 20085:228:144
+- **Source Range**: 20085:228:45
 
 **Signature:**
 ```solidity
@@ -762,7 +762,7 @@ function callAppAction(ISuperApp app, bytes calldata callData) external returns 
 
 - **Signature**: `callAgreementWithContext(contract ISuperAgreement,bytes,bytes,bytes)`
 - **Visibility**: external
-- **Source Range**: 22898:329:144
+- **Source Range**: 22898:329:45
 
 **Signature:**
 ```solidity
@@ -773,7 +773,7 @@ function callAgreementWithContext(ISuperAgreement agreementClass, bytes calldata
 
 - **Signature**: `callAppActionWithContext(contract ISuperApp,bytes,bytes)`
 - **Visibility**: external
-- **Source Range**: 23233:239:144
+- **Source Range**: 23233:239:45
 
 **Signature:**
 ```solidity
@@ -784,7 +784,7 @@ function callAppActionWithContext(ISuperApp app, bytes calldata callData, bytes 
 
 - **Signature**: `decodeCtx(bytes)`
 - **Visibility**: external
-- **Source Range**: 23478:100:144
+- **Source Range**: 23478:100:45
 
 **Signature:**
 ```solidity
@@ -795,7 +795,7 @@ function decodeCtx(bytes memory ctx) external pure returns (Context memory conte
 
 - **Signature**: `isCtxValid(bytes)`
 - **Visibility**: external
-- **Source Range**: 23584:69:144
+- **Source Range**: 23584:69:45
 
 **Signature:**
 ```solidity
@@ -806,7 +806,7 @@ function isCtxValid(bytes calldata ctx) external view returns (bool);;
 
 - **Signature**: `batchCall(struct ISuperfluid.Operation[])`
 - **Visibility**: external
-- **Source Range**: 24958:69:144
+- **Source Range**: 24958:69:45
 
 **Signature:**
 ```solidity
@@ -830,7 +830,7 @@ function batchCall(Operation[] calldata operations) external payable;;
 
 - **Signature**: `forwardBatchCall(struct ISuperfluid.Operation[])`
 - **Visibility**: external
-- **Source Range**: 25468:76:144
+- **Source Range**: 25468:76:45
 
 **Signature:**
 ```solidity
@@ -847,7 +847,7 @@ function forwardBatchCall(Operation[] calldata operations) external payable;;
 
 - **Signature**: `getERC2771Forwarder()`
 - **Visibility**: external
-- **Source Range**: 25836:62:144
+- **Source Range**: 25836:62:45
 
 **Signature:**
 ```solidity

@@ -12,7 +12,7 @@
 
 - **Signature**: `setAddManager(uint256,address)`
 - **Visibility**: external
-- **Source Range**: 93:68:220
+- **Source Range**: 93:68:69
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function setAddManager(uint256 _troveId, address _manager) external;;
 
 - **Signature**: `setRemoveManager(uint256,address)`
 - **Visibility**: external
-- **Source Range**: 166:71:220
+- **Source Range**: 166:71:69
 
 **Signature:**
 ```solidity
@@ -34,7 +34,7 @@ function setRemoveManager(uint256 _troveId, address _manager) external;;
 
 - **Signature**: `setRemoveManagerWithReceiver(uint256,address,address)`
 - **Visibility**: external
-- **Source Range**: 242:102:220
+- **Source Range**: 242:102:69
 
 **Signature:**
 ```solidity
@@ -45,7 +45,7 @@ function setRemoveManagerWithReceiver(uint256 _troveId, address _manager, addres
 
 - **Signature**: `addManagerOf(uint256)`
 - **Visibility**: external
-- **Source Range**: 349:72:220
+- **Source Range**: 349:72:69
 
 **Signature:**
 ```solidity
@@ -56,7 +56,7 @@ function addManagerOf(uint256 _troveId) external view returns (address);;
 
 - **Signature**: `removeManagerReceiverOf(uint256)`
 - **Visibility**: external
-- **Source Range**: 426:92:220
+- **Source Range**: 426:92:69
 
 **Signature:**
 ```solidity

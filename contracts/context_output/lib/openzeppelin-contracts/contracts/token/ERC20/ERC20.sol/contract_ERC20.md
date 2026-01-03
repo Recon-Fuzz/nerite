@@ -88,7 +88,7 @@ event Approval(address indexed owner, address indexed spender, uint256 value);
 
 - **Signature**: `constructor(string,string)`
 - **Visibility**: public
-- **Source Range**: 1980:113:86
+- **Source Range**: 1980:113:7
 - **Details**: [function_constructor_string_string.md](./function_constructor_string_string.md)
 
 **Signature:**
@@ -103,7 +103,7 @@ constructor(string memory name_, string memory symbol_);
 
 - **Signature**: `name()`
 - **Visibility**: public
-- **Source Range**: 2158:98:86
+- **Source Range**: 2158:98:7
 - **Details**: [function_name.md](./function_name.md)
 
 **Signature:**
@@ -116,7 +116,7 @@ function name() virtual override public view returns (string memory);
 
 - **Signature**: `symbol()`
 - **Visibility**: public
-- **Source Range**: 2369:102:86
+- **Source Range**: 2369:102:7
 - **Details**: [function_symbol.md](./function_symbol.md)
 
 **Signature:**
@@ -130,7 +130,7 @@ function symbol() virtual override public view returns (string memory);
 
 - **Signature**: `decimals()`
 - **Visibility**: public
-- **Source Range**: 3104:91:86
+- **Source Range**: 3104:91:7
 - **Details**: [function_decimals.md](./function_decimals.md)
 
 **Signature:**
@@ -151,7 +151,7 @@ function decimals() virtual override public view returns (uint8);
 
 - **Signature**: `totalSupply()`
 - **Visibility**: public
-- **Source Range**: 3255:106:86
+- **Source Range**: 3255:106:7
 - **Details**: [function_totalSupply.md](./function_totalSupply.md)
 
 **Signature:**
@@ -164,7 +164,7 @@ function totalSupply() virtual override public view returns (uint256);
 
 - **Signature**: `balanceOf(address)`
 - **Visibility**: public
-- **Source Range**: 3419:125:86
+- **Source Range**: 3419:125:7
 - **Details**: [function_balanceOf_address.md](./function_balanceOf_address.md)
 
 **Signature:**
@@ -177,7 +177,7 @@ function balanceOf(address account) virtual override public view returns (uint25
 
 - **Signature**: `transfer(address,uint256)`
 - **Visibility**: public
-- **Source Range**: 3740:189:86
+- **Source Range**: 3740:189:7
 - **Details**: [function_transfer_address_uint256.md](./function_transfer_address_uint256.md)
 
 **Signature:**
@@ -193,7 +193,7 @@ function transfer(address to, uint256 amount) virtual override public returns (b
 
 - **Signature**: `allowance(address,address)`
 - **Visibility**: public
-- **Source Range**: 3987:149:86
+- **Source Range**: 3987:149:7
 - **Details**: [function_allowance_address_address.md](./function_allowance_address_address.md)
 
 **Signature:**
@@ -206,7 +206,7 @@ function allowance(address owner, address spender) virtual override public view 
 
 - **Signature**: `approve(address,uint256)`
 - **Visibility**: public
-- **Source Range**: 4444:197:86
+- **Source Range**: 4444:197:7
 - **Details**: [function_approve_address_uint256.md](./function_approve_address_uint256.md)
 
 **Signature:**
@@ -223,7 +223,7 @@ function approve(address spender, uint256 amount) virtual override public return
 
 - **Signature**: `transferFrom(address,address,uint256)`
 - **Visibility**: public
-- **Source Range**: 5203:256:86
+- **Source Range**: 5203:256:7
 - **Details**: [function_transferFrom_address_address_uint256.md](./function_transferFrom_address_address_uint256.md)
 
 **Signature:**
@@ -245,7 +245,7 @@ function transferFrom(address from, address to, uint256 amount) virtual override
 
 - **Signature**: `increaseAllowance(address,uint256)`
 - **Visibility**: public
-- **Source Range**: 5854:234:86
+- **Source Range**: 5854:234:7
 - **Details**: [function_increaseAllowance_address_uint256.md](./function_increaseAllowance_address_uint256.md)
 
 **Signature:**
@@ -263,7 +263,7 @@ function increaseAllowance(address spender, uint256 addedValue) virtual public r
 
 - **Signature**: `decreaseAllowance(address,uint256)`
 - **Visibility**: public
-- **Source Range**: 6575:427:86
+- **Source Range**: 6575:427:7
 - **Details**: [function_decreaseAllowance_address_uint256.md](./function_decreaseAllowance_address_uint256.md)
 
 **Signature:**

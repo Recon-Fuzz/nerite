@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `accountForReceivedColl(uint256)`
 - **Visibility**: public
-- **Source Range**: 8433:165:202
+- **Source Range**: 8433:165:51
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function accountForReceivedColl(uint256 _amount) public {
 ### _requireCallerIsBorrowerOperationsOrDefaultPool()
 
 - **Kind**: internal
-- **Source**: 13971:261:202
+- **Source**: 13971:261:51
 - **Link**: `src/ActivePool.sol:ActivePool:_requireCallerIsBorrowerOperationsOrDefaultPool()`
 
 ```solidity
@@ -35,7 +35,7 @@ function _requireCallerIsBorrowerOperationsOrDefaultPool() internal view {
 ### _accountForReceivedColl(uint256)
 
 - **Kind**: internal
-- **Source**: 8604:220:202
+- **Source**: 8604:220:51
 - **Link**: `src/ActivePool.sol:ActivePool:_accountForReceivedColl(uint256)`
 
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `setDebtLimit(uint256)`
 - **Visibility**: external
-- **Source Range**: 88179:142:275
+- **Source Range**: 88179:142:124
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function setDebtLimit(uint256 _newDebtLimit) external {
 ### _requireCallerIsCollateralRegistry()
 
 - **Kind**: internal
-- **Source**: 53673:184:275
+- **Source**: 53673:184:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireCallerIsCollateralRegistry()`
 
 ```solidity

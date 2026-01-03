@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `checkBatchManagerExists(address)`
 - **Visibility**: external
-- **Source Range**: 51739:165:205
+- **Source Range**: 51739:165:54
 
 ## Implementation
 

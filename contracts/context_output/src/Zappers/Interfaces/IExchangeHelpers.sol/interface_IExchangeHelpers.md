@@ -12,7 +12,7 @@
 
 - **Signature**: `getCollFromBold(uint256,contract IERC20,uint256)`
 - **Visibility**: external
-- **Source Range**: 158:156:285
+- **Source Range**: 158:156:134
 
 **Signature:**
 ```solidity

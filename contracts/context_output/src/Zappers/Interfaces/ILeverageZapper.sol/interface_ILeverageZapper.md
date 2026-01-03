@@ -88,7 +88,7 @@ struct LeverDownTroveParams {
 
 - **Signature**: `openLeveragedTroveWithRawETH(struct ILeverageZapper.OpenLeveragedTroveParams)`
 - **Visibility**: external
-- **Source Range**: 833:98:288
+- **Source Range**: 833:98:137
 
 **Signature:**
 ```solidity
@@ -99,7 +99,7 @@ function openLeveragedTroveWithRawETH(OpenLeveragedTroveParams calldata _params)
 
 - **Signature**: `leverUpTrove(struct ILeverageZapper.LeverUpTroveParams)`
 - **Visibility**: external
-- **Source Range**: 937:68:288
+- **Source Range**: 937:68:137
 
 **Signature:**
 ```solidity
@@ -110,7 +110,7 @@ function leverUpTrove(LeverUpTroveParams calldata _params) external;;
 
 - **Signature**: `leverDownTrove(struct ILeverageZapper.LeverDownTroveParams)`
 - **Visibility**: external
-- **Source Range**: 1011:72:288
+- **Source Range**: 1011:72:137
 
 **Signature:**
 ```solidity
@@ -121,7 +121,7 @@ function leverDownTrove(LeverDownTroveParams calldata _params) external;;
 
 - **Signature**: `leverageRatioToCollateralRatio(uint256)`
 - **Visibility**: external
-- **Source Range**: 1089:93:288
+- **Source Range**: 1089:93:137
 
 **Signature:**
 ```solidity
@@ -132,7 +132,7 @@ function leverageRatioToCollateralRatio(uint256 _inputRatio) external pure retur
 
 - **Signature**: `flashLoanProvider()`
 - **Visibility**: external
-- **Source Range**: 644:72:289
+- **Source Range**: 644:72:138
 
 **Signature:**
 ```solidity
@@ -143,7 +143,7 @@ function flashLoanProvider() external view returns (IFlashLoanProvider);;
 
 - **Signature**: `exchange()`
 - **Visibility**: external
-- **Source Range**: 722:54:289
+- **Source Range**: 722:54:138
 
 **Signature:**
 ```solidity
@@ -154,7 +154,7 @@ function exchange() external view returns (IExchange);;
 
 - **Signature**: `openTroveWithRawETH(struct IZapper.OpenTroveParams)`
 - **Visibility**: external
-- **Source Range**: 782:98:289
+- **Source Range**: 782:98:138
 
 **Signature:**
 ```solidity
@@ -165,7 +165,7 @@ function openTroveWithRawETH(OpenTroveParams calldata _params) external payable 
 
 - **Signature**: `closeTroveFromCollateral(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 886:87:289
+- **Source Range**: 886:87:138
 
 **Signature:**
 ```solidity

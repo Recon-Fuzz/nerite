@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 10353:375:274
+- **Source Range**: 10353:375:123
 
 ## Implementation
 
@@ -26,7 +26,7 @@ constructor(IAddressesRegistry _addressesRegistry) LiquityBase(_addressesRegistr
 ### (contract IAddressesRegistry)
 
 - **Kind**: internal
-- **Source**: 816:401:214
+- **Source**: 816:401:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:constructor(contract IAddressesRegistry)`
 
 ```solidity

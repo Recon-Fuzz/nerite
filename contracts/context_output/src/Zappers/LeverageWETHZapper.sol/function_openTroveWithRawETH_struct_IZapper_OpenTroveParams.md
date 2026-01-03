@@ -7,7 +7,7 @@
 - **Contract**: LeverageWETHZapper
 - **Signature**: `openTroveWithRawETH(struct IZapper.OpenTroveParams)`
 - **Visibility**: external
-- **Source Range**: 716:2677:311
+- **Source Range**: 716:2677:160
 - **Inherited From**: WETHZapper
 
 ## Implementation
@@ -36,7 +36,7 @@ function openTroveWithRawETH(OpenTroveParams calldata _params) external payable 
 ### _setAddManager(uint256,address)
 
 - **Kind**: internal
-- **Source**: 2271:171:209
+- **Source**: 2271:171:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_setAddManager(uint256,address)`
 
 ```solidity
@@ -49,7 +49,7 @@ function _setAddManager(uint256 _troveId, address _manager) internal {
 ### _setRemoveManagerAndReceiver(uint256,address,address)
 
 - **Kind**: internal
-- **Source**: 2844:377:209
+- **Source**: 2844:377:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_setRemoveManagerAndReceiver(uint256,address,address)`
 
 ```solidity
@@ -64,7 +64,7 @@ function _setRemoveManagerAndReceiver(uint256 _troveId, address _manager, addres
 ### _requireNonZeroManagerUnlessWiping(address,address)
 
 - **Kind**: internal
-- **Source**: 3522:212:209
+- **Source**: 3522:212:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireNonZeroManagerUnlessWiping(address,address)`
 
 ```solidity

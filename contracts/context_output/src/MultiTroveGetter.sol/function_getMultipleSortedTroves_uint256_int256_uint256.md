@@ -7,7 +7,7 @@
 - **Contract**: MultiTroveGetter
 - **Signature**: `getMultipleSortedTroves(uint256,int256,uint256)`
 - **Visibility**: external
-- **Source Range**: 520:1329:252
+- **Source Range**: 520:1329:101
 
 ## Implementation
 
@@ -48,7 +48,7 @@ function getMultipleSortedTroves(uint256 _collIndex, int256 _startIdx, uint256 _
 ### _getMultipleSortedTrovesFromHead(contract ITroveManager,contract ISortedTroves,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2452:688:252
+- **Source**: 2452:688:101
 - **Link**: `src/MultiTroveGetter.sol:MultiTroveGetter:_getMultipleSortedTrovesFromHead(contract ITroveManager,contract ISortedTroves,uint256,uint256)`
 
 ```solidity
@@ -68,7 +68,7 @@ function _getMultipleSortedTrovesFromHead(ITroveManager _troveManager, ISortedTr
 ### _getOneTrove(contract ITroveManager,uint256,struct IMultiTroveGetter.CombinedTroveData)
 
 - **Kind**: internal
-- **Source**: 1855:591:252
+- **Source**: 1855:591:101
 - **Link**: `src/MultiTroveGetter.sol:MultiTroveGetter:_getOneTrove(contract ITroveManager,uint256,struct IMultiTroveGetter.CombinedTroveData)`
 
 ```solidity
@@ -82,7 +82,7 @@ function _getOneTrove(ITroveManager _troveManager, uint256 _id, CombinedTroveDat
 ### _getMultipleSortedTrovesFromTail(contract ITroveManager,contract ISortedTroves,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 3146:687:252
+- **Source**: 3146:687:101
 - **Link**: `src/MultiTroveGetter.sol:MultiTroveGetter:_getMultipleSortedTrovesFromTail(contract ITroveManager,contract ISortedTroves,uint256,uint256)`
 
 ```solidity

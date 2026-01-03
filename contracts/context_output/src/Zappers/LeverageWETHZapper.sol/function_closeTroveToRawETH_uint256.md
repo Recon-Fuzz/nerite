@@ -7,7 +7,7 @@
 - **Contract**: LeverageWETHZapper
 - **Signature**: `closeTroveToRawETH(uint256)`
 - **Visibility**: external
-- **Source Range**: 8994:682:311
+- **Source Range**: 8994:682:160
 - **Inherited From**: WETHZapper
 
 ## Implementation
@@ -30,7 +30,7 @@ function closeTroveToRawETH(uint256 _troveId) external {
 ### _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)
 
 - **Kind**: internal
-- **Source**: 4222:544:209
+- **Source**: 4222:544:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)`
 
 ```solidity

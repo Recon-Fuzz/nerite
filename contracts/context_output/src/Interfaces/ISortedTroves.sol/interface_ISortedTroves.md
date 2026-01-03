@@ -12,7 +12,7 @@
 
 - **Signature**: `insert(uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 227:101:239
+- **Source Range**: 227:101:88
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function insert(uint256 _id, uint256 _annualInterestRate, uint256 _prevId, uint2
 
 - **Signature**: `insertIntoBatch(uint256,BatchId,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 333:179:239
+- **Source Range**: 333:179:88
 
 **Signature:**
 ```solidity
@@ -34,7 +34,7 @@ function insertIntoBatch(uint256 _troveId, BatchId _batchId, uint256 _annualInte
 
 - **Signature**: `remove(uint256)`
 - **Visibility**: external
-- **Source Range**: 518:38:239
+- **Source Range**: 518:38:88
 
 **Signature:**
 ```solidity
@@ -45,7 +45,7 @@ function remove(uint256 _id) external;;
 
 - **Signature**: `removeFromBatch(uint256)`
 - **Visibility**: external
-- **Source Range**: 561:47:239
+- **Source Range**: 561:47:88
 
 **Signature:**
 ```solidity
@@ -56,7 +56,7 @@ function removeFromBatch(uint256 _id) external;;
 
 - **Signature**: `reInsert(uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 614:106:239
+- **Source Range**: 614:106:88
 
 **Signature:**
 ```solidity
@@ -67,7 +67,7 @@ function reInsert(uint256 _id, uint256 _newAnnualInterestRate, uint256 _prevId, 
 
 - **Signature**: `reInsertBatch(BatchId,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 725:111:239
+- **Source Range**: 725:111:88
 
 **Signature:**
 ```solidity
@@ -78,7 +78,7 @@ function reInsertBatch(BatchId _id, uint256 _newAnnualInterestRate, uint256 _pre
 
 - **Signature**: `contains(uint256)`
 - **Visibility**: external
-- **Source Range**: 871:60:239
+- **Source Range**: 871:60:88
 
 **Signature:**
 ```solidity
@@ -89,7 +89,7 @@ function contains(uint256 _id) external view returns (bool);;
 
 - **Signature**: `isBatchedNode(uint256)`
 - **Visibility**: external
-- **Source Range**: 936:65:239
+- **Source Range**: 936:65:88
 
 **Signature:**
 ```solidity
@@ -100,7 +100,7 @@ function isBatchedNode(uint256 _id) external view returns (bool);;
 
 - **Signature**: `isEmptyBatch(BatchId)`
 - **Visibility**: external
-- **Source Range**: 1006:64:239
+- **Source Range**: 1006:64:88
 
 **Signature:**
 ```solidity
@@ -111,7 +111,7 @@ function isEmptyBatch(BatchId _id) external view returns (bool);;
 
 - **Signature**: `isEmpty()`
 - **Visibility**: external
-- **Source Range**: 1076:48:239
+- **Source Range**: 1076:48:88
 
 **Signature:**
 ```solidity
@@ -122,7 +122,7 @@ function isEmpty() external view returns (bool);;
 
 - **Signature**: `getSize()`
 - **Visibility**: external
-- **Source Range**: 1129:51:239
+- **Source Range**: 1129:51:88
 
 **Signature:**
 ```solidity
@@ -133,7 +133,7 @@ function getSize() external view returns (uint256);;
 
 - **Signature**: `getFirst()`
 - **Visibility**: external
-- **Source Range**: 1186:52:239
+- **Source Range**: 1186:52:88
 
 **Signature:**
 ```solidity
@@ -144,7 +144,7 @@ function getFirst() external view returns (uint256);;
 
 - **Signature**: `getLast()`
 - **Visibility**: external
-- **Source Range**: 1243:51:239
+- **Source Range**: 1243:51:88
 
 **Signature:**
 ```solidity
@@ -155,7 +155,7 @@ function getLast() external view returns (uint256);;
 
 - **Signature**: `getNext(uint256)`
 - **Visibility**: external
-- **Source Range**: 1299:62:239
+- **Source Range**: 1299:62:88
 
 **Signature:**
 ```solidity
@@ -166,7 +166,7 @@ function getNext(uint256 _id) external view returns (uint256);;
 
 - **Signature**: `getPrev(uint256)`
 - **Visibility**: external
-- **Source Range**: 1366:62:239
+- **Source Range**: 1366:62:88
 
 **Signature:**
 ```solidity
@@ -177,7 +177,7 @@ function getPrev(uint256 _id) external view returns (uint256);;
 
 - **Signature**: `validInsertPosition(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 1434:145:239
+- **Source Range**: 1434:145:88
 
 **Signature:**
 ```solidity
@@ -188,7 +188,7 @@ function validInsertPosition(uint256 _annualInterestRate, uint256 _prevId, uint2
 
 - **Signature**: `findInsertPosition(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 1584:156:239
+- **Source Range**: 1584:156:88
 
 **Signature:**
 ```solidity
@@ -199,7 +199,7 @@ function findInsertPosition(uint256 _annualInterestRate, uint256 _prevId, uint25
 
 - **Signature**: `borrowerOperationsAddress()`
 - **Visibility**: external
-- **Source Range**: 1783:69:239
+- **Source Range**: 1783:69:88
 
 **Signature:**
 ```solidity
@@ -210,7 +210,7 @@ function borrowerOperationsAddress() external view returns (address);;
 
 - **Signature**: `troveManager()`
 - **Visibility**: external
-- **Source Range**: 1857:62:239
+- **Source Range**: 1857:62:88
 
 **Signature:**
 ```solidity
@@ -221,7 +221,7 @@ function troveManager() external view returns (ITroveManager);;
 
 - **Signature**: `size()`
 - **Visibility**: external
-- **Source Range**: 1924:48:239
+- **Source Range**: 1924:48:88
 
 **Signature:**
 ```solidity
@@ -232,7 +232,7 @@ function size() external view returns (uint256);;
 
 - **Signature**: `nodes(uint256)`
 - **Visibility**: external
-- **Source Range**: 1977:113:239
+- **Source Range**: 1977:113:88
 
 **Signature:**
 ```solidity
@@ -243,7 +243,7 @@ function nodes(uint256 _id) external view returns (uint256 nextId, uint256 prevI
 
 - **Signature**: `batches(BatchId)`
 - **Visibility**: external
-- **Source Range**: 2095:81:239
+- **Source Range**: 2095:81:88
 
 **Signature:**
 ```solidity

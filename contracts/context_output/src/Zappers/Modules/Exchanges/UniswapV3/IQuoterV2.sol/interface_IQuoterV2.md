@@ -43,7 +43,7 @@ struct QuoteExactOutputSingleParams {
 
 - **Signature**: `quoteExactInput(bytes,uint256)`
 - **Visibility**: external
-- **Source Range**: 1191:279:303
+- **Source Range**: 1191:279:152
 
 **Signature:**
 ```solidity
@@ -61,7 +61,7 @@ function quoteExactInput(bytes memory path, uint256 amountIn) external returns (
 
 - **Signature**: `quoteExactInputSingle(struct IQuoterV2.QuoteExactInputSingleParams)`
 - **Visibility**: external
-- **Source Range**: 2451:207:303
+- **Source Range**: 2451:207:152
 
 **Signature:**
 ```solidity
@@ -83,7 +83,7 @@ function quoteExactInputSingle(QuoteExactInputSingleParams memory params) extern
 
 - **Signature**: `quoteExactOutput(bytes,uint256)`
 - **Visibility**: external
-- **Source Range**: 3323:280:303
+- **Source Range**: 3323:280:152
 
 **Signature:**
 ```solidity
@@ -101,7 +101,7 @@ function quoteExactOutput(bytes memory path, uint256 amountOut) external returns
 
 - **Signature**: `quoteExactOutputSingle(struct IQuoterV2.QuoteExactOutputSingleParams)`
 - **Visibility**: external
-- **Source Range**: 4631:208:303
+- **Source Range**: 4631:208:152
 
 **Signature:**
 ```solidity

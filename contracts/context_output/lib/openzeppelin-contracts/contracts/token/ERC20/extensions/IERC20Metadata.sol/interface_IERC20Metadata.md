@@ -37,7 +37,7 @@ event Approval(address indexed owner, address indexed spender, uint256 value);
 
 - **Signature**: `name()`
 - **Visibility**: external
-- **Source Range**: 377:54:92
+- **Source Range**: 377:54:11
 
 **Signature:**
 ```solidity
@@ -49,7 +49,7 @@ function name() external view returns (string memory);;
 
 - **Signature**: `symbol()`
 - **Visibility**: external
-- **Source Range**: 498:56:92
+- **Source Range**: 498:56:11
 
 **Signature:**
 ```solidity
@@ -61,7 +61,7 @@ function symbol() external view returns (string memory);;
 
 - **Signature**: `decimals()`
 - **Visibility**: external
-- **Source Range**: 630:50:92
+- **Source Range**: 630:50:11
 
 **Signature:**
 ```solidity
@@ -73,7 +73,7 @@ function decimals() external view returns (uint8);;
 
 - **Signature**: `totalSupply()`
 - **Visibility**: external
-- **Source Range**: 774:55:87
+- **Source Range**: 774:55:8
 
 **Signature:**
 ```solidity
@@ -85,7 +85,7 @@ function totalSupply() external view returns (uint256);;
 
 - **Signature**: `balanceOf(address)`
 - **Visibility**: external
-- **Source Range**: 912:68:87
+- **Source Range**: 912:68:8
 
 **Signature:**
 ```solidity
@@ -97,7 +97,7 @@ function balanceOf(address account) external view returns (uint256);;
 
 - **Signature**: `transfer(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 1193:70:87
+- **Source Range**: 1193:70:8
 
 **Signature:**
 ```solidity
@@ -111,7 +111,7 @@ function transfer(address to, uint256 amount) external returns (bool);;
 
 - **Signature**: `allowance(address,address)`
 - **Visibility**: external
-- **Source Range**: 1538:83:87
+- **Source Range**: 1538:83:8
 
 **Signature:**
 ```solidity
@@ -126,7 +126,7 @@ function allowance(address owner, address spender) external view returns (uint25
 
 - **Signature**: `approve(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 2274:74:87
+- **Source Range**: 2274:74:8
 
 **Signature:**
 ```solidity
@@ -146,7 +146,7 @@ function approve(address spender, uint256 amount) external returns (bool);;
 
 - **Signature**: `transferFrom(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 2646:88:87
+- **Source Range**: 2646:88:8
 
 **Signature:**
 ```solidity

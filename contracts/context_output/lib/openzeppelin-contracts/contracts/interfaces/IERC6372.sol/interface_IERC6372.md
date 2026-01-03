@@ -12,7 +12,7 @@
 
 - **Signature**: `clock()`
 - **Visibility**: external
-- **Source Range**: 295:48:76
+- **Source Range**: 295:48:5
 
 **Signature:**
 ```solidity
@@ -24,7 +24,7 @@ function clock() external view returns (uint48);;
 
 - **Signature**: `CLOCK_MODE()`
 - **Visibility**: external
-- **Source Range**: 455:60:76
+- **Source Range**: 455:60:5
 
 **Signature:**
 ```solidity

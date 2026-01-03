@@ -12,7 +12,7 @@
 
 - **Signature**: `priceToSqrtPriceX96(uint256)`
 - **Visibility**: public
-- **Source Range**: 230:378:307
+- **Source Range**: 230:378:156
 - **Details**: [function_priceToSqrtPriceX96_uint256.md](./function_priceToSqrtPriceX96_uint256.md)
 
 **Signature:**
@@ -24,7 +24,7 @@ function priceToSqrtPriceX96(uint256 _price) public pure returns (uint160 sqrtPr
 
 - **Signature**: `sqrtPriceX96ToPrice(uint160)`
 - **Visibility**: public
-- **Source Range**: 614:539:307
+- **Source Range**: 614:539:156
 - **Details**: [function_sqrtPriceX96ToPrice_uint160.md](./function_sqrtPriceX96ToPrice_uint160.md)
 
 **Signature:**

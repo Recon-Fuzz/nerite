@@ -7,7 +7,7 @@
 - **Contract**: WETHZapper
 - **Signature**: `withdrawBold(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4207:403:311
+- **Source Range**: 4207:403:160
 
 ## Implementation
 
@@ -25,7 +25,7 @@ function withdrawBold(uint256 _troveId, uint256 _boldAmount, uint256 _maxUpfront
 ### _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)
 
 - **Kind**: internal
-- **Source**: 4222:544:209
+- **Source**: 4222:544:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)`
 
 ```solidity

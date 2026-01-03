@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `onSetBatchManagerAnnualInterestRate(address,uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 74658:1078:275
+- **Source Range**: 74658:1078:124
 
 ## Implementation
 
@@ -28,7 +28,7 @@ function onSetBatchManagerAnnualInterestRate(address _batchAddress, uint256 _new
 ### _requireCallerIsBorrowerOperations()
 
 - **Kind**: internal
-- **Source**: 53483:184:275
+- **Source**: 53483:184:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireCallerIsBorrowerOperations()`
 
 ```solidity

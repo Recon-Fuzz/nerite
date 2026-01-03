@@ -7,7 +7,7 @@
 - **Contract**: WETHZapper
 - **Signature**: `receiveFlashLoanOnCloseTroveFromCollateral(struct IZapper.CloseTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 10632:1345:311
+- **Source Range**: 10632:1345:160
 
 ## Implementation
 

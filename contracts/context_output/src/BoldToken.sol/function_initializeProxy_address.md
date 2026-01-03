@@ -7,7 +7,7 @@
 - **Contract**: BoldToken
 - **Signature**: `initializeProxy(address)`
 - **Visibility**: external
-- **Source Range**: 898:285:170
+- **Source Range**: 898:285:49
 - **Inherited From**: UUPSProxy
 
 ## Implementation
@@ -28,7 +28,7 @@ function initializeProxy(address initialAddress) external {
 ### implementation()
 
 - **Kind**: internal
-- **Source**: 619:170:171
+- **Source**: 619:170:50
 - **Link**: `lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/upgradability/UUPSUtils.sol:UUPSUtils:implementation()`
 
 ```solidity
@@ -43,7 +43,7 @@ function implementation() internal view returns (address impl) {
 ### setImplementation(address)
 
 - **Kind**: internal
-- **Source**: 840:228:171
+- **Source**: 840:228:50
 - **Link**: `lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/upgradability/UUPSUtils.sol:UUPSUtils:setImplementation(address)`
 
 ```solidity

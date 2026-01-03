@@ -12,7 +12,7 @@
 
 - **Signature**: `setAddresses(address,address)`
 - **Visibility**: external
-- **Source Range**: 93:89:227
+- **Source Range**: 93:89:76
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function setAddresses(address _lqtyTokenAddress, address _stabilityPoolAddress) 
 
 - **Signature**: `issueLQTY()`
 - **Visibility**: external
-- **Source Range**: 188:48:227
+- **Source Range**: 188:48:76
 
 **Signature:**
 ```solidity
@@ -34,7 +34,7 @@ function issueLQTY() external returns (uint256);;
 
 - **Signature**: `sendLQTY(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 242:66:227
+- **Source Range**: 242:66:76
 
 **Signature:**
 ```solidity

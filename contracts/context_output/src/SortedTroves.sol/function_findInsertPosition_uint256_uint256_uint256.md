@@ -7,7 +7,7 @@
 - **Contract**: SortedTroves
 - **Signature**: `findInsertPosition(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 18564:273:273
+- **Source Range**: 18564:273:122
 
 ## Implementation
 
@@ -22,7 +22,7 @@ function findInsertPosition(uint256 _annualInterestRate, uint256 _prevId, uint25
 ### _findInsertPosition(contract ITroveManager,uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 19166:2594:273
+- **Source**: 19166:2594:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:_findInsertPosition(contract ITroveManager,uint256,uint256,uint256)`
 
 ```solidity
@@ -56,7 +56,7 @@ function _findInsertPosition(ITroveManager _troveManager, uint256 _annualInteres
 ### _descendList(contract ITroveManager,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 16386:363:273
+- **Source**: 16386:363:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:_descendList(contract ITroveManager,uint256,uint256)`
 
 ```solidity
@@ -70,7 +70,7 @@ function _descendList(ITroveManager _troveManager, uint256 _annualInterestRate, 
 ### _descendOne(contract ITroveManager,uint256,struct SortedTroves.Position)
 
 - **Kind**: internal
-- **Source**: 15102:464:273
+- **Source**: 15102:464:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:_descendOne(contract ITroveManager,uint256,struct SortedTroves.Position)`
 
 ```solidity
@@ -87,7 +87,7 @@ function _descendOne(ITroveManager _troveManager, uint256 _annualInterestRate, P
 ### _skipToBatchTail(uint256)
 
 - **Kind**: internal
-- **Source**: 14710:190:273
+- **Source**: 14710:190:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:_skipToBatchTail(uint256)`
 
 ```solidity
@@ -100,7 +100,7 @@ function _skipToBatchTail(uint256 _id) internal view returns (uint256) {
 ### isNotZero(BatchId)
 
 - **Kind**: free-function
-- **Source**: 447:77:277
+- **Source**: 447:77:126
 - **Link**: `src/Types/BatchId.sol:isNotZero(BatchId)`
 
 ```solidity
@@ -112,7 +112,7 @@ function isNotZero(BatchId x) pure returns (bool) {
 ### isZero(BatchId)
 
 - **Kind**: free-function
-- **Source**: 364:81:277
+- **Source**: 364:81:126
 - **Link**: `src/Types/BatchId.sol:isZero(BatchId)`
 
 ```solidity
@@ -124,7 +124,7 @@ function isZero(BatchId x) pure returns (bool) {
 ### contains(uint256)
 
 - **Kind**: internal
-- **Source**: 11484:108:273
+- **Source**: 11484:108:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:contains(uint256)`
 
 ```solidity
@@ -136,7 +136,7 @@ function contains(uint256 _id) override public view returns (bool) {
 ### _ascendList(contract ITroveManager,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 17097:361:273
+- **Source**: 17097:361:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:_ascendList(contract ITroveManager,uint256,uint256)`
 
 ```solidity
@@ -150,7 +150,7 @@ function _ascendList(ITroveManager _troveManager, uint256 _annualInterestRate, u
 ### _ascendOne(contract ITroveManager,uint256,struct SortedTroves.Position)
 
 - **Kind**: internal
-- **Source**: 15572:464:273
+- **Source**: 15572:464:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:_ascendOne(contract ITroveManager,uint256,struct SortedTroves.Position)`
 
 ```solidity
@@ -167,7 +167,7 @@ function _ascendOne(ITroveManager _troveManager, uint256 _annualInterestRate, Po
 ### _skipToBatchHead(uint256)
 
 - **Kind**: internal
-- **Source**: 14906:190:273
+- **Source**: 14906:190:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:_skipToBatchHead(uint256)`
 
 ```solidity
@@ -180,7 +180,7 @@ function _skipToBatchHead(uint256 _id) internal view returns (uint256) {
 ### _descendAndAscendList(contract ITroveManager,uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 17464:808:273
+- **Source**: 17464:808:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:_descendAndAscendList(contract ITroveManager,uint256,uint256,uint256)`
 
 ```solidity

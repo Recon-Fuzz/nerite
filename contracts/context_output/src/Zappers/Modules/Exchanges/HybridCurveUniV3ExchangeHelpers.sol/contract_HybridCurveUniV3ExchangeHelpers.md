@@ -80,7 +80,7 @@ IQuoterV2 public immutable uniV3Quoter
 
 - **Signature**: `constructor(contract IERC20,contract IWETH,contract ICurveStableswapNGPool,uint128,uint128,uint24,uint24,contract IQuoterV2)`
 - **Visibility**: public
-- **Source Range**: 1270:585:299
+- **Source Range**: 1270:585:148
 - **Details**: [function_constructor_contract_IERC20_contract_IWETH_contract_ICurveStableswapNGPool_uint128_uint128_uint24_uint24_contract_IQuoterV2.md](./function_constructor_contract_IERC20_contract_IWETH_contract_ICurveStableswapNGPool_uint128_uint128_uint24_uint24_contract_IQuoterV2.md)
 
 **Signature:**
@@ -92,7 +92,7 @@ constructor(IERC20 _usdc, IWETH _weth, ICurveStableswapNGPool _curvePool, uint12
 
 - **Signature**: `getCollFromBold(uint256,contract IERC20,uint256)`
 - **Visibility**: external
-- **Source Range**: 1861:905:299
+- **Source Range**: 1861:905:148
 - **Details**: [function_getCollFromBold_uint256_contract_IERC20_uint256.md](./function_getCollFromBold_uint256_contract_IERC20_uint256.md)
 
 **Signature:**

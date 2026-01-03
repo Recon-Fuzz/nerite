@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `getNewApproxAvgInterestRateFromTroveChange(struct TroveChange)`
 - **Visibility**: external
-- **Source Range**: 5724:1444:202
+- **Source Range**: 5724:1444:51
 
 ## Implementation
 
@@ -33,7 +33,7 @@ function getNewApproxAvgInterestRateFromTroveChange(TroveChange calldata _troveC
 ### calcPendingAggInterest()
 
 - **Kind**: internal
-- **Source**: 4503:684:202
+- **Source**: 4503:684:51
 - **Link**: `src/ActivePool.sol:ActivePool:calcPendingAggInterest()`
 
 ```solidity
@@ -46,7 +46,7 @@ function calcPendingAggInterest() public view returns (uint256) {
 ### ceilDiv(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 1157:194:114
+- **Source**: 1157:194:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:ceilDiv(uint256,uint256)`
 
 ```solidity

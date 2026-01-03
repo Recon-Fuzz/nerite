@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `mintAggInterestAndAccountForTroveChange(struct TroveChange,address)`
 - **Visibility**: external
-- **Source Range**: 9797:1417:202
+- **Source Range**: 9797:1417:51
 
 ## Implementation
 
@@ -35,7 +35,7 @@ function mintAggInterestAndAccountForTroveChange(TroveChange calldata _troveChan
 ### _requireCallerIsBOorTroveM()
 
 - **Kind**: internal
-- **Source**: 14838:257:202
+- **Source**: 14838:257:51
 - **Link**: `src/ActivePool.sol:ActivePool:_requireCallerIsBOorTroveM()`
 
 ```solidity
@@ -47,7 +47,7 @@ function _requireCallerIsBOorTroveM() internal view {
 ### _mintBatchManagementFeeAndAccountForChange(struct TroveChange,address)
 
 - **Kind**: internal
-- **Source**: 12359:1313:202
+- **Source**: 12359:1313:51
 - **Link**: `src/ActivePool.sol:ActivePool:_mintBatchManagementFeeAndAccountForChange(struct TroveChange,address)`
 
 ```solidity
@@ -71,7 +71,7 @@ function _mintBatchManagementFeeAndAccountForChange(TroveChange memory _troveCha
 ### calcPendingAggBatchManagementFee()
 
 - **Kind**: internal
-- **Source**: 5346:372:202
+- **Source**: 5346:372:51
 - **Link**: `src/ActivePool.sol:ActivePool:calcPendingAggBatchManagementFee()`
 
 ```solidity
@@ -85,7 +85,7 @@ function calcPendingAggBatchManagementFee() public view returns (uint256) {
 ### min(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 588:104:114
+- **Source**: 588:104:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:min(uint256,uint256)`
 
 ```solidity
@@ -98,7 +98,7 @@ function min(uint256 a, uint256 b) internal pure returns (uint256) {
 ### ceilDiv(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 1157:194:114
+- **Source**: 1157:194:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:ceilDiv(uint256,uint256)`
 
 ```solidity
@@ -113,7 +113,7 @@ function ceilDiv(uint256 a, uint256 b) internal pure returns (uint256) {
 ### _mintAggInterest(uint256)
 
 - **Kind**: internal
-- **Source**: 11360:712:202
+- **Source**: 11360:712:51
 - **Link**: `src/ActivePool.sol:ActivePool:_mintAggInterest(uint256)`
 
 ```solidity
@@ -135,7 +135,7 @@ function _mintAggInterest(uint256 _upfrontFee) internal returns (uint256 mintedA
 ### calcPendingAggInterest()
 
 - **Kind**: internal
-- **Source**: 4503:684:202
+- **Source**: 4503:684:51
 - **Link**: `src/ActivePool.sol:ActivePool:calcPendingAggInterest()`
 
 ```solidity

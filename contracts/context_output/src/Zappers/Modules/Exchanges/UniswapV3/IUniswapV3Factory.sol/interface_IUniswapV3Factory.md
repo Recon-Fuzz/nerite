@@ -44,7 +44,7 @@ event FeeAmountEnabled(uint24 indexed fee, int24 indexed tickSpacing);
 
 - **Signature**: `owner()`
 - **Visibility**: external
-- **Source Range**: 1461:49:305
+- **Source Range**: 1461:49:154
 
 **Signature:**
 ```solidity
@@ -58,7 +58,7 @@ function owner() external view returns (address);;
 
 - **Signature**: `feeAmountTickSpacing(uint24)`
 - **Visibility**: external
-- **Source Range**: 1869:72:305
+- **Source Range**: 1869:72:154
 
 **Signature:**
 ```solidity
@@ -73,7 +73,7 @@ function feeAmountTickSpacing(uint24 fee) external view returns (int24);;
 
 - **Signature**: `getPool(address,address,uint24)`
 - **Visibility**: external
-- **Source Range**: 2423:98:305
+- **Source Range**: 2423:98:154
 
 **Signature:**
 ```solidity
@@ -90,7 +90,7 @@ function getPool(address tokenA, address tokenB, uint24 fee) external view retur
 
 - **Signature**: `createPool(address,address,uint24)`
 - **Visibility**: external
-- **Source Range**: 3086:96:305
+- **Source Range**: 3086:96:154
 
 **Signature:**
 ```solidity
@@ -109,7 +109,7 @@ function createPool(address tokenA, address tokenB, uint24 fee) external returns
 
 - **Signature**: `setOwner(address)`
 - **Visibility**: external
-- **Source Range**: 3337:43:305
+- **Source Range**: 3337:43:154
 
 **Signature:**
 ```solidity
@@ -123,7 +123,7 @@ function setOwner(address _owner) external;;
 
 - **Signature**: `enableFeeAmount(uint24,int24)`
 - **Visibility**: external
-- **Source Range**: 3717:65:305
+- **Source Range**: 3717:65:154
 
 **Signature:**
 ```solidity

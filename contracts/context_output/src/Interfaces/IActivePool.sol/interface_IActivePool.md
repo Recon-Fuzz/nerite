@@ -12,7 +12,7 @@
 
 - **Signature**: `defaultPoolAddress()`
 - **Visibility**: external
-- **Source Range**: 191:62:219
+- **Source Range**: 191:62:68
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function defaultPoolAddress() external view returns (address);;
 
 - **Signature**: `borrowerOperationsAddress()`
 - **Visibility**: external
-- **Source Range**: 258:69:219
+- **Source Range**: 258:69:68
 
 **Signature:**
 ```solidity
@@ -34,7 +34,7 @@ function borrowerOperationsAddress() external view returns (address);;
 
 - **Signature**: `troveManagerAddress()`
 - **Visibility**: external
-- **Source Range**: 332:63:219
+- **Source Range**: 332:63:68
 
 **Signature:**
 ```solidity
@@ -45,7 +45,7 @@ function troveManagerAddress() external view returns (address);;
 
 - **Signature**: `interestRouter()`
 - **Visibility**: external
-- **Source Range**: 400:66:219
+- **Source Range**: 400:66:68
 
 **Signature:**
 ```solidity
@@ -56,7 +56,7 @@ function interestRouter() external view returns (IInterestRouter);;
 
 - **Signature**: `stabilityPool()`
 - **Visibility**: external
-- **Source Range**: 583:70:219
+- **Source Range**: 583:70:68
 
 **Signature:**
 ```solidity
@@ -67,7 +67,7 @@ function stabilityPool() external view returns (IBoldRewardsReceiver);;
 
 - **Signature**: `getCollBalance()`
 - **Visibility**: external
-- **Source Range**: 659:58:219
+- **Source Range**: 659:58:68
 
 **Signature:**
 ```solidity
@@ -78,7 +78,7 @@ function getCollBalance() external view returns (uint256);;
 
 - **Signature**: `getBoldDebt()`
 - **Visibility**: external
-- **Source Range**: 722:55:219
+- **Source Range**: 722:55:68
 
 **Signature:**
 ```solidity
@@ -89,7 +89,7 @@ function getBoldDebt() external view returns (uint256);;
 
 - **Signature**: `lastAggUpdateTime()`
 - **Visibility**: external
-- **Source Range**: 782:61:219
+- **Source Range**: 782:61:68
 
 **Signature:**
 ```solidity
@@ -100,7 +100,7 @@ function lastAggUpdateTime() external view returns (uint256);;
 
 - **Signature**: `aggRecordedDebt()`
 - **Visibility**: external
-- **Source Range**: 848:59:219
+- **Source Range**: 848:59:68
 
 **Signature:**
 ```solidity
@@ -111,7 +111,7 @@ function aggRecordedDebt() external view returns (uint256);;
 
 - **Signature**: `aggWeightedDebtSum()`
 - **Visibility**: external
-- **Source Range**: 912:62:219
+- **Source Range**: 912:62:68
 
 **Signature:**
 ```solidity
@@ -122,7 +122,7 @@ function aggWeightedDebtSum() external view returns (uint256);;
 
 - **Signature**: `aggBatchManagementFees()`
 - **Visibility**: external
-- **Source Range**: 979:66:219
+- **Source Range**: 979:66:68
 
 **Signature:**
 ```solidity
@@ -133,7 +133,7 @@ function aggBatchManagementFees() external view returns (uint256);;
 
 - **Signature**: `aggWeightedBatchManagementFeeSum()`
 - **Visibility**: external
-- **Source Range**: 1050:76:219
+- **Source Range**: 1050:76:68
 
 **Signature:**
 ```solidity
@@ -144,7 +144,7 @@ function aggWeightedBatchManagementFeeSum() external view returns (uint256);;
 
 - **Signature**: `calcPendingAggInterest()`
 - **Visibility**: external
-- **Source Range**: 1131:66:219
+- **Source Range**: 1131:66:68
 
 **Signature:**
 ```solidity
@@ -155,7 +155,7 @@ function calcPendingAggInterest() external view returns (uint256);;
 
 - **Signature**: `calcPendingSPYield()`
 - **Visibility**: external
-- **Source Range**: 1202:62:219
+- **Source Range**: 1202:62:68
 
 **Signature:**
 ```solidity
@@ -166,7 +166,7 @@ function calcPendingSPYield() external view returns (uint256);;
 
 - **Signature**: `calcPendingAggBatchManagementFee()`
 - **Visibility**: external
-- **Source Range**: 1269:76:219
+- **Source Range**: 1269:76:68
 
 **Signature:**
 ```solidity
@@ -177,7 +177,7 @@ function calcPendingAggBatchManagementFee() external view returns (uint256);;
 
 - **Signature**: `getNewApproxAvgInterestRateFromTroveChange(struct TroveChange)`
 - **Visibility**: external
-- **Source Range**: 1350:143:219
+- **Source Range**: 1350:143:68
 
 **Signature:**
 ```solidity
@@ -188,7 +188,7 @@ function getNewApproxAvgInterestRateFromTroveChange(TroveChange calldata _troveC
 
 - **Signature**: `mintAggInterest()`
 - **Visibility**: external
-- **Source Range**: 1499:36:219
+- **Source Range**: 1499:36:68
 
 **Signature:**
 ```solidity
@@ -199,7 +199,7 @@ function mintAggInterest() external;;
 
 - **Signature**: `mintAggInterestAndAccountForTroveChange(struct TroveChange,address)`
 - **Visibility**: external
-- **Source Range**: 1540:124:219
+- **Source Range**: 1540:124:68
 
 **Signature:**
 ```solidity
@@ -210,7 +210,7 @@ function mintAggInterestAndAccountForTroveChange(TroveChange calldata _troveChan
 
 - **Signature**: `mintBatchManagementFeeAndAccountForChange(struct TroveChange,address)`
 - **Visibility**: external
-- **Source Range**: 1669:126:219
+- **Source Range**: 1669:126:68
 
 **Signature:**
 ```solidity
@@ -221,7 +221,7 @@ function mintBatchManagementFeeAndAccountForChange(TroveChange calldata _troveCh
 
 - **Signature**: `setShutdownFlag()`
 - **Visibility**: external
-- **Source Range**: 1801:36:219
+- **Source Range**: 1801:36:68
 
 **Signature:**
 ```solidity
@@ -232,7 +232,7 @@ function setShutdownFlag() external;;
 
 - **Signature**: `hasBeenShutDown()`
 - **Visibility**: external
-- **Source Range**: 1842:56:219
+- **Source Range**: 1842:56:68
 
 **Signature:**
 ```solidity
@@ -243,7 +243,7 @@ function hasBeenShutDown() external view returns (bool);;
 
 - **Signature**: `shutdownTime()`
 - **Visibility**: external
-- **Source Range**: 1903:56:219
+- **Source Range**: 1903:56:68
 
 **Signature:**
 ```solidity
@@ -254,7 +254,7 @@ function shutdownTime() external view returns (uint256);;
 
 - **Signature**: `sendColl(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 1965:62:219
+- **Source Range**: 1965:62:68
 
 **Signature:**
 ```solidity
@@ -265,7 +265,7 @@ function sendColl(address _account, uint256 _amount) external;;
 
 - **Signature**: `sendCollToDefaultPool(uint256)`
 - **Visibility**: external
-- **Source Range**: 2032:57:219
+- **Source Range**: 2032:57:68
 
 **Signature:**
 ```solidity
@@ -276,7 +276,7 @@ function sendCollToDefaultPool(uint256 _amount) external;;
 
 - **Signature**: `receiveColl(uint256)`
 - **Visibility**: external
-- **Source Range**: 2094:47:219
+- **Source Range**: 2094:47:68
 
 **Signature:**
 ```solidity
@@ -287,7 +287,7 @@ function receiveColl(uint256 _amount) external;;
 
 - **Signature**: `accountForReceivedColl(uint256)`
 - **Visibility**: external
-- **Source Range**: 2146:58:219
+- **Source Range**: 2146:58:68
 
 **Signature:**
 ```solidity

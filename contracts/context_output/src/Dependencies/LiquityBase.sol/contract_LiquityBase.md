@@ -62,7 +62,7 @@ event PriceFeedAddressChanged(address _newPriceFeedAddress);
 
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 816:401:214
+- **Source Range**: 816:401:63
 - **Details**: [function_constructor_contract_IAddressesRegistry.md](./function_constructor_contract_IAddressesRegistry.md)
 
 **Signature:**
@@ -74,7 +74,7 @@ constructor(IAddressesRegistry _addressesRegistry);
 
 - **Signature**: `getEntireSystemColl()`
 - **Visibility**: public
-- **Source Range**: 1265:251:214
+- **Source Range**: 1265:251:63
 - **Details**: [function_getEntireSystemColl.md](./function_getEntireSystemColl.md)
 
 **Signature:**
@@ -86,7 +86,7 @@ function getEntireSystemColl() public view returns (uint256 entireSystemColl);
 
 - **Signature**: `getEntireSystemDebt()`
 - **Visibility**: public
-- **Source Range**: 1522:237:214
+- **Source Range**: 1522:237:63
 - **Details**: [function_getEntireSystemDebt.md](./function_getEntireSystemDebt.md)
 
 **Signature:**

@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `onAdjustTroveInsideBatch(uint256,uint256,uint256,struct TroveChange,address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 67599:2732:275
+- **Source Range**: 67599:2732:124
 
 ## Implementation
 
@@ -31,7 +31,7 @@ function onAdjustTroveInsideBatch(uint256 _troveId, uint256 _newTroveColl, uint2
 ### _requireCallerIsBorrowerOperations()
 
 - **Kind**: internal
-- **Source**: 53483:184:275
+- **Source**: 53483:184:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireCallerIsBorrowerOperations()`
 
 ```solidity
@@ -45,7 +45,7 @@ function _requireCallerIsBorrowerOperations() internal view {
 ### _updateTroveRewardSnapshots(uint256)
 
 - **Kind**: internal
-- **Source**: 42225:177:275
+- **Source**: 42225:177:124
 - **Link**: `src/TroveManager.sol:TroveManager:_updateTroveRewardSnapshots(uint256)`
 
 ```solidity
@@ -58,7 +58,7 @@ function _updateTroveRewardSnapshots(uint256 _troveId) internal {
 ### _updateStakeAndTotalStakes(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 48221:308:275
+- **Source**: 48221:308:124
 - **Link**: `src/TroveManager.sol:TroveManager:_updateStakeAndTotalStakes(uint256,uint256)`
 
 ```solidity
@@ -73,7 +73,7 @@ function _updateStakeAndTotalStakes(uint256 _troveId, uint256 _coll) internal re
 ### _computeNewStake(uint256)
 
 - **Kind**: internal
-- **Source**: 48656:715:275
+- **Source**: 48656:715:124
 - **Link**: `src/TroveManager.sol:TroveManager:_computeNewStake(uint256)`
 
 ```solidity
@@ -91,7 +91,7 @@ function _computeNewStake(uint256 _coll) internal view returns (uint256) {
 ### _updateBatchShares(uint256,address,struct TroveChange,uint256,uint256,uint256,bool)
 
 - **Kind**: internal
-- **Source**: 78969:4032:275
+- **Source**: 78969:4032:124
 - **Link**: `src/TroveManager.sol:TroveManager:_updateBatchShares(uint256,address,struct TroveChange,uint256,uint256,uint256,bool)`
 
 ```solidity
@@ -156,7 +156,7 @@ function _updateBatchShares(uint256 _troveId, address _batchAddress, TroveChange
 ### _requireBelowMaxSharesRatio(uint256,uint256,bool)
 
 - **Kind**: internal
-- **Source**: 83449:393:275
+- **Source**: 83449:393:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireBelowMaxSharesRatio(uint256,uint256,bool)`
 
 ```solidity
@@ -170,7 +170,7 @@ function _requireBelowMaxSharesRatio(uint256 _currentBatchDebtShares, uint256 _b
 ### _movePendingTroveRewardsToActivePool(contract IDefaultPool,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 21499:294:275
+- **Source**: 21499:294:124
 - **Link**: `src/TroveManager.sol:TroveManager:_movePendingTroveRewardsToActivePool(contract IDefaultPool,uint256,uint256)`
 
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: AddressesRegistry
 - **Signature**: `constructor(address)`
 - **Visibility**: public
-- **Source Range**: 806:133:216
+- **Source Range**: 806:133:65
 - **Inherited From**: Ownable
 
 ## Implementation

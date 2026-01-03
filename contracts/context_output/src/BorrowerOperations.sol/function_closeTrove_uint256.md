@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `closeTrove(uint256)`
 - **Visibility**: external
-- **Source Range**: 26024:3113:205
+- **Source Range**: 26024:3113:54
 
 ## Implementation
 
@@ -59,7 +59,7 @@ function closeTrove(uint256 _troveId) override external {
 ### _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)
 
 - **Kind**: internal
-- **Source**: 4222:544:209
+- **Source**: 4222:544:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)`
 
 ```solidity
@@ -79,7 +79,7 @@ function _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256 _troveId, ad
 ### _requireTroveIsOpen(contract ITroveManager,uint256)
 
 - **Kind**: internal
-- **Source**: 54280:314:205
+- **Source**: 54280:314:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireTroveIsOpen(contract ITroveManager,uint256)`
 
 ```solidity
@@ -94,7 +94,7 @@ function _requireTroveIsOpen(ITroveManager _troveManager, uint256 _troveId) inte
 ### _requireSufficientBoldBalance(contract IBoldToken,address,uint256)
 
 - **Kind**: internal
-- **Source**: 57885:263:205
+- **Source**: 57885:263:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireSufficientBoldBalance(contract IBoldToken,address,uint256)`
 
 ```solidity
@@ -108,7 +108,7 @@ function _requireSufficientBoldBalance(IBoldToken _boldToken, address _borrower,
 ### _getNewTCRFromTroveChange(struct TroveChange,uint256)
 
 - **Kind**: internal
-- **Source**: 61913:571:205
+- **Source**: 61913:571:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_getNewTCRFromTroveChange(struct TroveChange,uint256)`
 
 ```solidity
@@ -127,7 +127,7 @@ function _getNewTCRFromTroveChange(TroveChange memory _troveChange, uint256 _pri
 ### getEntireSystemColl()
 
 - **Kind**: internal
-- **Source**: 1265:251:214
+- **Source**: 1265:251:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:getEntireSystemColl()`
 
 ```solidity
@@ -141,7 +141,7 @@ function getEntireSystemColl() public view returns (uint256 entireSystemColl) {
 ### getEntireSystemDebt()
 
 - **Kind**: internal
-- **Source**: 1522:237:214
+- **Source**: 1522:237:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:getEntireSystemDebt()`
 
 ```solidity
@@ -155,7 +155,7 @@ function getEntireSystemDebt() public view returns (uint256 entireSystemDebt) {
 ### _computeCR(uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2640:414:215
+- **Source**: 2640:414:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_computeCR(uint256,uint256,uint256)`
 
 ```solidity
@@ -172,7 +172,7 @@ function _computeCR(uint256 _coll, uint256 _debt, uint256 _price) internal pure 
 ### _requireNewTCRisAboveCCR(uint256)
 
 - **Kind**: internal
-- **Source**: 57372:145:205
+- **Source**: 57372:145:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireNewTCRisAboveCCR(uint256)`
 
 ```solidity
@@ -186,7 +186,7 @@ function _requireNewTCRisAboveCCR(uint256 _newTCR) internal view {
 ### _wipeTroveMappings(uint256)
 
 - **Kind**: internal
-- **Source**: 47813:208:205
+- **Source**: 47813:208:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_wipeTroveMappings(uint256)`
 
 ```solidity
@@ -200,7 +200,7 @@ function _wipeTroveMappings(uint256 _troveId) internal {
 ### _wipeAddRemoveManagers(uint256)
 
 - **Kind**: internal
-- **Source**: 3227:289:209
+- **Source**: 3227:289:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_wipeAddRemoveManagers(uint256)`
 
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: BalancerFlashLoan
 - **Signature**: `receiveFlashLoan(contract IERC20[],uint256[],uint256[],bytes)`
 - **Visibility**: external
-- **Source Range**: 2278:3705:310
+- **Source Range**: 2278:3705:159
 
 ## Implementation
 

@@ -7,7 +7,7 @@
 - **Contract**: CollateralRegistry
 - **Signature**: `getRedemptionRate()`
 - **Visibility**: external
-- **Source Range**: 10865:123:207
+- **Source Range**: 10865:123:56
 
 ## Implementation
 
@@ -22,7 +22,7 @@ function getRedemptionRate() override external view returns (uint256) {
 ### _calcRedemptionRate(uint256)
 
 - **Kind**: internal
-- **Source**: 10355:235:207
+- **Source**: 10355:235:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:_calcRedemptionRate(uint256)`
 
 ```solidity
@@ -34,7 +34,7 @@ function _calcRedemptionRate(uint256 _baseRate) internal pure returns (uint256) 
 ### _min(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 136:113:215
+- **Source**: 136:113:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_min(uint256,uint256)`
 
 ```solidity

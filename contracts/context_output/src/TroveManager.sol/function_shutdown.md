@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `shutdown()`
 - **Visibility**: external
-- **Source Range**: 41602:160:275
+- **Source Range**: 41602:160:124
 
 ## Implementation
 
@@ -24,7 +24,7 @@ function shutdown() external {
 ### _requireCallerIsBorrowerOperations()
 
 - **Kind**: internal
-- **Source**: 53483:184:275
+- **Source**: 53483:184:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireCallerIsBorrowerOperations()`
 
 ```solidity

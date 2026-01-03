@@ -7,7 +7,7 @@
 - **Contract**: CollateralRegistry
 - **Signature**: `updateGovernor(address)`
 - **Visibility**: external
-- **Source Range**: 14471:108:207
+- **Source Range**: 14471:108:56
 
 ## Implementation
 
@@ -22,7 +22,7 @@ function updateGovernor(address _newGovernor) external onlyGovernor() {
 ### onlyGovernor()
 
 - **Kind**: modifier
-- **Source**: 14585:143:207
+- **Source**: 14585:143:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:onlyGovernor()`
 
 ```solidity

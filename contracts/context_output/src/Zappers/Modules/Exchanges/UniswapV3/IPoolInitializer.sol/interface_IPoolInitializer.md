@@ -15,7 +15,7 @@
 
 - **Signature**: `createAndInitializePoolIfNecessary(address,address,uint24,uint160)`
 - **Visibility**: external
-- **Source Range**: 971:174:302
+- **Source Range**: 971:174:151
 
 **Signature:**
 ```solidity

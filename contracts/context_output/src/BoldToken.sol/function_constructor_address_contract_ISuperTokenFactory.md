@@ -7,7 +7,7 @@
 - **Contract**: BoldToken
 - **Signature**: `constructor(address,contract ISuperTokenFactory)`
 - **Visibility**: public
-- **Source Range**: 2925:74:204
+- **Source Range**: 2925:74:53
 
 ## Implementation
 
@@ -20,7 +20,7 @@ constructor(address _owner, ISuperTokenFactory factory) Ownable(_owner) {}
 ### (address)
 
 - **Kind**: internal
-- **Source**: 806:133:216
+- **Source**: 806:133:65
 - **Link**: `src/Dependencies/Ownable.sol:Ownable:constructor(address)`
 
 ```solidity

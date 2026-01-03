@@ -7,7 +7,7 @@
 - **Contract**: MetadataNFT
 - **Signature**: `attributes(struct IMetadataNFT.TroveData)`
 - **Visibility**: public
-- **Source Range**: 1682:966:253
+- **Source Range**: 1682:966:102
 
 ## Implementation
 
@@ -22,7 +22,7 @@ function attributes(TroveData memory _troveData) public pure returns (string mem
 ### toHexString(address)
 
 - **Kind**: internal
-- **Source**: 14338:436:1
+- **Source**: 14338:436:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toHexString(address)`
 
 ```solidity
@@ -43,7 +43,7 @@ function toHexString(address value) internal pure returns (string memory str) {
 ### toHexStringNoPrefix(address)
 
 - **Kind**: internal
-- **Source**: 14911:1330:1
+- **Source**: 14911:1330:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toHexStringNoPrefix(address)`
 
 ```solidity
@@ -79,7 +79,7 @@ function toHexStringNoPrefix(address value) internal pure returns (string memory
 ### toString(uint256)
 
 - **Kind**: internal
-- **Source**: 3513:1535:1
+- **Source**: 3513:1535:0
 - **Link**: `lib/Solady/src/utils/LibString.sol:LibString:toString(uint256)`
 
 ```solidity
@@ -112,7 +112,7 @@ function toString(uint256 value) internal pure returns (string memory str) {
 ### _status2Str(enum ITroveManager.Status)
 
 - **Kind**: internal
-- **Source**: 3333:418:253
+- **Source**: 3333:418:102
 - **Link**: `src/NFTMetadata/MetadataNFT.sol:MetadataNFT:_status2Str(enum ITroveManager.Status)`
 
 ```solidity

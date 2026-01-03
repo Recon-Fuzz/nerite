@@ -7,7 +7,7 @@
 - **Contract**: ERC20
 - **Signature**: `name()`
 - **Visibility**: public
-- **Source Range**: 2158:98:86
+- **Source Range**: 2158:98:7
 
 ## Implementation
 

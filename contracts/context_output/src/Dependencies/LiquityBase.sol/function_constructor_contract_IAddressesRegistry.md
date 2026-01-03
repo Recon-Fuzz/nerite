@@ -7,7 +7,7 @@
 - **Contract**: LiquityBase
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 816:401:214
+- **Source Range**: 816:401:63
 
 ## Implementation
 

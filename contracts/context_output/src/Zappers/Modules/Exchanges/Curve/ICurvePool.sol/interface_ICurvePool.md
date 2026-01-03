@@ -12,7 +12,7 @@
 
 - **Signature**: `add_liquidity(uint256[2],uint256)`
 - **Visibility**: external
-- **Source Range**: 85:102:294
+- **Source Range**: 85:102:143
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function add_liquidity(uint256[2] memory amounts, uint256 min_mint_amount) exter
 
 - **Signature**: `exchange(uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 333:102:294
+- **Source Range**: 333:102:143
 
 **Signature:**
 ```solidity
@@ -34,7 +34,7 @@ function exchange(uint256 i, uint256 j, uint256 dx, uint256 min_dy) external ret
 
 - **Signature**: `get_dy(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 440:85:294
+- **Source Range**: 440:85:143
 
 **Signature:**
 ```solidity

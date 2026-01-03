@@ -7,7 +7,7 @@
 - **Contract**: SortedTroves
 - **Signature**: `validInsertPosition(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 13522:263:273
+- **Source Range**: 13522:263:122
 
 ## Implementation
 
@@ -22,7 +22,7 @@ function validInsertPosition(uint256 _annualInterestRate, uint256 _prevId, uint2
 ### _validInsertPosition(contract ITroveManager,uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 13791:913:273
+- **Source**: 13791:913:122
 - **Link**: `src/SortedTroves.sol:SortedTroves:_validInsertPosition(contract ITroveManager,uint256,uint256,uint256)`
 
 ```solidity
@@ -35,7 +35,7 @@ function _validInsertPosition(ITroveManager _troveManager, uint256 _annualIntere
 ### isZero(BatchId)
 
 - **Kind**: free-function
-- **Source**: 364:81:277
+- **Source**: 364:81:126
 - **Link**: `src/Types/BatchId.sol:isZero(BatchId)`
 
 ```solidity

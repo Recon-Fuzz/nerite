@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `urgentRedemption(uint256,uint256[],uint256)`
 - **Visibility**: external
-- **Source Range**: 38431:3165:275
+- **Source Range**: 38431:3165:124
 
 ## Implementation
 
@@ -55,7 +55,7 @@ function urgentRedemption(uint256 _boldAmount, uint256[] calldata _troveIds, uin
 ### _requireIsShutDown()
 
 - **Kind**: internal
-- **Source**: 54050:128:275
+- **Source**: 54050:128:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireIsShutDown()`
 
 ```solidity
@@ -69,7 +69,7 @@ function _requireIsShutDown() internal view {
 ### _requireAmountGreaterThanZero(uint256)
 
 - **Kind**: internal
-- **Source**: 54184:148:275
+- **Source**: 54184:148:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireAmountGreaterThanZero(uint256)`
 
 ```solidity
@@ -83,7 +83,7 @@ function _requireAmountGreaterThanZero(uint256 _amount) internal pure {
 ### _requireBoldBalanceCoversRedemption(contract IBoldToken,address,uint256)
 
 - **Kind**: internal
-- **Source**: 54338:298:275
+- **Source**: 54338:298:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireBoldBalanceCoversRedemption(contract IBoldToken,address,uint256)`
 
 ```solidity
@@ -98,7 +98,7 @@ function _requireBoldBalanceCoversRedemption(IBoldToken _boldToken, address _red
 ### _getLatestTroveData(uint256,struct LatestTroveData)
 
 - **Kind**: internal
-- **Source**: 42508:1397:275
+- **Source**: 42508:1397:124
 - **Link**: `src/TroveManager.sol:TroveManager:_getLatestTroveData(uint256,struct LatestTroveData)`
 
 ```solidity
@@ -127,7 +127,7 @@ function _getLatestTroveData(uint256 _troveId, LatestTroveData memory trove) int
 ### _getBatchManager(uint256)
 
 - **Kind**: internal
-- **Source**: 46292:137:275
+- **Source**: 46292:137:124
 - **Link**: `src/TroveManager.sol:TroveManager:_getBatchManager(uint256)`
 
 ```solidity
@@ -139,7 +139,7 @@ function _getBatchManager(uint256 _troveId) internal view returns (address) {
 ### _getLatestBatchData(address,struct LatestBatchData)
 
 - **Kind**: internal
-- **Source**: 46668:1309:275
+- **Source**: 46668:1309:124
 - **Link**: `src/TroveManager.sol:TroveManager:_getLatestBatchData(address,struct LatestBatchData)`
 
 ```solidity
@@ -163,7 +163,7 @@ function _getLatestBatchData(address _batchAddress, LatestBatchData memory lates
 ### _getInterestPeriod(uint256)
 
 - **Kind**: internal
-- **Source**: 52678:755:275
+- **Source**: 52678:755:124
 - **Link**: `src/TroveManager.sol:TroveManager:_getInterestPeriod(uint256)`
 
 ```solidity
@@ -181,7 +181,7 @@ function _getInterestPeriod(uint256 _lastDebtUpdateTime) internal view returns (
 ### _calcInterest(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 2244:173:214
+- **Source**: 2244:173:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:_calcInterest(uint256,uint256)`
 
 ```solidity
@@ -193,7 +193,7 @@ function _calcInterest(uint256 _weightedDebt, uint256 _period) internal pure ret
 ### _getLatestTroveDataFromBatch(uint256,address,struct LatestTroveData,struct LatestBatchData)
 
 - **Kind**: internal
-- **Source**: 43911:1861:275
+- **Source**: 43911:1861:124
 - **Link**: `src/TroveManager.sol:TroveManager:_getLatestTroveDataFromBatch(uint256,address,struct LatestTroveData,struct LatestBatchData)`
 
 ```solidity
@@ -220,7 +220,7 @@ function _getLatestTroveDataFromBatch(uint256 _troveId, address _batchAddress, L
 ### _max(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 255:114:215
+- **Source**: 255:114:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_max(uint256,uint256)`
 
 ```solidity
@@ -232,7 +232,7 @@ function _max(uint256 _a, uint256 _b) internal pure returns (uint256) {
 ### _isActiveOrZombie(enum ITroveManager.Status)
 
 - **Kind**: internal
-- **Source**: 18476:148:275
+- **Source**: 18476:148:124
 - **Link**: `src/TroveManager.sol:TroveManager:_isActiveOrZombie(enum ITroveManager.Status)`
 
 ```solidity
@@ -244,7 +244,7 @@ function _isActiveOrZombie(Status _status) internal pure returns (bool) {
 ### _updateBatchInterestPriorToRedemption(contract IActivePool,address)
 
 - **Kind**: internal
-- **Source**: 30247:1105:275
+- **Source**: 30247:1105:124
 - **Link**: `src/TroveManager.sol:TroveManager:_updateBatchInterestPriorToRedemption(contract IActivePool,address)`
 
 ```solidity
@@ -266,7 +266,7 @@ function _updateBatchInterestPriorToRedemption(IActivePool _activePool, address 
 ### _urgentRedeemCollateralFromTrove(contract IDefaultPool,uint256,uint256,struct TroveManager.SingleRedemptionValues)
 
 - **Kind**: internal
-- **Source**: 36946:1479:275
+- **Source**: 36946:1479:124
 - **Link**: `src/TroveManager.sol:TroveManager:_urgentRedeemCollateralFromTrove(contract IDefaultPool,uint256,uint256,struct TroveManager.SingleRedemptionValues)`
 
 ```solidity
@@ -285,7 +285,7 @@ function _urgentRedeemCollateralFromTrove(IDefaultPool _defaultPool, uint256 _ma
 ### _min(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 136:113:215
+- **Source**: 136:113:64
 - **Link**: `src/Dependencies/LiquityMath.sol:LiquityMath:_min(uint256,uint256)`
 
 ```solidity
@@ -297,7 +297,7 @@ function _min(uint256 _a, uint256 _b) internal pure returns (uint256) {
 ### _applySingleRedemption(contract IDefaultPool,struct TroveManager.SingleRedemptionValues,bool)
 
 - **Kind**: internal
-- **Source**: 21836:5812:275
+- **Source**: 21836:5812:124
 - **Link**: `src/TroveManager.sol:TroveManager:_applySingleRedemption(contract IDefaultPool,struct TroveManager.SingleRedemptionValues,bool)`
 
 ```solidity
@@ -347,7 +347,7 @@ function _applySingleRedemption(IDefaultPool _defaultPool, SingleRedemptionValue
 ### _updateBatchShares(uint256,address,struct TroveChange,uint256,uint256,uint256,bool)
 
 - **Kind**: internal
-- **Source**: 78969:4032:275
+- **Source**: 78969:4032:124
 - **Link**: `src/TroveManager.sol:TroveManager:_updateBatchShares(uint256,address,struct TroveChange,uint256,uint256,uint256,bool)`
 
 ```solidity
@@ -412,7 +412,7 @@ function _updateBatchShares(uint256 _troveId, address _batchAddress, TroveChange
 ### _requireBelowMaxSharesRatio(uint256,uint256,bool)
 
 - **Kind**: internal
-- **Source**: 83449:393:275
+- **Source**: 83449:393:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireBelowMaxSharesRatio(uint256,uint256,bool)`
 
 ```solidity
@@ -426,7 +426,7 @@ function _requireBelowMaxSharesRatio(uint256 _currentBatchDebtShares, uint256 _b
 ### _updateStakeAndTotalStakes(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 48221:308:275
+- **Source**: 48221:308:124
 - **Link**: `src/TroveManager.sol:TroveManager:_updateStakeAndTotalStakes(uint256,uint256)`
 
 ```solidity
@@ -441,7 +441,7 @@ function _updateStakeAndTotalStakes(uint256 _troveId, uint256 _coll) internal re
 ### _computeNewStake(uint256)
 
 - **Kind**: internal
-- **Source**: 48656:715:275
+- **Source**: 48656:715:124
 - **Link**: `src/TroveManager.sol:TroveManager:_computeNewStake(uint256)`
 
 ```solidity
@@ -459,7 +459,7 @@ function _computeNewStake(uint256 _coll) internal view returns (uint256) {
 ### _movePendingTroveRewardsToActivePool(contract IDefaultPool,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 21499:294:275
+- **Source**: 21499:294:124
 - **Link**: `src/TroveManager.sol:TroveManager:_movePendingTroveRewardsToActivePool(contract IDefaultPool,uint256,uint256)`
 
 ```solidity
@@ -476,7 +476,7 @@ function _movePendingTroveRewardsToActivePool(IDefaultPool _defaultPool, uint256
 ### _updateTroveRewardSnapshots(uint256)
 
 - **Kind**: internal
-- **Source**: 42225:177:275
+- **Source**: 42225:177:124
 - **Link**: `src/TroveManager.sol:TroveManager:_updateTroveRewardSnapshots(uint256)`
 
 ```solidity

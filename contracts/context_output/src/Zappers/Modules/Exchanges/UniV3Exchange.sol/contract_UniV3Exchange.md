@@ -60,7 +60,7 @@ struct InitialBalances {
 
 - **Signature**: `constructor(contract IERC20,contract IBoldToken,uint24,contract ISwapRouter)`
 - **Visibility**: public
-- **Source Range**: 744:220:300
+- **Source Range**: 744:220:149
 - **Details**: [function_constructor_contract_IERC20_contract_IBoldToken_uint24_contract_ISwapRouter.md](./function_constructor_contract_IERC20_contract_IBoldToken_uint24_contract_ISwapRouter.md)
 
 **Signature:**
@@ -72,7 +72,7 @@ constructor(IERC20 _collToken, IBoldToken _boldToken, uint24 _fee, ISwapRouter _
 
 - **Signature**: `swapFromBold(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 970:1066:300
+- **Source Range**: 970:1066:149
 - **Details**: [function_swapFromBold_uint256_uint256.md](./function_swapFromBold_uint256_uint256.md)
 
 **Signature:**
@@ -84,7 +84,7 @@ function swapFromBold(uint256 _boldAmount, uint256 _minCollAmount) external;
 
 - **Signature**: `swapToBold(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 2042:1130:300
+- **Source Range**: 2042:1130:149
 - **Details**: [function_swapToBold_uint256_uint256.md](./function_swapToBold_uint256_uint256.md)
 
 **Signature:**
@@ -96,7 +96,7 @@ function swapToBold(uint256 _collAmount, uint256 _minBoldAmount) external return
 
 - **Signature**: `priceToSqrtPrice(contract IBoldToken,contract IERC20,uint256)`
 - **Visibility**: public
-- **Source Range**: 3178:327:300
+- **Source Range**: 3178:327:149
 - **Details**: [function_priceToSqrtPrice_contract_IBoldToken_contract_IERC20_uint256.md](./function_priceToSqrtPrice_contract_IBoldToken_contract_IERC20_uint256.md)
 
 **Signature:**
@@ -108,7 +108,7 @@ function priceToSqrtPrice(IBoldToken _boldToken, IERC20 _collToken, uint256 _pri
 
 - **Signature**: `priceToSqrtPriceX96(uint256)`
 - **Visibility**: public
-- **Source Range**: 230:378:307
+- **Source Range**: 230:378:156
 - **Details**: [function_priceToSqrtPriceX96_uint256.md](./function_priceToSqrtPriceX96_uint256.md)
 
 **Signature:**
@@ -120,7 +120,7 @@ function priceToSqrtPriceX96(uint256 _price) public pure returns (uint160 sqrtPr
 
 - **Signature**: `sqrtPriceX96ToPrice(uint160)`
 - **Visibility**: public
-- **Source Range**: 614:539:307
+- **Source Range**: 614:539:156
 - **Details**: [function_sqrtPriceX96ToPrice_uint160.md](./function_sqrtPriceX96ToPrice_uint160.md)
 
 **Signature:**

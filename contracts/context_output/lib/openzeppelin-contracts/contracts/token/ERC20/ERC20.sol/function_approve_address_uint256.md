@@ -7,7 +7,7 @@
 - **Contract**: ERC20
 - **Signature**: `approve(address,uint256)`
 - **Visibility**: public
-- **Source Range**: 4444:197:86
+- **Source Range**: 4444:197:7
 
 ## Implementation
 
@@ -29,7 +29,7 @@ function approve(address spender, uint256 amount) virtual override public return
 ### _msgSender()
 
 - **Kind**: internal
-- **Source**: 655:96:104
+- **Source**: 655:96:20
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/Context.sol:Context:_msgSender()`
 
 ```solidity
@@ -41,7 +41,7 @@ function _msgSender() virtual internal view returns (address) {
 ### _approve(address,address,uint256)
 
 - **Kind**: internal
-- **Source**: 10457:340:86
+- **Source**: 10457:340:7
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol:ERC20:_approve(address,address,uint256)`
 
 ```solidity

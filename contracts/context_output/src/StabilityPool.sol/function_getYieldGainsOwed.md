@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `getYieldGainsOwed()`
 - **Visibility**: external
-- **Source Range**: 11036:108:274
+- **Source Range**: 11036:108:123
 
 ## Implementation
 

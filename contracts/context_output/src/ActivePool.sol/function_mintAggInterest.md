@@ -7,7 +7,7 @@
 - **Contract**: ActivePool
 - **Signature**: `mintAggInterest()`
 - **Visibility**: external
-- **Source Range**: 11220:134:202
+- **Source Range**: 11220:134:51
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function mintAggInterest() override external {
 ### _requireCallerIsBOorSP()
 
 - **Kind**: internal
-- **Source**: 14579:253:202
+- **Source**: 14579:253:51
 - **Link**: `src/ActivePool.sol:ActivePool:_requireCallerIsBOorSP()`
 
 ```solidity
@@ -35,7 +35,7 @@ function _requireCallerIsBOorSP() internal view {
 ### _mintAggInterest(uint256)
 
 - **Kind**: internal
-- **Source**: 11360:712:202
+- **Source**: 11360:712:51
 - **Link**: `src/ActivePool.sol:ActivePool:_mintAggInterest(uint256)`
 
 ```solidity
@@ -57,7 +57,7 @@ function _mintAggInterest(uint256 _upfrontFee) internal returns (uint256 mintedA
 ### calcPendingAggInterest()
 
 - **Kind**: internal
-- **Source**: 4503:684:202
+- **Source**: 4503:684:51
 - **Link**: `src/ActivePool.sol:ActivePool:calcPendingAggInterest()`
 
 ```solidity
@@ -70,7 +70,7 @@ function calcPendingAggInterest() public view returns (uint256) {
 ### ceilDiv(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 1157:194:114
+- **Source**: 1157:194:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:ceilDiv(uint256,uint256)`
 
 ```solidity

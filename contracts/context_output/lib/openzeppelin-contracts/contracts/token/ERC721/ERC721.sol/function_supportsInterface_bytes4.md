@@ -7,7 +7,7 @@
 - **Contract**: ERC721
 - **Signature**: `supportsInterface(bytes4)`
 - **Visibility**: public
-- **Source Range**: 1570:300:96
+- **Source Range**: 1570:300:14
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function supportsInterface(bytes4 interfaceId) virtual override(ERC165, IERC165)
 ### supportsInterface(bytes4)
 
 - **Kind**: internal
-- **Source**: 829:155:111
+- **Source**: 829:155:27
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol:ERC165:supportsInterface(bytes4)`
 
 ```solidity

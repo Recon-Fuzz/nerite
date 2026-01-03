@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `claimCollateral()`
 - **Visibility**: external
-- **Source Range**: 48139:151:205
+- **Source Range**: 48139:151:54
 
 ## Implementation
 

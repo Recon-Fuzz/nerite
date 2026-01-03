@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `onOpenTroveAndJoinBatch(address,uint256,struct TroveChange,address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 57289:2854:275
+- **Source Range**: 57289:2854:124
 
 ## Implementation
 
@@ -39,7 +39,7 @@ function onOpenTroveAndJoinBatch(address _owner, uint256 _troveId, TroveChange m
 ### _requireCallerIsBorrowerOperations()
 
 - **Kind**: internal
-- **Source**: 53483:184:275
+- **Source**: 53483:184:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireCallerIsBorrowerOperations()`
 
 ```solidity
@@ -53,7 +53,7 @@ function _requireCallerIsBorrowerOperations() internal view {
 ### _computeNewStake(uint256)
 
 - **Kind**: internal
-- **Source**: 48656:715:275
+- **Source**: 48656:715:124
 - **Link**: `src/TroveManager.sol:TroveManager:_computeNewStake(uint256)`
 
 ```solidity
@@ -71,7 +71,7 @@ function _computeNewStake(uint256 _coll) internal view returns (uint256) {
 ### _updateTroveRewardSnapshots(uint256)
 
 - **Kind**: internal
-- **Source**: 42225:177:275
+- **Source**: 42225:177:124
 - **Link**: `src/TroveManager.sol:TroveManager:_updateTroveRewardSnapshots(uint256)`
 
 ```solidity
@@ -84,7 +84,7 @@ function _updateTroveRewardSnapshots(uint256 _troveId) internal {
 ### _updateBatchShares(uint256,address,struct TroveChange,uint256,uint256,uint256,bool)
 
 - **Kind**: internal
-- **Source**: 78969:4032:275
+- **Source**: 78969:4032:124
 - **Link**: `src/TroveManager.sol:TroveManager:_updateBatchShares(uint256,address,struct TroveChange,uint256,uint256,uint256,bool)`
 
 ```solidity
@@ -149,7 +149,7 @@ function _updateBatchShares(uint256 _troveId, address _batchAddress, TroveChange
 ### _requireBelowMaxSharesRatio(uint256,uint256,bool)
 
 - **Kind**: internal
-- **Source**: 83449:393:275
+- **Source**: 83449:393:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireBelowMaxSharesRatio(uint256,uint256,bool)`
 
 ```solidity

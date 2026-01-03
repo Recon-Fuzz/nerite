@@ -297,7 +297,7 @@ enum Operation {
 
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 10353:375:274
+- **Source Range**: 10353:375:123
 - **Details**: [function_constructor_contract_IAddressesRegistry.md](./function_constructor_contract_IAddressesRegistry.md)
 
 **Signature:**
@@ -309,7 +309,7 @@ constructor(IAddressesRegistry _addressesRegistry) LiquityBase(_addressesRegistr
 
 - **Signature**: `getCollBalance()`
 - **Visibility**: external
-- **Source Range**: 10808:102:274
+- **Source Range**: 10808:102:123
 - **Details**: [function_getCollBalance.md](./function_getCollBalance.md)
 
 **Signature:**
@@ -321,7 +321,7 @@ function getCollBalance() override external view returns (uint256);
 
 - **Signature**: `getTotalBoldDeposits()`
 - **Visibility**: external
-- **Source Range**: 10916:114:274
+- **Source Range**: 10916:114:123
 - **Details**: [function_getTotalBoldDeposits.md](./function_getTotalBoldDeposits.md)
 
 **Signature:**
@@ -333,7 +333,7 @@ function getTotalBoldDeposits() override external view returns (uint256);
 
 - **Signature**: `getYieldGainsOwed()`
 - **Visibility**: external
-- **Source Range**: 11036:108:274
+- **Source Range**: 11036:108:123
 - **Details**: [function_getYieldGainsOwed.md](./function_getYieldGainsOwed.md)
 
 **Signature:**
@@ -345,7 +345,7 @@ function getYieldGainsOwed() override external view returns (uint256);
 
 - **Signature**: `getYieldGainsPending()`
 - **Visibility**: external
-- **Source Range**: 11150:114:274
+- **Source Range**: 11150:114:123
 - **Details**: [function_getYieldGainsPending.md](./function_getYieldGainsPending.md)
 
 **Signature:**
@@ -357,7 +357,7 @@ function getYieldGainsPending() override external view returns (uint256);
 
 - **Signature**: `provideToSP(uint256,bool)`
 - **Visibility**: external
-- **Source Range**: 11565:1582:274
+- **Source Range**: 11565:1582:123
 - **Details**: [function_provideToSP_uint256_bool.md](./function_provideToSP_uint256_bool.md)
 
 **Signature:**
@@ -369,7 +369,7 @@ function provideToSP(uint256 _topUp, bool _doClaim) override external;
 
 - **Signature**: `withdrawFromSP(uint256,bool)`
 - **Visibility**: external
-- **Source Range**: 13936:1708:274
+- **Source Range**: 13936:1708:123
 - **Details**: [function_withdrawFromSP_uint256_bool.md](./function_withdrawFromSP_uint256_bool.md)
 
 **Signature:**
@@ -381,7 +381,7 @@ function withdrawFromSP(uint256 _amount, bool _doClaim) override external;
 
 - **Signature**: `claimAllCollGains()`
 - **Visibility**: external
-- **Source Range**: 16227:474:274
+- **Source Range**: 16227:474:123
 - **Details**: [function_claimAllCollGains.md](./function_claimAllCollGains.md)
 
 **Signature:**
@@ -393,7 +393,7 @@ function claimAllCollGains() external;
 
 - **Signature**: `triggerBoldRewards(uint256)`
 - **Visibility**: external
-- **Source Range**: 16745:212:274
+- **Source Range**: 16745:212:123
 - **Details**: [function_triggerBoldRewards_uint256.md](./function_triggerBoldRewards_uint256.md)
 
 **Signature:**
@@ -405,7 +405,7 @@ function triggerBoldRewards(uint256 _boldYield) external;
 
 - **Signature**: `offset(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 19209:414:274
+- **Source Range**: 19209:414:123
 - **Details**: [function_offset_uint256_uint256.md](./function_offset_uint256_uint256.md)
 
 **Signature:**
@@ -417,7 +417,7 @@ function offset(uint256 _debtToOffset, uint256 _collToAdd) override external;
 
 - **Signature**: `getDepositorCollGain(address)`
 - **Visibility**: public
-- **Source Range**: 28005:1111:274
+- **Source Range**: 28005:1111:123
 - **Details**: [function_getDepositorCollGain_address.md](./function_getDepositorCollGain_address.md)
 
 **Signature:**
@@ -429,7 +429,7 @@ function getDepositorCollGain(address _depositor) override public view returns (
 
 - **Signature**: `getDepositorYieldGain(address)`
 - **Visibility**: public
-- **Source Range**: 29122:1117:274
+- **Source Range**: 29122:1117:123
 - **Details**: [function_getDepositorYieldGain_address.md](./function_getDepositorYieldGain_address.md)
 
 **Signature:**
@@ -441,7 +441,7 @@ function getDepositorYieldGain(address _depositor) override public view returns 
 
 - **Signature**: `getDepositorYieldGainWithPending(address)`
 - **Visibility**: external
-- **Source Range**: 30245:1552:274
+- **Source Range**: 30245:1552:123
 - **Details**: [function_getDepositorYieldGainWithPending_address.md](./function_getDepositorYieldGainWithPending_address.md)
 
 **Signature:**
@@ -453,7 +453,7 @@ function getDepositorYieldGainWithPending(address _depositor) override external 
 
 - **Signature**: `getCompoundedBoldDeposit(address)`
 - **Visibility**: public
-- **Source Range**: 32042:411:274
+- **Source Range**: 32042:411:123
 - **Details**: [function_getCompoundedBoldDeposit_address.md](./function_getCompoundedBoldDeposit_address.md)
 
 **Signature:**
@@ -465,7 +465,7 @@ function getCompoundedBoldDeposit(address _depositor) override public view retur
 
 - **Signature**: `getEntireSystemColl()`
 - **Visibility**: public
-- **Source Range**: 1265:251:214
+- **Source Range**: 1265:251:63
 - **Details**: [function_getEntireSystemColl.md](./function_getEntireSystemColl.md)
 
 **Signature:**
@@ -477,7 +477,7 @@ function getEntireSystemColl() public view returns (uint256 entireSystemColl);
 
 - **Signature**: `getEntireSystemDebt()`
 - **Visibility**: public
-- **Source Range**: 1522:237:214
+- **Source Range**: 1522:237:63
 - **Details**: [function_getEntireSystemDebt.md](./function_getEntireSystemDebt.md)
 
 **Signature:**

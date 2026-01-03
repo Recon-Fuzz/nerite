@@ -7,7 +7,7 @@
 - **Contract**: HintHelpers
 - **Signature**: `constructor(contract ICollateralRegistry)`
 - **Visibility**: public
-- **Source Range**: 386:110:218
+- **Source Range**: 386:110:67
 
 ## Implementation
 

@@ -103,7 +103,7 @@ enum PriceSource {
 
 - **Signature**: `constructor(address,address,uint256)`
 - **Visibility**: public
-- **Source Range**: 144:319:270
+- **Source Range**: 144:319:119
 - **Details**: [function_constructor_address_address_uint256.md](./function_constructor_address_address_uint256.md)
 
 **Signature:**
@@ -115,7 +115,7 @@ constructor(address _owner, address _xvsUsdOracleAddress, uint256 _xvsUsdStalene
 
 - **Signature**: `fetchPrice()`
 - **Visibility**: public
-- **Source Range**: 469:423:270
+- **Source Range**: 469:423:119
 - **Details**: [function_fetchPrice.md](./function_fetchPrice.md)
 
 **Signature:**
@@ -127,7 +127,7 @@ function fetchPrice() public returns (uint256, bool);
 
 - **Signature**: `fetchRedemptionPrice()`
 - **Visibility**: external
-- **Source Range**: 898:173:270
+- **Source Range**: 898:173:119
 - **Details**: [function_fetchRedemptionPrice.md](./function_fetchRedemptionPrice.md)
 
 **Signature:**
@@ -139,7 +139,7 @@ function fetchRedemptionPrice() external returns (uint256, bool);
 
 - **Signature**: `constructor(address)`
 - **Visibility**: public
-- **Source Range**: 806:133:216
+- **Source Range**: 806:133:65
 - **Details**: [function_constructor_address.md](./function_constructor_address.md)
 
 **Signature:**
@@ -152,7 +152,7 @@ constructor(address initialOwner);
 
 - **Signature**: `owner()`
 - **Visibility**: public
-- **Source Range**: 1015:77:216
+- **Source Range**: 1015:77:65
 - **Details**: [function_owner.md](./function_owner.md)
 
 **Signature:**
@@ -165,7 +165,7 @@ function owner() public view returns (address);
 
 - **Signature**: `isOwner()`
 - **Visibility**: public
-- **Source Range**: 1366:90:216
+- **Source Range**: 1366:90:65
 - **Details**: [function_isOwner.md](./function_isOwner.md)
 
 **Signature:**
@@ -178,7 +178,7 @@ function isOwner() public view returns (bool);
 
 - **Signature**: `setAddresses(address)`
 - **Visibility**: external
-- **Source Range**: 1707:189:265
+- **Source Range**: 1707:189:114
 - **Details**: [function_setAddresses_address.md](./function_setAddresses_address.md)
 
 **Signature:**

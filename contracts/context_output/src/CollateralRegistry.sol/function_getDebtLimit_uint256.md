@@ -7,7 +7,7 @@
 - **Contract**: CollateralRegistry
 - **Signature**: `getDebtLimit(uint256)`
 - **Visibility**: external
-- **Source Range**: 14309:156:207
+- **Source Range**: 14309:156:56
 
 ## Implementation
 
@@ -22,7 +22,7 @@ function getDebtLimit(uint256 _indexTroveManager) external view returns (uint256
 ### getTroveManager(uint256)
 
 - **Kind**: internal
-- **Source**: 12588:637:207
+- **Source**: 12588:637:56
 - **Link**: `src/CollateralRegistry.sol:CollateralRegistry:getTroveManager(uint256)`
 
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: UniV3Exchange
 - **Signature**: `priceToSqrtPriceX96(uint256)`
 - **Visibility**: public
-- **Source Range**: 230:378:307
+- **Source Range**: 230:378:156
 - **Inherited From**: UniPriceConverter
 
 ## Implementation
@@ -27,7 +27,7 @@ function priceToSqrtPriceX96(uint256 _price) public pure returns (uint160 sqrtPr
 ### sqrt(uint256)
 
 - **Kind**: internal
-- **Source**: 6530:1642:114
+- **Source**: 6530:1642:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:sqrt(uint256)`
 
 ```solidity
@@ -54,7 +54,7 @@ function sqrt(uint256 a) internal pure returns (uint256) {
 ### log2(uint256)
 
 - **Kind**: internal
-- **Source**: 8633:983:114
+- **Source**: 8633:983:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:log2(uint256)`
 
 ```solidity
@@ -102,7 +102,7 @@ function log2(uint256 value) internal pure returns (uint256) {
 ### min(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 588:104:114
+- **Source**: 588:104:29
 - **Link**: `lib/openzeppelin-contracts/contracts/utils/math/Math.sol:Math:min(uint256,uint256)`
 
 ```solidity

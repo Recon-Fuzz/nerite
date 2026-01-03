@@ -7,7 +7,7 @@
 - **Contract**: GasCompZapper
 - **Signature**: `receive()`
 - **Visibility**: external
-- **Source Range**: 11605:29:283
+- **Source Range**: 11605:29:132
 
 ## Implementation
 

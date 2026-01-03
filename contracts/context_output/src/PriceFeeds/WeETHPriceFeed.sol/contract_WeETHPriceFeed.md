@@ -127,7 +127,7 @@ enum PriceSource {
 
 - **Signature**: `constructor(address,address,address,address,uint256,uint256)`
 - **Visibility**: public
-- **Source Range**: 249:746:269
+- **Source Range**: 249:746:118
 - **Details**: [function_constructor_address_address_address_address_uint256_uint256.md](./function_constructor_address_address_address_address_uint256_uint256.md)
 
 **Signature:**
@@ -139,7 +139,7 @@ constructor(address _owner, address _ethUsdOracleAddress, address _weEthEthOracl
 
 - **Signature**: `constructor(address)`
 - **Visibility**: public
-- **Source Range**: 806:133:216
+- **Source Range**: 806:133:65
 - **Details**: [function_constructor_address.md](./function_constructor_address.md)
 
 **Signature:**
@@ -152,7 +152,7 @@ constructor(address initialOwner);
 
 - **Signature**: `owner()`
 - **Visibility**: public
-- **Source Range**: 1015:77:216
+- **Source Range**: 1015:77:65
 - **Details**: [function_owner.md](./function_owner.md)
 
 **Signature:**
@@ -165,7 +165,7 @@ function owner() public view returns (address);
 
 - **Signature**: `isOwner()`
 - **Visibility**: public
-- **Source Range**: 1366:90:216
+- **Source Range**: 1366:90:65
 - **Details**: [function_isOwner.md](./function_isOwner.md)
 
 **Signature:**
@@ -178,7 +178,7 @@ function isOwner() public view returns (bool);
 
 - **Signature**: `setAddresses(address)`
 - **Visibility**: external
-- **Source Range**: 1743:189:263
+- **Source Range**: 1743:189:112
 - **Details**: [function_setAddresses_address.md](./function_setAddresses_address.md)
 
 **Signature:**
@@ -190,7 +190,7 @@ function setAddresses(address _borrowOperationsAddress) external onlyOwner();
 
 - **Signature**: `fetchPrice()`
 - **Visibility**: public
-- **Source Range**: 1046:277:262
+- **Source Range**: 1046:277:111
 - **Details**: [function_fetchPrice.md](./function_fetchPrice.md)
 
 **Signature:**
@@ -202,7 +202,7 @@ function fetchPrice() public returns (uint256, bool);
 
 - **Signature**: `fetchRedemptionPrice()`
 - **Visibility**: external
-- **Source Range**: 1329:288:262
+- **Source Range**: 1329:288:111
 - **Details**: [function_fetchRedemptionPrice.md](./function_fetchRedemptionPrice.md)
 
 **Signature:**

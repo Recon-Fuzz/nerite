@@ -185,7 +185,7 @@ event AgreementLiquidatedBy(address liquidatorAccount, address indexed agreement
 
 - **Signature**: `getHost()`
 - **Visibility**: external
-- **Source Range**: 1017:55:146
+- **Source Range**: 1017:55:47
 
 **Signature:**
 ```solidity
@@ -197,7 +197,7 @@ function getHost() external view returns (address host);;
 
 - **Signature**: `realtimeBalanceOf(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 2078:222:146
+- **Source Range**: 2078:222:47
 
 **Signature:**
 ```solidity
@@ -214,7 +214,7 @@ function realtimeBalanceOf(address account, uint256 timestamp) external view ret
 
 - **Signature**: `realtimeBalanceOfNow(address)`
 - **Visibility**: external
-- **Source Range**: 2650:230:146
+- **Source Range**: 2650:230:47
 
 **Signature:**
 ```solidity
@@ -231,7 +231,7 @@ function realtimeBalanceOfNow(address account) external view returns (int256 ava
 
 - **Signature**: `isAccountCritical(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 3200:140:146
+- **Source Range**: 3200:140:47
 
 **Signature:**
 ```solidity
@@ -247,7 +247,7 @@ function isAccountCritical(address account, uint256 timestamp) external view ret
 
 - **Signature**: `isAccountCriticalNow(address)`
 - **Visibility**: external
-- **Source Range**: 3590:116:146
+- **Source Range**: 3590:116:47
 
 **Signature:**
 ```solidity
@@ -262,7 +262,7 @@ function isAccountCriticalNow(address account) external view returns (bool isCri
 
 - **Signature**: `isAccountSolvent(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 4100:138:146
+- **Source Range**: 4100:138:47
 
 **Signature:**
 ```solidity
@@ -278,7 +278,7 @@ function isAccountSolvent(address account, uint256 timestamp) external view retu
 
 - **Signature**: `isAccountSolventNow(address)`
 - **Visibility**: external
-- **Source Range**: 4538:114:146
+- **Source Range**: 4538:114:47
 
 **Signature:**
 ```solidity
@@ -293,7 +293,7 @@ function isAccountSolventNow(address account) external view returns (bool isSolv
 
 - **Signature**: `getAccountActiveAgreements(address)`
 - **Visibility**: external
-- **Source Range**: 4940:132:146
+- **Source Range**: 4940:132:47
 
 **Signature:**
 ```solidity
@@ -308,7 +308,7 @@ function getAccountActiveAgreements(address account) external view returns (ISup
 
 - **Signature**: `createAgreement(bytes32,bytes32[])`
 - **Visibility**: external
-- **Source Range**: 5393:101:146
+- **Source Range**: 5393:101:47
 
 **Signature:**
 ```solidity
@@ -322,7 +322,7 @@ function createAgreement(bytes32 id, bytes32[] calldata data) external;;
 
 - **Signature**: `getAgreementData(address,bytes32,uint256)`
 - **Visibility**: external
-- **Source Range**: 5986:170:146
+- **Source Range**: 5986:170:47
 
 **Signature:**
 ```solidity
@@ -337,7 +337,7 @@ function getAgreementData(address agreementClass, bytes32 id, uint dataLength) e
 
 - **Signature**: `updateAgreementData(bytes32,bytes32[])`
 - **Visibility**: external
-- **Source Range**: 6277:105:146
+- **Source Range**: 6277:105:47
 
 **Signature:**
 ```solidity
@@ -351,7 +351,7 @@ function updateAgreementData(bytes32 id, bytes32[] calldata data) external;;
 
 - **Signature**: `terminateAgreement(bytes32,uint256)`
 - **Visibility**: external
-- **Source Range**: 6763:96:146
+- **Source Range**: 6763:96:47
 
 **Signature:**
 ```solidity
@@ -364,7 +364,7 @@ function terminateAgreement(bytes32 id, uint dataLength) external;;
 
 - **Signature**: `updateAgreementStateSlot(address,uint256,bytes32[])`
 - **Visibility**: external
-- **Source Range**: 7314:143:146
+- **Source Range**: 7314:143:47
 
 **Signature:**
 ```solidity
@@ -379,7 +379,7 @@ function updateAgreementStateSlot(address account, uint256 slotId, bytes32[] cal
 
 - **Signature**: `getAgreementStateSlot(address,address,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 8090:209:146
+- **Source Range**: 8090:209:47
 
 **Signature:**
 ```solidity
@@ -395,7 +395,7 @@ function getAgreementStateSlot(address agreementClass, address account, uint256 
 
 - **Signature**: `settleBalance(address,int256)`
 - **Visibility**: external
-- **Source Range**: 8630:93:146
+- **Source Range**: 8630:93:47
 
 **Signature:**
 ```solidity
@@ -412,7 +412,7 @@ function settleBalance(address account, int256 delta) external;;
 
 - **Signature**: `makeLiquidationPayoutsV2(bytes32,bytes,address,bool,address,uint256,int256)`
 - **Visibility**: external
-- **Source Range**: 9888:292:146
+- **Source Range**: 9888:292:47
 
 **Signature:**
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: ERC721
 - **Signature**: `isApprovedForAll(address,address)`
 - **Visibility**: public
-- **Source Range**: 4388:162:96
+- **Source Range**: 4388:162:14
 
 ## Implementation
 

@@ -95,7 +95,7 @@ event RemoveManagerAndReceiverUpdated(uint256 indexed _troveId, address _newRemo
 
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 1932:164:209
+- **Source Range**: 1932:164:58
 - **Details**: [function_constructor_contract_IAddressesRegistry.md](./function_constructor_contract_IAddressesRegistry.md)
 
 **Signature:**
@@ -107,7 +107,7 @@ constructor(IAddressesRegistry _addressesRegistry);
 
 - **Signature**: `setAddManager(uint256,address)`
 - **Visibility**: external
-- **Source Range**: 2102:163:209
+- **Source Range**: 2102:163:58
 - **Details**: [function_setAddManager_uint256_address.md](./function_setAddManager_uint256_address.md)
 
 **Signature:**
@@ -119,7 +119,7 @@ function setAddManager(uint256 _troveId, address _manager) external;
 
 - **Signature**: `setRemoveManager(uint256,address)`
 - **Visibility**: external
-- **Source Range**: 2448:164:209
+- **Source Range**: 2448:164:58
 - **Details**: [function_setRemoveManager_uint256_address.md](./function_setRemoveManager_uint256_address.md)
 
 **Signature:**
@@ -131,7 +131,7 @@ function setRemoveManager(uint256 _troveId, address _manager) external;
 
 - **Signature**: `setRemoveManagerWithReceiver(uint256,address,address)`
 - **Visibility**: public
-- **Source Range**: 2618:220:209
+- **Source Range**: 2618:220:58
 - **Details**: [function_setRemoveManagerWithReceiver_uint256_address_address.md](./function_setRemoveManagerWithReceiver_uint256_address_address.md)
 
 **Signature:**

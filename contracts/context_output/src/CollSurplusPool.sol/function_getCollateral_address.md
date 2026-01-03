@@ -7,7 +7,7 @@
 - **Contract**: CollSurplusPool
 - **Signature**: `getCollateral(address)`
 - **Visibility**: external
-- **Source Range**: 1662:124:206
+- **Source Range**: 1662:124:55
 
 ## Implementation
 

@@ -7,7 +7,7 @@
 - **Contract**: BoldToken
 - **Signature**: `mint(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 4692:176:204
+- **Source Range**: 4692:176:53
 
 ## Implementation
 
@@ -23,7 +23,7 @@ function mint(address _account, uint256 _amount) override external {
 ### _requireCallerIsBOorAP()
 
 - **Kind**: internal
-- **Source**: 6014:219:204
+- **Source**: 6014:219:53
 - **Link**: `src/BoldToken.sol:BoldToken:_requireCallerIsBOorAP()`
 
 ```solidity

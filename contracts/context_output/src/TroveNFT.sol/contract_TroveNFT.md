@@ -112,7 +112,7 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 660:471:276
+- **Source Range**: 660:471:125
 - **Details**: [function_constructor_contract_IAddressesRegistry.md](./function_constructor_contract_IAddressesRegistry.md)
 
 **Signature:**
@@ -124,7 +124,7 @@ constructor(IAddressesRegistry _addressesRegistry) ERC721(string.concat("Liquity
 
 - **Signature**: `tokenURI(uint256)`
 - **Visibility**: public
-- **Source Range**: 1137:724:276
+- **Source Range**: 1137:724:125
 - **Details**: [function_tokenURI_uint256.md](./function_tokenURI_uint256.md)
 
 **Signature:**
@@ -136,7 +136,7 @@ function tokenURI(uint256 _tokenId) override(ERC721, IERC721Metadata) public vie
 
 - **Signature**: `mint(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 1867:146:276
+- **Source Range**: 1867:146:125
 - **Details**: [function_mint_address_uint256.md](./function_mint_address_uint256.md)
 
 **Signature:**
@@ -148,7 +148,7 @@ function mint(address _owner, uint256 _troveId) override external;
 
 - **Signature**: `burn(uint256)`
 - **Visibility**: external
-- **Source Range**: 2019:122:276
+- **Source Range**: 2019:122:125
 - **Details**: [function_burn_uint256.md](./function_burn_uint256.md)
 
 **Signature:**
@@ -160,7 +160,7 @@ function burn(uint256 _troveId) override external;
 
 - **Signature**: `supportsInterface(bytes4)`
 - **Visibility**: public
-- **Source Range**: 829:155:111
+- **Source Range**: 829:155:27
 - **Details**: [function_supportsInterface_bytes4.md](./function_supportsInterface_bytes4.md)
 
 **Signature:**
@@ -173,7 +173,7 @@ function supportsInterface(bytes4 interfaceId) virtual override public view retu
 
 - **Signature**: `constructor(string,string)`
 - **Visibility**: public
-- **Source Range**: 1390:113:96
+- **Source Range**: 1390:113:14
 - **Details**: [function_constructor_string_string.md](./function_constructor_string_string.md)
 
 **Signature:**
@@ -186,7 +186,7 @@ constructor(string memory name_, string memory symbol_);
 
 - **Signature**: `balanceOf(address)`
 - **Visibility**: public
-- **Source Range**: 1929:204:96
+- **Source Range**: 1929:204:14
 - **Details**: [function_balanceOf_address.md](./function_balanceOf_address.md)
 
 **Signature:**
@@ -199,7 +199,7 @@ function balanceOf(address owner) virtual override public view returns (uint256)
 
 - **Signature**: `ownerOf(uint256)`
 - **Visibility**: public
-- **Source Range**: 2190:219:96
+- **Source Range**: 2190:219:14
 - **Details**: [function_ownerOf_uint256.md](./function_ownerOf_uint256.md)
 
 **Signature:**
@@ -212,7 +212,7 @@ function ownerOf(uint256 tokenId) virtual override public view returns (address)
 
 - **Signature**: `name()`
 - **Visibility**: public
-- **Source Range**: 2471:98:96
+- **Source Range**: 2471:98:14
 - **Details**: [function_name.md](./function_name.md)
 
 **Signature:**
@@ -225,7 +225,7 @@ function name() virtual override public view returns (string memory);
 
 - **Signature**: `symbol()`
 - **Visibility**: public
-- **Source Range**: 2633:102:96
+- **Source Range**: 2633:102:14
 - **Details**: [function_symbol.md](./function_symbol.md)
 
 **Signature:**
@@ -238,7 +238,7 @@ function symbol() virtual override public view returns (string memory);
 
 - **Signature**: `approve(address,uint256)`
 - **Visibility**: public
-- **Source Range**: 3468:406:96
+- **Source Range**: 3468:406:14
 - **Details**: [function_approve_address_uint256.md](./function_approve_address_uint256.md)
 
 **Signature:**
@@ -251,7 +251,7 @@ function approve(address to, uint256 tokenId) virtual override public;
 
 - **Signature**: `getApproved(uint256)`
 - **Visibility**: public
-- **Source Range**: 3935:167:96
+- **Source Range**: 3935:167:14
 - **Details**: [function_getApproved_uint256.md](./function_getApproved_uint256.md)
 
 **Signature:**
@@ -264,7 +264,7 @@ function getApproved(uint256 tokenId) virtual override public view returns (addr
 
 - **Signature**: `setApprovalForAll(address,bool)`
 - **Visibility**: public
-- **Source Range**: 4169:153:96
+- **Source Range**: 4169:153:14
 - **Details**: [function_setApprovalForAll_address_bool.md](./function_setApprovalForAll_address_bool.md)
 
 **Signature:**
@@ -277,7 +277,7 @@ function setApprovalForAll(address operator, bool approved) virtual override pub
 
 - **Signature**: `isApprovedForAll(address,address)`
 - **Visibility**: public
-- **Source Range**: 4388:162:96
+- **Source Range**: 4388:162:14
 - **Details**: [function_isApprovedForAll_address_address.md](./function_isApprovedForAll_address_address.md)
 
 **Signature:**
@@ -290,7 +290,7 @@ function isApprovedForAll(address owner, address operator) virtual override publ
 
 - **Signature**: `transferFrom(address,address,uint256)`
 - **Visibility**: public
-- **Source Range**: 4612:296:96
+- **Source Range**: 4612:296:14
 - **Details**: [function_transferFrom_address_address_uint256.md](./function_transferFrom_address_address_uint256.md)
 
 **Signature:**
@@ -303,7 +303,7 @@ function transferFrom(address from, address to, uint256 tokenId) virtual overrid
 
 - **Signature**: `safeTransferFrom(address,address,uint256)`
 - **Visibility**: public
-- **Source Range**: 4974:149:96
+- **Source Range**: 4974:149:14
 - **Details**: [function_safeTransferFrom_address_address_uint256.md](./function_safeTransferFrom_address_address_uint256.md)
 
 **Signature:**
@@ -316,7 +316,7 @@ function safeTransferFrom(address from, address to, uint256 tokenId) virtual ove
 
 - **Signature**: `safeTransferFrom(address,address,uint256,bytes)`
 - **Visibility**: public
-- **Source Range**: 5189:276:96
+- **Source Range**: 5189:276:14
 - **Details**: [function_safeTransferFrom_address_address_uint256_bytes.md](./function_safeTransferFrom_address_address_uint256_bytes.md)
 
 **Signature:**

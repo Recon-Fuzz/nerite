@@ -7,7 +7,7 @@
 - **Contract**: SortedTroves
 - **Signature**: `getFirst()`
 - **Visibility**: external
-- **Source Range**: 12356:111:273
+- **Source Range**: 12356:111:122
 
 ## Implementation
 

@@ -7,7 +7,7 @@
 - **Contract**: UniV3Exchange
 - **Signature**: `sqrtPriceX96ToPrice(uint160)`
 - **Visibility**: public
-- **Source Range**: 614:539:307
+- **Source Range**: 614:539:156
 - **Inherited From**: UniPriceConverter
 
 ## Implementation

@@ -7,7 +7,7 @@
 - **Contract**: GasCompZapper
 - **Signature**: `receiveFlashLoanOnCloseTroveFromCollateral(struct IZapper.CloseTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 10206:1393:283
+- **Source Range**: 10206:1393:132
 
 ## Implementation
 

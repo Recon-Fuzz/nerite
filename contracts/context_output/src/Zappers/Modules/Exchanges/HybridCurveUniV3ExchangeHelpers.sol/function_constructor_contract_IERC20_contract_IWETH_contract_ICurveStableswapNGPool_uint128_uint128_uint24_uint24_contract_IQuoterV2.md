@@ -7,7 +7,7 @@
 - **Contract**: HybridCurveUniV3ExchangeHelpers
 - **Signature**: `constructor(contract IERC20,contract IWETH,contract ICurveStableswapNGPool,uint128,uint128,uint24,uint24,contract IQuoterV2)`
 - **Visibility**: public
-- **Source Range**: 1270:585:299
+- **Source Range**: 1270:585:148
 
 ## Implementation
 

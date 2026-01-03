@@ -7,7 +7,7 @@
 - **Contract**: SortedTroves
 - **Signature**: `isBatchedNode(uint256)`
 - **Visibility**: public
-- **Source Range**: 11668:126:273
+- **Source Range**: 11668:126:122
 
 ## Implementation
 
@@ -22,7 +22,7 @@ function isBatchedNode(uint256 _id) override public view returns (bool) {
 ### isNotZero(BatchId)
 
 - **Kind**: free-function
-- **Source**: 447:77:277
+- **Source**: 447:77:126
 - **Link**: `src/Types/BatchId.sol:isNotZero(BatchId)`
 
 ```solidity
@@ -34,7 +34,7 @@ function isNotZero(BatchId x) pure returns (bool) {
 ### isZero(BatchId)
 
 - **Kind**: free-function
-- **Source**: 364:81:277
+- **Source**: 364:81:126
 - **Link**: `src/Types/BatchId.sol:isZero(BatchId)`
 
 ```solidity

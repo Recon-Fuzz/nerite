@@ -178,7 +178,7 @@ event ActivePoolCollBalanceUpdated(uint256 _collBalance);
 
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 3021:1126:202
+- **Source Range**: 3021:1126:51
 - **Details**: [function_constructor_contract_IAddressesRegistry.md](./function_constructor_contract_IAddressesRegistry.md)
 
 **Signature:**
@@ -190,7 +190,7 @@ constructor(IAddressesRegistry _addressesRegistry);
 
 - **Signature**: `getCollBalance()`
 - **Visibility**: external
-- **Source Range**: 4395:102:202
+- **Source Range**: 4395:102:51
 - **Details**: [function_getCollBalance.md](./function_getCollBalance.md)
 
 **Signature:**
@@ -202,7 +202,7 @@ function getCollBalance() override external view returns (uint256);
 
 - **Signature**: `calcPendingAggInterest()`
 - **Visibility**: public
-- **Source Range**: 4503:684:202
+- **Source Range**: 4503:684:51
 - **Details**: [function_calcPendingAggInterest.md](./function_calcPendingAggInterest.md)
 
 **Signature:**
@@ -214,7 +214,7 @@ function calcPendingAggInterest() public view returns (uint256);
 
 - **Signature**: `calcPendingSPYield()`
 - **Visibility**: external
-- **Source Range**: 5193:147:202
+- **Source Range**: 5193:147:51
 - **Details**: [function_calcPendingSPYield.md](./function_calcPendingSPYield.md)
 
 **Signature:**
@@ -226,7 +226,7 @@ function calcPendingSPYield() external view returns (uint256);
 
 - **Signature**: `calcPendingAggBatchManagementFee()`
 - **Visibility**: public
-- **Source Range**: 5346:372:202
+- **Source Range**: 5346:372:51
 - **Details**: [function_calcPendingAggBatchManagementFee.md](./function_calcPendingAggBatchManagementFee.md)
 
 **Signature:**
@@ -238,7 +238,7 @@ function calcPendingAggBatchManagementFee() public view returns (uint256);
 
 - **Signature**: `getNewApproxAvgInterestRateFromTroveChange(struct TroveChange)`
 - **Visibility**: external
-- **Source Range**: 5724:1444:202
+- **Source Range**: 5724:1444:51
 - **Details**: [function_getNewApproxAvgInterestRateFromTroveChange_struct_TroveChange.md](./function_getNewApproxAvgInterestRateFromTroveChange_struct_TroveChange.md)
 
 **Signature:**
@@ -250,7 +250,7 @@ function getNewApproxAvgInterestRateFromTroveChange(TroveChange calldata _troveC
 
 - **Signature**: `getBoldDebt()`
 - **Visibility**: external
-- **Source Range**: 7274:183:202
+- **Source Range**: 7274:183:51
 - **Details**: [function_getBoldDebt.md](./function_getBoldDebt.md)
 
 **Signature:**
@@ -262,7 +262,7 @@ function getBoldDebt() external view returns (uint256);
 
 - **Signature**: `sendColl(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 7498:211:202
+- **Source Range**: 7498:211:51
 - **Details**: [function_sendColl_address_uint256.md](./function_sendColl_address_uint256.md)
 
 **Signature:**
@@ -274,7 +274,7 @@ function sendColl(address _account, uint256 _amount) override external;
 
 - **Signature**: `sendCollToDefaultPool(uint256)`
 - **Visibility**: external
-- **Source Range**: 7715:216:202
+- **Source Range**: 7715:216:51
 - **Details**: [function_sendCollToDefaultPool_uint256.md](./function_sendCollToDefaultPool_uint256.md)
 
 **Signature:**
@@ -286,7 +286,7 @@ function sendCollToDefaultPool(uint256 _amount) override external;
 
 - **Signature**: `receiveColl(uint256)`
 - **Visibility**: external
-- **Source Range**: 8158:269:202
+- **Source Range**: 8158:269:51
 - **Details**: [function_receiveColl_uint256.md](./function_receiveColl_uint256.md)
 
 **Signature:**
@@ -298,7 +298,7 @@ function receiveColl(uint256 _amount) external;
 
 - **Signature**: `accountForReceivedColl(uint256)`
 - **Visibility**: public
-- **Source Range**: 8433:165:202
+- **Source Range**: 8433:165:51
 - **Details**: [function_accountForReceivedColl_uint256.md](./function_accountForReceivedColl_uint256.md)
 
 **Signature:**
@@ -310,7 +310,7 @@ function accountForReceivedColl(uint256 _amount) public;
 
 - **Signature**: `mintAggInterestAndAccountForTroveChange(struct TroveChange,address)`
 - **Visibility**: external
-- **Source Range**: 9797:1417:202
+- **Source Range**: 9797:1417:51
 - **Details**: [function_mintAggInterestAndAccountForTroveChange_struct_TroveChange_address.md](./function_mintAggInterestAndAccountForTroveChange_struct_TroveChange_address.md)
 
 **Signature:**
@@ -322,7 +322,7 @@ function mintAggInterestAndAccountForTroveChange(TroveChange calldata _troveChan
 
 - **Signature**: `mintAggInterest()`
 - **Visibility**: external
-- **Source Range**: 11220:134:202
+- **Source Range**: 11220:134:51
 - **Details**: [function_mintAggInterest.md](./function_mintAggInterest.md)
 
 **Signature:**
@@ -334,7 +334,7 @@ function mintAggInterest() override external;
 
 - **Signature**: `mintBatchManagementFeeAndAccountForChange(struct TroveChange,address)`
 - **Visibility**: external
-- **Source Range**: 12078:275:202
+- **Source Range**: 12078:275:51
 - **Details**: [function_mintBatchManagementFeeAndAccountForChange_struct_TroveChange_address.md](./function_mintBatchManagementFeeAndAccountForChange_struct_TroveChange_address.md)
 
 **Signature:**
@@ -346,7 +346,7 @@ function mintBatchManagementFeeAndAccountForChange(TroveChange calldata _troveCh
 
 - **Signature**: `setShutdownFlag()`
 - **Visibility**: external
-- **Source Range**: 13703:123:202
+- **Source Range**: 13703:123:51
 - **Details**: [function_setShutdownFlag.md](./function_setShutdownFlag.md)
 
 **Signature:**
@@ -358,7 +358,7 @@ function setShutdownFlag() external;
 
 - **Signature**: `hasBeenShutDown()`
 - **Visibility**: external
-- **Source Range**: 13832:97:202
+- **Source Range**: 13832:97:51
 - **Details**: [function_hasBeenShutDown.md](./function_hasBeenShutDown.md)
 
 **Signature:**
@@ -370,7 +370,7 @@ function hasBeenShutDown() external view returns (bool);
 
 - **Signature**: `setGovernor(address)`
 - **Visibility**: external
-- **Source Range**: 15389:99:202
+- **Source Range**: 15389:99:51
 - **Details**: [function_setGovernor_address.md](./function_setGovernor_address.md)
 
 **Signature:**
@@ -382,7 +382,7 @@ function setGovernor(address _governor) external onlyGovernor();
 
 - **Signature**: `setDelegateRepresentative(address)`
 - **Visibility**: external
-- **Source Range**: 15494:155:202
+- **Source Range**: 15494:155:51
 - **Details**: [function_setDelegateRepresentative_address.md](./function_setDelegateRepresentative_address.md)
 
 **Signature:**
@@ -394,7 +394,7 @@ function setDelegateRepresentative(address _delegateRepresentative) external onl
 
 - **Signature**: `delegateTokens()`
 - **Visibility**: external
-- **Source Range**: 15757:115:202
+- **Source Range**: 15757:115:51
 - **Details**: [function_delegateTokens.md](./function_delegateTokens.md)
 
 **Signature:**

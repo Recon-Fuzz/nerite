@@ -7,7 +7,7 @@
 - **Contract**: CollSurplusPool
 - **Signature**: `claimColl(address)`
 - **Visibility**: external
-- **Source Range**: 2156:486:206
+- **Source Range**: 2156:486:55
 
 ## Implementation
 
@@ -29,7 +29,7 @@ function claimColl(address _account) override external {
 ### _requireCallerIsBorrowerOperations()
 
 - **Kind**: internal
-- **Source**: 2684:179:206
+- **Source**: 2684:179:55
 - **Link**: `src/CollSurplusPool.sol:CollSurplusPool:_requireCallerIsBorrowerOperations()`
 
 ```solidity

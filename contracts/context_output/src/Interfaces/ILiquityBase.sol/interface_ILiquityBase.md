@@ -12,7 +12,7 @@
 
 - **Signature**: `activePool()`
 - **Visibility**: external
-- **Source Range**: 172:58:233
+- **Source Range**: 172:58:82
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function activePool() external view returns (IActivePool);;
 
 - **Signature**: `getEntireSystemDebt()`
 - **Visibility**: external
-- **Source Range**: 235:63:233
+- **Source Range**: 235:63:82
 
 **Signature:**
 ```solidity
@@ -34,7 +34,7 @@ function getEntireSystemDebt() external view returns (uint256);;
 
 - **Signature**: `getEntireSystemColl()`
 - **Visibility**: external
-- **Source Range**: 303:63:233
+- **Source Range**: 303:63:82
 
 **Signature:**
 ```solidity

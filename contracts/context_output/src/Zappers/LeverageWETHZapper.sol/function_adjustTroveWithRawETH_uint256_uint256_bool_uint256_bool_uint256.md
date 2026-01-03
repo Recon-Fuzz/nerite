@@ -7,7 +7,7 @@
 - **Contract**: LeverageWETHZapper
 - **Signature**: `adjustTroveWithRawETH(uint256,uint256,bool,uint256,bool,uint256)`
 - **Visibility**: external
-- **Source Range**: 5233:697:311
+- **Source Range**: 5233:697:160
 - **Inherited From**: WETHZapper
 
 ## Implementation
@@ -26,7 +26,7 @@ function adjustTroveWithRawETH(uint256 _troveId, uint256 _collChange, bool _isCo
 ### _adjustTrovePre(uint256,uint256,bool,uint256,bool,struct LeftoversSweep.InitialBalances)
 
 - **Kind**: internal
-- **Source**: 6731:1058:311
+- **Source**: 6731:1058:160
 - **Link**: `src/Zappers/WETHZapper.sol:WETHZapper:_adjustTrovePre(uint256,uint256,bool,uint256,bool,struct LeftoversSweep.InitialBalances)`
 
 ```solidity
@@ -51,7 +51,7 @@ function _adjustTrovePre(uint256 _troveId, uint256 _collChange, bool _isCollIncr
 ### _checkAdjustTroveManagers(uint256,uint256,bool,uint256,bool)
 
 - **Kind**: internal
-- **Source**: 1340:658:282
+- **Source**: 1340:658:131
 - **Link**: `src/Zappers/BaseZapper.sol:BaseZapper:_checkAdjustTroveManagers(uint256,uint256,bool,uint256,bool)`
 
 ```solidity
@@ -71,7 +71,7 @@ function _checkAdjustTroveManagers(uint256 _troveId, uint256 _collChange, bool _
 ### _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)
 
 - **Kind**: internal
-- **Source**: 4222:544:209
+- **Source**: 4222:544:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256,address)`
 
 ```solidity
@@ -91,7 +91,7 @@ function _requireSenderIsOwnerOrRemoveManagerAndGetReceiver(uint256 _troveId, ad
 ### _requireSenderIsOwnerOrAddManager(uint256,address)
 
 - **Kind**: internal
-- **Source**: 3919:297:209
+- **Source**: 3919:297:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrAddManager(uint256,address)`
 
 ```solidity
@@ -106,7 +106,7 @@ function _requireSenderIsOwnerOrAddManager(uint256 _troveId, address _owner) int
 ### _setInitialTokensAndBalances(contract IERC20,contract IBoldToken,struct LeftoversSweep.InitialBalances)
 
 - **Kind**: internal
-- **Source**: 468:272:290
+- **Source**: 468:272:139
 - **Link**: `src/Zappers/LeftoversSweep.sol:LeftoversSweep:_setInitialTokensAndBalances(contract IERC20,contract IBoldToken,struct LeftoversSweep.InitialBalances)`
 
 ```solidity
@@ -118,7 +118,7 @@ function _setInitialTokensAndBalances(IERC20 _collToken, IBoldToken _boldToken, 
 ### _setInitialTokensBalancesAndReceiver(contract IERC20,contract IBoldToken,struct LeftoversSweep.InitialBalances,address)
 
 - **Kind**: internal
-- **Source**: 746:374:290
+- **Source**: 746:374:139
 - **Link**: `src/Zappers/LeftoversSweep.sol:LeftoversSweep:_setInitialTokensBalancesAndReceiver(contract IERC20,contract IBoldToken,struct LeftoversSweep.InitialBalances,address)`
 
 ```solidity
@@ -132,7 +132,7 @@ function _setInitialTokensBalancesAndReceiver(IERC20 _collToken, IBoldToken _bol
 ### _setInitialBalancesAndReceiver(struct LeftoversSweep.InitialBalances,address)
 
 - **Kind**: internal
-- **Source**: 1293:420:290
+- **Source**: 1293:420:139
 - **Link**: `src/Zappers/LeftoversSweep.sol:LeftoversSweep:_setInitialBalancesAndReceiver(struct LeftoversSweep.InitialBalances,address)`
 
 ```solidity
@@ -148,7 +148,7 @@ function _setInitialBalancesAndReceiver(InitialBalances memory _initialBalances,
 ### _adjustTrovePost(uint256,bool,uint256,bool,address payable,struct LeftoversSweep.InitialBalances)
 
 - **Kind**: internal
-- **Source**: 7795:1193:311
+- **Source**: 7795:1193:160
 - **Link**: `src/Zappers/WETHZapper.sol:WETHZapper:_adjustTrovePost(uint256,bool,uint256,bool,address payable,struct LeftoversSweep.InitialBalances)`
 
 ```solidity

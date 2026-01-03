@@ -7,7 +7,7 @@
 - **Contract**: LeverageWETHZapper
 - **Signature**: `leverageRatioToCollateralRatio(uint256)`
 - **Visibility**: external
-- **Source Range**: 8414:184:292
+- **Source Range**: 8414:184:141
 
 ## Implementation
 

@@ -39,7 +39,7 @@ struct AddressVars {
 
 - **Signature**: `CCR()`
 - **Visibility**: external
-- **Source Range**: 1255:42:221
+- **Source Range**: 1255:42:70
 
 **Signature:**
 ```solidity
@@ -50,7 +50,7 @@ function CCR() external returns (uint256);;
 
 - **Signature**: `SCR()`
 - **Visibility**: external
-- **Source Range**: 1302:42:221
+- **Source Range**: 1302:42:70
 
 **Signature:**
 ```solidity
@@ -61,7 +61,7 @@ function SCR() external returns (uint256);;
 
 - **Signature**: `MCR()`
 - **Visibility**: external
-- **Source Range**: 1349:42:221
+- **Source Range**: 1349:42:70
 
 **Signature:**
 ```solidity
@@ -72,7 +72,7 @@ function MCR() external returns (uint256);;
 
 - **Signature**: `debtLimit()`
 - **Visibility**: external
-- **Source Range**: 1396:48:221
+- **Source Range**: 1396:48:70
 
 **Signature:**
 ```solidity
@@ -83,7 +83,7 @@ function debtLimit() external returns (uint256);;
 
 - **Signature**: `LIQUIDATION_PENALTY_SP()`
 - **Visibility**: external
-- **Source Range**: 1449:61:221
+- **Source Range**: 1449:61:70
 
 **Signature:**
 ```solidity
@@ -94,7 +94,7 @@ function LIQUIDATION_PENALTY_SP() external returns (uint256);;
 
 - **Signature**: `LIQUIDATION_PENALTY_REDISTRIBUTION()`
 - **Visibility**: external
-- **Source Range**: 1515:73:221
+- **Source Range**: 1515:73:70
 
 **Signature:**
 ```solidity
@@ -105,7 +105,7 @@ function LIQUIDATION_PENALTY_REDISTRIBUTION() external returns (uint256);;
 
 - **Signature**: `collToken()`
 - **Visibility**: external
-- **Source Range**: 1594:60:221
+- **Source Range**: 1594:60:70
 
 **Signature:**
 ```solidity
@@ -116,7 +116,7 @@ function collToken() external view returns (IERC20Metadata);;
 
 - **Signature**: `borrowerOperations()`
 - **Visibility**: external
-- **Source Range**: 1659:74:221
+- **Source Range**: 1659:74:70
 
 **Signature:**
 ```solidity
@@ -127,7 +127,7 @@ function borrowerOperations() external view returns (IBorrowerOperations);;
 
 - **Signature**: `troveManager()`
 - **Visibility**: external
-- **Source Range**: 1738:62:221
+- **Source Range**: 1738:62:70
 
 **Signature:**
 ```solidity
@@ -138,7 +138,7 @@ function troveManager() external view returns (ITroveManager);;
 
 - **Signature**: `troveNFT()`
 - **Visibility**: external
-- **Source Range**: 1805:54:221
+- **Source Range**: 1805:54:70
 
 **Signature:**
 ```solidity
@@ -149,7 +149,7 @@ function troveNFT() external view returns (ITroveNFT);;
 
 - **Signature**: `metadataNFT()`
 - **Visibility**: external
-- **Source Range**: 1864:60:221
+- **Source Range**: 1864:60:70
 
 **Signature:**
 ```solidity
@@ -160,7 +160,7 @@ function metadataNFT() external view returns (IMetadataNFT);;
 
 - **Signature**: `stabilityPool()`
 - **Visibility**: external
-- **Source Range**: 1929:64:221
+- **Source Range**: 1929:64:70
 
 **Signature:**
 ```solidity
@@ -171,7 +171,7 @@ function stabilityPool() external view returns (IStabilityPool);;
 
 - **Signature**: `priceFeed()`
 - **Visibility**: external
-- **Source Range**: 1998:56:221
+- **Source Range**: 1998:56:70
 
 **Signature:**
 ```solidity
@@ -182,7 +182,7 @@ function priceFeed() external view returns (IPriceFeed);;
 
 - **Signature**: `activePool()`
 - **Visibility**: external
-- **Source Range**: 2059:58:221
+- **Source Range**: 2059:58:70
 
 **Signature:**
 ```solidity
@@ -193,7 +193,7 @@ function activePool() external view returns (IActivePool);;
 
 - **Signature**: `defaultPool()`
 - **Visibility**: external
-- **Source Range**: 2122:60:221
+- **Source Range**: 2122:60:70
 
 **Signature:**
 ```solidity
@@ -204,7 +204,7 @@ function defaultPool() external view returns (IDefaultPool);;
 
 - **Signature**: `gasPoolAddress()`
 - **Visibility**: external
-- **Source Range**: 2187:58:221
+- **Source Range**: 2187:58:70
 
 **Signature:**
 ```solidity
@@ -215,7 +215,7 @@ function gasPoolAddress() external view returns (address);;
 
 - **Signature**: `collSurplusPool()`
 - **Visibility**: external
-- **Source Range**: 2250:68:221
+- **Source Range**: 2250:68:70
 
 **Signature:**
 ```solidity
@@ -226,7 +226,7 @@ function collSurplusPool() external view returns (ICollSurplusPool);;
 
 - **Signature**: `sortedTroves()`
 - **Visibility**: external
-- **Source Range**: 2323:62:221
+- **Source Range**: 2323:62:70
 
 **Signature:**
 ```solidity
@@ -237,7 +237,7 @@ function sortedTroves() external view returns (ISortedTroves);;
 
 - **Signature**: `interestRouter()`
 - **Visibility**: external
-- **Source Range**: 2390:66:221
+- **Source Range**: 2390:66:70
 
 **Signature:**
 ```solidity
@@ -248,7 +248,7 @@ function interestRouter() external view returns (IInterestRouter);;
 
 - **Signature**: `hintHelpers()`
 - **Visibility**: external
-- **Source Range**: 2461:60:221
+- **Source Range**: 2461:60:70
 
 **Signature:**
 ```solidity
@@ -259,7 +259,7 @@ function hintHelpers() external view returns (IHintHelpers);;
 
 - **Signature**: `multiTroveGetter()`
 - **Visibility**: external
-- **Source Range**: 2526:70:221
+- **Source Range**: 2526:70:70
 
 **Signature:**
 ```solidity
@@ -270,7 +270,7 @@ function multiTroveGetter() external view returns (IMultiTroveGetter);;
 
 - **Signature**: `collateralRegistry()`
 - **Visibility**: external
-- **Source Range**: 2601:74:221
+- **Source Range**: 2601:74:70
 
 **Signature:**
 ```solidity
@@ -281,7 +281,7 @@ function collateralRegistry() external view returns (ICollateralRegistry);;
 
 - **Signature**: `boldToken()`
 - **Visibility**: external
-- **Source Range**: 2680:56:221
+- **Source Range**: 2680:56:70
 
 **Signature:**
 ```solidity
@@ -292,7 +292,7 @@ function boldToken() external view returns (IBoldToken);;
 
 - **Signature**: `WETH()`
 - **Visibility**: external
-- **Source Range**: 2741:41:221
+- **Source Range**: 2741:41:70
 
 **Signature:**
 ```solidity
@@ -303,7 +303,7 @@ function WETH() external returns (IWETH);;
 
 - **Signature**: `setAddresses(struct IAddressesRegistry.AddressVars)`
 - **Visibility**: external
-- **Source Range**: 2788:57:221
+- **Source Range**: 2788:57:70
 
 **Signature:**
 ```solidity

@@ -138,7 +138,7 @@ event MetadataUpdate(uint256 tokenId);
 
 - **Signature**: `onCreate(address,address)`
 - **Visibility**: external
-- **Source Range**: 698:57:135
+- **Source Range**: 698:57:36
 
 **Signature:**
 ```solidity
@@ -149,7 +149,7 @@ function onCreate(address pool, address member) external;;
 
 - **Signature**: `onUpdate(address,address)`
 - **Visibility**: external
-- **Source Range**: 761:57:135
+- **Source Range**: 761:57:36
 
 **Signature:**
 ```solidity
@@ -160,7 +160,7 @@ function onUpdate(address pool, address member) external;;
 
 - **Signature**: `onDelete(address,address)`
 - **Visibility**: external
-- **Source Range**: 824:57:135
+- **Source Range**: 824:57:36
 
 **Signature:**
 ```solidity
@@ -171,7 +171,7 @@ function onDelete(address pool, address member) external;;
 
 - **Signature**: `poolMemberDataByTokenId(uint256)`
 - **Visibility**: external
-- **Source Range**: 915:104:135
+- **Source Range**: 915:104:36
 
 **Signature:**
 ```solidity
@@ -183,7 +183,7 @@ function poolMemberDataByTokenId(uint256 tokenId) external view returns (PoolMem
 
 - **Signature**: `supportsInterface(bytes4)`
 - **Visibility**: external
-- **Source Range**: 774:76:112
+- **Source Range**: 774:76:28
 
 **Signature:**
 ```solidity
@@ -199,7 +199,7 @@ function supportsInterface(bytes4 interfaceId) external view returns (bool);;
 
 - **Signature**: `balanceOf(address)`
 - **Visibility**: external
-- **Source Range**: 954:74:97
+- **Source Range**: 954:74:15
 
 **Signature:**
 ```solidity
@@ -211,7 +211,7 @@ function balanceOf(address owner) external view returns (uint256 balance);;
 
 - **Signature**: `ownerOf(uint256)`
 - **Visibility**: external
-- **Source Range**: 1170:72:97
+- **Source Range**: 1170:72:15
 
 **Signature:**
 ```solidity
@@ -225,7 +225,7 @@ function ownerOf(uint256 tokenId) external view returns (address owner);;
 
 - **Signature**: `safeTransferFrom(address,address,uint256,bytes)`
 - **Visibility**: external
-- **Source Range**: 1809:99:97
+- **Source Range**: 1809:99:15
 
 **Signature:**
 ```solidity
@@ -244,7 +244,7 @@ function safeTransferFrom(address from, address to, uint256 tokenId, bytes calld
 
 - **Signature**: `safeTransferFrom(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 2606:78:97
+- **Source Range**: 2606:78:15
 
 **Signature:**
 ```solidity
@@ -264,7 +264,7 @@ function safeTransferFrom(address from, address to, uint256 tokenId) external;;
 
 - **Signature**: `transferFrom(address,address,uint256)`
 - **Visibility**: external
-- **Source Range**: 3427:74:97
+- **Source Range**: 3427:74:15
 
 **Signature:**
 ```solidity
@@ -285,7 +285,7 @@ function transferFrom(address from, address to, uint256 tokenId) external;;
 
 - **Signature**: `approve(address,uint256)`
 - **Visibility**: external
-- **Source Range**: 3964:55:97
+- **Source Range**: 3964:55:15
 
 **Signature:**
 ```solidity
@@ -303,7 +303,7 @@ function approve(address to, uint256 tokenId) external;;
 
 - **Signature**: `setApprovalForAll(address,bool)`
 - **Visibility**: external
-- **Source Range**: 4339:69:97
+- **Source Range**: 4339:69:15
 
 **Signature:**
 ```solidity
@@ -319,7 +319,7 @@ function setApprovalForAll(address operator, bool approved) external;;
 
 - **Signature**: `getApproved(uint256)`
 - **Visibility**: external
-- **Source Range**: 4558:79:97
+- **Source Range**: 4558:79:15
 
 **Signature:**
 ```solidity
@@ -333,7 +333,7 @@ function getApproved(uint256 tokenId) external view returns (address operator);;
 
 - **Signature**: `isApprovedForAll(address,address)`
 - **Visibility**: external
-- **Source Range**: 4786:88:97
+- **Source Range**: 4786:88:15
 
 **Signature:**
 ```solidity
@@ -346,7 +346,7 @@ function isApprovedForAll(address owner, address operator) external view returns
 
 - **Signature**: `name()`
 - **Visibility**: external
-- **Source Range**: 403:54:99
+- **Source Range**: 403:54:17
 
 **Signature:**
 ```solidity
@@ -358,7 +358,7 @@ function name() external view returns (string memory);;
 
 - **Signature**: `symbol()`
 - **Visibility**: external
-- **Source Range**: 528:56:99
+- **Source Range**: 528:56:17
 
 **Signature:**
 ```solidity
@@ -370,7 +370,7 @@ function symbol() external view returns (string memory);;
 
 - **Signature**: `tokenURI(uint256)`
 - **Visibility**: external
-- **Source Range**: 685:73:99
+- **Source Range**: 685:73:17
 
 **Signature:**
 ```solidity
@@ -382,7 +382,7 @@ function tokenURI(uint256 tokenId) external view returns (string memory);;
 
 - **Signature**: `initialize(string,string)`
 - **Visibility**: external
-- **Source Range**: 1152:77:136
+- **Source Range**: 1152:77:37
 
 **Signature:**
 ```solidity
@@ -393,7 +393,7 @@ function initialize(string memory nftName, string memory nftSymbol) external;;
 
 - **Signature**: `triggerMetadataUpdate(uint256)`
 - **Visibility**: external
-- **Source Range**: 1251:57:136
+- **Source Range**: 1251:57:37
 
 **Signature:**
 ```solidity
@@ -404,7 +404,7 @@ function triggerMetadataUpdate(uint256 tokenId) external;;
 
 - **Signature**: `getTokenId(address,address)`
 - **Visibility**: external
-- **Source Range**: 1441:91:136
+- **Source Range**: 1441:91:37
 
 **Signature:**
 ```solidity

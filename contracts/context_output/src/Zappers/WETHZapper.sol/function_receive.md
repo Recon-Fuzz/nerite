@@ -7,7 +7,7 @@
 - **Contract**: WETHZapper
 - **Signature**: `receive()`
 - **Visibility**: external
-- **Source Range**: 11983:29:311
+- **Source Range**: 11983:29:160
 
 ## Implementation
 

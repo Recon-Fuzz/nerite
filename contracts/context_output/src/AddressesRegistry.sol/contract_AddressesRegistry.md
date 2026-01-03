@@ -389,7 +389,7 @@ event WETHAddressChanged(address _wethAddress);
 
 - **Signature**: `constructor(address,uint256,uint256,uint256,uint256,uint256,uint256)`
 - **Visibility**: public
-- **Source Range**: 3298:1031:203
+- **Source Range**: 3298:1031:52
 - **Details**: [function_constructor_address_uint256_uint256_uint256_uint256_uint256_uint256.md](./function_constructor_address_uint256_uint256_uint256_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -401,7 +401,7 @@ constructor(address _owner, uint256 _ccr, uint256 _mcr, uint256 _scr, uint256 _d
 
 - **Signature**: `setAddresses(struct IAddressesRegistry.AddressVars)`
 - **Visibility**: external
-- **Source Range**: 4335:2116:203
+- **Source Range**: 4335:2116:52
 - **Details**: [function_setAddresses_struct_IAddressesRegistry_AddressVars.md](./function_setAddresses_struct_IAddressesRegistry_AddressVars.md)
 
 **Signature:**
@@ -413,7 +413,7 @@ function setAddresses(AddressVars memory _vars) external onlyOwner();
 
 - **Signature**: `constructor(address)`
 - **Visibility**: public
-- **Source Range**: 806:133:216
+- **Source Range**: 806:133:65
 - **Details**: [function_constructor_address.md](./function_constructor_address.md)
 
 **Signature:**
@@ -426,7 +426,7 @@ constructor(address initialOwner);
 
 - **Signature**: `owner()`
 - **Visibility**: public
-- **Source Range**: 1015:77:216
+- **Source Range**: 1015:77:65
 - **Details**: [function_owner.md](./function_owner.md)
 
 **Signature:**
@@ -439,7 +439,7 @@ function owner() public view returns (address);
 
 - **Signature**: `isOwner()`
 - **Visibility**: public
-- **Source Range**: 1366:90:216
+- **Source Range**: 1366:90:65
 - **Details**: [function_isOwner.md](./function_isOwner.md)
 
 **Signature:**

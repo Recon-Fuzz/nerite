@@ -585,7 +585,7 @@ event ShutDown(uint256 _tcr);
 
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 5575:1200:205
+- **Source Range**: 5575:1200:54
 - **Details**: [function_constructor_contract_IAddressesRegistry.md](./function_constructor_contract_IAddressesRegistry.md)
 
 **Signature:**
@@ -597,7 +597,7 @@ constructor(IAddressesRegistry _addressesRegistry) AddRemoveManagers(_addressesR
 
 - **Signature**: `openTrove(address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address)`
 - **Visibility**: external
-- **Source Range**: 6823:1117:205
+- **Source Range**: 6823:1117:54
 - **Details**: [function_openTrove_address_uint256_uint256_uint256_uint256_uint256_uint256_uint256_address_address_address.md](./function_openTrove_address_uint256_uint256_uint256_uint256_uint256_uint256_uint256_address_address_address.md)
 
 **Signature:**
@@ -609,7 +609,7 @@ function openTrove(address _owner, uint256 _ownerIndex, uint256 _collAmount, uin
 
 - **Signature**: `openTroveAndJoinInterestBatchManager(struct IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams)`
 - **Visibility**: external
-- **Source Range**: 7946:2028:205
+- **Source Range**: 7946:2028:54
 - **Details**: [function_openTroveAndJoinInterestBatchManager_struct_IBorrowerOperations_OpenTroveAndJoinInterestBatchManagerParams.md](./function_openTroveAndJoinInterestBatchManager_struct_IBorrowerOperations_OpenTroveAndJoinInterestBatchManagerParams.md)
 
 **Signature:**
@@ -621,7 +621,7 @@ function openTroveAndJoinInterestBatchManager(OpenTroveAndJoinInterestBatchManag
 
 - **Signature**: `addColl(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 13436:433:205
+- **Source Range**: 13436:433:54
 - **Details**: [function_addColl_uint256_uint256.md](./function_addColl_uint256_uint256.md)
 
 **Signature:**
@@ -633,7 +633,7 @@ function addColl(uint256 _troveId, uint256 _collAmount) override external;
 
 - **Signature**: `withdrawColl(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 13915:446:205
+- **Source Range**: 13915:446:54
 - **Details**: [function_withdrawColl_uint256_uint256.md](./function_withdrawColl_uint256_uint256.md)
 
 **Signature:**
@@ -645,7 +645,7 @@ function withdrawColl(uint256 _troveId, uint256 _collWithdrawal) override extern
 
 - **Signature**: `withdrawBold(uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 14486:553:205
+- **Source Range**: 14486:553:54
 - **Details**: [function_withdrawBold_uint256_uint256_uint256.md](./function_withdrawBold_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -657,7 +657,7 @@ function withdrawBold(uint256 _troveId, uint256 _boldAmount, uint256 _maxUpfront
 
 - **Signature**: `repayBold(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 15151:435:205
+- **Source Range**: 15151:435:54
 - **Details**: [function_repayBold_uint256_uint256.md](./function_repayBold_uint256_uint256.md)
 
 **Signature:**
@@ -669,7 +669,7 @@ function repayBold(uint256 _troveId, uint256 _boldAmount) override external;
 
 - **Signature**: `adjustTrove(uint256,uint256,bool,uint256,bool,uint256)`
 - **Visibility**: external
-- **Source Range**: 16139:567:205
+- **Source Range**: 16139:567:54
 - **Details**: [function_adjustTrove_uint256_uint256_bool_uint256_bool_uint256.md](./function_adjustTrove_uint256_uint256_bool_uint256_bool_uint256.md)
 
 **Signature:**
@@ -681,7 +681,7 @@ function adjustTrove(uint256 _troveId, uint256 _collChange, bool _isCollIncrease
 
 - **Signature**: `adjustZombieTrove(uint256,uint256,bool,uint256,bool,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 16712:1257:205
+- **Source Range**: 16712:1257:54
 - **Details**: [function_adjustZombieTrove_uint256_uint256_bool_uint256_bool_uint256_uint256_uint256.md](./function_adjustZombieTrove_uint256_uint256_bool_uint256_bool_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -693,7 +693,7 @@ function adjustZombieTrove(uint256 _troveId, uint256 _collChange, bool _isCollIn
 
 - **Signature**: `adjustTroveInterestRate(uint256,uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 17975:2030:205
+- **Source Range**: 17975:2030:54
 - **Details**: [function_adjustTroveInterestRate_uint256_uint256_uint256_uint256_uint256.md](./function_adjustTroveInterestRate_uint256_uint256_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -705,7 +705,7 @@ function adjustTroveInterestRate(uint256 _troveId, uint256 _newAnnualInterestRat
 
 - **Signature**: `closeTrove(uint256)`
 - **Visibility**: external
-- **Source Range**: 26024:3113:205
+- **Source Range**: 26024:3113:54
 - **Details**: [function_closeTrove_uint256.md](./function_closeTrove_uint256.md)
 
 **Signature:**
@@ -717,7 +717,7 @@ function closeTrove(uint256 _troveId) override external;
 
 - **Signature**: `applyPendingDebt(uint256,uint256,uint256)`
 - **Visibility**: public
-- **Source Range**: 29143:2339:205
+- **Source Range**: 29143:2339:54
 - **Details**: [function_applyPendingDebt_uint256_uint256_uint256.md](./function_applyPendingDebt_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -729,7 +729,7 @@ function applyPendingDebt(uint256 _troveId, uint256 _lowerHint, uint256 _upperHi
 
 - **Signature**: `getInterestIndividualDelegateOf(uint256)`
 - **Visibility**: external
-- **Source Range**: 31488:207:205
+- **Source Range**: 31488:207:54
 - **Details**: [function_getInterestIndividualDelegateOf_uint256.md](./function_getInterestIndividualDelegateOf_uint256.md)
 
 **Signature:**
@@ -741,7 +741,7 @@ function getInterestIndividualDelegateOf(uint256 _troveId) external view returns
 
 - **Signature**: `setInterestIndividualDelegate(uint256,address,uint128,uint128,uint256,uint256,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 31701:1331:205
+- **Source Range**: 31701:1331:54
 - **Details**: [function_setInterestIndividualDelegate_uint256_address_uint128_uint128_uint256_uint256_uint256_uint256_uint256.md](./function_setInterestIndividualDelegate_uint256_address_uint128_uint128_uint256_uint256_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -753,7 +753,7 @@ function setInterestIndividualDelegate(uint256 _troveId, address _delegate, uint
 
 - **Signature**: `removeInterestIndividualDelegate(uint256)`
 - **Visibility**: external
-- **Source Range**: 33038:175:205
+- **Source Range**: 33038:175:54
 - **Details**: [function_removeInterestIndividualDelegate_uint256.md](./function_removeInterestIndividualDelegate_uint256.md)
 
 **Signature:**
@@ -765,7 +765,7 @@ function removeInterestIndividualDelegate(uint256 _troveId) external;
 
 - **Signature**: `getInterestBatchManager(address)`
 - **Visibility**: external
-- **Source Range**: 33219:158:205
+- **Source Range**: 33219:158:54
 - **Details**: [function_getInterestBatchManager_address.md](./function_getInterestBatchManager_address.md)
 
 **Signature:**
@@ -777,7 +777,7 @@ function getInterestBatchManager(address _account) external view returns (Intere
 
 - **Signature**: `registerBatchManager(uint128,uint128,uint128,uint128,uint128)`
 - **Visibility**: external
-- **Source Range**: 33383:1271:205
+- **Source Range**: 33383:1271:54
 - **Details**: [function_registerBatchManager_uint128_uint128_uint128_uint128_uint128.md](./function_registerBatchManager_uint128_uint128_uint128_uint128_uint128.md)
 
 **Signature:**
@@ -789,7 +789,7 @@ function registerBatchManager(uint128 _minInterestRate, uint128 _maxInterestRate
 
 - **Signature**: `lowerBatchManagementFee(uint256)`
 - **Visibility**: external
-- **Source Range**: 34660:1354:205
+- **Source Range**: 34660:1354:54
 - **Details**: [function_lowerBatchManagementFee_uint256.md](./function_lowerBatchManagementFee_uint256.md)
 
 **Signature:**
@@ -801,7 +801,7 @@ function lowerBatchManagementFee(uint256 _newAnnualManagementFee) external;
 
 - **Signature**: `setBatchManagerAnnualInterestRate(uint128,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 36020:3091:205
+- **Source Range**: 36020:3091:54
 - **Details**: [function_setBatchManagerAnnualInterestRate_uint128_uint256_uint256_uint256.md](./function_setBatchManagerAnnualInterestRate_uint128_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -813,7 +813,7 @@ function setBatchManagerAnnualInterestRate(uint128 _newAnnualInterestRate, uint2
 
 - **Signature**: `setInterestBatchManager(uint256,address,uint256,uint256,uint256)`
 - **Visibility**: public
-- **Source Range**: 39117:3449:205
+- **Source Range**: 39117:3449:54
 - **Details**: [function_setInterestBatchManager_uint256_address_uint256_uint256_uint256.md](./function_setInterestBatchManager_uint256_address_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -825,7 +825,7 @@ function setInterestBatchManager(uint256 _troveId, address _newBatchManager, uin
 
 - **Signature**: `removeFromBatch(uint256,uint256,uint256,uint256,uint256)`
 - **Visibility**: public
-- **Source Range**: 42572:3029:205
+- **Source Range**: 42572:3029:54
 - **Details**: [function_removeFromBatch_uint256_uint256_uint256_uint256_uint256.md](./function_removeFromBatch_uint256_uint256_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -837,7 +837,7 @@ function removeFromBatch(uint256 _troveId, uint256 _newAnnualInterestRate, uint2
 
 - **Signature**: `switchBatchManager(uint256,uint256,uint256,address,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 45607:724:205
+- **Source Range**: 45607:724:54
 - **Details**: [function_switchBatchManager_uint256_uint256_uint256_address_uint256_uint256_uint256.md](./function_switchBatchManager_uint256_uint256_uint256_address_uint256_uint256_uint256.md)
 
 **Signature:**
@@ -849,7 +849,7 @@ function switchBatchManager(uint256 _troveId, uint256 _removeUpperHint, uint256 
 
 - **Signature**: `onLiquidateTrove(uint256)`
 - **Visibility**: external
-- **Source Range**: 47668:139:205
+- **Source Range**: 47668:139:54
 - **Details**: [function_onLiquidateTrove_uint256.md](./function_onLiquidateTrove_uint256.md)
 
 **Signature:**
@@ -861,7 +861,7 @@ function onLiquidateTrove(uint256 _troveId) external;
 
 - **Signature**: `claimCollateral()`
 - **Visibility**: external
-- **Source Range**: 48139:151:205
+- **Source Range**: 48139:151:54
 - **Details**: [function_claimCollateral.md](./function_claimCollateral.md)
 
 **Signature:**
@@ -874,7 +874,7 @@ function claimCollateral() override external;
 
 - **Signature**: `shutdown()`
 - **Visibility**: external
-- **Source Range**: 48296:640:205
+- **Source Range**: 48296:640:54
 - **Details**: [function_shutdown.md](./function_shutdown.md)
 
 **Signature:**
@@ -886,7 +886,7 @@ function shutdown() external;
 
 - **Signature**: `shutdownFromOracleFailure()`
 - **Visibility**: external
-- **Source Range**: 49039:316:205
+- **Source Range**: 49039:316:54
 - **Details**: [function_shutdownFromOracleFailure.md](./function_shutdownFromOracleFailure.md)
 
 **Signature:**
@@ -898,7 +898,7 @@ function shutdownFromOracleFailure() external;
 
 - **Signature**: `checkBatchManagerExists(address)`
 - **Visibility**: external
-- **Source Range**: 51739:165:205
+- **Source Range**: 51739:165:54
 - **Details**: [function_checkBatchManagerExists_address.md](./function_checkBatchManagerExists_address.md)
 
 **Signature:**
@@ -910,7 +910,7 @@ function checkBatchManagerExists(address _batchManager) external view returns (b
 
 - **Signature**: `getEntireSystemColl()`
 - **Visibility**: public
-- **Source Range**: 1265:251:214
+- **Source Range**: 1265:251:63
 - **Details**: [function_getEntireSystemColl.md](./function_getEntireSystemColl.md)
 
 **Signature:**
@@ -922,7 +922,7 @@ function getEntireSystemColl() public view returns (uint256 entireSystemColl);
 
 - **Signature**: `getEntireSystemDebt()`
 - **Visibility**: public
-- **Source Range**: 1522:237:214
+- **Source Range**: 1522:237:63
 - **Details**: [function_getEntireSystemDebt.md](./function_getEntireSystemDebt.md)
 
 **Signature:**
@@ -934,7 +934,7 @@ function getEntireSystemDebt() public view returns (uint256 entireSystemDebt);
 
 - **Signature**: `setAddManager(uint256,address)`
 - **Visibility**: external
-- **Source Range**: 2102:163:209
+- **Source Range**: 2102:163:58
 - **Details**: [function_setAddManager_uint256_address.md](./function_setAddManager_uint256_address.md)
 
 **Signature:**
@@ -946,7 +946,7 @@ function setAddManager(uint256 _troveId, address _manager) external;
 
 - **Signature**: `setRemoveManager(uint256,address)`
 - **Visibility**: external
-- **Source Range**: 2448:164:209
+- **Source Range**: 2448:164:58
 - **Details**: [function_setRemoveManager_uint256_address.md](./function_setRemoveManager_uint256_address.md)
 
 **Signature:**
@@ -958,7 +958,7 @@ function setRemoveManager(uint256 _troveId, address _manager) external;
 
 - **Signature**: `setRemoveManagerWithReceiver(uint256,address,address)`
 - **Visibility**: public
-- **Source Range**: 2618:220:209
+- **Source Range**: 2618:220:58
 - **Details**: [function_setRemoveManagerWithReceiver_uint256_address_address.md](./function_setRemoveManagerWithReceiver_uint256_address_address.md)
 
 **Signature:**

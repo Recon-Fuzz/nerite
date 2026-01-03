@@ -7,7 +7,7 @@
 - **Contract**: ERC721
 - **Signature**: `getApproved(uint256)`
 - **Visibility**: public
-- **Source Range**: 3935:167:96
+- **Source Range**: 3935:167:14
 
 ## Implementation
 
@@ -24,7 +24,7 @@ function getApproved(uint256 tokenId) virtual override public view returns (addr
 ### _requireMinted(uint256)
 
 - **Kind**: internal
-- **Source**: 13240:133:96
+- **Source**: 13240:133:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_requireMinted(uint256)`
 
 ```solidity
@@ -37,7 +37,7 @@ function _requireMinted(uint256 tokenId) virtual internal view {
 ### _exists(uint256)
 
 - **Kind**: internal
-- **Source**: 7120:126:96
+- **Source**: 7120:126:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_exists(uint256)`
 
 ```solidity
@@ -53,7 +53,7 @@ function _exists(uint256 tokenId) virtual internal view returns (bool) {
 ### _ownerOf(uint256)
 
 - **Kind**: internal
-- **Source**: 6702:115:96
+- **Source**: 6702:115:14
 - **Link**: `lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol:ERC721:_ownerOf(uint256)`
 
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: TroveNFT
 - **Signature**: `constructor(string,string)`
 - **Visibility**: public
-- **Source Range**: 1390:113:96
+- **Source Range**: 1390:113:14
 - **Inherited From**: ERC721
 
 ## Implementation

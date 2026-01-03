@@ -7,7 +7,7 @@
 - **Contract**: BoldToken
 - **Signature**: `eip712Domain()`
 - **Visibility**: external
-- **Source Range**: 7588:553:204
+- **Source Range**: 7588:553:53
 
 ## Implementation
 

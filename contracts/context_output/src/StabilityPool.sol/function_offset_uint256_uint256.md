@@ -7,7 +7,7 @@
 - **Contract**: StabilityPool
 - **Signature**: `offset(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 19209:414:274
+- **Source Range**: 19209:414:123
 
 ## Implementation
 
@@ -26,7 +26,7 @@ function offset(uint256 _debtToOffset, uint256 _collToAdd) override external {
 ### _requireCallerIsTroveManager()
 
 - **Kind**: internal
-- **Source**: 36800:160:274
+- **Source**: 36800:160:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_requireCallerIsTroveManager()`
 
 ```solidity
@@ -38,7 +38,7 @@ function _requireCallerIsTroveManager() internal view {
 ### _updateCollRewardSumAndProduct(uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 21791:4020:274
+- **Source**: 21791:4020:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_updateCollRewardSumAndProduct(uint256,uint256,uint256)`
 
 ```solidity
@@ -86,7 +86,7 @@ function _updateCollRewardSumAndProduct(uint256 _collToAdd, uint256 _debtToOffse
 ### _computeCollRewardsPerUnitStaked(uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 19669:2056:274
+- **Source**: 19669:2056:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_computeCollRewardsPerUnitStaked(uint256,uint256,uint256)`
 
 ```solidity
@@ -110,7 +110,7 @@ function _computeCollRewardsPerUnitStaked(uint256 _collToAdd, uint256 _debtToOff
 ### _getNewPByScale(uint256,uint256,uint256,uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 25817:586:274
+- **Source**: 25817:586:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_getNewPByScale(uint256,uint256,uint256,uint256,uint256)`
 
 ```solidity
@@ -126,7 +126,7 @@ function _getNewPByScale(uint256 _currentP, uint256 _newProductFactor, uint256 _
 ### _moveOffsetCollAndDebt(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 26409:635:274
+- **Source**: 26409:635:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_moveOffsetCollAndDebt(uint256,uint256)`
 
 ```solidity
@@ -143,7 +143,7 @@ function _moveOffsetCollAndDebt(uint256 _collToAdd, uint256 _debtToOffset) inter
 ### _updateTotalBoldDeposits(uint256,uint256)
 
 - **Kind**: internal
-- **Source**: 27050:384:274
+- **Source**: 27050:384:123
 - **Link**: `src/StabilityPool.sol:StabilityPool:_updateTotalBoldDeposits(uint256,uint256)`
 
 ```solidity

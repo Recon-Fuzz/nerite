@@ -112,7 +112,7 @@ event Collect(uint256 indexed tokenId, address recipient, uint256 amount0, uint2
 
 - **Signature**: `positions(uint256)`
 - **Visibility**: external
-- **Source Range**: 3254:476:301
+- **Source Range**: 3254:476:150
 
 **Signature:**
 ```solidity
@@ -138,7 +138,7 @@ function positions(uint256 tokenId) external view returns (uint96 nonce, address
 
 - **Signature**: `mint(struct INonfungiblePositionManager.MintParams)`
 - **Visibility**: external
-- **Source Range**: 4649:162:301
+- **Source Range**: 4649:162:150
 
 **Signature:**
 ```solidity
@@ -157,7 +157,7 @@ function mint(MintParams calldata params) external payable returns (uint256 toke
 
 - **Signature**: `increaseLiquidity(struct INonfungiblePositionManager.IncreaseLiquidityParams)`
 - **Visibility**: external
-- **Source Range**: 5858:171:301
+- **Source Range**: 5858:171:150
 
 **Signature:**
 ```solidity
@@ -178,7 +178,7 @@ function increaseLiquidity(IncreaseLiquidityParams calldata params) external pay
 
 - **Signature**: `decreaseLiquidity(struct INonfungiblePositionManager.DecreaseLiquidityParams)`
 - **Visibility**: external
-- **Source Range**: 6920:152:301
+- **Source Range**: 6920:152:150
 
 **Signature:**
 ```solidity
@@ -197,7 +197,7 @@ function decreaseLiquidity(DecreaseLiquidityParams calldata params) external pay
 
 - **Signature**: `collect(struct INonfungiblePositionManager.CollectParams)`
 - **Visibility**: external
-- **Source Range**: 7714:108:301
+- **Source Range**: 7714:108:150
 
 **Signature:**
 ```solidity
@@ -215,7 +215,7 @@ function collect(CollectParams calldata params) external payable returns (uint25
 
 - **Signature**: `burn(uint256)`
 - **Visibility**: external
-- **Source Range**: 8046:48:301
+- **Source Range**: 8046:48:150
 
 **Signature:**
 ```solidity
@@ -229,7 +229,7 @@ function burn(uint256 tokenId) external payable;;
 
 - **Signature**: `createAndInitializePoolIfNecessary(address,address,uint24,uint160)`
 - **Visibility**: external
-- **Source Range**: 971:174:302
+- **Source Range**: 971:174:151
 
 **Signature:**
 ```solidity

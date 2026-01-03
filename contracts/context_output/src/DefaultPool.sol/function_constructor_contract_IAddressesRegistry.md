@@ -7,7 +7,7 @@
 - **Contract**: DefaultPool
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 1348:558:208
+- **Source Range**: 1348:558:57
 
 ## Implementation
 

@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `shutdownFromOracleFailure()`
 - **Visibility**: external
-- **Source Range**: 49039:316:205
+- **Source Range**: 49039:316:54
 
 ## Implementation
 
@@ -24,7 +24,7 @@ function shutdownFromOracleFailure() external {
 ### _requireCallerIsPriceFeed()
 
 - **Kind**: internal
-- **Source**: 61442:157:205
+- **Source**: 61442:157:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_requireCallerIsPriceFeed()`
 
 ```solidity
@@ -38,7 +38,7 @@ function _requireCallerIsPriceFeed() internal view {
 ### _applyShutdown()
 
 - **Kind**: internal
-- **Source**: 49361:145:205
+- **Source**: 49361:145:54
 - **Link**: `src/BorrowerOperations.sol:BorrowerOperations:_applyShutdown()`
 
 ```solidity

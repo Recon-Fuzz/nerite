@@ -12,7 +12,7 @@
 
 - **Signature**: `receiveFlashLoanOnOpenLeveragedTrove(struct ILeverageZapper.OpenLeveragedTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 150:171:287
+- **Source Range**: 150:171:136
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function receiveFlashLoanOnOpenLeveragedTrove(ILeverageZapper.OpenLeveragedTrove
 
 - **Signature**: `receiveFlashLoanOnLeverUpTrove(struct ILeverageZapper.LeverUpTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 326:159:287
+- **Source Range**: 326:159:136
 
 **Signature:**
 ```solidity
@@ -34,7 +34,7 @@ function receiveFlashLoanOnLeverUpTrove(ILeverageZapper.LeverUpTroveParams calld
 
 - **Signature**: `receiveFlashLoanOnLeverDownTrove(struct ILeverageZapper.LeverDownTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 490:163:287
+- **Source Range**: 490:163:136
 
 **Signature:**
 ```solidity
@@ -45,7 +45,7 @@ function receiveFlashLoanOnLeverDownTrove(ILeverageZapper.LeverDownTroveParams c
 
 - **Signature**: `receiveFlashLoanOnCloseTroveFromCollateral(struct IZapper.CloseTroveParams,uint256)`
 - **Visibility**: external
-- **Source Range**: 658:161:287
+- **Source Range**: 658:161:136
 
 **Signature:**
 ```solidity

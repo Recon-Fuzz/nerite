@@ -7,7 +7,7 @@
 - **Contract**: CurveExchange
 - **Signature**: `constructor(contract IERC20,contract IBoldToken,contract ICurvePool,uint256,uint256)`
 - **Visibility**: public
-- **Source Range**: 549:344:297
+- **Source Range**: 549:344:146
 
 ## Implementation
 

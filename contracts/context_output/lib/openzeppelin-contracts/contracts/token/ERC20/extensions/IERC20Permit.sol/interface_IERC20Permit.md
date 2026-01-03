@@ -39,7 +39,7 @@
 
 - **Signature**: `permit(address,address,uint256,uint256,uint8,bytes32,bytes32)`
 - **Visibility**: external
-- **Source Range**: 2996:183:93
+- **Source Range**: 2996:183:12
 
 **Signature:**
 ```solidity
@@ -65,7 +65,7 @@ function permit(address owner, address spender, uint256 value, uint256 deadline,
 
 - **Signature**: `nonces(address)`
 - **Visibility**: external
-- **Source Range**: 3484:63:93
+- **Source Range**: 3484:63:12
 
 **Signature:**
 ```solidity
@@ -80,7 +80,7 @@ function nonces(address owner) external view returns (uint256);;
 
 - **Signature**: `DOMAIN_SEPARATOR()`
 - **Visibility**: external
-- **Source Range**: 3739:60:93
+- **Source Range**: 3739:60:12
 
 **Signature:**
 ```solidity

@@ -7,7 +7,7 @@
 - **Contract**: BorrowerOperations
 - **Signature**: `constructor(contract IAddressesRegistry)`
 - **Visibility**: public
-- **Source Range**: 5575:1200:205
+- **Source Range**: 5575:1200:54
 
 ## Implementation
 
@@ -38,7 +38,7 @@ constructor(IAddressesRegistry _addressesRegistry) AddRemoveManagers(_addressesR
 ### (contract IAddressesRegistry)
 
 - **Kind**: internal
-- **Source**: 816:401:214
+- **Source**: 816:401:63
 - **Link**: `src/Dependencies/LiquityBase.sol:LiquityBase:constructor(contract IAddressesRegistry)`
 
 ```solidity
@@ -55,7 +55,7 @@ constructor(IAddressesRegistry _addressesRegistry) {
 ### (contract IAddressesRegistry)
 
 - **Kind**: internal
-- **Source**: 1932:164:209
+- **Source**: 1932:164:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:constructor(contract IAddressesRegistry)`
 
 ```solidity

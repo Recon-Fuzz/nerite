@@ -12,7 +12,7 @@
 
 - **Signature**: `decimals()`
 - **Visibility**: external
-- **Source Range**: 227:50:210
+- **Source Range**: 227:50:59
 
 **Signature:**
 ```solidity
@@ -23,7 +23,7 @@ function decimals() external view returns (uint8);;
 
 - **Signature**: `latestRoundData()`
 - **Visibility**: external
-- **Source Range**: 282:167:210
+- **Source Range**: 282:167:59
 
 **Signature:**
 ```solidity

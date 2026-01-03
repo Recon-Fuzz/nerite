@@ -7,7 +7,7 @@
 - **Contract**: TroveManager
 - **Signature**: `onLowerBatchManagerAnnualFee(address,uint256,uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 73706:946:275
+- **Source Range**: 73706:946:124
 
 ## Implementation
 
@@ -27,7 +27,7 @@ function onLowerBatchManagerAnnualFee(address _batchAddress, uint256 _newColl, u
 ### _requireCallerIsBorrowerOperations()
 
 - **Kind**: internal
-- **Source**: 53483:184:275
+- **Source**: 53483:184:124
 - **Link**: `src/TroveManager.sol:TroveManager:_requireCallerIsBorrowerOperations()`
 
 ```solidity

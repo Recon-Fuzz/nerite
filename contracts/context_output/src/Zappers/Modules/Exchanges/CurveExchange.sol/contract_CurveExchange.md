@@ -54,7 +54,7 @@ uint256 public immutable BOLD_TOKEN_INDEX
 
 - **Signature**: `constructor(contract IERC20,contract IBoldToken,contract ICurvePool,uint256,uint256)`
 - **Visibility**: public
-- **Source Range**: 549:344:297
+- **Source Range**: 549:344:146
 - **Details**: [function_constructor_contract_IERC20_contract_IBoldToken_contract_ICurvePool_uint256_uint256.md](./function_constructor_contract_IERC20_contract_IBoldToken_contract_ICurvePool_uint256_uint256.md)
 
 **Signature:**
@@ -66,7 +66,7 @@ constructor(IERC20 _collToken, IBoldToken _boldToken, ICurvePool _curvePool, uin
 
 - **Signature**: `swapFromBold(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 899:735:297
+- **Source Range**: 899:735:146
 - **Details**: [function_swapFromBold_uint256_uint256.md](./function_swapFromBold_uint256_uint256.md)
 
 **Signature:**
@@ -78,7 +78,7 @@ function swapFromBold(uint256 _boldAmount, uint256 _minCollAmount) external;
 
 - **Signature**: `swapToBold(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 1640:779:297
+- **Source Range**: 1640:779:146
 - **Details**: [function_swapToBold_uint256_uint256.md](./function_swapToBold_uint256_uint256.md)
 
 **Signature:**

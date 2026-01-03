@@ -7,7 +7,7 @@
 - **Contract**: ERC20
 - **Signature**: `totalSupply()`
 - **Visibility**: public
-- **Source Range**: 3255:106:86
+- **Source Range**: 3255:106:7
 
 ## Implementation
 

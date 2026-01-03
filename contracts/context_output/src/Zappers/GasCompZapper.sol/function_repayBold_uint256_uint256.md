@@ -7,7 +7,7 @@
 - **Contract**: GasCompZapper
 - **Signature**: `repayBold(uint256,uint256)`
 - **Visibility**: external
-- **Source Range**: 4975:616:283
+- **Source Range**: 4975:616:132
 
 ## Implementation
 
@@ -28,7 +28,7 @@ function repayBold(uint256 _troveId, uint256 _boldAmount) external {
 ### _requireSenderIsOwnerOrAddManager(uint256,address)
 
 - **Kind**: internal
-- **Source**: 3919:297:209
+- **Source**: 3919:297:58
 - **Link**: `src/Dependencies/AddRemoveManagers.sol:AddRemoveManagers:_requireSenderIsOwnerOrAddManager(uint256,address)`
 
 ```solidity
@@ -43,7 +43,7 @@ function _requireSenderIsOwnerOrAddManager(uint256 _troveId, address _owner) int
 ### _setInitialTokensAndBalances(contract IERC20,contract IBoldToken,struct LeftoversSweep.InitialBalances)
 
 - **Kind**: internal
-- **Source**: 468:272:290
+- **Source**: 468:272:139
 - **Link**: `src/Zappers/LeftoversSweep.sol:LeftoversSweep:_setInitialTokensAndBalances(contract IERC20,contract IBoldToken,struct LeftoversSweep.InitialBalances)`
 
 ```solidity
@@ -55,7 +55,7 @@ function _setInitialTokensAndBalances(IERC20 _collToken, IBoldToken _boldToken, 
 ### _setInitialTokensBalancesAndReceiver(contract IERC20,contract IBoldToken,struct LeftoversSweep.InitialBalances,address)
 
 - **Kind**: internal
-- **Source**: 746:374:290
+- **Source**: 746:374:139
 - **Link**: `src/Zappers/LeftoversSweep.sol:LeftoversSweep:_setInitialTokensBalancesAndReceiver(contract IERC20,contract IBoldToken,struct LeftoversSweep.InitialBalances,address)`
 
 ```solidity
@@ -69,7 +69,7 @@ function _setInitialTokensBalancesAndReceiver(IERC20 _collToken, IBoldToken _bol
 ### _setInitialBalancesAndReceiver(struct LeftoversSweep.InitialBalances,address)
 
 - **Kind**: internal
-- **Source**: 1293:420:290
+- **Source**: 1293:420:139
 - **Link**: `src/Zappers/LeftoversSweep.sol:LeftoversSweep:_setInitialBalancesAndReceiver(struct LeftoversSweep.InitialBalances,address)`
 
 ```solidity
@@ -85,7 +85,7 @@ function _setInitialBalancesAndReceiver(InitialBalances memory _initialBalances,
 ### _returnLeftovers(struct LeftoversSweep.InitialBalances)
 
 - **Kind**: internal
-- **Source**: 1719:577:290
+- **Source**: 1719:577:139
 - **Link**: `src/Zappers/LeftoversSweep.sol:LeftoversSweep:_returnLeftovers(struct LeftoversSweep.InitialBalances)`
 
 ```solidity
