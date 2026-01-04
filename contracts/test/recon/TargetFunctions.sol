@@ -977,6 +977,34 @@ abstract contract TargetFunctions is
         troveManager_urgentRedemption_clamped(redemptionAmount, troveIdsArray, 0);
     }
 
+    // ===== SHORTCUT FUNCTIONS FOR borrowerOperations_removeInterestIndividualDelegate =====
+    // This function requires a trove that already has an individual delegate set
+    // Path: Trove has delegate set -> remove it
+    function shortcut_removeInterestIndividualDelegate_withDelegate(
+        uint256 collAmount,
+        uint256 boldAmount,
+        uint256 annualInterestRate,
+        address delegate,
+        uint128 minRate,
+        uint128 maxRate,
+        uint256 minChangePeriod
+    ) public {
+        // Step 1: Open a trove
+        borrowerOperations_openTrove_clamped(
+            address(0), 0, collAmount, boldAmount, 0, 0, annualInterestRate, type(uint256).max,
+            address(0), address(0), address(0)
+        );
+        
+        // Step 2: Set individual delegate on the trove using clamped handler
+        borrowerOperations_setInterestIndividualDelegate_clamped(
+            clampedTroveId, delegate, minRate, maxRate, annualInterestRate,
+            0, 0, type(uint256).max, minChangePeriod
+        );
+        
+        // Step 3: Now remove the delegate (this is the target function)
+        borrowerOperations_removeInterestIndividualDelegate(clampedTroveId);
+    }
+
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
 
     function canary_liquidation() public {

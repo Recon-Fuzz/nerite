@@ -11,7 +11,7 @@ import {Properties} from "../Properties.sol";
 import {IBorrowerOperations} from "../../../src/Interfaces/IBorrowerOperations.sol";
 
 import {LiquityMath} from "../../../src/Dependencies/LiquityMath.sol";
-import {MIN_DEBT, MAX_ANNUAL_INTEREST_RATE, MAX_ANNUAL_BATCH_MANAGEMENT_FEE, _100pct} from "../../../src/Dependencies/Constants.sol";
+import {MIN_DEBT, MIN_ANNUAL_INTEREST_RATE, MAX_ANNUAL_INTEREST_RATE, MAX_ANNUAL_BATCH_MANAGEMENT_FEE, _100pct} from "../../../src/Dependencies/Constants.sol";
 import {LatestTroveData} from "../../../src/Types/LatestTroveData.sol";
 
 abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  {
@@ -165,9 +165,10 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         _troveId = getActiveOrZombieTroveId(_troveId);
         
         // Ensure minInterestRate and maxInterestRate are valid and ordered
-        // First ensure both are > 0 (avoid zero which might be invalid)
-        _minInterestRate = uint128((_minInterestRate % MAX_ANNUAL_INTEREST_RATE) + 1);
-        _maxInterestRate = uint128((_maxInterestRate % MAX_ANNUAL_INTEREST_RATE) + 1);
+        // Clamp to valid range: MIN_ANNUAL_INTEREST_RATE to MAX_ANNUAL_INTEREST_RATE
+        uint256 range = MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE;
+        _minInterestRate = uint128(MIN_ANNUAL_INTEREST_RATE + (_minInterestRate % (range + 1)));
+        _maxInterestRate = uint128(MIN_ANNUAL_INTEREST_RATE + (_maxInterestRate % (range + 1)));
         
         // Ensure minInterestRate <= maxInterestRate
         if (_minInterestRate > _maxInterestRate) {
