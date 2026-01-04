@@ -38,7 +38,11 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     function borrowerOperations_adjustTroveInterestRate_clamped(uint256 _troveId, uint256 _newAnnualInterestRate, uint256 _upperHint, uint256 _lowerHint, uint256 _maxUpfrontFee) public {
         // Use active STANDALONE trove (not in a batch) - this is a requirement for adjustTroveInterestRate
         _troveId = getActiveStandaloneTroveId(_troveId);
-        _newAnnualInterestRate = _newAnnualInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1);
+        
+        // Ensure interest rate is in valid range
+        uint256 range = MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE;
+        _newAnnualInterestRate = MIN_ANNUAL_INTEREST_RATE + (_newAnnualInterestRate % (range + 1));
+        
         _upperHint = setNewClampedTroveId(_upperHint);
         _lowerHint = setNewClampedTroveId(_lowerHint);
         
@@ -116,7 +120,11 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     function borrowerOperations_removeFromBatch_clamped(uint256 _troveId, uint256 _newAnnualInterestRate, uint256 _upperHint, uint256 _lowerHint, uint256 _maxUpfrontFee) public {
         // Use a trove that IS in a batch - this is required for removeFromBatch
         _troveId = getTroveInBatchId(_troveId);
-        _newAnnualInterestRate = _newAnnualInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1);
+        
+        // Ensure interest rate is in valid range
+        uint256 range = MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE;
+        _newAnnualInterestRate = MIN_ANNUAL_INTEREST_RATE + (_newAnnualInterestRate % (range + 1));
+        
         _upperHint = setNewClampedTroveId(_upperHint);
         _lowerHint = setNewClampedTroveId(_lowerHint);
         
@@ -162,7 +170,7 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
 
     function borrowerOperations_setInterestIndividualDelegate_clamped(uint256 _troveId, address _delegate, uint128 _minInterestRate, uint128 _maxInterestRate, uint256 _newAnnualInterestRate, uint256 _upperHint, uint256 _lowerHint, uint256 _maxUpfrontFee, uint256 _minInterestRateChangePeriod) public {
         // Use active trove to ensure it's in the right state
-        _troveId = getActiveOrZombieTroveId(_troveId);
+        _troveId = setNewClampedTroveId(_troveId);
         
         // Ensure minInterestRate and maxInterestRate are valid and ordered
         // Clamp to valid range: MIN_ANNUAL_INTEREST_RATE to MAX_ANNUAL_INTEREST_RATE
@@ -177,7 +185,8 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
             _maxInterestRate = temp;
         }
         
-        _newAnnualInterestRate = _newAnnualInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1);
+        // Ensure _newAnnualInterestRate is also in valid range
+        _newAnnualInterestRate = MIN_ANNUAL_INTEREST_RATE + (_newAnnualInterestRate % (range + 1));
         _upperHint = setNewClampedTroveId(_upperHint);
         _lowerHint = setNewClampedTroveId(_lowerHint);
         

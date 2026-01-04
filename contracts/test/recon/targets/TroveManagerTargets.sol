@@ -263,6 +263,70 @@ abstract contract TroveManagerTargets is BaseTargetFunctions, Properties  {
         // Step 4: Call batch liquidate
         troveManager_batchLiquidateTroves(troveIdsToLiquidate);
     }
+    
+    /// Shortcut to create over-collateralized troves that generate surplus on liquidation
+    function shortcut_batchLiquidateTroves_withSurplus(
+        uint256 _numTroves,
+        uint256 _collPerTrove
+    ) public {
+        _numTroves = (_numTroves % 3) + 1; // 1-3 troves
+        uint256[] memory troveIdsToLiquidate = new uint256[](_numTroves);
+        
+        // Step 1: Ensure stability pool has deposits
+        address liquidator = _getActor();
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            _enableActor(actors[1]);
+        }
+        
+        uint256 spDeposit = MIN_DEBT * 100;
+        vm.prank(address(borrowerOperations));
+        boldToken.mint(_getActor(), spDeposit);
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), spDeposit);
+        
+        vm.prank(_getActor());
+        stabilityPool.provideToSP(spDeposit, false);
+        
+        _enableActor(liquidator);
+        
+        // Step 2: Open troves with VERY HIGH collateralization (to ensure surplus after liquidation)
+        for (uint256 i = 0; i < _numTroves; i++) {
+            uint256 collAmount = (_collPerTrove % 100e18) + 50e18; // Large collateral
+            // Low debt relative to collateral - only 30% LTV
+            uint256 boldAmount = (collAmount * 30) / 100;
+            
+            try borrowerOperations.openTrove(
+                _getActor(),
+                i + 200, // Different ownerIndex
+                collAmount,
+                boldAmount,
+                0,
+                0,
+                MAX_ANNUAL_INTEREST_RATE / 2,
+                type(uint256).max,
+                address(0),
+                address(0),
+                address(0)
+            ) returns (uint256 troveId) {
+                troveIdsToLiquidate[i] = troveId;
+            } catch {
+                if (troveIds.length > 0) {
+                    troveIdsToLiquidate[i] = troveIds[i % troveIds.length];
+                }
+            }
+        }
+        
+        // Step 3: Small price drop - just enough to make liquidatable but still have surplus
+        // With 30% LTV and MCR of 110%, even after ~15% price drop they'll have surplus
+        uint256 currentPrice = priceFeed.getPrice();
+        uint256 crashedPrice = currentPrice * 85 / 100; // 15% crash
+        priceFeed.setPrice(crashedPrice);
+        
+        // Step 4: Batch liquidate - should generate collateral surplus
+        troveManager_batchLiquidateTroves(troveIdsToLiquidate);
+    }
 
 
 }
