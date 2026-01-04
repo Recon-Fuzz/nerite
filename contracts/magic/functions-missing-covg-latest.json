@@ -1,6 +1,6 @@
 {
-  "timestamp": "1767490509",
-  "lcov_file": "echidna/covered.1767490509.lcov",
+  "timestamp": "1767492063",
+  "lcov_file": "echidna/covered.1767492063.lcov",
   "missing_coverage": [
     {
       "function": "redeemCollateral",
@@ -452,45 +452,6 @@
       "complexity": 1
     },
     {
-      "function": "withdrawColl",
-      "contract": "BorrowerOperations",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
-      "function_range": {
-        "start": 388,
-        "end": 401
-      },
-      "uncovered_code": {
-        "line_range": "392-393",
-        "last_covered_line": 390,
-        "code": [
-          "390: [LAST COVERED]         _requireTroveIsActive(troveManagerCached, _troveId);",
-          "392:         TroveChange memory troveChange;",
-          "393:         troveChange.collDecrease = _collWithdrawal;"
-        ]
-      },
-      "complexity": 1
-    },
-    {
-      "function": "withdrawColl",
-      "contract": "BorrowerOperations",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
-      "function_range": {
-        "start": 388,
-        "end": 401
-      },
-      "uncovered_code": {
-        "line_range": "396-399",
-        "last_covered_line": 395,
-        "code": [
-          "395: [LAST COVERED]         _adjustTrove(",
-          "396:             troveManagerCached,",
-          "397:             _troveId,",
-          "399:             0 // _maxUpfrontFee"
-        ]
-      },
-      "complexity": 1
-    },
-    {
       "function": "setAddManager",
       "contract": "AddRemoveManagers",
       "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/Dependencies/AddRemoveManagers.sol",
@@ -537,8 +498,8 @@
   ],
   "summary": {
     "functions_analyzed": 185,
-    "functions_with_missing_coverage": 16,
-    "uncovered_sections": 19,
+    "functions_with_missing_coverage": 15,
+    "uncovered_sections": 17,
     "full_coverage": false
   }
 }

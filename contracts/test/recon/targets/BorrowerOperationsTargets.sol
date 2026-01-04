@@ -469,6 +469,47 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         // Step 3: Now remove the delegate (this should cover line 834)
         borrowerOperations_removeInterestIndividualDelegate(freshTroveId);
     }
+    
+    /// Enhanced shortcut to test removeInterestIndividualDelegate with proper setup
+    function shortcut_removeIndividualDelegate_comprehensive(
+        uint256 _collAmount,
+        uint256 _boldAmount
+    ) public {
+        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+        if (_collAmount < 10e18) _collAmount = 10e18;
+        _boldAmount = (_boldAmount % (MIN_DEBT * 10)) + MIN_DEBT;
+        
+        // Open trove, set delegate, then remove it
+        uint256 troveId = borrowerOperations.openTrove(
+            _getActor(),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Set delegate with valid parameters
+        try borrowerOperations.setInterestIndividualDelegate(
+            troveId,
+            _getActor(), // Use same actor as delegate
+            0,
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            0,
+            0,
+            type(uint256).max,
+            0
+        ) {} catch {}
+        
+        // Now remove it
+        try borrowerOperations.removeInterestIndividualDelegate(troveId) {} catch {}
+    }
 
     /// Improved handler to ensure batch managers are registered before use
     function borrowerOperations_registerAndUseBatchManager(
@@ -1174,5 +1215,160 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         
         // Step 3: Call withdrawColl
         borrowerOperations_withdrawColl(clampedTroveId, withdrawAmount);
+    }
+    
+    /// ===== PHASE 3 ADDITIONAL HANDLERS ===== ///
+    
+    /// Shortcut for closeTrove with batch - ensures trove in batch is properly closed
+    function shortcut_closeTrove_inBatch(
+        uint256 _collAmount,
+        uint256 _boldAmount
+    ) public {
+        address originalActor = _getActor();
+        
+        // Step 1: Register a batch manager
+        borrowerOperations_registerAndUseBatchManager(
+            uint128(MAX_ANNUAL_INTEREST_RATE / 2),
+            uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 2)
+        );
+        address batchManagerAddr = clampedBatchManager;
+        
+        // Step 2: Switch to different actor and open trove in batch
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            for (uint256 i = 0; i < actors.length; i++) {
+                if (actors[i] != batchManagerAddr) {
+                    _enableActor(actors[i]);
+                    break;
+                }
+            }
+        }
+        
+        borrowerOperations_openTroveAndJoinInterestBatchManager_clamped(
+            _collAmount,
+            _boldAmount,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            batchManagerAddr,
+            type(uint256).max
+        );
+        uint256 troveInBatch = clampedTroveId;
+        
+        // Step 3: Warp time to accumulate some interest
+        vm.warp(block.timestamp + 30 days);
+        
+        // Step 4: Ensure actor has sufficient Bold to close
+        try troveManager.getLatestTroveData(troveInBatch) returns (LatestTroveData memory troveData) {
+            uint256 actorBalance = boldToken.balanceOf(_getActor());
+            if (actorBalance < troveData.entireDebt) {
+                vm.prank(address(borrowerOperations));
+                boldToken.mint(_getActor(), troveData.entireDebt - actorBalance + 1e18);
+            }
+        } catch {}
+        
+        // Step 5: Close the trove
+        borrowerOperations_closeTrove(troveInBatch);
+    }
+    
+    /// Shortcut to test setAddManager coverage
+    function shortcut_setAddManager_validTrove(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        address _manager
+    ) public {
+        // Step 1: Open a trove owned by current actor
+        borrowerOperations_openTrove_clamped(
+            address(0),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 2: Set the add manager
+        borrowerOperations_setAddManager(clampedTroveId, _manager);
+    }
+    
+    /// Comprehensive shortcut to create zombie trove and test full lifecycle
+    function shortcut_zombieTrove_fullLifecycle(
+        uint256 _collAmount
+    ) public {
+        _collAmount = (_collAmount % 20e18) + 5e18;
+        
+        // Step 1: Open trove with debt just below MIN_DEBT
+        uint256 zombieDebt = (MIN_DEBT * 95) / 100; // 95% of MIN_DEBT
+        
+        uint256 zombieTroveId = borrowerOperations.openTrove(
+            _getActor(),
+            0,
+            _collAmount,
+            zombieDebt,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 2: Create another trove for redistribution source
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            _enableActor(actors[1]);
+        }
+        
+        uint256 largeTroveId = borrowerOperations.openTrove(
+            _getActor(),
+            0,
+            100e18,
+            MIN_DEBT * 20,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 3: Setup stability pool for liquidation
+        vm.prank(address(borrowerOperations));
+        boldToken.mint(_getActor(), MIN_DEBT * 50);
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), MIN_DEBT * 50);
+        
+        vm.prank(_getActor());
+        try stabilityPool.provideToSP(MIN_DEBT * 50, false) {} catch {}
+        
+        // Step 4: Crash price to trigger liquidation
+        uint256 crashPrice = priceFeed.getPrice() * 50 / 100;
+        priceFeed.setPrice(crashPrice);
+        
+        // Step 5: Liquidate the small trove (should become zombie)
+        try troveManager.liquidate(zombieTroveId) {} catch {}
+        
+        // Step 6: Try adjusting the zombie trove
+        _enableActor(actors[0]);
+        try borrowerOperations.adjustZombieTrove(
+            zombieTroveId,
+            1e18,
+            true,
+            MIN_DEBT,
+            true,
+            0,
+            0,
+            type(uint256).max
+        ) {} catch {}
+        
+        // Step 7: Apply pending debt
+        vm.warp(block.timestamp + 365 days);
+        try borrowerOperations.applyPendingDebt(zombieTroveId, 0, 0) {} catch {}
     }
 }
