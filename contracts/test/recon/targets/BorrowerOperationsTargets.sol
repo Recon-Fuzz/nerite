@@ -1371,4 +1371,137 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         vm.warp(block.timestamp + 365 days);
         try borrowerOperations.applyPendingDebt(zombieTroveId, 0, 0) {} catch {}
     }
+    
+    /// ===== PHASE 4 ENHANCED HANDLERS ===== ///
+    
+    /// Enhanced shortcut to ensure setBatchManagerAnnualInterestRate with NON-EMPTY batch (covers line 951)
+    function shortcut_setBatchAnnualRate_nonEmptyBatch(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _newRate
+    ) public {
+        address originalActor = _getActor();
+        
+        // Step 1: Register batch manager
+        borrowerOperations_registerBatchManager_clamped(
+            0,
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            uint128(MAX_ANNUAL_INTEREST_RATE / 2),
+            uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 2),
+            1 hours
+        );
+        address batchManagerAddr = _getActor();
+        
+        // Step 2: Switch to different actor to open trove and join batch
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            for (uint256 i = 0; i < actors.length; i++) {
+                if (actors[i] != batchManagerAddr) {
+                    _enableActor(actors[i]);
+                    break;
+                }
+            }
+        }
+        
+        // Step 3: Open trove and join the batch (making batch non-empty)
+        borrowerOperations_openTroveAndJoinInterestBatchManager_clamped(
+            _collAmount,
+            _boldAmount,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            batchManagerAddr,
+            type(uint256).max
+        );
+        
+        // Step 4: Wait for cooldown to pass
+        vm.warp(block.timestamp + 8 days);
+        
+        // Step 5: Switch to batch manager and change rate
+        // This should trigger the reInsertBatch path at line 951 because batch is NOT empty
+        _enableActor(batchManagerAddr);
+        
+        _newRate = uint128((_newRate % (MAX_ANNUAL_INTEREST_RATE - 1)) + 1);
+        // Ensure rate is different from current
+        if (_newRate == MAX_ANNUAL_INTEREST_RATE / 2) {
+            _newRate = uint128(MAX_ANNUAL_INTEREST_RATE / 3);
+        }
+        
+        borrowerOperations_setBatchManagerAnnualInterestRate_clamped(
+            _newRate,
+            0,
+            0,
+            type(uint256).max
+        );
+    }
+    
+    /// Enhanced shortcut for removeInterestIndividualDelegate - ensures delegate is actually set
+    function shortcut_removeIndividualDelegate_withDelegate(
+        uint256 _collAmount,
+        uint256 _boldAmount
+    ) public {
+        // Step 1: Open a fresh trove
+        borrowerOperations_openTrove_clamped(
+            address(0),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        uint256 freshTroveId = clampedTroveId;
+        
+        // Step 2: Set individual delegate on this trove with valid parameters
+        // This ensures the delegate actually gets set in the mapping
+        vm.prank(_getActor());
+        try borrowerOperations.setInterestIndividualDelegate(
+            freshTroveId,
+            _getActor(), // Use current actor as delegate
+            0, // min rate
+            uint128(MAX_ANNUAL_INTEREST_RATE), // max rate
+            MAX_ANNUAL_INTEREST_RATE / 2, // new rate
+            0, // upper hint
+            0, // lower hint
+            type(uint256).max, // max upfront fee
+            0 // min change period
+        ) {
+            // Delegate was set successfully
+        } catch {
+            // If setting failed, try with different parameters
+            return;
+        }
+        
+        // Step 3: Now remove the delegate (this should cover line 834)
+        vm.prank(_getActor());
+        borrowerOperations.removeInterestIndividualDelegate(freshTroveId);
+    }
+    
+    /// Shortcut to ensure setAddManager gets called on a valid owned trove
+    function shortcut_setAddManager_ownedTrove(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        address _manager
+    ) public {
+        // Open a trove owned by current actor
+        borrowerOperations_openTrove_clamped(
+            address(0),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Set add manager on the owned trove (covers line 52)
+        vm.prank(_getActor());
+        borrowerOperations.setAddManager(clampedTroveId, _manager);
+    }
 }
