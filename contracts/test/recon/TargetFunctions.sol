@@ -16,6 +16,7 @@ import {StabilityPoolTargets} from "./targets/StabilityPoolTargets.sol";
 import {TroveManagerTargets} from "./targets/TroveManagerTargets.sol";
 import {MIN_ANNUAL_INTEREST_RATE, MAX_ANNUAL_INTEREST_RATE, MIN_DEBT} from "../../src/Dependencies/Constants.sol";
 import {ITroveManager} from "../../src/Interfaces/ITroveManager.sol";
+import {IBorrowerOperations} from "../../src/Interfaces/IBorrowerOperations.sol";
 
 abstract contract TargetFunctions is 
     ActivePoolTargets,
@@ -1164,6 +1165,350 @@ abstract contract TargetFunctions is
         // Step 3: Now remove the delegate (this is the target function that should cover line 834)
         vm.prank(_getActor());
         borrowerOperations.removeInterestIndividualDelegate(troveId);
+    }
+
+    // ===== PHASE 5 - GROUP 1: Batch Membership Management =====
+    
+    /// COVERAGE TARGET: setInterestBatchManager - lines 974-1022
+    /// ROOT CAUSE: Line 974 _requireValidInterestBatchManager failing - batch manager is not registered
+    /// SOLUTION: Shortcut that explicitly registers a batch manager first, then joins trove to it
+    function shortcut_phase5_setInterestBatchManager_validBatchManager(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _batchInterestRate
+    ) public {
+        // Step 1: Register a batch manager FIRST (this makes it valid)
+        uint128 validRate = uint128(MIN_ANNUAL_INTEREST_RATE + 
+            (uint256(_batchInterestRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE + 1)));
+        
+        borrowerOperations.registerBatchManager(
+            uint128(MIN_ANNUAL_INTEREST_RATE),     // minInterestRate
+            uint128(MAX_ANNUAL_INTEREST_RATE),     // maxInterestRate
+            validRate,                              // currentInterestRate
+            uint128(0),                             // annualManagementFee (0 for simplicity)
+            0                                        // minInterestRateChangePeriod
+        );
+        address validBatchManager = _getActor();
+        
+        // Step 2: Switch to different actor and open a standalone trove
+        switchActor(1);
+        
+        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+        if (_collAmount < 10e18) _collAmount = 10e18;
+        _boldAmount = (_boldAmount % (MIN_DEBT * 10)) + MIN_DEBT;
+        
+        uint256 standaloneTroveId = borrowerOperations.openTrove(
+            _getActor(),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            validRate,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Verify trove is NOT in a batch (line 975 requires this)
+        require(borrowerOperations.interestBatchManagerOf(standaloneTroveId) == address(0), 
+            "Trove must not be in batch");
+        
+        // Step 3: Join the VALID batch manager (should now cover lines 974-1022)
+        try borrowerOperations.setInterestBatchManager(
+            standaloneTroveId,
+            validBatchManager,
+            0,
+            0,
+            type(uint256).max
+        ) {} catch {}
+    }
+    
+    /// COVERAGE TARGET: switchBatchManager - lines 1105-1110
+    /// ROOT CAUSE: Line 1105 _requireNewInterestBatchManager failing - new batch manager is same as old
+    /// SOLUTION: Shortcut that registers TWO different batch managers and switches between them
+    function shortcut_phase5_switchBatchManager_differentBatchManager(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _rate1,
+        uint128 _rate2
+    ) public {
+        // Ensure rates are different
+        _rate1 = uint128(MIN_ANNUAL_INTEREST_RATE + 
+            (uint256(_rate1) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+        _rate2 = uint128(MIN_ANNUAL_INTEREST_RATE + 
+            (uint256(_rate2) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+        if (_rate1 == _rate2) {
+            _rate2 = _rate1 == MIN_ANNUAL_INTEREST_RATE ? 
+                uint128(MIN_ANNUAL_INTEREST_RATE + 1) : uint128(MIN_ANNUAL_INTEREST_RATE);
+        }
+        
+        // Step 1: Register FIRST batch manager
+        borrowerOperations.registerBatchManager(
+            uint128(MIN_ANNUAL_INTEREST_RATE),
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            _rate1,
+            uint128(0),
+            0
+        );
+        address firstBatchManager = _getActor();
+        
+        // Step 2: Switch to different actor and register SECOND batch manager
+        switchActor(1);
+        borrowerOperations.registerBatchManager(
+            uint128(MIN_ANNUAL_INTEREST_RATE),
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            _rate2,
+            uint128(0),
+            0
+        );
+        address secondBatchManager = _getActor();
+        
+        // Ensure we have two DIFFERENT batch managers
+        if (firstBatchManager == secondBatchManager) return;
+        
+        // Step 3: Switch to third actor to open trove and join first batch
+        switchActor(2);
+        
+        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+        if (_collAmount < 10e18) _collAmount = 10e18;
+        _boldAmount = (_boldAmount % (MIN_DEBT * 10)) + MIN_DEBT;
+        
+        // Open trove and join FIRST batch
+        IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams memory params = 
+            IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams({
+                owner: _getActor(),
+                ownerIndex: 0,
+                collAmount: _collAmount,
+                boldAmount: _boldAmount,
+                upperHint: 0,
+                lowerHint: 0,
+                interestBatchManager: firstBatchManager,
+                maxUpfrontFee: type(uint256).max,
+                addManager: address(0),
+                removeManager: address(0),
+                receiver: address(0)
+            });
+        
+        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) {} catch { return; }
+        uint256 troveInBatch = clampedTroveId;
+        
+        // Verify trove is in the first batch
+        address currentBatch = borrowerOperations.interestBatchManagerOf(troveInBatch);
+        if (currentBatch != firstBatchManager) return;
+        
+        // Step 4: Switch batch from first to second (should cover lines 1105-1110)
+        try borrowerOperations.switchBatchManager(
+            troveInBatch,
+            0,  // removeUpperHint
+            0,  // removeLowerHint
+            secondBatchManager,
+            0,  // addUpperHint
+            0,  // addLowerHint
+            type(uint256).max
+        ) {} catch {}
+    }
+    
+    /// COVERAGE TARGET: setBatchManagerAnnualInterestRate - lines 928-944
+    /// ROOT CAUSE: Lines 925-927 condition evaluating to false - either rate is same OR outside cooldown
+    /// SOLUTION: Shortcut that changes rate WITHIN cooldown period with DIFFERENT rate
+    function shortcut_phase5_setBatchManagerRate_withinCooldown(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _initialRate,
+        uint128 _newRate
+    ) public {
+        // Ensure rates are different
+        _initialRate = uint128(MIN_ANNUAL_INTEREST_RATE + 
+            (uint256(_initialRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+        _newRate = uint128(MIN_ANNUAL_INTEREST_RATE + 
+            (uint256(_newRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+        if (_initialRate == _newRate) {
+            _newRate = _initialRate == MIN_ANNUAL_INTEREST_RATE ? 
+                uint128(MIN_ANNUAL_INTEREST_RATE + 1) : uint128(MIN_ANNUAL_INTEREST_RATE);
+        }
+        
+        // Step 1: Register batch manager with initial rate
+        borrowerOperations.registerBatchManager(
+            uint128(MIN_ANNUAL_INTEREST_RATE),
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            _initialRate,
+            uint128(0),
+            0
+        );
+        address batchManagerAddr = _getActor();
+        
+        // Step 2: Switch to different actor and open trove in batch
+        switchActor(1);
+        
+        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+        if (_collAmount < 10e18) _collAmount = 10e18;
+        _boldAmount = (_boldAmount % (MIN_DEBT * 10)) + MIN_DEBT;
+        
+        IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams memory params = 
+            IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams({
+                owner: _getActor(),
+                ownerIndex: 0,
+                collAmount: _collAmount,
+                boldAmount: _boldAmount,
+                upperHint: 0,
+                lowerHint: 0,
+                interestBatchManager: batchManagerAddr,
+                maxUpfrontFee: type(uint256).max,
+                addManager: address(0),
+                removeManager: address(0),
+                receiver: address(0)
+            });
+        
+        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) {} catch { return; }
+        
+        // Step 3: Warp SMALL amount of time (within 7-day cooldown) - this is critical!
+        // INTEREST_RATE_ADJ_COOLDOWN is 7 days, so we warp only 1 day to stay within it
+        vm.warp(block.timestamp + 1 days);
+        
+        // Step 4: Switch to batch manager and change rate WITHIN cooldown
+        // This should trigger the upfront fee path at lines 928-944
+        switchActor(0);  // Back to batch manager actor
+        
+        try borrowerOperations.setBatchManagerAnnualInterestRate(
+            _newRate,
+            0,
+            0,
+            type(uint256).max
+        ) {} catch {}
+    }
+    
+    /// COVERAGE TARGET: setBatchManagerAnnualInterestRate - line 951
+    /// ROOT CAUSE: Line 950 condition evaluating to false - batch is empty (no troves)
+    /// SOLUTION: Shortcut that ensures batch has troves before changing rate
+    function shortcut_phase5_setBatchManagerRate_nonEmptyBatch(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _initialRate,
+        uint128 _newRate
+    ) public {
+        // Ensure rates are different
+        _initialRate = uint128(MIN_ANNUAL_INTEREST_RATE + 
+            (uint256(_initialRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+        _newRate = uint128(MIN_ANNUAL_INTEREST_RATE + 
+            (uint256(_newRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+        if (_initialRate == _newRate) {
+            _newRate = _initialRate == MIN_ANNUAL_INTEREST_RATE ? 
+                uint128(MIN_ANNUAL_INTEREST_RATE + 1) : uint128(MIN_ANNUAL_INTEREST_RATE);
+        }
+        
+        // Step 1: Register batch manager with initial rate
+        borrowerOperations.registerBatchManager(
+            uint128(MIN_ANNUAL_INTEREST_RATE),
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            _initialRate,
+            uint128(0),
+            0
+        );
+        address batchManagerAddr = _getActor();
+        
+        // Step 2: Switch to different actor and open trove in batch
+        // This makes the batch NON-EMPTY
+        switchActor(1);
+        
+        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+        if (_collAmount < 10e18) _collAmount = 10e18;
+        _boldAmount = (_boldAmount % (MIN_DEBT * 10)) + MIN_DEBT;
+        
+        IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams memory params = 
+            IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams({
+                owner: _getActor(),
+                ownerIndex: 0,
+                collAmount: _collAmount,
+                boldAmount: _boldAmount,
+                upperHint: 0,
+                lowerHint: 0,
+                interestBatchManager: batchManagerAddr,
+                maxUpfrontFee: type(uint256).max,
+                addManager: address(0),
+                removeManager: address(0),
+                receiver: address(0)
+            });
+        
+        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) {} catch { return; }
+        
+        // Step 3: Warp time PAST cooldown period (8 days to ensure we pass 7-day cooldown)
+        vm.warp(block.timestamp + 8 days);
+        
+        // Step 4: Switch to batch manager and change rate
+        // Since batch is non-empty, this should execute line 951 (reInsertBatch)
+        switchActor(0);  // Back to batch manager actor
+        
+        try borrowerOperations.setBatchManagerAnnualInterestRate(
+            _newRate,
+            0,
+            0,
+            type(uint256).max
+        ) {} catch {}
+    }
+    
+    /// COVERAGE TARGET: removeFromBatch - lines 1041-1091
+    /// ROOT CAUSE: Line 1043 _requireIsInBatch failing - trove is not in a batch
+    /// SOLUTION: Shortcut that explicitly creates trove IN batch, then removes it
+    function shortcut_phase5_removeFromBatch_troveInBatch(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _batchRate,
+        uint128 _newRate
+    ) public {
+        _batchRate = uint128(MIN_ANNUAL_INTEREST_RATE + 
+            (uint256(_batchRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+        _newRate = uint128(MIN_ANNUAL_INTEREST_RATE + 
+            (uint256(_newRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+        
+        // Step 1: Register batch manager
+        borrowerOperations.registerBatchManager(
+            uint128(MIN_ANNUAL_INTEREST_RATE),
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            _batchRate,
+            uint128(0),
+            0
+        );
+        address batchManagerAddr = _getActor();
+        
+        // Step 2: Switch to different actor and open trove IN batch
+        switchActor(1);
+        
+        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+        if (_collAmount < 10e18) _collAmount = 10e18;
+        _boldAmount = (_boldAmount % (MIN_DEBT * 10)) + MIN_DEBT;
+        
+        IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams memory params = 
+            IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams({
+                owner: _getActor(),
+                ownerIndex: 0,
+                collAmount: _collAmount,
+                boldAmount: _boldAmount,
+                upperHint: 0,
+                lowerHint: 0,
+                interestBatchManager: batchManagerAddr,
+                maxUpfrontFee: type(uint256).max,
+                addManager: address(0),
+                removeManager: address(0),
+                receiver: address(0)
+            });
+        
+        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) {} catch { return; }
+        uint256 troveInBatch = clampedTroveId;
+        
+        // Verify trove IS in batch (line 1043 requires this)
+        address currentBatch = borrowerOperations.interestBatchManagerOf(troveInBatch);
+        if (currentBatch == address(0)) return;  // Not in batch, skip
+        
+        // Step 3: Remove from batch (should now cover lines 1041-1091)
+        try borrowerOperations.removeFromBatch(
+            troveInBatch,
+            _newRate,
+            0,
+            0,
+            type(uint256).max
+        ) {} catch {}
     }
 
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
