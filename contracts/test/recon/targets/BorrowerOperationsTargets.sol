@@ -36,8 +36,8 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     }
 
     function borrowerOperations_adjustTroveInterestRate_clamped(uint256 _troveId, uint256 _newAnnualInterestRate, uint256 _upperHint, uint256 _lowerHint, uint256 _maxUpfrontFee) public {
-        // Use active trove instead of any trove
-        _troveId = getActiveOrZombieTroveId(_troveId);
+        // Use active STANDALONE trove (not in a batch) - this is a requirement for adjustTroveInterestRate
+        _troveId = getActiveStandaloneTroveId(_troveId);
         _newAnnualInterestRate = _newAnnualInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1);
         _upperHint = setNewClampedTroveId(_upperHint);
         _lowerHint = setNewClampedTroveId(_lowerHint);
@@ -114,7 +114,8 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     }
 
     function borrowerOperations_removeFromBatch_clamped(uint256 _troveId, uint256 _newAnnualInterestRate, uint256 _upperHint, uint256 _lowerHint, uint256 _maxUpfrontFee) public {
-        _troveId = setNewClampedTroveId(_troveId);
+        // Use a trove that IS in a batch - this is required for removeFromBatch
+        _troveId = getTroveInBatchId(_troveId);
         _newAnnualInterestRate = _newAnnualInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1);
         _upperHint = setNewClampedTroveId(_upperHint);
         _lowerHint = setNewClampedTroveId(_lowerHint);
@@ -150,7 +151,8 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     }
 
     function borrowerOperations_setInterestBatchManager_clamped(uint256 _troveId, address _newBatchManager, uint256 _upperHint, uint256 _lowerHint, uint256 _maxUpfrontFee) public {
-        _troveId = setNewClampedTroveId(_troveId);
+        // Use active standalone trove (NOT in a batch) - this is required for setInterestBatchManager
+        _troveId = getActiveStandaloneTroveId(_troveId);
         _newBatchManager = setNewClampedBatchManager(uint256(uint160(_newBatchManager)));
         _upperHint = setNewClampedTroveId(_upperHint);
         _lowerHint = setNewClampedTroveId(_lowerHint);
@@ -162,9 +164,12 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         // Use active trove to ensure it's in the right state
         _troveId = getActiveOrZombieTroveId(_troveId);
         
+        // Ensure minInterestRate and maxInterestRate are valid and ordered
+        // First ensure both are > 0 (avoid zero which might be invalid)
+        _minInterestRate = uint128((_minInterestRate % MAX_ANNUAL_INTEREST_RATE) + 1);
+        _maxInterestRate = uint128((_maxInterestRate % MAX_ANNUAL_INTEREST_RATE) + 1);
+        
         // Ensure minInterestRate <= maxInterestRate
-        _minInterestRate = uint128(_minInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1));
-        _maxInterestRate = uint128(_maxInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1));
         if (_minInterestRate > _maxInterestRate) {
             uint128 temp = _minInterestRate;
             _minInterestRate = _maxInterestRate;
@@ -194,7 +199,19 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         _troveId = setNewClampedTroveId(_troveId);
         _removeUpperHint = setNewClampedTroveId(_removeUpperHint);
         _removeLowerHint = setNewClampedTroveId(_removeLowerHint);
-        _newBatchManager = setNewClampedBatchManager(uint256(uint160(_newBatchManager)));
+        
+        // Get the current batch manager for this trove to ensure we select a DIFFERENT one
+        address currentBatchManager = borrowerOperations.interestBatchManagerOf(_troveId);
+        if (currentBatchManager != address(0)) {
+            _newBatchManager = getDifferentBatchManager(currentBatchManager, uint256(uint160(_newBatchManager)));
+            if (_newBatchManager == address(0)) {
+                // Fallback if no different batch manager available
+                _newBatchManager = setNewClampedBatchManager(uint256(uint160(_newBatchManager)));
+            }
+        } else {
+            _newBatchManager = setNewClampedBatchManager(uint256(uint160(_newBatchManager)));
+        }
+        
         _addUpperHint = setNewClampedTroveId(_addUpperHint);
         _addLowerHint = setNewClampedTroveId(_addLowerHint);
         
@@ -226,6 +243,21 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     function borrowerOperations_withdrawColl_clamped(uint256 _troveId, uint256 _collWithdrawal) public {
         // Use active trove
         _troveId = getActiveOrZombieTroveId(_troveId);
+        
+        // Clamp withdrawal to a portion of the trove's collateral (to ensure it remains collateralized)
+        try troveManager.getLatestTroveData(_troveId) returns (LatestTroveData memory troveData) {
+            if (troveData.entireColl > 0) {
+                // Withdraw at most 30% of collateral to help maintain collateralization
+                uint256 maxWithdrawal = (troveData.entireColl * 30) / 100;
+                if (maxWithdrawal > 0) {
+                    _collWithdrawal = (_collWithdrawal % maxWithdrawal) + 1;
+                } else {
+                    _collWithdrawal = 1;
+                }
+            }
+        } catch {
+            _collWithdrawal = 1e18; // Default small amount
+        }
         
         borrowerOperations_withdrawColl(_troveId, _collWithdrawal);
     }
@@ -526,6 +558,65 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         uint128 adjustedRate = uint128((_newAnnualInterestRate + 1) % (MAX_ANNUAL_INTEREST_RATE + 1));
         borrowerOperations_setBatchManagerAnnualInterestRate_clamped(
             adjustedRate,
+            0,
+            0,
+            type(uint256).max
+        );
+    }
+
+    /// Shortcut to trigger the upfront fee path in setBatchManagerAnnualInterestRate (within cooldown)
+    function shortcut_setBatchManagerAnnualInterestRate_withinCooldown(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _initialRate,
+        uint128 _newRate
+    ) public {
+        address currentActorAddress = _getActor();
+        
+        // Step 1: Register a batch manager with initial rate
+        _initialRate = uint128(_initialRate % (MAX_ANNUAL_INTEREST_RATE + 1));
+        borrowerOperations_registerBatchManager_clamped(
+            0,
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            _initialRate,
+            uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 2),
+            0
+        );
+        address batchManagerAddr = _getActor();
+        registeredBatchManagers.push(batchManagerAddr);
+        
+        // Step 2: Switch to different actor to open trove and join batch
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            for (uint256 i = 0; i < actors.length; i++) {
+                if (actors[i] != batchManagerAddr) {
+                    _enableActor(actors[i]);
+                    break;
+                }
+            }
+        }
+        
+        // Step 3: Open trove and join batch
+        borrowerOperations_openTroveAndJoinInterestBatchManager_clamped(
+            _collAmount,
+            _boldAmount,
+            _initialRate,
+            batchManagerAddr,
+            type(uint256).max
+        );
+        
+        // Step 4: Warp SMALL amount of time (within cooldown) - only 1 day instead of 8
+        vm.warp(block.timestamp + 1 days); // Well within 7-day cooldown
+        
+        // Step 5: Switch to batch manager and change rate (should trigger upfront fee path)
+        _enableActor(batchManagerAddr);
+        _newRate = uint128(_newRate % (MAX_ANNUAL_INTEREST_RATE + 1));
+        if (_newRate == _initialRate) {
+            _newRate = uint128((_initialRate + 1) % (MAX_ANNUAL_INTEREST_RATE + 1));
+        }
+        
+        borrowerOperations_setBatchManagerAnnualInterestRate_clamped(
+            _newRate,
             0,
             0,
             type(uint256).max

@@ -247,6 +247,52 @@ abstract contract Setup is BaseSetup, ActorManager, AssetManager {
         
         return openTroves[entropy % openCount];
     }
+    
+    // Helper to get active standalone troves (not in a batch)
+    function getActiveStandaloneTroveId(uint256 entropy) public view returns (uint256) {
+        uint256[] memory standaloneTroves = new uint256[](troveIds.length);
+        uint256 standaloneCount = 0;
+        
+        for (uint256 i = 0; i < troveIds.length; i++) {
+            uint256 troveId = troveIds[i];
+            ITroveManager.Status status = troveManager.getTroveStatus(troveId);
+            // Only include active troves that are NOT in a batch
+            if (status == ITroveManager.Status.active) {
+                address batchManager = borrowerOperations.interestBatchManagerOf(troveId);
+                if (batchManager == address(0)) {
+                    standaloneTroves[standaloneCount] = troveId;
+                    standaloneCount++;
+                }
+            }
+        }
+        
+        if (standaloneCount == 0) {
+            return troveIds.length > 0 ? troveIds[0] : 0;
+        }
+        
+        return standaloneTroves[entropy % standaloneCount];
+    }
+    
+    // Helper to get troves that are IN a batch
+    function getTroveInBatchId(uint256 entropy) public view returns (uint256) {
+        uint256[] memory batchTroves = new uint256[](troveIds.length);
+        uint256 batchCount = 0;
+        
+        for (uint256 i = 0; i < troveIds.length; i++) {
+            uint256 troveId = troveIds[i];
+            address batchManager = borrowerOperations.interestBatchManagerOf(troveId);
+            if (batchManager != address(0)) {
+                batchTroves[batchCount] = troveId;
+                batchCount++;
+            }
+        }
+        
+        if (batchCount == 0) {
+            return troveIds.length > 0 ? troveIds[0] : 0;
+        }
+        
+        return batchTroves[entropy % batchCount];
+    }
 
 
     
