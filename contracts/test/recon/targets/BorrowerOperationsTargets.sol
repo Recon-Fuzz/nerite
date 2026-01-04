@@ -40,6 +40,9 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         // Use active STANDALONE trove (not in a batch) - this is a requirement for adjustTroveInterestRate
         _troveId = getActiveStandaloneTroveId(_troveId);
         
+        // Guard: if no active standalone trove exists, skip
+        if (_troveId == 0) return;
+        
         // Ensure interest rate is in valid range
         uint256 range = MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE;
         _newAnnualInterestRate = MIN_ANNUAL_INTEREST_RATE + (_newAnnualInterestRate % (range + 1));

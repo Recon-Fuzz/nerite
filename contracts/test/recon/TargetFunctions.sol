@@ -14,7 +14,8 @@ import {ManagersTargets} from "./targets/ManagersTargets.sol";
 import {PriceFeedTargets} from "./targets/PriceFeedTargets.sol";
 import {StabilityPoolTargets} from "./targets/StabilityPoolTargets.sol";
 import {TroveManagerTargets} from "./targets/TroveManagerTargets.sol";
-import {MIN_ANNUAL_INTEREST_RATE, MAX_ANNUAL_INTEREST_RATE} from "../../src/Dependencies/Constants.sol";
+import {MIN_ANNUAL_INTEREST_RATE, MAX_ANNUAL_INTEREST_RATE, MIN_DEBT} from "../../src/Dependencies/Constants.sol";
+import {ITroveManager} from "../../src/Interfaces/ITroveManager.sol";
 
 abstract contract TargetFunctions is 
     ActivePoolTargets,
@@ -1013,6 +1014,72 @@ abstract contract TargetFunctions is
         );
     }
 
+    // ===== PHASE 5 COVERAGE - GROUP 1: Trove Interest Rate and Delegate Management =====
+    
+    // COVERAGE TARGET: adjustTroveInterestRate - lines 516-543 and line 545
+    // ROOT CAUSE: Line 516 _requireTroveIsActive failing - trove is not in 'active' state
+    // SOLUTION: Shortcut that explicitly creates an ACTIVE standalone trove then adjusts rate
+    function shortcut_adjustTroveInterestRate_phase5_group1(
+        uint256 collAmount,
+        uint256 boldAmount,
+        uint128 initialRate,
+        uint128 newRate
+    ) public {
+        // Clamp parameters
+        collAmount = collAmount % (collToken.balanceOf(_getActor()) + 1);
+        if (collAmount < 10e18) collAmount = 10e18;
+        boldAmount = (boldAmount % (MIN_DEBT * 10)) + MIN_DEBT;
+        
+        // Step 1: Open a fresh standalone trove (NOT in a batch)
+        // This ensures the trove starts in ACTIVE status
+        uint256 validInitialRate = MIN_ANNUAL_INTEREST_RATE + 
+            (uint256(initialRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE + 1));
+        
+        uint256 activeTroveId = borrowerOperations.openTrove(
+            _getActor(),       // owner
+            0,                 // ownerIndex
+            collAmount,        // collAmount
+            boldAmount,        // boldAmount
+            0,                 // upperHint
+            0,                 // lowerHint
+            validInitialRate,  // annualInterestRate
+            type(uint256).max, // maxUpfrontFee
+            address(0),        // addManager
+            address(0),        // removeManager
+            address(0)         // receiver
+        );
+        
+        // Verify the trove is active
+        require(troveManager.getTroveStatus(activeTroveId) == ITroveManager.Status.active, 
+            "Trove must be active");
+        
+        // Verify the trove is NOT in a batch (line 514 requires this)
+        require(borrowerOperations.interestBatchManagerOf(activeTroveId) == address(0), 
+            "Trove must not be in batch");
+        
+        // Step 2: Warp time to ensure cooldown has passed (7 days)
+        vm.warp(block.timestamp + 8 days);
+        
+        // Step 3: Ensure the new rate is DIFFERENT from initial rate and VALID
+        uint256 validNewRate = MIN_ANNUAL_INTEREST_RATE + 
+            (uint256(newRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE + 1));
+        
+        // Ensure it's different from current rate (line 520 requires this)
+        if (validNewRate == validInitialRate) {
+            validNewRate = validInitialRate == MIN_ANNUAL_INTEREST_RATE ? 
+                MIN_ANNUAL_INTEREST_RATE + 1 : MIN_ANNUAL_INTEREST_RATE;
+        }
+        
+        // Step 4: Call adjustTroveInterestRate - should now cover lines 516-543 and 545
+        try borrowerOperations.adjustTroveInterestRate(
+            activeTroveId,
+            validNewRate,
+            0,                 // upperHint
+            0,                 // lowerHint
+            type(uint256).max  // maxUpfrontFee
+        ) {} catch {}
+    }
+    
     // ===== ENHANCED SHORTCUT FOR setInterestIndividualDelegate - PHASE 5 =====
     // Ensures valid rate parameters for setting individual delegate
     function shortcut_setInterestIndividualDelegate_validRates(
