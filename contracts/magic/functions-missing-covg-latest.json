@@ -1,6 +1,6 @@
 {
-  "timestamp": "1767496084",
-  "lcov_file": "echidna/covered.1767496084.lcov",
+  "timestamp": "1767497531",
+  "lcov_file": "echidna/covered.1767497531.lcov",
   "missing_coverage": [
     {
       "function": "redeemCollateral",
@@ -200,24 +200,6 @@
         ]
       },
       "complexity": 3
-    },
-    {
-      "function": "adjustTroveInterestRate",
-      "contract": "BorrowerOperations",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
-      "function_range": {
-        "start": 502,
-        "end": 547
-      },
-      "uncovered_code": {
-        "line_range": "535",
-        "last_covered_line": 533,
-        "code": [
-          "533: [LAST COVERED]                 && block.timestamp < trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN",
-          "535:             newDebt = _applyUpfrontFee(trove.entireColl, newDebt, troveChange, _maxUpfrontFee);"
-        ]
-      },
-      "complexity": 2
     },
     {
       "function": "adjustZombieTrove",
@@ -445,8 +427,8 @@
   ],
   "summary": {
     "functions_analyzed": 185,
-    "functions_with_missing_coverage": 14,
-    "uncovered_sections": 15,
+    "functions_with_missing_coverage": 13,
+    "uncovered_sections": 14,
     "full_coverage": false
   }
 }
