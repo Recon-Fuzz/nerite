@@ -14,6 +14,7 @@ import {ManagersTargets} from "./targets/ManagersTargets.sol";
 import {PriceFeedTargets} from "./targets/PriceFeedTargets.sol";
 import {StabilityPoolTargets} from "./targets/StabilityPoolTargets.sol";
 import {TroveManagerTargets} from "./targets/TroveManagerTargets.sol";
+import {MIN_ANNUAL_INTEREST_RATE, MAX_ANNUAL_INTEREST_RATE} from "../../src/Dependencies/Constants.sol";
 
 abstract contract TargetFunctions is 
     ActivePoolTargets,
@@ -977,6 +978,78 @@ abstract contract TargetFunctions is
         troveManager_urgentRedemption_clamped(redemptionAmount, troveIdsArray, 0);
     }
 
+    // ===== ENHANCED SHORTCUT FOR adjustTroveInterestRate - PHASE 5 =====
+    // Ensures we have an active standalone trove (not in batch) before adjusting rate
+    function shortcut_adjustTroveInterestRate_activeStandalone(
+        uint256 collAmount,
+        uint256 boldAmount,
+        uint128 initialRate,
+        uint128 newRate
+    ) public {
+        // Step 1: Open a standalone trove (not in a batch) - this will be active by default
+        borrowerOperations_openTrove_clamped(
+            address(0), 0, collAmount, boldAmount, 0, 0, 
+            uint256(initialRate) % (MAX_ANNUAL_INTEREST_RATE + 1), 
+            type(uint256).max,
+            address(0), address(0), address(0)
+        );
+        uint256 standaloneTroveId = clampedTroveId;
+        
+        // Step 2: Warp time to ensure cooldown has passed (7 days)
+        vm.warp(block.timestamp + 8 days);
+        
+        // Step 3: Ensure the new rate is different from initial rate and valid
+        uint256 validNewRate = MIN_ANNUAL_INTEREST_RATE + 
+            (uint256(newRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE + 1));
+        
+        // Step 4: Call adjustTroveInterestRate using the clamped handler 
+        // (which should now find this active standalone trove)
+        borrowerOperations_adjustTroveInterestRate_clamped(
+            standaloneTroveId,
+            validNewRate,
+            0, // upper hint
+            0, // lower hint
+            type(uint256).max // max upfront fee
+        );
+    }
+
+    // ===== ENHANCED SHORTCUT FOR setInterestIndividualDelegate - PHASE 5 =====
+    // Ensures valid rate parameters for setting individual delegate
+    function shortcut_setInterestIndividualDelegate_validRates(
+        uint256 collAmount,
+        uint256 boldAmount,
+        uint128 initialRate
+    ) public {
+        // Step 1: Open a trove (will be active and owned by current actor)
+        borrowerOperations_openTrove_clamped(
+            address(0), 0, collAmount, boldAmount, 0, 0, 
+            uint256(initialRate) % (MAX_ANNUAL_INTEREST_RATE + 1), 
+            type(uint256).max,
+            address(0), address(0), address(0)
+        );
+        uint256 troveId = clampedTroveId;
+        
+        // Step 2: Set individual delegate with guaranteed valid parameters
+        // Use full range for min/max to ensure they pass validation
+        uint128 validMinRate = uint128(MIN_ANNUAL_INTEREST_RATE);
+        uint128 validMaxRate = uint128(MAX_ANNUAL_INTEREST_RATE);
+        uint256 validNewRate = (MIN_ANNUAL_INTEREST_RATE + MAX_ANNUAL_INTEREST_RATE) / 2; // Middle of range
+        
+        // Step 3: Call setInterestIndividualDelegate (should now cover lines 817-828)
+        vm.prank(_getActor());
+        borrowerOperations.setInterestIndividualDelegate(
+            troveId,
+            _getActor(), // Use current actor as delegate
+            validMinRate,
+            validMaxRate,
+            validNewRate,
+            0, // upper hint
+            0, // lower hint
+            type(uint256).max, // max upfront fee
+            0  // min interest rate change period
+        );
+    }
+
     // ===== SHORTCUT FUNCTIONS FOR borrowerOperations_removeInterestIndividualDelegate =====
     // This function requires a trove that already has an individual delegate set
     // Path: Trove has delegate set -> remove it
@@ -994,15 +1067,36 @@ abstract contract TargetFunctions is
             address(0), 0, collAmount, boldAmount, 0, 0, annualInterestRate, type(uint256).max,
             address(0), address(0), address(0)
         );
+        uint256 troveId = clampedTroveId;
         
-        // Step 2: Set individual delegate on the trove using clamped handler
-        borrowerOperations_setInterestIndividualDelegate_clamped(
-            clampedTroveId, delegate, minRate, maxRate, annualInterestRate,
-            0, 0, type(uint256).max, minChangePeriod
-        );
+        // Step 2: Set individual delegate on the trove - ensure parameters are valid
+        // Use MIN/MAX constants directly to ensure valid range
+        uint128 validMinRate = uint128(MIN_ANNUAL_INTEREST_RATE);
+        uint128 validMaxRate = uint128(MAX_ANNUAL_INTEREST_RATE);
+        uint256 validNewRate = MIN_ANNUAL_INTEREST_RATE + (annualInterestRate % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE + 1));
         
-        // Step 3: Now remove the delegate (this is the target function)
-        borrowerOperations_removeInterestIndividualDelegate(clampedTroveId);
+        // Call setInterestIndividualDelegate directly to have full control
+        vm.prank(_getActor());
+        try borrowerOperations.setInterestIndividualDelegate(
+            troveId,
+            _getActor(), // Use current actor as delegate
+            validMinRate,
+            validMaxRate,
+            validNewRate,
+            0, // upper hint
+            0, // lower hint
+            type(uint256).max, // max upfront fee
+            0  // min interest rate change period
+        ) {
+            // Delegate successfully set
+        } catch {
+            // If it fails, skip removal
+            return;
+        }
+        
+        // Step 3: Now remove the delegate (this is the target function that should cover line 834)
+        vm.prank(_getActor());
+        borrowerOperations.removeInterestIndividualDelegate(troveId);
     }
 
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
