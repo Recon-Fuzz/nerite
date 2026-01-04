@@ -1,6 +1,6 @@
 {
-  "timestamp": "1767492063",
-  "lcov_file": "echidna/covered.1767492063.lcov",
+  "timestamp": "1767493479",
+  "lcov_file": "echidna/covered.1767493479.lcov",
   "missing_coverage": [
     {
       "function": "redeemCollateral",
@@ -397,11 +397,10 @@
         "end": 830
       },
       "uncovered_code": {
-        "line_range": "817-828",
-        "last_covered_line": 816,
+        "line_range": "818-828",
+        "last_covered_line": 817,
         "code": [
-          "816: [LAST COVERED]         _requireCallerIsBorrower(_troveId);",
-          "817:         _requireValidAnnualInterestRate(_minInterestRate);",
+          "817: [LAST COVERED]         _requireValidAnnualInterestRate(_minInterestRate);",
           "818:         _requireValidAnnualInterestRate(_maxInterestRate);",
           "820:         _requireOrderedRange(_minInterestRate, _maxInterestRate);",
           "822:         interestIndividualDelegateOf[_troveId] =",
@@ -411,24 +410,6 @@
         ]
       },
       "complexity": 2
-    },
-    {
-      "function": "removeInterestIndividualDelegate",
-      "contract": "BorrowerOperations",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
-      "function_range": {
-        "start": 832,
-        "end": 835
-      },
-      "uncovered_code": {
-        "line_range": "834",
-        "last_covered_line": 833,
-        "code": [
-          "833: [LAST COVERED]         _requireCallerIsBorrower(_troveId);",
-          "834:         delete interestIndividualDelegateOf[_troveId];"
-        ]
-      },
-      "complexity": 1
     },
     {
       "function": "switchBatchManager",
@@ -498,8 +479,8 @@
   ],
   "summary": {
     "functions_analyzed": 185,
-    "functions_with_missing_coverage": 15,
-    "uncovered_sections": 17,
+    "functions_with_missing_coverage": 14,
+    "uncovered_sections": 16,
     "full_coverage": false
   }
 }
