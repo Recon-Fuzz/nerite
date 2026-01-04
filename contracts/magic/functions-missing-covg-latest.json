@@ -1,6 +1,6 @@
 {
-  "timestamp": "1767486981",
-  "lcov_file": "echidna/covered.1767486981.lcov",
+  "timestamp": "1767488924",
+  "lcov_file": "echidna/covered.1767488924.lcov",
   "missing_coverage": [
     {
       "function": "redeemCollateral",
@@ -31,7 +31,7 @@
         "end": 906
       },
       "uncovered_code": {
-        "line_range": "853-905",
+        "line_range": "853-903",
         "last_covered_line": 851,
         "code": [
           "851: [LAST COVERED]         _requireBoldBalanceCoversRedemption(boldToken, msg.sender, _boldAmount);",
@@ -60,8 +60,7 @@
           "893:             revert MinCollNotReached(totalsTroveChange.collDecrease);",
           "896:         emit Redemption(_boldAmount, totalsTroveChange.debtDecrease, totalsTroveChange.collDecrease, 0, price);",
           "900:         activePoolCached.mintAggInterestAndAccountForTroveChange(totalsTroveChange, address(0));",
-          "903:         activePoolCached.sendColl(msg.sender, totalsTroveChange.collDecrease);",
-          "905:         boldToken.burn(msg.sender, totalsTroveChange.debtDecrease);"
+          "903:         activePoolCached.sendColl(msg.sender, totalsTroveChange.collDecrease);"
         ]
       },
       "complexity": 6
@@ -75,29 +74,11 @@
         "end": 461
       },
       "uncovered_code": {
-        "line_range": "429-456",
-        "last_covered_line": 426,
+        "line_range": "440",
+        "last_covered_line": 439,
         "code": [
-          "426: [LAST COVERED]             revert NothingToLiquidate();",
-          "429:         activePoolCached.mintAggInterestAndAccountForTroveChange(troveChange, address(0));",
-          "432:         if (totals.debtToOffset > 0 || totals.collToSendToSP > 0) {",
-          "433:             stabilityPoolCached.offset(totals.debtToOffset, totals.collToSendToSP);",
-          "436:         _redistributeDebtAndColl(",
-          "437:             activePoolCached, defaultPoolCached, totals.debtToRedistribute, totals.collToRedistribute",
-          "439:         if (totals.collSurplus > 0) {",
-          "440:             activePoolCached.sendColl(address(collSurplusPool), totals.collSurplus);",
-          "444:         _updateSystemSnapshots_excludeCollRemainder(activePoolCached, totals.collGasCompensation);",
-          "446:         emit Liquidation(",
-          "447:             totals.debtToOffset,",
-          "448:             totals.debtToRedistribute,",
-          "449:             totals.ETHGasCompensation,",
-          "450:             totals.collGasCompensation,",
-          "451:             totals.collToSendToSP,",
-          "452:             totals.collToRedistribute,",
-          "453:             totals.collSurplus,",
-          "454:             L_coll,",
-          "455:             L_boldDebt,",
-          "456:             price"
+          "439: [LAST COVERED]         if (totals.collSurplus > 0) {",
+          "440:             activePoolCached.sendColl(address(collSurplusPool), totals.collSurplus);"
         ]
       },
       "complexity": 5
@@ -184,20 +165,10 @@
         "end": 957
       },
       "uncovered_code": {
-        "line_range": "915-955",
-        "last_covered_line": 913,
+        "line_range": "928-944",
+        "last_covered_line": 927,
         "code": [
-          "913: [LAST COVERED]         _requireBatchInterestRateChangePeriodPassed(msg.sender, uint256(batch.lastInterestRateAdjTime));",
-          "915:         uint256 newDebt = batch.entireDebtWithoutRedistribution;",
-          "917:         TroveChange memory batchChange;",
-          "918:         batchChange.batchAccruedManagementFee = batch.accruedManagementFee;",
-          "919:         batchChange.oldWeightedRecordedDebt = batch.weightedRecordedDebt;",
-          "920:         batchChange.newWeightedRecordedDebt = newDebt * _newAnnualInterestRate;",
-          "921:         batchChange.oldWeightedRecordedBatchManagementFee = batch.weightedRecordedBatchManagementFee;",
-          "922:         batchChange.newWeightedRecordedBatchManagementFee = newDebt * batch.annualManagementFee;",
-          "925:         if (",
-          "926:             batch.annualInterestRate != _newAnnualInterestRate",
-          "927:                 && block.timestamp < batch.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN",
+          "927: [LAST COVERED]                 && block.timestamp < batch.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN",
           "928:         ) {",
           "929:             uint256 price = _requireOraclesLive();",
           "931:             uint256 avgInterestRate = activePoolCached.getNewApproxAvgInterestRateFromTroveChange(batchChange);",
@@ -207,12 +178,25 @@
           "938:             batchChange.newWeightedRecordedDebt = newDebt * _newAnnualInterestRate;",
           "939:             batchChange.newWeightedRecordedBatchManagementFee = newDebt * batch.annualManagementFee;",
           "943:             uint256 newTCR = _getNewTCRFromTroveChange(batchChange, price);",
-          "944:             _requireNewTCRisAboveCCR(newTCR);",
-          "947:         activePoolCached.mintAggInterestAndAccountForTroveChange(batchChange, msg.sender);",
-          "950:         if (!sortedTroves.isEmptyBatch(BatchId.wrap(msg.sender))) {",
-          "951:             sortedTroves.reInsertBatch(BatchId.wrap(msg.sender), _newAnnualInterestRate, _upperHint, _lowerHint);",
-          "954:         troveManagerCached.onSetBatchManagerAnnualInterestRate(",
-          "955:             msg.sender, batch.entireCollWithoutRedistribution, newDebt, _newAnnualInterestRate, batchChange.upfrontFee"
+          "944:             _requireNewTCRisAboveCCR(newTCR);"
+        ]
+      },
+      "complexity": 3
+    },
+    {
+      "function": "setBatchManagerAnnualInterestRate",
+      "contract": "BorrowerOperations",
+      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
+      "function_range": {
+        "start": 897,
+        "end": 957
+      },
+      "uncovered_code": {
+        "line_range": "951",
+        "last_covered_line": 950,
+        "code": [
+          "950: [LAST COVERED]         if (!sortedTroves.isEmptyBatch(BatchId.wrap(msg.sender))) {",
+          "951:             sortedTroves.reInsertBatch(BatchId.wrap(msg.sender), _newAnnualInterestRate, _upperHint, _lowerHint);"
         ]
       },
       "complexity": 3
@@ -226,7 +210,7 @@
         "end": 547
       },
       "uncovered_code": {
-        "line_range": "516-545",
+        "line_range": "516-543",
         "last_covered_line": 515,
         "code": [
           "515: [LAST COVERED]         _requireSenderIsOwnerOrInterestManager(_troveId);",
@@ -246,8 +230,24 @@
           "535:             newDebt = _applyUpfrontFee(trove.entireColl, newDebt, troveChange, _maxUpfrontFee);",
           "539:         troveChange.newWeightedRecordedDebt = newDebt * _newAnnualInterestRate;",
           "541:         activePool.mintAggInterestAndAccountForTroveChange(troveChange, address(0));",
-          "543:         sortedTroves.reInsert(_troveId, _newAnnualInterestRate, _upperHint, _lowerHint);",
-          "544:         troveManagerCached.onAdjustTroveInterestRate(",
+          "543:         sortedTroves.reInsert(_troveId, _newAnnualInterestRate, _upperHint, _lowerHint);"
+        ]
+      },
+      "complexity": 2
+    },
+    {
+      "function": "adjustTroveInterestRate",
+      "contract": "BorrowerOperations",
+      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
+      "function_range": {
+        "start": 502,
+        "end": 547
+      },
+      "uncovered_code": {
+        "line_range": "545",
+        "last_covered_line": 544,
+        "code": [
+          "544: [LAST COVERED]         troveManagerCached.onAdjustTroveInterestRate(",
           "545:             _troveId, trove.entireColl, newDebt, _newAnnualInterestRate, troveChange"
         ]
       },
@@ -397,11 +397,10 @@
         "end": 830
       },
       "uncovered_code": {
-        "line_range": "816-828",
-        "last_covered_line": 815,
+        "line_range": "817-828",
+        "last_covered_line": 816,
         "code": [
-          "815: [LAST COVERED]         _requireTroveIsActive(troveManager, _troveId);",
-          "816:         _requireCallerIsBorrower(_troveId);",
+          "816: [LAST COVERED]         _requireCallerIsBorrower(_troveId);",
           "817:         _requireValidAnnualInterestRate(_minInterestRate);",
           "818:         _requireValidAnnualInterestRate(_maxInterestRate);",
           "820:         _requireOrderedRange(_minInterestRate, _maxInterestRate);",
@@ -539,7 +538,7 @@
   "summary": {
     "functions_analyzed": 185,
     "functions_with_missing_coverage": 16,
-    "uncovered_sections": 17,
+    "uncovered_sections": 19,
     "full_coverage": false
   }
 }
