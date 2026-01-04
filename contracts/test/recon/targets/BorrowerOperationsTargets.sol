@@ -54,7 +54,12 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     }
 
     function borrowerOperations_adjustZombieTrove_clamped(uint256 _troveId, uint256 _collChange, bool _isCollIncrease, uint256 _boldChange, bool _isDebtIncrease, uint256 _upperHint, uint256 _lowerHint, uint256 _maxUpfrontFee) public {
-        _troveId = setNewClampedTroveId(_troveId);
+        // Use a zombie trove - this is required for adjustZombieTrove
+        _troveId = getZombieTroveId(_troveId);
+        
+        // Guard: if no zombie trove exists, return early
+        if (_troveId == 0) return;
+        
         _collChange = _collChange % (collToken.balanceOf(_getActor()) + 1);
         _boldChange = _boldChange % (boldToken.balanceOf(_getActor()) + 1);
         _upperHint = setNewClampedTroveId(_upperHint);
@@ -64,7 +69,15 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     }
 
     function borrowerOperations_applyPendingDebt_clamped(uint256 _troveId, uint256 _lowerHint, uint256 _upperHint) public {
-        _troveId = setNewClampedTroveId(_troveId);
+        // Try to get a zombie trove first (for the zombie-to-active transition path)
+        uint256 zombieTroveId = getZombieTroveId(_troveId);
+        if (zombieTroveId != 0) {
+            _troveId = zombieTroveId;
+        } else {
+            // Fallback to any trove
+            _troveId = setNewClampedTroveId(_troveId);
+        }
+        
         _lowerHint = setNewClampedTroveId(_lowerHint);
         _upperHint = setNewClampedTroveId(_upperHint);
         
@@ -74,6 +87,13 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     function borrowerOperations_closeTrove_clamped(uint256 _troveId) public {
         // Use open trove instead of any trove
         _troveId = getOpenTroveId(_troveId);
+        
+        // Guard: if no open trove exists, return early
+        if (_troveId == 0) return;
+        
+        // Verify trove status is actually open before proceeding
+        ITroveManager.Status status = troveManager.getTroveStatus(_troveId);
+        if (status != ITroveManager.Status.active && status != ITroveManager.Status.unredeemable) return;
         
         // Ensure the actor has sufficient Bold balance to close the trove
         // by minting if needed (this simulates the actor accumulating Bold)
@@ -125,6 +145,12 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         // Use a trove that IS in a batch - this is required for removeFromBatch
         _troveId = getTroveInBatchId(_troveId);
         
+        // Guard: if no trove in batch exists, return early
+        if (_troveId == 0) return;
+        
+        // Verify the trove is actually in a batch before proceeding
+        if (borrowerOperations.interestBatchManagerOf(_troveId) == address(0)) return;
+        
         // Ensure interest rate is in valid range
         uint256 range = MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE;
         _newAnnualInterestRate = MIN_ANNUAL_INTEREST_RATE + (_newAnnualInterestRate % (range + 1));
@@ -165,7 +191,15 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     function borrowerOperations_setInterestBatchManager_clamped(uint256 _troveId, address _newBatchManager, uint256 _upperHint, uint256 _lowerHint, uint256 _maxUpfrontFee) public {
         // Use active standalone trove (NOT in a batch) - this is required for setInterestBatchManager
         _troveId = getActiveStandaloneTroveId(_troveId);
+        
+        // Guard: if no active standalone trove exists, return early
+        if (_troveId == 0) return;
+        
         _newBatchManager = setNewClampedBatchManager(uint256(uint160(_newBatchManager)));
+        
+        // Guard: if no registered batch managers exist, return early
+        if (_newBatchManager == address(0)) return;
+        
         _upperHint = setNewClampedTroveId(_upperHint);
         _lowerHint = setNewClampedTroveId(_lowerHint);
         
@@ -219,15 +253,14 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         
         // Get the current batch manager for this trove to ensure we select a DIFFERENT one
         address currentBatchManager = borrowerOperations.interestBatchManagerOf(_troveId);
-        if (currentBatchManager != address(0)) {
-            _newBatchManager = getDifferentBatchManager(currentBatchManager, uint256(uint160(_newBatchManager)));
-            if (_newBatchManager == address(0)) {
-                // Fallback if no different batch manager available
-                _newBatchManager = setNewClampedBatchManager(uint256(uint160(_newBatchManager)));
-            }
-        } else {
-            _newBatchManager = setNewClampedBatchManager(uint256(uint160(_newBatchManager)));
-        }
+        
+        // Guard: trove must be in a batch to switch
+        if (currentBatchManager == address(0)) return;
+        
+        _newBatchManager = getDifferentBatchManager(currentBatchManager, uint256(uint160(_newBatchManager)));
+        
+        // Guard: need at least 2 different batch managers to switch
+        if (_newBatchManager == address(0)) return;
         
         _addUpperHint = setNewClampedTroveId(_addUpperHint);
         _addLowerHint = setNewClampedTroveId(_addLowerHint);

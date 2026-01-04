@@ -300,10 +300,31 @@ abstract contract Setup is BaseSetup, ActorManager, AssetManager {
         }
         
         if (batchCount == 0) {
-            return troveIds.length > 0 ? troveIds[0] : 0;
+            return 0; // Return 0 instead of troveIds[0] to signal no batch troves exist
         }
         
         return batchTroves[entropy % batchCount];
+    }
+    
+    // Helper to get zombie troves
+    function getZombieTroveId(uint256 entropy) public view returns (uint256) {
+        uint256[] memory zombieTroves = new uint256[](troveIds.length);
+        uint256 zombieCount = 0;
+        
+        for (uint256 i = 0; i < troveIds.length; i++) {
+            uint256 troveId = troveIds[i];
+            ITroveManager.Status status = troveManager.getTroveStatus(troveId);
+            if (status == ITroveManager.Status.zombie) {
+                zombieTroves[zombieCount] = troveId;
+                zombieCount++;
+            }
+        }
+        
+        if (zombieCount == 0) {
+            return 0; // No zombie troves exist
+        }
+        
+        return zombieTroves[entropy % zombieCount];
     }
 
 
