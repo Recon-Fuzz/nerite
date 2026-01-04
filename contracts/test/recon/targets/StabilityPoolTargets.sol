@@ -610,4 +610,45 @@ abstract contract StabilityPoolTargets is BaseTargetFunctions, Properties  {
         stabilityPool.triggerBoldRewards(_boldYield);
     }
 
+    /// Improved shortcut to guarantee claimAllCollGains coverage
+    /// This ensures the user definitely has stashed collateral before claiming
+    function shortcut_claimAllCollGains_guaranteed(uint256 _depositAmount, uint256 _collAmount) public {
+        // Step 1: Ensure user has Bold
+        _depositAmount = _depositAmount % (boldToken.balanceOf(_getActor()) + 1);
+        if (_depositAmount < 1e18) return; // Need reasonable deposit
+        
+        // Step 2: Deposit to SP
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), _depositAmount);
+        stabilityPool_provideToSP(_depositAmount, false);
+        
+        // Step 3: Manually transfer collateral to pool and update user's stashed balance
+        // This simulates what happens during a liquidation
+        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+        if (_collAmount > 0) {
+            // Transfer collateral to stability pool
+            vm.prank(_getActor());
+            collToken.transfer(address(stabilityPool), _collAmount);
+            
+            // Directly call offset to create the stashed collateral scenario
+            // Use half the deposit as debt to offset
+            uint256 debtToOffset = _depositAmount / 2;
+            
+            vm.prank(address(troveManager)); // Only TroveManager can call offset
+            stabilityPool.offset(debtToOffset, _collAmount);
+        }
+        
+        // Step 4: Withdraw all Bold WITHOUT claiming (creates stashed collateral)
+        uint256 remainingDeposit = stabilityPool.getCompoundedBoldDeposit(_getActor());
+        if (remainingDeposit > 0) {
+            stabilityPool_withdrawFromSP(remainingDeposit, false); // false = don't claim
+        }
+        
+        // Step 5: Now claim all collateral gains - this should hit lines 360, 362-363
+        uint256 stashed = stabilityPool.stashedColl(_getActor());
+        if (stashed > 0) {
+            stabilityPool_claimAllCollGains();
+        }
+    }
+
 }

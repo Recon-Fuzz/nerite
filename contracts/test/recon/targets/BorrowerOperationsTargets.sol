@@ -64,6 +64,28 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     function borrowerOperations_closeTrove_clamped(uint256 _troveId) public {
         _troveId = setNewClampedTroveId(_troveId);
         
+        // Ensure the actor has sufficient Bold balance to close the trove
+        // by minting if needed (this simulates the actor accumulating Bold)
+        try troveManager.getLatestTroveData(_troveId) returns (
+            uint256 entireDebt,
+            uint256,  // entireColl
+            uint256,  // redistBoldDebtGain
+            uint256,  // redistCollGain
+            uint256,  // accruedInterest
+            uint256,  // recordedDebt
+            uint256,  // annualInterestRate
+            uint256,  // weightedRecordedDebt
+            uint256,  // accruedBatchManagementFee
+            uint256   // lastInterestRateAdjTime
+        ) {
+            uint256 actorBalance = boldToken.balanceOf(_getActor());
+            if (actorBalance < entireDebt) {
+                // Mint the difference to actor to ensure they can close
+                vm.prank(address(borrowerOperations));
+                boldToken.mint(_getActor(), entireDebt - actorBalance);
+            }
+        } catch {}
+        
         borrowerOperations_closeTrove(_troveId);
     }
 
@@ -180,7 +202,17 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
 
     function borrowerOperations_withdrawBold_clamped(uint256 _troveId, uint256 _boldAmount, uint256 _maxUpfrontFee) public {
         _troveId = setNewClampedTroveId(_troveId);
-        _boldAmount = _boldAmount % (MIN_DEBT + 1);
+        
+        // Clamp to available debt capacity under the debt limit
+        uint256 debtLimit = troveManager.getDebtLimit();
+        uint256 currentSystemDebt = troveManager.getEntireSystemDebt();
+        
+        if (debtLimit > currentSystemDebt) {
+            uint256 availableDebt = debtLimit - currentSystemDebt;
+            _boldAmount = (_boldAmount % availableDebt) + 1; // ensure > 0
+        } else {
+            _boldAmount = 1; // minimal amount if at limit
+        }
         
         borrowerOperations_withdrawBold(_troveId, _boldAmount, _maxUpfrontFee);
     }
@@ -308,5 +340,133 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     // === Withdraw Coll === //
     function borrowerOperations_withdrawColl(uint256 _troveId, uint256 _collWithdrawal) public updateGhosts asActor {
         borrowerOperations.withdrawColl(_troveId, _collWithdrawal);
+    }
+
+    // ===== ADDITIONAL IMPROVED HANDLERS FOR COVERAGE ===== //
+
+    /// Handler to open a trove and join a batch manager in one call
+    function borrowerOperations_openTroveAndJoinInterestBatchManager_clamped(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint256 _annualInterestRate,
+        address _interestBatchManager,
+        uint256 _maxUpfrontFee
+    ) public {
+        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+        if (_collAmount == 0) _collAmount = 1;
+        
+        _boldAmount = (_boldAmount % (MIN_DEBT * 10)) + MIN_DEBT; // Ensure valid debt amount
+        _interestBatchManager = setNewClampedBatchManager(uint256(uint160(_interestBatchManager)));
+        
+        IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams memory params = 
+            IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams({
+                owner: _getActor(),
+                ownerIndex: 0,
+                collAmount: _collAmount,
+                boldAmount: _boldAmount,
+                upperHint: 0,
+                lowerHint: 0,
+                interestBatchManager: _interestBatchManager,
+                maxUpfrontFee: _maxUpfrontFee,
+                addManager: address(0),
+                removeManager: address(0),
+                receiver: address(0)
+            });
+        
+        borrowerOperations_openTroveAndJoinInterestBatchManager(params);
+    }
+
+    /// Shortcut to ensure a trove has individual delegate set before removing it
+    function shortcut_setAndRemoveIndividualDelegate(uint256 _troveId) public {
+        _troveId = setNewClampedTroveId(_troveId);
+        
+        // First set the delegate
+        borrowerOperations_setInterestIndividualDelegate_clamped(
+            _troveId,
+            _getActor(),
+            0,
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            0,
+            0,
+            type(uint256).max,
+            0
+        );
+        
+        // Then remove it
+        borrowerOperations_removeInterestIndividualDelegate_clamped(_troveId);
+    }
+
+    /// Improved handler to ensure batch managers are registered before use
+    function borrowerOperations_registerAndUseBatchManager(
+        uint128 _annualInterestRate,
+        uint128 _annualManagementFee
+    ) public {
+        _annualInterestRate = uint128(_annualInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1));
+        _annualManagementFee = uint128(_annualManagementFee % (MAX_ANNUAL_BATCH_MANAGEMENT_FEE + 1));
+        
+        // Register the current actor as a batch manager
+        borrowerOperations_registerBatchManager_clamped(
+            0,
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            _annualInterestRate,
+            _annualManagementFee,
+            0
+        );
+        
+        // Now set this registered batch manager for use
+        clampedBatchManager = _getActor();
+    }
+
+    /// Shortcut to close a trove with proper setup
+    function shortcut_closeTrove_withSetup(uint256 _collAmount, uint256 _boldAmount) public {
+        // Open a trove
+        uint256 troveId = borrowerOperations_openTrove_clamped(
+            address(0),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Warp time forward to accrue some interest
+        vm.warp(block.timestamp + 365 days);
+        
+        // Close the trove with clamped handler that ensures sufficient Bold
+        borrowerOperations_closeTrove_clamped(troveId);
+    }
+
+    /// Shortcut for applyPendingDebt on a batch trove
+    function shortcut_applyPendingDebtOnBatchTrove(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint256 _batchManagerSeed
+    ) public {
+        // First register a batch manager
+        borrowerOperations_registerAndUseBatchManager(
+            uint128(MAX_ANNUAL_INTEREST_RATE / 2),
+            uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 2)
+        );
+        
+        // Open trove and join batch
+        borrowerOperations_openTroveAndJoinInterestBatchManager_clamped(
+            _collAmount,
+            _boldAmount,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            clampedBatchManager,
+            type(uint256).max
+        );
+        
+        // Warp time to accumulate pending debt
+        vm.warp(block.timestamp + 365 days);
+        
+        // Apply pending debt
+        borrowerOperations_applyPendingDebt_clamped(clampedTroveId, 0, 0);
     }
 }

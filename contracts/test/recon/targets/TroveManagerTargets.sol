@@ -116,5 +116,101 @@ abstract contract TroveManagerTargets is BaseTargetFunctions, Properties  {
     //     troveManager.shutdown();
     // }
 
+    // ===== ADDITIONAL SHORTCUT HANDLERS FOR COVERAGE ===== //
+
+    /// Shortcut to trigger urgent redemption after shutdown
+    function shortcut_urgentRedemption_afterShutdown(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint256 _priceCollapse
+    ) public {
+        // Step 1: Open a trove with the actor
+        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+        if (_collAmount == 0) _collAmount = collToken.balanceOf(_getActor());
+        
+        uint256 troveId = borrowerOperations.openTrove(
+            _getActor(),
+            0,
+            _collAmount,
+            _boldAmount % 1000e18 + MIN_DEBT,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 2: Trigger shutdown by collapsing price
+        uint256 collapsePrice = _priceCollapse % 1000e18 + 1e18; // Low price to trigger shutdown
+        priceFeed.setPrice(collapsePrice);
+        
+        // Step 3: Call shutdown (this should succeed if TCR < SCR)
+        try borrowerOperations.shutdown() {} catch {}
+        
+        // Step 4: Ensure actor has Bold to redeem
+        uint256 redeemAmount = (_boldAmount % 100e18) + 1e18;
+        uint256 actorBoldBalance = boldToken.balanceOf(_getActor());
+        if (actorBoldBalance < redeemAmount) {
+            vm.prank(address(borrowerOperations));
+            boldToken.mint(_getActor(), redeemAmount - actorBoldBalance);
+        }
+        
+        // Step 5: Approve Bold for redemption
+        vm.prank(_getActor());
+        boldToken.approve(address(troveManager), redeemAmount);
+        
+        // Step 6: Call urgent redemption
+        uint256[] memory troveIds = new uint256[](1);
+        troveIds[0] = troveId;
+        
+        troveManager_urgentRedemption(redeemAmount, troveIds, 0);
+    }
+
+    /// Shortcut to create liquidatable troves and batch liquidate them
+    function shortcut_batchLiquidateTroves(
+        uint256 _numTroves,
+        uint256 _collPerTrove,
+        uint256 _priceCollapse
+    ) public {
+        _numTroves = (_numTroves % 5) + 1; // 1-5 troves
+        uint256[] memory troveIdsToLiquidate = new uint256[](_numTroves);
+        
+        // Step 1: Open multiple troves
+        for (uint256 i = 0; i < _numTroves; i++) {
+            uint256 collAmount = (_collPerTrove % 100e18) + 10e18;
+            uint256 boldAmount = (collAmount * 50) / 100; // ~50% LTV initially
+            
+            try borrowerOperations.openTrove(
+                _getActor(),
+                i,
+                collAmount,
+                boldAmount,
+                0,
+                0,
+                MAX_ANNUAL_INTEREST_RATE / 2,
+                type(uint256).max,
+                address(0),
+                address(0),
+                address(0)
+            ) returns (uint256 troveId) {
+                troveIdsToLiquidate[i] = troveId;
+            } catch {
+                // If opening fails, use existing trove
+                if (troveIds.length > 0) {
+                    troveIdsToLiquidate[i] = troveIds[i % troveIds.length];
+                }
+            }
+        }
+        
+        // Step 2: Crash the collateral price to make troves liquidatable
+        uint256 crashedPrice = (_priceCollapse % 500e18) + 100e18; // 100-600 USD per ETH
+        priceFeed.setPrice(crashedPrice);
+        
+        // Step 3: Call batch liquidate
+        troveManager_batchLiquidateTroves(troveIdsToLiquidate);
+    }
+
 
 }
