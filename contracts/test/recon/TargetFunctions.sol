@@ -581,6 +581,10 @@ abstract contract TargetFunctions is
             minInterestRate, maxInterestRate, currentInterestRate, annualManagementFee, minInterestRateChangePeriod
         );
         
+        // Warp time forward to pass the minInterestRateChangePeriod cooldown
+        // The minimum is 1 hour, so we warp by the clamped value + 1 to ensure it passes
+        vm.warp(block.timestamp + minInterestRateChangePeriod + 1);
+        
         // Set new rate
         borrowerOperations_setBatchManagerAnnualInterestRate(newAnnualInterestRate, 0, 0, type(uint256).max);
     }
@@ -599,6 +603,10 @@ abstract contract TargetFunctions is
             minInterestRate, maxInterestRate, currentInterestRate, annualManagementFee, minInterestRateChangePeriod
         );
         
+        // Warp time forward to pass the minInterestRateChangePeriod cooldown
+        // The minimum is 1 hour, so we warp by the clamped value + 1 to ensure it passes
+        vm.warp(block.timestamp + minInterestRateChangePeriod + 1);
+        
         // Set new rate
         borrowerOperations_setBatchManagerAnnualInterestRate(newAnnualInterestRate, 0, 0, type(uint256).max);
     }
@@ -615,6 +623,10 @@ abstract contract TargetFunctions is
         borrowerOperations_registerBatchManager_clamped(
             minInterestRate, maxInterestRate, currentInterestRate, annualManagementFee, minInterestRateChangePeriod
         );
+        
+        // Warp time forward to pass the minInterestRateChangePeriod cooldown
+        // The minimum is 1 hour, so we warp by the clamped value + 1 to ensure it passes
+        vm.warp(block.timestamp + minInterestRateChangePeriod + 1);
         
         // Set same rate
         borrowerOperations_setBatchManagerAnnualInterestRate(currentInterestRate, 0, 0, type(uint256).max);
