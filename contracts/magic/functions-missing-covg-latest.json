@@ -1,6 +1,6 @@
 {
-  "timestamp": "1767493479",
-  "lcov_file": "echidna/covered.1767493479.lcov",
+  "timestamp": "1767494789",
+  "lcov_file": "echidna/covered.1767494789.lcov",
   "missing_coverage": [
     {
       "function": "redeemCollateral",
