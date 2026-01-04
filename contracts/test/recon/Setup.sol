@@ -234,8 +234,8 @@ abstract contract Setup is BaseSetup, ActorManager, AssetManager {
         for (uint256 i = 0; i < troveIds.length; i++) {
             uint256 troveId = troveIds[i];
             ITroveManager.Status status = troveManager.getTroveStatus(troveId);
-            // Only include active, unredeemable, and zombie troves (not closed)
-            if (status != ITroveManager.Status.nonExistent && status != ITroveManager.Status.closedByOwner && status != ITroveManager.Status.closedByLiquidation) {
+            // Only include active and zombie troves (not closed)
+            if (status == ITroveManager.Status.active || status == ITroveManager.Status.zombie) {
                 openTroves[openCount] = troveId;
                 openCount++;
             }

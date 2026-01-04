@@ -93,7 +93,7 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         
         // Verify trove status is actually open before proceeding
         ITroveManager.Status status = troveManager.getTroveStatus(_troveId);
-        if (status != ITroveManager.Status.active && status != ITroveManager.Status.unredeemable) return;
+        if (status != ITroveManager.Status.active) return;
         
         // Ensure the actor has sufficient Bold balance to close the trove
         // by minting if needed (this simulates the actor accumulating Bold)
