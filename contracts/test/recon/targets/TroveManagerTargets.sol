@@ -7,6 +7,7 @@ import {vm} from "@chimera/Hevm.sol";
 import "forge-std/console2.sol";
 
 import {Properties} from "../Properties.sol";
+import {MIN_DEBT, MAX_ANNUAL_INTEREST_RATE} from "../../../src/Dependencies/Constants.sol";
 
 abstract contract TroveManagerTargets is BaseTargetFunctions, Properties  {
 

@@ -152,7 +152,7 @@ abstract contract Setup is BaseSetup, ActorManager, AssetManager {
     MockERC20 collToken;
 
     // List of Managers
-    // TODO: Consider adding
+    address[] registeredBatchManagers;
 
     // List of TroveIds
     uint256[] troveIds;
@@ -174,11 +174,60 @@ abstract contract Setup is BaseSetup, ActorManager, AssetManager {
     }
 
     function setNewClampedBatchManager(uint256 entropy) public returns (address) {
-        // Get a random actor to use as batch manager
-        address[] memory actors = _getActors();
-        clampedBatchManager = actors[entropy % actors.length];
+        // If we have registered batch managers, use one of them
+        if (registeredBatchManagers.length > 0) {
+            clampedBatchManager = registeredBatchManagers[entropy % registeredBatchManagers.length];
+        } else {
+            // Fallback to actors if no batch managers registered yet
+            address[] memory actors = _getActors();
+            clampedBatchManager = actors[entropy % actors.length];
+        }
         
         return clampedBatchManager; // So it gets added to the dictionary
+    }
+    
+    // Helper to get active trove ID (filters out closed/liquidated troves)
+    function getActiveOrZombieTroveId(uint256 entropy) public view returns (uint256) {
+        uint256[] memory activeTroves = new uint256[](troveIds.length);
+        uint256 activeCount = 0;
+        
+        for (uint256 i = 0; i < troveIds.length; i++) {
+            uint256 troveId = troveIds[i];
+            ITroveManager.Status status = troveManager.getTroveStatus(troveId);
+            // Include active and zombie troves
+            if (status == ITroveManager.Status.active || status == ITroveManager.Status.zombie) {
+                activeTroves[activeCount] = troveId;
+                activeCount++;
+            }
+        }
+        
+        if (activeCount == 0) {
+            return troveIds.length > 0 ? troveIds[0] : 0;
+        }
+        
+        return activeTroves[entropy % activeCount];
+    }
+    
+    // Helper to get open (not closed) trove ID
+    function getOpenTroveId(uint256 entropy) public view returns (uint256) {
+        uint256[] memory openTroves = new uint256[](troveIds.length);
+        uint256 openCount = 0;
+        
+        for (uint256 i = 0; i < troveIds.length; i++) {
+            uint256 troveId = troveIds[i];
+            ITroveManager.Status status = troveManager.getTroveStatus(troveId);
+            // Only include active, unredeemable, and zombie troves (not closed)
+            if (status != ITroveManager.Status.nonExistent && status != ITroveManager.Status.closedByOwner && status != ITroveManager.Status.closedByLiquidation) {
+                openTroves[openCount] = troveId;
+                openCount++;
+            }
+        }
+        
+        if (openCount == 0) {
+            return troveIds.length > 0 ? troveIds[0] : 0;
+        }
+        
+        return openTroves[entropy % openCount];
     }
 
 

@@ -12,6 +12,7 @@ import {IBorrowerOperations} from "../../../src/Interfaces/IBorrowerOperations.s
 
 import {LiquityMath} from "../../../src/Dependencies/LiquityMath.sol";
 import {MIN_DEBT, MAX_ANNUAL_INTEREST_RATE, MAX_ANNUAL_BATCH_MANAGEMENT_FEE, _100pct} from "../../../src/Dependencies/Constants.sol";
+import {LatestTroveData} from "../../../src/Types/LatestTroveData.sol";
 
 abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  {
 
@@ -35,7 +36,8 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     }
 
     function borrowerOperations_adjustTroveInterestRate_clamped(uint256 _troveId, uint256 _newAnnualInterestRate, uint256 _upperHint, uint256 _lowerHint, uint256 _maxUpfrontFee) public {
-        _troveId = setNewClampedTroveId(_troveId);
+        // Use active trove instead of any trove
+        _troveId = getActiveOrZombieTroveId(_troveId);
         _newAnnualInterestRate = _newAnnualInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1);
         _upperHint = setNewClampedTroveId(_upperHint);
         _lowerHint = setNewClampedTroveId(_lowerHint);
@@ -62,27 +64,17 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     }
 
     function borrowerOperations_closeTrove_clamped(uint256 _troveId) public {
-        _troveId = setNewClampedTroveId(_troveId);
+        // Use open trove instead of any trove
+        _troveId = getOpenTroveId(_troveId);
         
         // Ensure the actor has sufficient Bold balance to close the trove
         // by minting if needed (this simulates the actor accumulating Bold)
-        try troveManager.getLatestTroveData(_troveId) returns (
-            uint256 entireDebt,
-            uint256,  // entireColl
-            uint256,  // redistBoldDebtGain
-            uint256,  // redistCollGain
-            uint256,  // accruedInterest
-            uint256,  // recordedDebt
-            uint256,  // annualInterestRate
-            uint256,  // weightedRecordedDebt
-            uint256,  // accruedBatchManagementFee
-            uint256   // lastInterestRateAdjTime
-        ) {
+        try troveManager.getLatestTroveData(_troveId) returns (LatestTroveData memory troveData) {
             uint256 actorBalance = boldToken.balanceOf(_getActor());
-            if (actorBalance < entireDebt) {
+            if (actorBalance < troveData.entireDebt) {
                 // Mint the difference to actor to ensure they can close
                 vm.prank(address(borrowerOperations));
-                boldToken.mint(_getActor(), entireDebt - actorBalance);
+                boldToken.mint(_getActor(), troveData.entireDebt - actorBalance);
             }
         } catch {}
         
@@ -201,7 +193,8 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     }
 
     function borrowerOperations_withdrawBold_clamped(uint256 _troveId, uint256 _boldAmount, uint256 _maxUpfrontFee) public {
-        _troveId = setNewClampedTroveId(_troveId);
+        // Use active trove
+        _troveId = getActiveOrZombieTroveId(_troveId);
         
         // Clamp to available debt capacity under the debt limit
         uint256 debtLimit = troveManager.getDebtLimit();
@@ -209,7 +202,11 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         
         if (debtLimit > currentSystemDebt) {
             uint256 availableDebt = debtLimit - currentSystemDebt;
-            _boldAmount = (_boldAmount % availableDebt) + 1; // ensure > 0
+            if (availableDebt > 0) {
+                _boldAmount = (_boldAmount % availableDebt) + 1; // ensure > 0
+            } else {
+                _boldAmount = 1; // minimal amount
+            }
         } else {
             _boldAmount = 1; // minimal amount if at limit
         }
@@ -218,7 +215,8 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     }
 
     function borrowerOperations_withdrawColl_clamped(uint256 _troveId, uint256 _collWithdrawal) public {
-        _troveId = setNewClampedTroveId(_troveId);
+        // Use active trove
+        _troveId = getActiveOrZombieTroveId(_troveId);
         
         borrowerOperations_withdrawColl(_troveId, _collWithdrawal);
     }
@@ -278,6 +276,8 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
 
     function borrowerOperations_registerBatchManager(uint128 _minInterestRate, uint128 _maxInterestRate, uint128 _currentInterestRate, uint128 _annualManagementFee, uint128 _minInterestRateChangePeriod) public updateGhosts asActor {
         borrowerOperations.registerBatchManager(_minInterestRate, _maxInterestRate, _currentInterestRate, _annualManagementFee, _minInterestRateChangePeriod);
+        // Track registered batch manager
+        registeredBatchManagers.push(_getActor());
     }
 
     function borrowerOperations_removeFromBatch(uint256 _troveId, uint256 _newAnnualInterestRate, uint256 _upperHint, uint256 _lowerHint, uint256 _maxUpfrontFee) public updateGhosts asActor {
@@ -421,7 +421,7 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     /// Shortcut to close a trove with proper setup
     function shortcut_closeTrove_withSetup(uint256 _collAmount, uint256 _boldAmount) public {
         // Open a trove
-        uint256 troveId = borrowerOperations_openTrove_clamped(
+        borrowerOperations_openTrove_clamped(
             address(0),
             0,
             _collAmount,
@@ -439,7 +439,7 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         vm.warp(block.timestamp + 365 days);
         
         // Close the trove with clamped handler that ensures sufficient Bold
-        borrowerOperations_closeTrove_clamped(troveId);
+        borrowerOperations_closeTrove_clamped(clampedTroveId);
     }
 
     /// Shortcut for applyPendingDebt on a batch trove

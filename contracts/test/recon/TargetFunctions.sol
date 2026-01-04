@@ -904,6 +904,42 @@ abstract contract TargetFunctions is
         stabilityPool_provideToSP_clamped(topUp, true);
     }
 
+    // ===== SHORTCUT FUNCTIONS FOR troveManager_urgentRedemption =====
+    // Prerequisites: shutdown system, open troves
+    // This function requires the system to be in shutdown state
+    function shortcut_urgentRedemption(
+        uint256 collAmount,
+        uint256 boldAmount,
+        uint256 annualInterestRate,
+        uint256 redemptionAmount,
+        uint88 newPrice
+    ) public {
+        // Step 1: Open a trove to have some debt in the system
+        borrowerOperations_openTrove_clamped(
+            address(0), 0, collAmount, boldAmount, 0, 0, annualInterestRate, type(uint256).max,
+            address(0), address(0), address(0)
+        );
+        
+        // Step 2: Trigger shutdown by crashing the price
+        priceFeed_setPrice(newPrice % (100e18 + 1)); // Low price to trigger TCR < SCR
+        
+        // Step 3: Call shutdown
+        borrowerOperations_shutdown();
+        
+        // Step 4: Ensure actor has Bold tokens for redemption
+        redemptionAmount = redemptionAmount % (boldToken.balanceOf(_getActor()) + 1);
+        if (redemptionAmount == 0) {
+            redemptionAmount = 1;
+        }
+        
+        // Step 5: Build array of trove IDs
+        uint256[] memory troveIdsArray = new uint256[](1);
+        troveIdsArray[0] = clampedTroveId;
+        
+        // Step 6: Call urgent redemption
+        troveManager_urgentRedemption(redemptionAmount, troveIdsArray, 1);
+    }
+
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
 
     function canary_liquidation() public {
