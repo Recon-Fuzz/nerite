@@ -1,5 +1,6 @@
 {
   "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol": [
+    "94-95",
     "101-102",
     "113-116",
     "122-123",
@@ -672,14 +673,6 @@
   "src/CollSurplusPool.sol": [
     "47-48"
   ],
-  "lib/openzeppelin-contracts/contracts/utils/structs/EnumerableSet.sol": [
-    "120-121",
-    "127-128",
-    "141-142",
-    "260-261",
-    "267-268",
-    "281-282"
-  ],
   "lib/V2-gov/lib/openzeppelin-contracts/contracts/utils/structs/EnumerableSet.sol": [
     "127-128",
     "141-142",
@@ -689,5 +682,13 @@
     "293-295",
     "298-299",
     "302"
+  ],
+  "lib/openzeppelin-contracts/contracts/utils/structs/EnumerableSet.sol": [
+    "120-121",
+    "127-128",
+    "141-142",
+    "260-261",
+    "267-268",
+    "281-282"
   ]
 }
