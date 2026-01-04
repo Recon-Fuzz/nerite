@@ -469,4 +469,220 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         // Apply pending debt
         borrowerOperations_applyPendingDebt_clamped(clampedTroveId, 0, 0);
     }
+
+    /// Shortcut for setBatchManagerAnnualInterestRate - ensures batch manager has troves
+    function shortcut_setBatchManagerAnnualInterestRate_withBatch(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _newAnnualInterestRate
+    ) public {
+        // Step 1: Register a batch manager
+        borrowerOperations_registerAndUseBatchManager(
+            uint128(MAX_ANNUAL_INTEREST_RATE / 2),
+            uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 2)
+        );
+        
+        // Step 2: Open trove and join the batch (this puts the batch manager address in clampedBatchManager)
+        borrowerOperations_openTroveAndJoinInterestBatchManager_clamped(
+            _collAmount,
+            _boldAmount,
+            _newAnnualInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1),
+            clampedBatchManager,  // Use the batch manager we just registered
+            type(uint256).max
+        );
+        
+        // Step 3: Warp time to ensure cooldown period has passed
+        vm.warp(block.timestamp + 8 days); // INTEREST_RATE_ADJ_COOLDOWN is 7 days
+        
+        // Step 4: Call setBatchManagerAnnualInterestRate as the batch manager
+        uint128 adjustedRate = uint128((_newAnnualInterestRate + 1) % (MAX_ANNUAL_INTEREST_RATE + 1));
+        borrowerOperations_setBatchManagerAnnualInterestRate_clamped(
+            adjustedRate,
+            0,
+            0,
+            type(uint256).max
+        );
+    }
+
+    /// Shortcut for setInterestIndividualDelegate - ensures caller owns the trove
+    function shortcut_setInterestIndividualDelegate_ownedTrove(
+        uint256 _collAmount,
+        uint256 _boldAmount
+    ) public {
+        // Step 1: Open a trove (actor automatically becomes the owner)
+        borrowerOperations_openTrove_clamped(
+            address(0),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 2: The clampedTroveId now contains the trove owned by current actor
+        // Call setInterestIndividualDelegate on this owned trove
+        borrowerOperations_setInterestIndividualDelegate_clamped(
+            clampedTroveId,
+            _getActor(),
+            0,
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            0,
+            0,
+            type(uint256).max,
+            0
+        );
+    }
+
+    /// Shortcut for adjustTroveInterestRate - ensures trove is active
+    function shortcut_adjustTroveInterestRate_activeTrove(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _newAnnualInterestRate
+    ) public {
+        // Step 1: Open a trove (will be active)
+        borrowerOperations_openTrove_clamped(
+            address(0),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 2: Warp time to ensure cooldown has passed
+        vm.warp(block.timestamp + 8 days);
+        
+        // Step 3: Adjust the interest rate on this active trove
+        borrowerOperations_adjustTroveInterestRate_clamped(
+            clampedTroveId,
+            _newAnnualInterestRate,
+            0,
+            0,
+            type(uint256).max
+        );
+    }
+
+    /// Shortcut for removeFromBatch - ensures trove is in a batch
+    function shortcut_removeFromBatch_inBatch(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _newAnnualInterestRate
+    ) public {
+        // Step 1: Register a batch manager
+        borrowerOperations_registerAndUseBatchManager(
+            uint128(MAX_ANNUAL_INTEREST_RATE / 2),
+            uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 2)
+        );
+        
+        // Step 2: Open trove and join batch
+        borrowerOperations_openTroveAndJoinInterestBatchManager_clamped(
+            _collAmount,
+            _boldAmount,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            clampedBatchManager,
+            type(uint256).max
+        );
+        
+        // Step 3: Warp time to ensure cooldown has passed
+        vm.warp(block.timestamp + 8 days);
+        
+        // Step 4: Remove from batch
+        borrowerOperations_removeFromBatch_clamped(
+            clampedTroveId,
+            _newAnnualInterestRate,
+            0,
+            0,
+            type(uint256).max
+        );
+    }
+
+    /// Shortcut for setInterestBatchManager - ensures trove is NOT in a batch and batch manager exists
+    function shortcut_setInterestBatchManager_standalone(
+        uint256 _collAmount,
+        uint256 _boldAmount
+    ) public {
+        // Step 1: Open a standalone trove (NOT in a batch)
+        borrowerOperations_openTrove_clamped(
+            address(0),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 2: Register a batch manager (using a different actor to avoid conflicts)
+        borrowerOperations_registerAndUseBatchManager(
+            uint128(MAX_ANNUAL_INTEREST_RATE / 2),
+            uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 2)
+        );
+        
+        // Step 3: Set the batch manager for the standalone trove
+        borrowerOperations_setInterestBatchManager_clamped(
+            clampedTroveId,
+            clampedBatchManager,
+            0,
+            0,
+            type(uint256).max
+        );
+    }
+
+    /// Shortcut for switchBatchManager - ensures trove is in a batch and another batch exists
+    function shortcut_switchBatchManager_twoBatches(
+        uint256 _collAmount,
+        uint256 _boldAmount
+    ) public {
+        // Step 1: Register first batch manager
+        borrowerOperations_registerAndUseBatchManager(
+            uint128(MAX_ANNUAL_INTEREST_RATE / 2),
+            uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 2)
+        );
+        address firstBatchManager = clampedBatchManager;
+        
+        // Step 2: Open trove and join first batch
+        borrowerOperations_openTroveAndJoinInterestBatchManager_clamped(
+            _collAmount,
+            _boldAmount,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            firstBatchManager,
+            type(uint256).max
+        );
+        uint256 troveInBatch = clampedTroveId;
+        
+        // Step 3: Register second batch manager
+        borrowerOperations_registerAndUseBatchManager(
+            uint128(MAX_ANNUAL_INTEREST_RATE / 3),
+            uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 3)
+        );
+        
+        // Step 4: Warp time to ensure cooldown has passed
+        vm.warp(block.timestamp + 8 days);
+        
+        // Step 5: Switch from first batch to second batch
+        borrowerOperations_switchBatchManager_clamped(
+            troveInBatch,
+            0,
+            0,
+            clampedBatchManager,  // Second batch manager
+            0,
+            0,
+            type(uint256).max
+        );
+    }
 }

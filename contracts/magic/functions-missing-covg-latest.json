@@ -1,6 +1,6 @@
 {
-  "timestamp": "1767484939",
-  "lcov_file": "echidna/covered.1767484939.lcov",
+  "timestamp": "1767486981",
+  "lcov_file": "echidna/covered.1767486981.lcov",
   "missing_coverage": [
     {
       "function": "redeemCollateral",
@@ -31,12 +31,10 @@
         "end": 906
       },
       "uncovered_code": {
-        "line_range": "850-905",
-        "last_covered_line": 849,
+        "line_range": "853-905",
+        "last_covered_line": 851,
         "code": [
-          "849: [LAST COVERED]         _requireIsShutDown();",
-          "850:         _requireAmountGreaterThanZero(_boldAmount);",
-          "851:         _requireBoldBalanceCoversRedemption(boldToken, msg.sender, _boldAmount);",
+          "851: [LAST COVERED]         _requireBoldBalanceCoversRedemption(boldToken, msg.sender, _boldAmount);",
           "853:         IActivePool activePoolCached = activePool;",
           "854:         TroveChange memory totalsTroveChange;",
           "857:         (uint256 price,) = priceFeed.fetchPrice();",
@@ -156,31 +154,6 @@
         ]
       },
       "complexity": 4
-    },
-    {
-      "function": "applyPendingDebt",
-      "contract": "BorrowerOperations",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
-      "function_range": {
-        "start": 743,
-        "end": 792
-      },
-      "uncovered_code": {
-        "line_range": "764-771",
-        "last_covered_line": 762,
-        "code": [
-          "762: [LAST COVERED]             change.newWeightedRecordedDebt = trove.entireDebt * trove.annualInterestRate;",
-          "764:             batch = troveManagerCached.getLatestBatchData(batchManager);",
-          "765:             change.batchAccruedManagementFee = batch.accruedManagementFee;",
-          "766:             change.oldWeightedRecordedDebt = batch.weightedRecordedDebt;",
-          "767:             change.newWeightedRecordedDebt =",
-          "768:                 (batch.entireDebtWithoutRedistribution + trove.redistBoldDebtGain) * batch.annualInterestRate;",
-          "769:             change.oldWeightedRecordedBatchManagementFee = batch.weightedRecordedBatchManagementFee;",
-          "770:             change.newWeightedRecordedBatchManagementFee =",
-          "771:                 (batch.entireDebtWithoutRedistribution + trove.redistBoldDebtGain) * batch.annualManagementFee;"
-        ]
-      },
-      "complexity": 3
     },
     {
       "function": "applyPendingDebt",
@@ -441,38 +414,6 @@
       "complexity": 2
     },
     {
-      "function": "openTroveAndJoinInterestBatchManager",
-      "contract": "BorrowerOperations",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
-      "function_range": {
-        "start": 235,
-        "end": 288
-      },
-      "uncovered_code": {
-        "line_range": "267-287",
-        "last_covered_line": 264,
-        "code": [
-          "264: [LAST COVERED]             vars.change",
-          "267:         interestBatchManagerOf[vars.troveId] = _params.interestBatchManager;",
-          "270:         vars.troveManager.onOpenTroveAndJoinBatch(",
-          "271:             _params.owner,",
-          "272:             vars.troveId,",
-          "273:             vars.change,",
-          "274:             _params.interestBatchManager,",
-          "275:             vars.batch.entireCollWithoutRedistribution,",
-          "276:             vars.batch.entireDebtWithoutRedistribution",
-          "279:         sortedTroves.insertIntoBatch(",
-          "280:             vars.troveId,",
-          "281:             BatchId.wrap(_params.interestBatchManager),",
-          "282:             vars.batch.annualInterestRate,",
-          "283:             _params.upperHint,",
-          "284:             _params.lowerHint",
-          "287:         return vars.troveId;"
-        ]
-      },
-      "complexity": 1
-    },
-    {
       "function": "removeInterestIndividualDelegate",
       "contract": "BorrowerOperations",
       "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
@@ -486,24 +427,6 @@
         "code": [
           "833: [LAST COVERED]         _requireCallerIsBorrower(_troveId);",
           "834:         delete interestIndividualDelegateOf[_troveId];"
-        ]
-      },
-      "complexity": 1
-    },
-    {
-      "function": "shutdownFromOracleFailure",
-      "contract": "BorrowerOperations",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
-      "function_range": {
-        "start": 1183,
-        "end": 1191
-      },
-      "uncovered_code": {
-        "line_range": "1188",
-        "last_covered_line": 1184,
-        "code": [
-          "1184: [LAST COVERED]         _requireCallerIsPriceFeed();",
-          "1188:         if (hasBeenShutDown) return;"
         ]
       },
       "complexity": 1
@@ -525,26 +448,6 @@
           "1107:         LatestBatchData memory oldBatch = troveManager.getLatestBatchData(oldBatchManager);",
           "1109:         removeFromBatch(_troveId, oldBatch.annualInterestRate, _removeUpperHint, _removeLowerHint, 0);",
           "1110:         setInterestBatchManager(_troveId, _newBatchManager, _addUpperHint, _addLowerHint, _maxUpfrontFee);"
-        ]
-      },
-      "complexity": 1
-    },
-    {
-      "function": "withdrawBold",
-      "contract": "BorrowerOperations",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
-      "function_range": {
-        "start": 404,
-        "end": 413
-      },
-      "uncovered_code": {
-        "line_range": "408-411",
-        "last_covered_line": 406,
-        "code": [
-          "406: [LAST COVERED]         _requireTroveIsActive(troveManagerCached, _troveId);",
-          "408:         require(troveManagerCached.getDebtLimit() >= troveManagerCached.getEntireSystemDebt() + _boldAmount, \"BorrowerOperations: Debt limit exceeded.\");",
-          "410:         TroveChange memory troveChange;",
-          "411:         troveChange.debtIncrease = _boldAmount;"
         ]
       },
       "complexity": 1
@@ -631,53 +534,12 @@
         ]
       },
       "complexity": 1
-    },
-    {
-      "function": "claimAllCollGains",
-      "contract": "StabilityPool",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/StabilityPool.sol",
-      "function_range": {
-        "start": 353,
-        "end": 366
-      },
-      "uncovered_code": {
-        "line_range": "360-363",
-        "last_covered_line": 359,
-        "code": [
-          "359: [LAST COVERED]         _requireNonZeroAmount(collToSend);",
-          "360:         stashedColl[msg.sender] = 0;",
-          "362:         emit DepositOperation(msg.sender, Operation.claimAllCollGains, 0, 0, 0, 0, 0, collToSend);",
-          "363:         emit DepositUpdated(msg.sender, 0, 0, 0, 0, 0, 0, 0);"
-        ]
-      },
-      "complexity": 1
-    },
-    {
-      "function": "offset",
-      "contract": "StabilityPool",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/StabilityPool.sol",
-      "function_range": {
-        "start": 421,
-        "end": 429
-      },
-      "uncovered_code": {
-        "line_range": "423-428",
-        "last_covered_line": 422,
-        "code": [
-          "422: [LAST COVERED]         _requireCallerIsTroveManager();",
-          "423:         uint256 totalBold = totalBoldDeposits; // cached to save an SLOAD",
-          "424:         if (totalBold == 0 || _debtToOffset == 0) return;",
-          "426:         _updateCollRewardSumAndProduct(_collToAdd, _debtToOffset, totalBold); // updates S and P",
-          "428:         _moveOffsetCollAndDebt(_collToAdd, _debtToOffset);"
-        ]
-      },
-      "complexity": 1
     }
   ],
   "summary": {
     "functions_analyzed": 185,
-    "functions_with_missing_coverage": 21,
-    "uncovered_sections": 23,
+    "functions_with_missing_coverage": 16,
+    "uncovered_sections": 17,
     "full_coverage": false
   }
 }
