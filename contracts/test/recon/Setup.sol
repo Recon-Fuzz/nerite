@@ -266,8 +266,20 @@ abstract contract Setup is BaseSetup, ActorManager, AssetManager {
             }
         }
         
+        // If no active standalone troves found, check if troveIds[0] qualifies
+        // Otherwise return 0 to indicate no valid trove exists
         if (standaloneCount == 0) {
-            return troveIds.length > 0 ? troveIds[0] : 0;
+            if (troveIds.length > 0) {
+                uint256 firstTroveId = troveIds[0];
+                ITroveManager.Status status = troveManager.getTroveStatus(firstTroveId);
+                if (status == ITroveManager.Status.active) {
+                    address batchManager = borrowerOperations.interestBatchManagerOf(firstTroveId);
+                    if (batchManager == address(0)) {
+                        return firstTroveId;
+                    }
+                }
+            }
+            return 0; // No active standalone troves available
         }
         
         return standaloneTroves[entropy % standaloneCount];
