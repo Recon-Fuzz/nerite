@@ -1,6 +1,6 @@
 {
-  "timestamp": "1767494789",
-  "lcov_file": "echidna/covered.1767494789.lcov",
+  "timestamp": "1767496084",
+  "lcov_file": "echidna/covered.1767496084.lcov",
   "missing_coverage": [
     {
       "function": "redeemCollateral",
@@ -210,45 +210,11 @@
         "end": 547
       },
       "uncovered_code": {
-        "line_range": "516-543",
-        "last_covered_line": 515,
+        "line_range": "535",
+        "last_covered_line": 533,
         "code": [
-          "515: [LAST COVERED]         _requireSenderIsOwnerOrInterestManager(_troveId);",
-          "516:         _requireTroveIsActive(troveManagerCached, _troveId);",
-          "518:         LatestTroveData memory trove = troveManagerCached.getLatestTroveData(_troveId);",
-          "519:         _requireValidDelegateAdustment(_troveId, trove.lastInterestRateAdjTime, _newAnnualInterestRate);",
-          "520:         _requireAnnualInterestRateIsNew(trove.annualInterestRate, _newAnnualInterestRate);",
-          "522:         uint256 newDebt = trove.entireDebt;",
-          "524:         TroveChange memory troveChange;",
-          "525:         troveChange.appliedRedistBoldDebtGain = trove.redistBoldDebtGain;",
-          "526:         troveChange.appliedRedistCollGain = trove.redistCollGain;",
-          "527:         troveChange.newWeightedRecordedDebt = newDebt * _newAnnualInterestRate;",
-          "528:         troveChange.oldWeightedRecordedDebt = trove.weightedRecordedDebt;",
-          "531:         if (",
-          "532:             trove.annualInterestRate != _newAnnualInterestRate",
-          "533:                 && block.timestamp < trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN",
-          "535:             newDebt = _applyUpfrontFee(trove.entireColl, newDebt, troveChange, _maxUpfrontFee);",
-          "539:         troveChange.newWeightedRecordedDebt = newDebt * _newAnnualInterestRate;",
-          "541:         activePool.mintAggInterestAndAccountForTroveChange(troveChange, address(0));",
-          "543:         sortedTroves.reInsert(_troveId, _newAnnualInterestRate, _upperHint, _lowerHint);"
-        ]
-      },
-      "complexity": 2
-    },
-    {
-      "function": "adjustTroveInterestRate",
-      "contract": "BorrowerOperations",
-      "source_file": "/Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/src/BorrowerOperations.sol",
-      "function_range": {
-        "start": 502,
-        "end": 547
-      },
-      "uncovered_code": {
-        "line_range": "545",
-        "last_covered_line": 544,
-        "code": [
-          "544: [LAST COVERED]         troveManagerCached.onAdjustTroveInterestRate(",
-          "545:             _troveId, trove.entireColl, newDebt, _newAnnualInterestRate, troveChange"
+          "533: [LAST COVERED]                 && block.timestamp < trove.lastInterestRateAdjTime + INTEREST_RATE_ADJ_COOLDOWN",
+          "535:             newDebt = _applyUpfrontFee(trove.entireColl, newDebt, troveChange, _maxUpfrontFee);"
         ]
       },
       "complexity": 2
@@ -480,7 +446,7 @@
   "summary": {
     "functions_analyzed": 185,
     "functions_with_missing_coverage": 14,
-    "uncovered_sections": 16,
+    "uncovered_sections": 15,
     "full_coverage": false
   }
 }

@@ -1814,4 +1814,203 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
             type(uint256).max
         ) {} catch {}
     }
+    
+    /// Shortcut for adjustTroveInterestRate within cooldown period to trigger upfront fee path
+    /// Addresses line 535 - the conditional for applying upfront fee when adjusting too quickly
+    function shortcut_adjustTroveInterestRate_prematureAdjustment(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _initialRate,
+        uint128 _newRate
+    ) public {
+        // Step 1: Open a standalone trove (not in a batch) with initial rate
+        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+        if (_collAmount < 10e18) _collAmount = 10e18;
+        _boldAmount = (_boldAmount % (MIN_DEBT * 10)) + MIN_DEBT;
+        
+        // Ensure rates are valid and DIFFERENT
+        uint256 range = MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE;
+        _initialRate = uint128(MIN_ANNUAL_INTEREST_RATE + (_initialRate % (range + 1)));
+        _newRate = uint128(MIN_ANNUAL_INTEREST_RATE + (_newRate % (range + 1)));
+        
+        // Make sure new rate is different from initial rate
+        if (_newRate == _initialRate) {
+            _newRate = uint128(_initialRate + 1);
+            if (_newRate > MAX_ANNUAL_INTEREST_RATE) {
+                _newRate = uint128(_initialRate - 1);
+            }
+        }
+        
+        // Open trove with initial rate
+        uint256 troveId = borrowerOperations.openTrove(
+            _getActor(),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            _initialRate,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 2: Immediately adjust rate (within INTEREST_RATE_ADJ_COOLDOWN)
+        // This should trigger the upfront fee path at lines 531-536
+        try borrowerOperations.adjustTroveInterestRate(
+            troveId,
+            _newRate,
+            0,
+            0,
+            type(uint256).max
+        ) {} catch {}
+    }
+    
+    /// Shortcut for setBatchManagerAnnualInterestRate with troves in batch
+    /// Addresses line 951 - reInsertBatch when batch is not empty
+    function shortcut_setBatchManagerRate_withTroves(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _initialRate,
+        uint128 _newRate
+    ) public {
+        address originalActor = _getActor();
+        
+        // Step 1: Register current actor as a batch manager with initial rate
+        uint256 range = MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE;
+        _initialRate = uint128(MIN_ANNUAL_INTEREST_RATE + (_initialRate % (range + 1)));
+        _newRate = uint128(MIN_ANNUAL_INTEREST_RATE + (_newRate % (range + 1)));
+        
+        borrowerOperations.registerBatchManager(
+            0,
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            _initialRate,
+            uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 2),
+            1 hours
+        );
+        address batchManagerAddr = _getActor();
+        
+        // Step 2: Switch to different actor and have them join the batch
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            for (uint256 i = 0; i < actors.length; i++) {
+                if (actors[i] != batchManagerAddr) {
+                    _enableActor(actors[i]);
+                    break;
+                }
+            }
+        }
+        
+        // Step 3: Open trove and join batch
+        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+        if (_collAmount < 10e18) _collAmount = 10e18;
+        _boldAmount = (_boldAmount % (MIN_DEBT * 10)) + MIN_DEBT;
+        
+        IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams memory params = 
+            IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams({
+                owner: _getActor(),
+                ownerIndex: 0,
+                collAmount: _collAmount,
+                boldAmount: _boldAmount,
+                upperHint: 0,
+                lowerHint: 0,
+                interestBatchManager: batchManagerAddr,
+                maxUpfrontFee: type(uint256).max,
+                addManager: address(0),
+                removeManager: address(0),
+                receiver: address(0)
+            });
+        
+        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) {} catch {}
+        
+        // Step 4: Switch back to batch manager actor and change the rate
+        // This should cover line 951 since the batch now has troves
+        _enableActor(batchManagerAddr);
+        vm.warp(block.timestamp + 8 days); // Wait out cooldown
+        
+        try borrowerOperations.setBatchManagerAnnualInterestRate(
+            _newRate,
+            0,
+            0,
+            type(uint256).max
+        ) {} catch {}
+    }
+    
+    /// Shortcut for setBatchManagerAnnualInterestRate with premature adjustment
+    /// Addresses lines 928-944 - the upfront fee path when changing rate within cooldown
+    function shortcut_setBatchManagerRate_prematureAdjustment(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _initialRate,
+        uint128 _newRate
+    ) public {
+        address originalActor = _getActor();
+        
+        // Step 1: Register current actor as a batch manager with initial rate
+        uint256 range = MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE;
+        _initialRate = uint128(MIN_ANNUAL_INTEREST_RATE + (_initialRate % (range + 1)));
+        _newRate = uint128(MIN_ANNUAL_INTEREST_RATE + (_newRate % (range + 1)));
+        
+        // Make sure new rate is different from initial rate
+        if (_newRate == _initialRate) {
+            _newRate = uint128(_initialRate + 1);
+            if (_newRate > MAX_ANNUAL_INTEREST_RATE) {
+                _newRate = uint128(_initialRate - 1);
+            }
+        }
+        
+        borrowerOperations.registerBatchManager(
+            0,
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            _initialRate,
+            uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 2),
+            1 hours
+        );
+        address batchManagerAddr = _getActor();
+        
+        // Step 2: Switch to different actor and have them join the batch
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            for (uint256 i = 0; i < actors.length; i++) {
+                if (actors[i] != batchManagerAddr) {
+                    _enableActor(actors[i]);
+                    break;
+                }
+            }
+        }
+        
+        // Step 3: Open trove and join batch
+        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+        if (_collAmount < 10e18) _collAmount = 10e18;
+        _boldAmount = (_boldAmount % (MIN_DEBT * 10)) + MIN_DEBT;
+        
+        IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams memory params = 
+            IBorrowerOperations.OpenTroveAndJoinInterestBatchManagerParams({
+                owner: _getActor(),
+                ownerIndex: 0,
+                collAmount: _collAmount,
+                boldAmount: _boldAmount,
+                upperHint: 0,
+                lowerHint: 0,
+                interestBatchManager: batchManagerAddr,
+                maxUpfrontFee: type(uint256).max,
+                addManager: address(0),
+                removeManager: address(0),
+                receiver: address(0)
+            });
+        
+        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) {} catch {}
+        
+        // Step 4: Switch back to batch manager actor and IMMEDIATELY change the rate
+        // This should trigger the upfront fee path at lines 925-944 since we're within cooldown
+        _enableActor(batchManagerAddr);
+        
+        try borrowerOperations.setBatchManagerAnnualInterestRate(
+            _newRate,
+            0,
+            0,
+            type(uint256).max
+        ) {} catch {}
+    }
 }
