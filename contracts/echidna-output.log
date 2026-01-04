@@ -1,668 +1,698 @@
-[2026-01-03 21:24:56.27] Compiling .... WARNING: Slither was explicitly disabled. Echidna uses Slither (https://github.com/crytic/slither) to perform source analysis, which makes fuzzing more effective. You should enable it.
-Done! (76.368905s)
+[2026-01-03 21:57:19.28] Compiling .... WARNING: Slither was explicitly disabled. Echidna uses Slither (https://github.com/crytic/slither) to perform source analysis, which makes fuzzing more effective. You should enable it.
+Done! (76.277784s)
 Analyzing contract: /Users/nelsonpereira/Documents/GitHub/Auditing/Fuzzing/Recon_Fuzzing/Nerite_Fresh/nerite/contracts/test/recon/CryticTester.sol:CryticTester
 Loaded 0 transaction sequences from echidna/reproducers
-Loaded 260 transaction sequences from echidna/coverage
-[2026-01-03 21:26:15.94] [Worker 2] New coverage: 65303 instr, 59 contracts, 1 seqs in corpus
-[2026-01-03 21:26:15.95] [Worker 1] New coverage: 65479 instr, 59 contracts, 2 seqs in corpus
-[2026-01-03 21:26:15.95] [Worker 3] New coverage: 65479 instr, 59 contracts, 3 seqs in corpus
-[2026-01-03 21:26:15.96] [Worker 0] New coverage: 65489 instr, 59 contracts, 4 seqs in corpus
-[2026-01-03 21:26:15.97]  Saved reproducer to echidna/coverage/6986825690449066606.txt
-[2026-01-03 21:26:15.98] [Worker 2] Sequence replayed from corpus file 6986825690449066606.txt (1/65)
-[2026-01-03 21:26:15.98] [Worker 1] Sequence replayed from corpus file 2245657584463757228.txt (1/65)
-[2026-01-03 21:26:15.98] [Worker 3] Sequence replayed from corpus file 4687275374763087940.txt (1/65)
-[2026-01-03 21:26:15.98] [Worker 0] Sequence replayed from corpus file 6044305551371077525.txt (1/65)
-[2026-01-03 21:26:16.02]  Saved reproducer to echidna/coverage/2245657584463757228.txt
-[2026-01-03 21:26:16.06]  Saved reproducer to echidna/coverage/4687275374763087940.txt
-[2026-01-03 21:26:16.09] [Worker 0] New coverage: 69717 instr, 59 contracts, 5 seqs in corpus
-[2026-01-03 21:26:16.09] [Worker 0] Sequence replayed from corpus file 1018429691800989152.txt (2/65)
-[2026-01-03 21:26:16.09] [Worker 1] New coverage: 69717 instr, 59 contracts, 6 seqs in corpus
-[2026-01-03 21:26:16.10] [Worker 1] Sequence replayed from corpus file 3603008595657287036.txt (2/65)
-[2026-01-03 21:26:16.10]  Saved reproducer to echidna/coverage/6044305551371077525.txt
-[2026-01-03 21:26:16.11] [Worker 3] New coverage: 69717 instr, 59 contracts, 7 seqs in corpus
-[2026-01-03 21:26:16.11] [Worker 3] Sequence replayed from corpus file 3093929846583908843.txt (2/65)
-[2026-01-03 21:26:16.14]  Saved reproducer to echidna/coverage/1018429691800989152.txt
-[2026-01-03 21:26:16.14] [Worker 2] New coverage: 69732 instr, 59 contracts, 8 seqs in corpus
-[2026-01-03 21:26:16.14] [Worker 2] Sequence replayed from corpus file 524430106065283008.txt (2/65)
-[2026-01-03 21:26:16.18]  Saved reproducer to echidna/coverage/3603008595657287036.txt
-[2026-01-03 21:26:16.22] [Worker 1] New coverage: 69732 instr, 59 contracts, 9 seqs in corpus
-[2026-01-03 21:26:16.22] [Worker 1] Sequence replayed from corpus file 8246126709399510362.txt (3/65)
-[2026-01-03 21:26:16.24]  Saved reproducer to echidna/coverage/3093929846583908843.txt
-[2026-01-03 21:26:16.26] [Worker 0] Sequence replayed from corpus file 8260242404268881639.txt (3/65)
-[2026-01-03 21:26:16.27] [Worker 3] New coverage: 69893 instr, 59 contracts, 10 seqs in corpus
-[2026-01-03 21:26:16.27] [Worker 3] Sequence replayed from corpus file 1967424057556228016.txt (3/65)
-[2026-01-03 21:26:16.28] [Worker 2] Sequence replayed from corpus file 5135327126527843143.txt (3/65)
-[2026-01-03 21:26:16.29]  Saved reproducer to echidna/coverage/524430106065283008.txt
-[2026-01-03 21:26:16.34] [Worker 1] Sequence replayed from corpus file 6718176507502919668.txt (4/65)
-[2026-01-03 21:26:16.34]  Saved reproducer to echidna/coverage/8246126709399510362.txt
-[2026-01-03 21:26:16.38] [Worker 3] New coverage: 70995 instr, 59 contracts, 11 seqs in corpus
-[2026-01-03 21:26:16.38] [Worker 3] Sequence replayed from corpus file 1519276404113651798.txt (4/65)
-[2026-01-03 21:26:16.39]  Saved reproducer to echidna/coverage/1967424057556228016.txt
-[2026-01-03 21:26:16.40] [Worker 2] New coverage: 71046 instr, 59 contracts, 12 seqs in corpus
-[2026-01-03 21:26:16.41] [Worker 2] Sequence replayed from corpus file 4327177242875529019.txt (4/65)
-[2026-01-03 21:26:16.42]  Saved reproducer to echidna/coverage/1519276404113651798.txt
-[2026-01-03 21:26:16.43] [Worker 0] Sequence replayed from corpus file 6560012829584668596.txt (4/65)
-[2026-01-03 21:26:16.46]  Saved reproducer to echidna/coverage/4327177242875529019.txt
-[2026-01-03 21:26:16.51] [Worker 3] Sequence replayed from corpus file 7403958297991632512.txt (5/65)
-[2026-01-03 21:26:16.53] [Worker 1] New coverage: 80586 instr, 59 contracts, 13 seqs in corpus
-[2026-01-03 21:26:16.53] [Worker 1] Sequence replayed from corpus file 5696735656808671457.txt (5/65)
-[2026-01-03 21:26:16.55] [Worker 2] Sequence replayed from corpus file 6849957783935319748.txt (5/65)
-[2026-01-03 21:26:16.58]  Saved reproducer to echidna/coverage/5696735656808671457.txt
-[2026-01-03 21:26:16.68] [Worker 1] Sequence replayed from corpus file 6075238034914131336.txt (6/65)
-[2026-01-03 21:26:16.70] [Worker 2] New coverage: 83648 instr, 59 contracts, 14 seqs in corpus
-[2026-01-03 21:26:16.70] [Worker 2] Sequence replayed from corpus file 3023143907469364739.txt (6/65)
-[2026-01-03 21:26:16.75]  Saved reproducer to echidna/coverage/3023143907469364739.txt
-[2026-01-03 21:26:16.82] [Worker 0] New coverage: 84981 instr, 59 contracts, 15 seqs in corpus
-[2026-01-03 21:26:16.82] [Worker 0] Sequence replayed from corpus file 5936248988653335150.txt (5/65)
-[2026-01-03 21:26:16.83] [Worker 3] New coverage: 84981 instr, 59 contracts, 16 seqs in corpus
-[2026-01-03 21:26:16.83] [Worker 3] Sequence replayed from corpus file 1819490371523160622.txt (6/65)
-[2026-01-03 21:26:16.84] [Worker 1] New coverage: 84981 instr, 59 contracts, 17 seqs in corpus
-[2026-01-03 21:26:16.84] [Worker 1] Sequence replayed from corpus file 985174096369184563.txt (7/65)
-[2026-01-03 21:26:16.84] [Worker 2] Sequence replayed from corpus file 2134284958935335855.txt (7/65)
-[2026-01-03 21:26:16.88]  Saved reproducer to echidna/coverage/5936248988653335150.txt
-[2026-01-03 21:26:16.93]  Saved reproducer to echidna/coverage/1819490371523160622.txt
-[2026-01-03 21:26:16.95] [Worker 2] Sequence replayed from corpus file 2518700107590592916.txt (8/65)
-[2026-01-03 21:26:16.96] [Worker 0] Sequence replayed from corpus file 159070717392216055.txt (6/65)
-[2026-01-03 21:26:16.96] [Worker 3] Sequence replayed from corpus file 4975789097658791251.txt (7/65)
-[2026-01-03 21:26:16.98]  Saved reproducer to echidna/coverage/985174096369184563.txt
-[2026-01-03 21:26:17.00] [Worker 1] Sequence replayed from corpus file 4012648125807441643.txt (8/65)
-[2026-01-03 21:26:17.10] [Worker 0] Sequence replayed from corpus file 2309040375627916951.txt (7/65)
-[2026-01-03 21:26:17.10] [Worker 2] New coverage: 85170 instr, 59 contracts, 18 seqs in corpus
-[2026-01-03 21:26:17.11] [Worker 2] Sequence replayed from corpus file 7656661516730205627.txt (9/65)
-[2026-01-03 21:26:17.16]  Saved reproducer to echidna/coverage/7656661516730205627.txt
-[2026-01-03 21:26:17.16] [Worker 1] Sequence replayed from corpus file 553343890882782475.txt (9/65)
-[2026-01-03 21:26:17.22] [Worker 0] Sequence replayed from corpus file 7776539823050777382.txt (8/65)
-[2026-01-03 21:26:17.22] [Worker 2] Sequence replayed from corpus file 8077266023682935986.txt (10/65)
-[2026-01-03 21:26:17.29] [Worker 3] New coverage: 86176 instr, 59 contracts, 19 seqs in corpus
-[2026-01-03 21:26:17.30] [Worker 3] Sequence replayed from corpus file 5411576712684709017.txt (8/65)
-[2026-01-03 21:26:17.35]  Saved reproducer to echidna/coverage/5411576712684709017.txt
-[2026-01-03 21:26:17.37] [Worker 0] Sequence replayed from corpus file 7494320585867061391.txt (9/65)
-[2026-01-03 21:26:17.39] [Worker 2] Sequence replayed from corpus file 897142917622515337.txt (11/65)
-[2026-01-03 21:26:17.48] [Worker 2] Sequence replayed from corpus file 6440372331413840922.txt (12/65)
-[2026-01-03 21:26:17.53] [Worker 0] New coverage: 91660 instr, 59 contracts, 20 seqs in corpus
-[2026-01-03 21:26:17.53] [Worker 0] Sequence replayed from corpus file 5329389134557709567.txt (10/65)
-[2026-01-03 21:26:17.58]  Saved reproducer to echidna/coverage/5329389134557709567.txt
-[2026-01-03 21:26:17.58] [Worker 1] New coverage: 91660 instr, 59 contracts, 21 seqs in corpus
-[2026-01-03 21:26:17.59] [Worker 1] Sequence replayed from corpus file 4473620231441031604.txt (10/65)
-[2026-01-03 21:26:17.64] [Worker 2] Sequence replayed from corpus file 7372850623140524314.txt (13/65)
-[2026-01-03 21:26:17.65]  Saved reproducer to echidna/coverage/4473620231441031604.txt
-[2026-01-03 21:26:17.69] [Worker 0] Sequence replayed from corpus file 5001837346622601301.txt (11/65)
-[2026-01-03 21:26:17.72] [Worker 3] New coverage: 91944 instr, 59 contracts, 22 seqs in corpus
-[2026-01-03 21:26:17.73] [Worker 3] Sequence replayed from corpus file 5034797444398431493.txt (9/65)
-[2026-01-03 21:26:17.73] [Worker 1] New coverage: 91944 instr, 59 contracts, 23 seqs in corpus
-[2026-01-03 21:26:17.73] [Worker 1] Sequence replayed from corpus file 8152151787947917532.txt (11/65)
-[2026-01-03 21:26:17.77] [Worker 2] Sequence replayed from corpus file 874372693902731450.txt (14/65)
-[2026-01-03 21:26:17.77]  Saved reproducer to echidna/coverage/5034797444398431493.txt
-[2026-01-03 21:26:17.82]  Saved reproducer to echidna/coverage/8152151787947917532.txt
-[2026-01-03 21:26:17.86] [Worker 0] Sequence replayed from corpus file 4939685428026014601.txt (12/65)
-[2026-01-03 21:26:17.94] [Worker 3] Sequence replayed from corpus file 3456766741938601458.txt (10/65)
-[2026-01-03 21:26:17.98] [Worker 2] Sequence replayed from corpus file 3932135291662389416.txt (15/65)
-[2026-01-03 21:26:17.99] [Worker 1] Sequence replayed from corpus file 7390320056437468663.txt (12/65)
-[2026-01-03 21:26:18.03] [Worker 0] Sequence replayed from corpus file 330937522336523391.txt (13/65)
-[2026-01-03 21:26:18.08] [Worker 3] New coverage: 91980 instr, 59 contracts, 24 seqs in corpus
-[2026-01-03 21:26:18.08] [Worker 3] Sequence replayed from corpus file 5745261157099761655.txt (11/65)
-[2026-01-03 21:26:18.12] [Worker 2] Sequence replayed from corpus file 5637282851889595190.txt (16/65)
-[2026-01-03 21:26:18.13]  Saved reproducer to echidna/coverage/5745261157099761655.txt
-[2026-01-03 21:26:18.15] [Worker 0] Sequence replayed from corpus file 1904007088263221954.txt (14/65)
-[2026-01-03 21:26:18.21] [Worker 1] New coverage: 91980 instr, 59 contracts, 25 seqs in corpus
-[2026-01-03 21:26:18.21] [Worker 1] Sequence replayed from corpus file 329747951440750578.txt (13/65)
-[2026-01-03 21:26:18.23] [Worker 3] Sequence replayed from corpus file 1467397813821139000.txt (12/65)
-[2026-01-03 21:26:18.25] [Worker 2] Sequence replayed from corpus file 8219570024974781010.txt (17/65)
-[2026-01-03 21:26:18.27]  Saved reproducer to echidna/coverage/329747951440750578.txt
-[2026-01-03 21:26:18.28] [Worker 0] Sequence replayed from corpus file 6419922681706291204.txt (15/65)
-[2026-01-03 21:26:18.37] [Worker 1] New coverage: 91984 instr, 59 contracts, 26 seqs in corpus
-[2026-01-03 21:26:18.37] [Worker 1] Sequence replayed from corpus file 1944688398613680137.txt (14/65)
-[2026-01-03 21:26:18.41] [Worker 0] Sequence replayed from corpus file 5619713486232767566.txt (16/65)
-[2026-01-03 21:26:18.42]  Saved reproducer to echidna/coverage/1944688398613680137.txt
-[2026-01-03 21:26:18.43] [Worker 2] Sequence replayed from corpus file 3720347767814252045.txt (18/65)
-[2026-01-03 21:26:18.48] [Worker 3] New coverage: 92585 instr, 59 contracts, 27 seqs in corpus
-[2026-01-03 21:26:18.49] [Worker 3] Sequence replayed from corpus file 8539023250898984483.txt (13/65)
-[2026-01-03 21:26:18.53] [Worker 2] Sequence replayed from corpus file 2398022810462951709.txt (19/65)
-[2026-01-03 21:26:18.55]  Saved reproducer to echidna/coverage/8539023250898984483.txt
-[2026-01-03 21:26:18.66] [Worker 2] New coverage: 93066 instr, 59 contracts, 28 seqs in corpus
-[2026-01-03 21:26:18.66] [Worker 2] Sequence replayed from corpus file 648825545634143051.txt (20/65)
-[2026-01-03 21:26:18.68] [status] tests: 0/1, fuzzing: 0/7766279631452241919, values: [], cov: 93066, corpus: 28
-[2026-01-03 21:26:18.71]  Saved reproducer to echidna/coverage/648825545634143051.txt
-[2026-01-03 21:26:18.71] [Worker 1] New coverage: 93631 instr, 59 contracts, 29 seqs in corpus
-[2026-01-03 21:26:18.71] [Worker 1] Sequence replayed from corpus file 6688334407446167723.txt (15/65)
-[2026-01-03 21:26:18.71] [Worker 0] New coverage: 93631 instr, 59 contracts, 30 seqs in corpus
-[2026-01-03 21:26:18.71] [Worker 0] Sequence replayed from corpus file 1393070961325664228.txt (17/65)
-[2026-01-03 21:26:18.76]  Saved reproducer to echidna/coverage/6688334407446167723.txt
-[2026-01-03 21:26:18.82]  Saved reproducer to echidna/coverage/1393070961325664228.txt
-[2026-01-03 21:26:18.83] [Worker 2] Sequence replayed from corpus file 7863439683556824231.txt (21/65)
-[2026-01-03 21:26:19.00] [Worker 3] Sequence replayed from corpus file 3243875782933566214.txt (14/65)
-[2026-01-03 21:26:19.07] [Worker 2] Sequence replayed from corpus file 7089137416033597287.txt (22/65)
-[2026-01-03 21:26:19.11] [Worker 0] New coverage: 94263 instr, 59 contracts, 31 seqs in corpus
-[2026-01-03 21:26:19.11] [Worker 0] Sequence replayed from corpus file 3555172695990394923.txt (18/65)
-[2026-01-03 21:26:19.17]  Saved reproducer to echidna/coverage/3555172695990394923.txt
-[2026-01-03 21:26:19.20] [Worker 2] Sequence replayed from corpus file 6097392067256511038.txt (23/65)
-[2026-01-03 21:26:19.21] [Worker 1] New coverage: 94263 instr, 59 contracts, 32 seqs in corpus
-[2026-01-03 21:26:19.21] [Worker 1] Sequence replayed from corpus file 7023084146326803679.txt (16/65)
-[2026-01-03 21:26:19.26]  Saved reproducer to echidna/coverage/7023084146326803679.txt
-[2026-01-03 21:26:19.30] [Worker 0] Sequence replayed from corpus file 646102386023612057.txt (19/65)
-[2026-01-03 21:26:19.35] [Worker 2] Sequence replayed from corpus file 7608825045635585732.txt (24/65)
-[2026-01-03 21:26:19.35] [Worker 1] Sequence replayed from corpus file 7055892951062659586.txt (17/65)
-[2026-01-03 21:26:19.45] [Worker 1] Sequence replayed from corpus file 2124088497646080794.txt (18/65)
-[2026-01-03 21:26:19.46] [Worker 3] New coverage: 94368 instr, 59 contracts, 33 seqs in corpus
-[2026-01-03 21:26:19.46] [Worker 3] Sequence replayed from corpus file 7277313040616894422.txt (15/65)
-[2026-01-03 21:26:19.53]  Saved reproducer to echidna/coverage/7277313040616894422.txt
-[2026-01-03 21:26:19.62] [Worker 3] Sequence replayed from corpus file 6450814134268516613.txt (16/65)
-[2026-01-03 21:26:19.74] [Worker 2] Sequence replayed from corpus file 3245465106167241011.txt (25/65)
-[2026-01-03 21:26:19.74] [Worker 0] New coverage: 94374 instr, 59 contracts, 34 seqs in corpus
-[2026-01-03 21:26:19.75] [Worker 0] Sequence replayed from corpus file 7060655044017314733.txt (20/65)
-[2026-01-03 21:26:19.80]  Saved reproducer to echidna/coverage/7060655044017314733.txt
-[2026-01-03 21:26:19.80] [Worker 3] Sequence replayed from corpus file 3302583273411722534.txt (17/65)
-[2026-01-03 21:26:19.87] [Worker 1] New coverage: 94383 instr, 59 contracts, 35 seqs in corpus
-[2026-01-03 21:26:19.87] [Worker 1] Sequence replayed from corpus file 9196456798587125552.txt (19/65)
-[2026-01-03 21:26:19.91] [Worker 0] Sequence replayed from corpus file 3356490176370289319.txt (21/65)
-[2026-01-03 21:26:19.91] [Worker 2] New coverage: 94402 instr, 59 contracts, 36 seqs in corpus
-[2026-01-03 21:26:19.91] [Worker 2] Sequence replayed from corpus file 1173244530434704918.txt (26/65)
-[2026-01-03 21:26:19.93]  Saved reproducer to echidna/coverage/9196456798587125552.txt
-[2026-01-03 21:26:19.94] [Worker 3] Sequence replayed from corpus file 9128902228983981018.txt (18/65)
-[2026-01-03 21:26:19.98]  Saved reproducer to echidna/coverage/1173244530434704918.txt
-[2026-01-03 21:26:20.03] [Worker 1] Sequence replayed from corpus file 1584392263455406147.txt (20/65)
-[2026-01-03 21:26:20.04] [Worker 0] Sequence replayed from corpus file 4881421812347011344.txt (22/65)
-[2026-01-03 21:26:20.09] [Worker 2] Sequence replayed from corpus file 4649067894427601292.txt (27/65)
-[2026-01-03 21:26:20.11] [Worker 3] Sequence replayed from corpus file 4117408845878884602.txt (19/65)
-[2026-01-03 21:26:20.17] [Worker 0] Sequence replayed from corpus file 9068789123703513198.txt (23/65)
-[2026-01-03 21:26:20.25] [Worker 2] New coverage: 94438 instr, 59 contracts, 37 seqs in corpus
-[2026-01-03 21:26:20.26] [Worker 3] Sequence replayed from corpus file 2882645306604253049.txt (20/65)
-[2026-01-03 21:26:20.26] [Worker 2] Sequence replayed from corpus file 8724670797557127998.txt (28/65)
-[2026-01-03 21:26:20.30]  Saved reproducer to echidna/coverage/8724670797557127998.txt
-[2026-01-03 21:26:20.31] [Worker 0] Sequence replayed from corpus file 5477135505408598165.txt (24/65)
-[2026-01-03 21:26:20.40] [Worker 1] New coverage: 95111 instr, 59 contracts, 38 seqs in corpus
-[2026-01-03 21:26:20.40] [Worker 1] Sequence replayed from corpus file 7029621721202275654.txt (21/65)
-[2026-01-03 21:26:20.44] [Worker 3] New coverage: 95111 instr, 59 contracts, 39 seqs in corpus
-[2026-01-03 21:26:20.45] [Worker 3] Sequence replayed from corpus file 7966362053302008139.txt (21/65)
-[2026-01-03 21:26:20.46]  Saved reproducer to echidna/coverage/7029621721202275654.txt
-[2026-01-03 21:26:20.51] [Worker 0] Sequence replayed from corpus file 1707132852099978904.txt (25/65)
-[2026-01-03 21:26:20.52]  Saved reproducer to echidna/coverage/7966362053302008139.txt
-[2026-01-03 21:26:20.55] [Worker 3] Sequence replayed from corpus file 857104106203809341.txt (22/65)
-[2026-01-03 21:26:20.62] [Worker 1] Sequence replayed from corpus file 6812238420606502133.txt (22/65)
-[2026-01-03 21:26:20.69] [Worker 0] Sequence replayed from corpus file 7136821581797705154.txt (26/65)
-[2026-01-03 21:26:20.76] [Worker 2] New coverage: 95812 instr, 59 contracts, 40 seqs in corpus
-[2026-01-03 21:26:20.76] [Worker 2] Sequence replayed from corpus file 2531199847625379386.txt (29/65)
-[2026-01-03 21:26:20.82]  Saved reproducer to echidna/coverage/2531199847625379386.txt
-[2026-01-03 21:26:20.83] [Worker 3] Sequence replayed from corpus file 2566328401085092873.txt (23/65)
-[2026-01-03 21:26:20.85] [Worker 0] Sequence replayed from corpus file 7910779282561852713.txt (27/65)
-[2026-01-03 21:26:20.93] [Worker 2] Sequence replayed from corpus file 8823217158409800490.txt (30/65)
-[2026-01-03 21:26:20.95] [Worker 3] Sequence replayed from corpus file 6643254862220301574.txt (24/65)
-[2026-01-03 21:26:20.99] [Worker 0] Sequence replayed from corpus file 138499335130436767.txt (28/65)
-[2026-01-03 21:26:21.03] [Worker 1] New coverage: 95910 instr, 59 contracts, 41 seqs in corpus
-[2026-01-03 21:26:21.03] [Worker 1] Sequence replayed from corpus file 3331098104000470442.txt (23/65)
-[2026-01-03 21:26:21.11]  Saved reproducer to echidna/coverage/3331098104000470442.txt
-[2026-01-03 21:26:21.14] [Worker 3] Sequence replayed from corpus file 1774520841240499810.txt (25/65)
-[2026-01-03 21:26:21.14] [Worker 2] Sequence replayed from corpus file 2421136924591050393.txt (31/65)
-[2026-01-03 21:26:21.18] [Worker 0] Sequence replayed from corpus file 5791641552910316497.txt (29/65)
-[2026-01-03 21:26:21.29] [Worker 3] Sequence replayed from corpus file 733762941073776652.txt (26/65)
-[2026-01-03 21:26:21.30] [Worker 2] Sequence replayed from corpus file 8774276348029750057.txt (32/65)
-[2026-01-03 21:26:21.32] [Worker 0] Sequence replayed from corpus file 1312059098265909093.txt (30/65)
-[2026-01-03 21:26:21.35] [Worker 1] New coverage: 95928 instr, 59 contracts, 42 seqs in corpus
-[2026-01-03 21:26:21.36] [Worker 1] Sequence replayed from corpus file 6851458689213940137.txt (24/65)
-[2026-01-03 21:26:21.41]  Saved reproducer to echidna/coverage/6851458689213940137.txt
-[2026-01-03 21:26:21.45] [Worker 3] Sequence replayed from corpus file 1191110569622584732.txt (27/65)
-[2026-01-03 21:26:21.49] [Worker 1] Sequence replayed from corpus file 5103959793352731862.txt (25/65)
-[2026-01-03 21:26:21.52] [Worker 0] Sequence replayed from corpus file 8357045091811256814.txt (31/65)
-[2026-01-03 21:26:21.55] [Worker 2] Sequence replayed from corpus file 2783439777107546995.txt (33/65)
-[2026-01-03 21:26:21.61] [Worker 3] Sequence replayed from corpus file 6632562360011817686.txt (28/65)
-[2026-01-03 21:26:21.66] [Worker 0] Sequence replayed from corpus file 5490718745915780107.txt (32/65)
-[2026-01-03 21:26:21.67] [Worker 1] Sequence replayed from corpus file 6625317272569975225.txt (26/65)
-[2026-01-03 21:26:21.68] [status] tests: 0/1, fuzzing: 0/7766279631452241919, values: [], cov: 95928, corpus: 42
-[2026-01-03 21:26:21.71] [Worker 2] Sequence replayed from corpus file 8519279292439931369.txt (34/65)
-[2026-01-03 21:26:21.75] [Worker 3] Sequence replayed from corpus file 2377521703374294654.txt (29/65)
-[2026-01-03 21:26:21.87] [Worker 2] Sequence replayed from corpus file 7401439092361537771.txt (35/65)
-[2026-01-03 21:26:21.87] [Worker 3] Sequence replayed from corpus file 6526306244509838943.txt (30/65)
-[2026-01-03 21:26:22.04] [Worker 2] Sequence replayed from corpus file 5749559843990760536.txt (36/65)
-[2026-01-03 21:26:22.08] [Worker 0] Sequence replayed from corpus file 3556866169677612829.txt (33/65)
-[2026-01-03 21:26:22.09] [Worker 1] New coverage: 95936 instr, 59 contracts, 43 seqs in corpus
-[2026-01-03 21:26:22.10] [Worker 1] Sequence replayed from corpus file 6288673101331864270.txt (27/65)
-[2026-01-03 21:26:22.15]  Saved reproducer to echidna/coverage/6288673101331864270.txt
-[2026-01-03 21:26:22.23] [Worker 0] Sequence replayed from corpus file 1612321482846539038.txt (34/65)
-[2026-01-03 21:26:22.24] [Worker 2] Sequence replayed from corpus file 1400178431741226600.txt (37/65)
-[2026-01-03 21:26:22.27] [Worker 1] New coverage: 95972 instr, 59 contracts, 44 seqs in corpus
-[2026-01-03 21:26:22.27] [Worker 1] Sequence replayed from corpus file 5802613745941757305.txt (28/65)
-[2026-01-03 21:26:22.32]  Saved reproducer to echidna/coverage/5802613745941757305.txt
-[2026-01-03 21:26:22.34] [Worker 0] Sequence replayed from corpus file 754479714730056146.txt (35/65)
-[2026-01-03 21:26:22.42] [Worker 3] New coverage: 96444 instr, 59 contracts, 45 seqs in corpus
-[2026-01-03 21:26:22.42] [Worker 3] Sequence replayed from corpus file 5527004880036124832.txt (31/65)
-[2026-01-03 21:26:22.43] [Worker 2] New coverage: 96444 instr, 59 contracts, 46 seqs in corpus
-[2026-01-03 21:26:22.44] [Worker 2] Sequence replayed from corpus file 950149378904960337.txt (38/65)
-[2026-01-03 21:26:22.44] [Worker 1] Sequence replayed from corpus file 2080740005008538974.txt (29/65)
-[2026-01-03 21:26:22.47]  Saved reproducer to echidna/coverage/5527004880036124832.txt
-[2026-01-03 21:26:22.51]  Saved reproducer to echidna/coverage/950149378904960337.txt
-[2026-01-03 21:26:22.54] [Worker 2] Sequence replayed from corpus file 947536366464770167.txt (39/65)
-[2026-01-03 21:26:22.58] [Worker 1] Sequence replayed from corpus file 40354824046159811.txt (30/65)
-[2026-01-03 21:26:22.59] [Worker 3] Sequence replayed from corpus file 6314841673609342302.txt (32/65)
-[2026-01-03 21:26:22.69] [Worker 2] Sequence replayed from corpus file 1655759177658115183.txt (40/65)
-[2026-01-03 21:26:22.72] [Worker 1] Sequence replayed from corpus file 3637633650615846177.txt (31/65)
-[2026-01-03 21:26:22.74] [Worker 3] Sequence replayed from corpus file 5652779548975198859.txt (33/65)
-[2026-01-03 21:26:22.81] [Worker 2] Sequence replayed from corpus file 5800705983588572597.txt (41/65)
-[2026-01-03 21:26:22.82] [Worker 3] Sequence replayed from corpus file 8509362163773849556.txt (34/65)
-[2026-01-03 21:26:22.89] [Worker 1] Sequence replayed from corpus file 4209012367695588618.txt (32/65)
-[2026-01-03 21:26:22.92] [Worker 0] New coverage: 96773 instr, 59 contracts, 47 seqs in corpus
-[2026-01-03 21:26:22.92] [Worker 0] Sequence replayed from corpus file 5989644159693394593.txt (36/65)
-[2026-01-03 21:26:22.96] [Worker 3] Sequence replayed from corpus file 7111066267408315247.txt (35/65)
-[2026-01-03 21:26:22.97]  Saved reproducer to echidna/coverage/5989644159693394593.txt
-[2026-01-03 21:26:22.97] [Worker 2] Sequence replayed from corpus file 5121213604924259081.txt (42/65)
-[2026-01-03 21:26:23.06] [Worker 2] Sequence replayed from corpus file 997571601191585451.txt (43/65)
-[2026-01-03 21:26:23.08] [Worker 1] Sequence replayed from corpus file 563283994396469048.txt (33/65)
-[2026-01-03 21:26:23.09] [Worker 0] Sequence replayed from corpus file 6811745825455926774.txt (37/65)
-[2026-01-03 21:26:23.10] [Worker 3] Sequence replayed from corpus file 7785563700344120341.txt (36/65)
-[2026-01-03 21:26:23.20] [Worker 0] Sequence replayed from corpus file 6093998987211442734.txt (38/65)
-[2026-01-03 21:26:23.27] [Worker 1] Sequence replayed from corpus file 5636852891097938820.txt (34/65)
-[2026-01-03 21:26:23.31] [Worker 3] Sequence replayed from corpus file 7629760026459026789.txt (37/65)
-[2026-01-03 21:26:23.33] [Worker 1] Sequence replayed from corpus file 8666368248261505187.txt (35/65)
-[2026-01-03 21:26:23.37] [Worker 0] Sequence replayed from corpus file 3950291419904705848.txt (39/65)
-[2026-01-03 21:26:23.43] [Worker 3] Sequence replayed from corpus file 7088460649560717210.txt (38/65)
-[2026-01-03 21:26:23.44] [Worker 1] Sequence replayed from corpus file 5335960772261984461.txt (36/65)
-[2026-01-03 21:26:23.47] [Worker 2] New coverage: 96789 instr, 59 contracts, 48 seqs in corpus
-[2026-01-03 21:26:23.47] [Worker 2] Sequence replayed from corpus file 1190714301697574567.txt (44/65)
-[2026-01-03 21:26:23.53]  Saved reproducer to echidna/coverage/1190714301697574567.txt
-[2026-01-03 21:26:23.58] [Worker 0] New coverage: 96825 instr, 59 contracts, 49 seqs in corpus
-[2026-01-03 21:26:23.58] [Worker 0] Sequence replayed from corpus file 4010523340070680689.txt (40/65)
-[2026-01-03 21:26:23.61] [Worker 3] Sequence replayed from corpus file 1185903996673361160.txt (39/65)
-[2026-01-03 21:26:23.62] [Worker 1] Sequence replayed from corpus file 8303161158650169675.txt (37/65)
-[2026-01-03 21:26:23.63]  Saved reproducer to echidna/coverage/4010523340070680689.txt
-[2026-01-03 21:26:23.64] [Worker 2] New coverage: 96840 instr, 59 contracts, 50 seqs in corpus
-[2026-01-03 21:26:23.65] [Worker 2] Sequence replayed from corpus file 1569024547809205803.txt (45/65)
-[2026-01-03 21:26:23.70]  Saved reproducer to echidna/coverage/1569024547809205803.txt
-[2026-01-03 21:26:23.71] [Worker 3] Sequence replayed from corpus file 1953589327799267382.txt (40/65)
-[2026-01-03 21:26:23.74] [Worker 0] Sequence replayed from corpus file 772296142816609717.txt (41/65)
-[2026-01-03 21:26:23.75] [Worker 1] Sequence replayed from corpus file 7094307847957876498.txt (38/65)
-[2026-01-03 21:26:23.78] [Worker 2] Sequence replayed from corpus file 1899597145711279269.txt (46/65)
-[2026-01-03 21:26:23.84] [Worker 3] Sequence replayed from corpus file 5917828916046049029.txt (41/65)
-[2026-01-03 21:26:23.92] [Worker 1] Sequence replayed from corpus file 4081233657319968415.txt (39/65)
-[2026-01-03 21:26:23.94] [Worker 2] Sequence replayed from corpus file 3077821688735900493.txt (47/65)
-[2026-01-03 21:26:23.99] [Worker 3] Sequence replayed from corpus file 2316504889210212658.txt (42/65)
-[2026-01-03 21:26:24.06] [Worker 1] Sequence replayed from corpus file 6258366190018312487.txt (40/65)
-[2026-01-03 21:26:24.12] [Worker 2] Sequence replayed from corpus file 7582695847707409211.txt (48/65)
-[2026-01-03 21:26:24.12] [Worker 3] New coverage: 96859 instr, 59 contracts, 51 seqs in corpus
-[2026-01-03 21:26:24.12] [Worker 3] Sequence replayed from corpus file 8503893175395337332.txt (43/65)
-[2026-01-03 21:26:24.14] [Worker 0] New coverage: 96859 instr, 59 contracts, 52 seqs in corpus
-[2026-01-03 21:26:24.14] [Worker 0] Sequence replayed from corpus file 3144608974964222573.txt (42/65)
-[2026-01-03 21:26:24.15]  Saved reproducer to echidna/coverage/8503893175395337332.txt
-[2026-01-03 21:26:24.21] [Worker 1] Sequence replayed from corpus file 824593702547924400.txt (41/65)
-[2026-01-03 21:26:24.21]  Saved reproducer to echidna/coverage/3144608974964222573.txt
-[2026-01-03 21:26:24.29] [Worker 0] Sequence replayed from corpus file 1643863196364365106.txt (43/65)
-[2026-01-03 21:26:24.29] [Worker 3] Sequence replayed from corpus file 2594340631994150547.txt (44/65)
-[2026-01-03 21:26:24.29] [Worker 2] Sequence replayed from corpus file 4558595496187063273.txt (49/65)
-[2026-01-03 21:26:24.41] [Worker 2] Sequence replayed from corpus file 8809698919146245800.txt (50/65)
-[2026-01-03 21:26:24.43] [Worker 1] Sequence replayed from corpus file 4228228836152339728.txt (42/65)
-[2026-01-03 21:26:24.45] [Worker 0] Sequence replayed from corpus file 5081592025321165505.txt (44/65)
-[2026-01-03 21:26:24.49] [Worker 3] Sequence replayed from corpus file 6682843129737901144.txt (45/65)
-[2026-01-03 21:26:24.54] [Worker 2] Sequence replayed from corpus file 3131269007468484270.txt (51/65)
-[2026-01-03 21:26:24.56] [Worker 1] Sequence replayed from corpus file 1253904463205637390.txt (43/65)
-[2026-01-03 21:26:24.58] [Worker 0] Sequence replayed from corpus file 7918703741763282865.txt (45/65)
-[2026-01-03 21:26:24.66] [Worker 2] Sequence replayed from corpus file 7081652592741182256.txt (52/65)
-[2026-01-03 21:26:24.68] [Worker 3] Sequence replayed from corpus file 4952424344772597843.txt (46/65)
-[2026-01-03 21:26:24.69] [status] tests: 0/1, fuzzing: 0/7766279631452241919, values: [], cov: 96859, corpus: 52
-[2026-01-03 21:26:24.69] [Worker 1] Sequence replayed from corpus file 8756496745296208663.txt (44/65)
-[2026-01-03 21:26:24.76] [Worker 0] Sequence replayed from corpus file 6937978171981218959.txt (46/65)
-[2026-01-03 21:26:24.79] [Worker 3] Sequence replayed from corpus file 7852235702096100629.txt (47/65)
-[2026-01-03 21:26:24.82] [Worker 2] Sequence replayed from corpus file 9178936685775074625.txt (53/65)
-[2026-01-03 21:26:24.84] [Worker 1] Sequence replayed from corpus file 4500978752464982189.txt (45/65)
-[2026-01-03 21:26:24.87] [Worker 0] Sequence replayed from corpus file 7490220100616626152.txt (47/65)
-[2026-01-03 21:26:24.91] [Worker 3] New coverage: 96859 instr, 59 contracts, 53 seqs in corpus
-[2026-01-03 21:26:24.91] [Worker 3] Sequence replayed from corpus file 846841806556900034.txt (48/65)
-[2026-01-03 21:26:24.97]  Saved reproducer to echidna/coverage/846841806556900034.txt
-[2026-01-03 21:26:25.00] [Worker 1] Sequence replayed from corpus file 6779062072257729867.txt (46/65)
-[2026-01-03 21:26:25.06] [Worker 0] Sequence replayed from corpus file 2036979763929628386.txt (48/65)
-[2026-01-03 21:26:25.13] [Worker 1] Sequence replayed from corpus file 1166514532248266984.txt (47/65)
-[2026-01-03 21:26:25.25] [Worker 2] New coverage: 97142 instr, 59 contracts, 54 seqs in corpus
-[2026-01-03 21:26:25.25] [Worker 2] Sequence replayed from corpus file 2694063561198796534.txt (54/65)
-[2026-01-03 21:26:25.25] [Worker 1] Sequence replayed from corpus file 7067552144246787618.txt (48/65)
-[2026-01-03 21:26:25.30]  Saved reproducer to echidna/coverage/2694063561198796534.txt
-[2026-01-03 21:26:25.37] [Worker 1] Sequence replayed from corpus file 6847246210609463397.txt (49/65)
-[2026-01-03 21:26:25.37] [Worker 2] Sequence replayed from corpus file 1702998481782547017.txt (55/65)
-[2026-01-03 21:26:25.42] [Worker 0] New coverage: 97157 instr, 59 contracts, 55 seqs in corpus
-[2026-01-03 21:26:25.42] [Worker 0] Sequence replayed from corpus file 3740024144443861226.txt (49/65)
-[2026-01-03 21:26:25.45] [Worker 3] New coverage: 97194 instr, 59 contracts, 56 seqs in corpus
-[2026-01-03 21:26:25.46] [Worker 3] Sequence replayed from corpus file 8705537289266140761.txt (49/65)
-[2026-01-03 21:26:25.47]  Saved reproducer to echidna/coverage/3740024144443861226.txt
-[2026-01-03 21:26:25.49] [Worker 2] Sequence replayed from corpus file 8258389186892391755.txt (56/65)
-[2026-01-03 21:26:25.51] [Worker 1] Sequence replayed from corpus file 1078911181590616029.txt (50/65)
-[2026-01-03 21:26:25.54]  Saved reproducer to echidna/coverage/8705537289266140761.txt
-[2026-01-03 21:26:25.58] [Worker 3] Sequence replayed from corpus file 8305721467737501798.txt (50/65)
-[2026-01-03 21:26:25.62] [Worker 0] Sequence replayed from corpus file 6723850449155969538.txt (50/65)
-[2026-01-03 21:26:25.63] [Worker 1] Sequence replayed from corpus file 1208447422092688039.txt (51/65)
-[2026-01-03 21:26:25.71] [Worker 3] Sequence replayed from corpus file 1439083900994056997.txt (51/65)
-[2026-01-03 21:26:25.75] [Worker 2] Sequence replayed from corpus file 1582350033521880913.txt (57/65)
-[2026-01-03 21:26:25.76] [Worker 1] New coverage: 97194 instr, 59 contracts, 57 seqs in corpus
-[2026-01-03 21:26:25.76] [Worker 1] Sequence replayed from corpus file 8975026340285211826.txt (52/65)
-[2026-01-03 21:26:25.79] [Worker 0] Sequence replayed from corpus file 1448258525347528801.txt (51/65)
-[2026-01-03 21:26:25.81]  Saved reproducer to echidna/coverage/8975026340285211826.txt
-[2026-01-03 21:26:25.88] [Worker 3] Sequence replayed from corpus file 2923611438055136946.txt (52/65)
-[2026-01-03 21:26:25.95] [Worker 2] New coverage: 97307 instr, 59 contracts, 58 seqs in corpus
-[2026-01-03 21:26:25.96] [Worker 2] Sequence replayed from corpus file 5590548497739395903.txt (58/65)
-[2026-01-03 21:26:26.00] [Worker 0] Sequence replayed from corpus file 8251552279815808884.txt (52/65)
-[2026-01-03 21:26:26.01] [Worker 3] Sequence replayed from corpus file 3463166880531600355.txt (53/65)
-[2026-01-03 21:26:26.01]  Saved reproducer to echidna/coverage/5590548497739395903.txt
-[2026-01-03 21:26:26.11] [Worker 2] Sequence replayed from corpus file 648258019786543469.txt (59/65)
-[2026-01-03 21:26:26.13] [Worker 3] Sequence replayed from corpus file 1473444174938634106.txt (54/65)
-[2026-01-03 21:26:26.13] [Worker 0] Sequence replayed from corpus file 5659545676756920014.txt (53/65)
-[2026-01-03 21:26:26.18] [Worker 1] New coverage: 97312 instr, 59 contracts, 59 seqs in corpus
-[2026-01-03 21:26:26.18] [Worker 1] Sequence replayed from corpus file 5420405518346707607.txt (53/65)
-[2026-01-03 21:26:26.24]  Saved reproducer to echidna/coverage/5420405518346707607.txt
-[2026-01-03 21:26:26.28] [Worker 0] Sequence replayed from corpus file 2893220057680719338.txt (54/65)
-[2026-01-03 21:26:26.30] [Worker 3] Sequence replayed from corpus file 6314783541458897547.txt (55/65)
-[2026-01-03 21:26:26.32] [Worker 1] Sequence replayed from corpus file 3989357702093054054.txt (54/65)
-[2026-01-03 21:26:26.45] [Worker 0] Sequence replayed from corpus file 4090874521201468195.txt (55/65)
-[2026-01-03 21:26:26.45] [Worker 1] Sequence replayed from corpus file 6967261867415973570.txt (55/65)
-[2026-01-03 21:26:26.55] [Worker 2] New coverage: 97791 instr, 59 contracts, 60 seqs in corpus
-[2026-01-03 21:26:26.56] [Worker 2] Sequence replayed from corpus file 1095015590701793805.txt (60/65)
-[2026-01-03 21:26:26.56] [Worker 1] Sequence replayed from corpus file 1312444363929265880.txt (56/65)
-[2026-01-03 21:26:26.62]  Saved reproducer to echidna/coverage/1095015590701793805.txt
-[2026-01-03 21:26:26.64] [Worker 0] New coverage: 97791 instr, 59 contracts, 61 seqs in corpus
-[2026-01-03 21:26:26.64] [Worker 0] Sequence replayed from corpus file 8270885553102353269.txt (56/65)
-[2026-01-03 21:26:26.69]  Saved reproducer to echidna/coverage/8270885553102353269.txt
-[2026-01-03 21:26:26.69] [Worker 2] Sequence replayed from corpus file 3126840808621868896.txt (61/65)
-[2026-01-03 21:26:26.70] [Worker 3] New coverage: 97887 instr, 59 contracts, 62 seqs in corpus
-[2026-01-03 21:26:26.70] [Worker 3] Sequence replayed from corpus file 448442557596396995.txt (56/65)
-[2026-01-03 21:26:26.73] [Worker 1] Sequence replayed from corpus file 6693481969945574713.txt (57/65)
-[2026-01-03 21:26:26.76]  Saved reproducer to echidna/coverage/448442557596396995.txt
-[2026-01-03 21:26:26.78] [Worker 0] Sequence replayed from corpus file 4282546282431207980.txt (57/65)
-[2026-01-03 21:26:26.91] [Worker 0] Sequence replayed from corpus file 6979534733582416972.txt (58/65)
-[2026-01-03 21:26:26.94] [Worker 1] Sequence replayed from corpus file 8719575333574290787.txt (58/65)
-[2026-01-03 21:26:26.94] [Worker 2] Sequence replayed from corpus file 2338743142579761293.txt (62/65)
-[2026-01-03 21:26:27.00] [Worker 0] Sequence replayed from corpus file 5408803764277520747.txt (59/65)
-[2026-01-03 21:26:27.06] [Worker 2] Sequence replayed from corpus file 4566276581134639250.txt (63/65)
-[2026-01-03 21:26:27.14] [Worker 1] Sequence replayed from corpus file 5097195963332136935.txt (59/65)
-[2026-01-03 21:26:27.15] [Worker 0] Sequence replayed from corpus file 8134434037149052436.txt (60/65)
-[2026-01-03 21:26:27.15] [Worker 3] New coverage: 98125 instr, 59 contracts, 63 seqs in corpus
-[2026-01-03 21:26:27.16] [Worker 3] Sequence replayed from corpus file 7253167461826940712.txt (57/65)
-[2026-01-03 21:26:27.20] [Worker 2] Sequence replayed from corpus file 6174614486938530197.txt (64/65)
-[2026-01-03 21:26:27.21]  Saved reproducer to echidna/coverage/7253167461826940712.txt
-[2026-01-03 21:26:27.22] [Worker 0] Sequence replayed from corpus file 4127764879914241646.txt (61/65)
-[2026-01-03 21:26:27.26] [Worker 1] Sequence replayed from corpus file 6038291133513111651.txt (60/65)
-[2026-01-03 21:26:27.29] [Worker 2] Sequence replayed from corpus file 8441941502637096723.txt (65/65)
-[2026-01-03 21:26:27.61] [Worker 0] Sequence replayed from corpus file 3440536212254097092.txt (62/65)
-[2026-01-03 21:26:27.64] [Worker 1] Sequence replayed from corpus file 2006761628613192646.txt (61/65)
-[2026-01-03 21:26:27.69] [status] tests: 0/1, fuzzing: 0/7766279631452241919, values: [], cov: 98465, corpus: 63
-[2026-01-03 21:26:27.74] [Worker 2] New coverage: 98787 instr, 59 contracts, 64 seqs in corpus
-[2026-01-03 21:26:27.79] [Worker 1] Sequence replayed from corpus file 4722563339035507196.txt (62/65)
-[2026-01-03 21:26:27.79]  Saved reproducer to echidna/coverage/1126600767032191227.txt
-[2026-01-03 21:26:27.82] [Worker 3] New coverage: 98802 instr, 59 contracts, 65 seqs in corpus
-[2026-01-03 21:26:27.82] [Worker 3] Sequence replayed from corpus file 7604522072706682400.txt (58/65)
-[2026-01-03 21:26:27.85] [Worker 0] Sequence replayed from corpus file 3897749866319427773.txt (63/65)
-[2026-01-03 21:26:27.87]  Saved reproducer to echidna/coverage/7604522072706682400.txt
-[2026-01-03 21:26:27.96] [Worker 2] New coverage: 99041 instr, 59 contracts, 66 seqs in corpus
-[2026-01-03 21:26:28.03] [Worker 1] Sequence replayed from corpus file 6727901382166004142.txt (63/65)
-[2026-01-03 21:26:28.05] [Worker 3] Sequence replayed from corpus file 2219820466167351086.txt (59/65)
-[2026-01-03 21:26:28.07]  Saved reproducer to echidna/coverage/4553682503617527311.txt
-[2026-01-03 21:26:28.08] [Worker 0] Sequence replayed from corpus file 8047187280328864388.txt (64/65)
-[2026-01-03 21:26:28.19] [Worker 0] Sequence replayed from corpus file 3366202252032203527.txt (65/65)
-[2026-01-03 21:26:28.20] [Worker 3] Sequence replayed from corpus file 2672253184066116368.txt (60/65)
-[2026-01-03 21:26:28.21] [Worker 1] Sequence replayed from corpus file 8964658579973678736.txt (64/65)
-[2026-01-03 21:26:28.35] [Worker 3] Sequence replayed from corpus file 2931516952405950447.txt (61/65)
-[2026-01-03 21:26:28.39] [Worker 0] New coverage: 99953 instr, 59 contracts, 67 seqs in corpus
-[2026-01-03 21:26:28.44]  Saved reproducer to echidna/coverage/9141252485045704026.txt
-[2026-01-03 21:26:28.45] [Worker 2] New coverage: 99963 instr, 59 contracts, 68 seqs in corpus
-[2026-01-03 21:26:28.50]  Saved reproducer to echidna/coverage/8531120759189410305.txt
-[2026-01-03 21:26:28.53] [Worker 0] New coverage: 100032 instr, 59 contracts, 69 seqs in corpus
-[2026-01-03 21:26:28.58]  Saved reproducer to echidna/coverage/7579955845787755140.txt
-[2026-01-03 21:26:28.60] [Worker 3] Sequence replayed from corpus file 4121395470466105912.txt (62/65)
-[2026-01-03 21:26:28.66] [Worker 1] Sequence replayed from corpus file 7369049939071562149.txt (65/65)
-[2026-01-03 21:26:28.77] [Worker 3] Sequence replayed from corpus file 171601840753164896.txt (63/65)
-[2026-01-03 21:26:28.85] [Worker 2] New coverage: 100165 instr, 59 contracts, 70 seqs in corpus
-[2026-01-03 21:26:28.90] [Worker 3] Sequence replayed from corpus file 1071737340940333425.txt (64/65)
-[2026-01-03 21:26:28.91]  Saved reproducer to echidna/coverage/4650197980953084370.txt
-[2026-01-03 21:26:28.91] [Worker 1] New coverage: 100165 instr, 59 contracts, 71 seqs in corpus
-[2026-01-03 21:26:28.98]  Saved reproducer to echidna/coverage/7535508814165052056.txt
-[2026-01-03 21:26:29.06] [Worker 3] Sequence replayed from corpus file 2535971392800462084.txt (65/65)
-[2026-01-03 21:26:29.89] [Worker 3] New coverage: 100309 instr, 59 contracts, 72 seqs in corpus
-[2026-01-03 21:26:29.96]  Saved reproducer to echidna/coverage/8097426589418808682.txt
-[2026-01-03 21:26:30.46] [Worker 3] New coverage: 102083 instr, 59 contracts, 73 seqs in corpus
-[2026-01-03 21:26:30.52]  Saved reproducer to echidna/coverage/5189872770252164420.txt
-[2026-01-03 21:26:30.63] [Worker 0] New coverage: 102112 instr, 59 contracts, 74 seqs in corpus
-[2026-01-03 21:26:30.68]  Saved reproducer to echidna/coverage/6466047566410289537.txt
-[2026-01-03 21:26:30.70] [status] tests: 0/1, fuzzing: 29949/7766279631452241919, values: [], cov: 102112, corpus: 74
-[2026-01-03 21:26:30.91] [Worker 3] New coverage: 102115 instr, 59 contracts, 75 seqs in corpus
-[2026-01-03 21:26:30.96]  Saved reproducer to echidna/coverage/1512277805266498820.txt
-[2026-01-03 21:26:33.70] [status] tests: 0/1, fuzzing: 35870/7766279631452241919, values: [], cov: 102115, corpus: 75
-[2026-01-03 21:26:35.81] [Worker 1] New coverage: 102211 instr, 59 contracts, 76 seqs in corpus
-[2026-01-03 21:26:35.87]  Saved reproducer to echidna/coverage/4404392624957697555.txt
-[2026-01-03 21:26:36.71] [status] tests: 0/1, fuzzing: 41337/7766279631452241919, values: [], cov: 102211, corpus: 76
-[2026-01-03 21:26:39.71] [status] tests: 0/1, fuzzing: 46174/7766279631452241919, values: [], cov: 102211, corpus: 76
-[2026-01-03 21:26:41.41] [Worker 1] New coverage: 102218 instr, 59 contracts, 77 seqs in corpus
-[2026-01-03 21:26:41.47]  Saved reproducer to echidna/coverage/789140621275204757.txt
-[2026-01-03 21:26:41.65] [Worker 3] New coverage: 102477 instr, 59 contracts, 78 seqs in corpus
-[2026-01-03 21:26:41.71]  Saved reproducer to echidna/coverage/6102135142075504058.txt
-[2026-01-03 21:26:42.71] [status] tests: 0/1, fuzzing: 52174/7766279631452241919, values: [], cov: 102477, corpus: 78
-[2026-01-03 21:26:45.71] [status] tests: 0/1, fuzzing: 58351/7766279631452241919, values: [], cov: 102477, corpus: 78
-[2026-01-03 21:26:47.07] [Worker 0] New coverage: 102505 instr, 59 contracts, 79 seqs in corpus
-[2026-01-03 21:26:47.14]  Saved reproducer to echidna/coverage/1118331574297971562.txt
-[2026-01-03 21:26:48.72] [status] tests: 0/1, fuzzing: 63794/7766279631452241919, values: [], cov: 102505, corpus: 79
-[2026-01-03 21:26:51.72] [status] tests: 0/1, fuzzing: 69356/7766279631452241919, values: [], cov: 102505, corpus: 79
-[2026-01-03 21:26:52.81] [Worker 2] New coverage: 105086 instr, 59 contracts, 80 seqs in corpus
-[2026-01-03 21:26:52.88]  Saved reproducer to echidna/coverage/6766230693475292795.txt
-[2026-01-03 21:26:54.73] [status] tests: 0/1, fuzzing: 74656/7766279631452241919, values: [], cov: 105086, corpus: 80
-[2026-01-03 21:26:57.73] [status] tests: 0/1, fuzzing: 80313/7766279631452241919, values: [], cov: 105086, corpus: 80
-[2026-01-03 21:26:58.61] [Worker 2] New coverage: 105086 instr, 59 contracts, 81 seqs in corpus
-[2026-01-03 21:26:58.66]  Saved reproducer to echidna/coverage/5141378247040593472.txt
-[2026-01-03 21:27:00.74] [status] tests: 0/1, fuzzing: 85442/7766279631452241919, values: [], cov: 105086, corpus: 81
-[2026-01-03 21:27:03.74] [status] tests: 0/1, fuzzing: 91316/7766279631452241919, values: [], cov: 105086, corpus: 81
-[2026-01-03 21:27:06.74] [status] tests: 0/1, fuzzing: 97763/7766279631452241919, values: [], cov: 105086, corpus: 81
-[2026-01-03 21:27:09.75] [status] tests: 0/1, fuzzing: 103358/7766279631452241919, values: [], cov: 105086, corpus: 81
-[2026-01-03 21:27:12.75] [status] tests: 0/1, fuzzing: 109344/7766279631452241919, values: [], cov: 105086, corpus: 81
-[2026-01-03 21:27:15.76] [status] tests: 0/1, fuzzing: 115114/7766279631452241919, values: [], cov: 105086, corpus: 81
-[2026-01-03 21:27:18.76] [status] tests: 0/1, fuzzing: 120720/7766279631452241919, values: [], cov: 105086, corpus: 81
-[2026-01-03 21:27:21.76] [status] tests: 0/1, fuzzing: 126461/7766279631452241919, values: [], cov: 105086, corpus: 81
-[2026-01-03 21:27:24.77] [status] tests: 0/1, fuzzing: 132307/7766279631452241919, values: [], cov: 105086, corpus: 81
-[2026-01-03 21:27:27.77] [status] tests: 0/1, fuzzing: 137404/7766279631452241919, values: [], cov: 105086, corpus: 81
-[2026-01-03 21:27:28.49] [Worker 0] New coverage: 105089 instr, 59 contracts, 82 seqs in corpus
-[2026-01-03 21:27:28.55]  Saved reproducer to echidna/coverage/5026830677502410613.txt
-[2026-01-03 21:27:30.78] [status] tests: 0/1, fuzzing: 142666/7766279631452241919, values: [], cov: 105089, corpus: 82
-[2026-01-03 21:27:31.48] [Worker 0] New coverage: 105571 instr, 59 contracts, 83 seqs in corpus
-[2026-01-03 21:27:31.53]  Saved reproducer to echidna/coverage/942234498133946434.txt
-[2026-01-03 21:27:33.78] [status] tests: 0/1, fuzzing: 148456/7766279631452241919, values: [], cov: 105571, corpus: 83
-[2026-01-03 21:27:36.78] [status] tests: 0/1, fuzzing: 154432/7766279631452241919, values: [], cov: 105571, corpus: 83
-[2026-01-03 21:27:39.79] [status] tests: 0/1, fuzzing: 159984/7766279631452241919, values: [], cov: 105571, corpus: 83
-[2026-01-03 21:27:40.76] [Worker 3] New coverage: 105571 instr, 59 contracts, 84 seqs in corpus
-[2026-01-03 21:27:40.82]  Saved reproducer to echidna/coverage/8260333516033878160.txt
-[2026-01-03 21:27:42.49] [Worker 1] New coverage: 105727 instr, 59 contracts, 85 seqs in corpus
-[2026-01-03 21:27:42.55]  Saved reproducer to echidna/coverage/2799246153471267483.txt
-[2026-01-03 21:27:42.79] [status] tests: 0/1, fuzzing: 165542/7766279631452241919, values: [], cov: 105727, corpus: 85
-[2026-01-03 21:27:45.80] [status] tests: 0/1, fuzzing: 170187/7766279631452241919, values: [], cov: 105727, corpus: 85
-[2026-01-03 21:27:48.80] [status] tests: 0/1, fuzzing: 176069/7766279631452241919, values: [], cov: 105727, corpus: 85
-[2026-01-03 21:27:51.13] [Worker 2] New coverage: 105743 instr, 59 contracts, 86 seqs in corpus
-[2026-01-03 21:27:51.18]  Saved reproducer to echidna/coverage/3793218438780924819.txt
-[2026-01-03 21:27:51.81] [status] tests: 0/1, fuzzing: 180967/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:27:54.81] [status] tests: 0/1, fuzzing: 186289/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:27:57.81] [status] tests: 0/1, fuzzing: 191450/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:00.81] [status] tests: 0/1, fuzzing: 196683/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:03.82] [status] tests: 0/1, fuzzing: 201294/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:06.82] [status] tests: 0/1, fuzzing: 206186/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:09.83] [status] tests: 0/1, fuzzing: 212134/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:12.83] [status] tests: 0/1, fuzzing: 217711/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:15.84] [status] tests: 0/1, fuzzing: 222956/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:18.84] [status] tests: 0/1, fuzzing: 228045/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:21.84] [status] tests: 0/1, fuzzing: 233203/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:24.85] [status] tests: 0/1, fuzzing: 238578/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:27.85] [status] tests: 0/1, fuzzing: 243209/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:30.86] [status] tests: 0/1, fuzzing: 248951/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:33.86] [status] tests: 0/1, fuzzing: 254051/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:36.86] [status] tests: 0/1, fuzzing: 259414/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:39.87] [status] tests: 0/1, fuzzing: 265069/7766279631452241919, values: [], cov: 105743, corpus: 86
-[2026-01-03 21:28:40.50] [Worker 1] New coverage: 105746 instr, 59 contracts, 87 seqs in corpus
-[2026-01-03 21:28:40.55]  Saved reproducer to echidna/coverage/1194285998728105316.txt
-[2026-01-03 21:28:42.87] [status] tests: 0/1, fuzzing: 270335/7766279631452241919, values: [], cov: 105746, corpus: 87
-[2026-01-03 21:28:45.87] [status] tests: 0/1, fuzzing: 275758/7766279631452241919, values: [], cov: 105746, corpus: 87
-[2026-01-03 21:28:48.88] [status] tests: 0/1, fuzzing: 281273/7766279631452241919, values: [], cov: 105746, corpus: 87
-[2026-01-03 21:28:51.88] [status] tests: 0/1, fuzzing: 285947/7766279631452241919, values: [], cov: 105746, corpus: 87
-[2026-01-03 21:28:52.43] [Worker 2] New coverage: 105749 instr, 59 contracts, 88 seqs in corpus
-[2026-01-03 21:28:52.47]  Saved reproducer to echidna/coverage/7697757305138639154.txt
-[2026-01-03 21:28:54.88] [status] tests: 0/1, fuzzing: 290770/7766279631452241919, values: [], cov: 105749, corpus: 88
-[2026-01-03 21:28:57.89] [status] tests: 0/1, fuzzing: 295526/7766279631452241919, values: [], cov: 105749, corpus: 88
-[2026-01-03 21:29:00.89] [status] tests: 0/1, fuzzing: 300357/7766279631452241919, values: [], cov: 105749, corpus: 88
-[2026-01-03 21:29:03.89] [status] tests: 0/1, fuzzing: 304480/7766279631452241919, values: [], cov: 106573, corpus: 88
-[2026-01-03 21:29:03.93] [Worker 2] New coverage: 106573 instr, 59 contracts, 89 seqs in corpus
-[2026-01-03 21:29:03.98]  Saved reproducer to echidna/coverage/1959120615255018128.txt
-[2026-01-03 21:29:06.90] [status] tests: 0/1, fuzzing: 308975/7766279631452241919, values: [], cov: 106573, corpus: 89
-[2026-01-03 21:29:09.90] [status] tests: 0/1, fuzzing: 312792/7766279631452241919, values: [], cov: 106573, corpus: 89
-[2026-01-03 21:29:10.02] [Worker 0] New coverage: 106657 instr, 59 contracts, 90 seqs in corpus
-[2026-01-03 21:29:10.08]  Saved reproducer to echidna/coverage/113458408815870097.txt
-[2026-01-03 21:29:12.91] [status] tests: 0/1, fuzzing: 316232/7766279631452241919, values: [], cov: 106657, corpus: 90
-[2026-01-03 21:29:15.91] [status] tests: 0/1, fuzzing: 319969/7766279631452241919, values: [], cov: 106657, corpus: 90
-[2026-01-03 21:29:18.91] [status] tests: 0/1, fuzzing: 324465/7766279631452241919, values: [], cov: 106657, corpus: 90
-[2026-01-03 21:29:21.91] [status] tests: 0/1, fuzzing: 329163/7766279631452241919, values: [], cov: 106657, corpus: 90
-[2026-01-03 21:29:24.92] [status] tests: 0/1, fuzzing: 333583/7766279631452241919, values: [], cov: 106657, corpus: 90
-[2026-01-03 21:29:26.72] [Worker 2] New coverage: 106682 instr, 59 contracts, 91 seqs in corpus
-[2026-01-03 21:29:26.77]  Saved reproducer to echidna/coverage/4163031843108957648.txt
-[2026-01-03 21:29:27.92] [status] tests: 0/1, fuzzing: 337467/7766279631452241919, values: [], cov: 106682, corpus: 91
-[2026-01-03 21:29:29.83] [Worker 2] New coverage: 106689 instr, 59 contracts, 92 seqs in corpus
-[2026-01-03 21:29:29.88]  Saved reproducer to echidna/coverage/3486369171997779898.txt
-[2026-01-03 21:29:30.93] [status] tests: 0/1, fuzzing: 341821/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:29:33.93] [status] tests: 0/1, fuzzing: 345840/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:29:36.93] [status] tests: 0/1, fuzzing: 350355/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:29:39.94] [status] tests: 0/1, fuzzing: 353830/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:29:42.94] [status] tests: 0/1, fuzzing: 358414/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:29:45.95] [status] tests: 0/1, fuzzing: 362730/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:29:48.95] [status] tests: 0/1, fuzzing: 366681/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:29:51.96] [status] tests: 0/1, fuzzing: 370968/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:29:54.96] [status] tests: 0/1, fuzzing: 374426/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:29:57.96] [status] tests: 0/1, fuzzing: 378238/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:00.97] [status] tests: 0/1, fuzzing: 381827/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:03.97] [status] tests: 0/1, fuzzing: 385763/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:06.98] [status] tests: 0/1, fuzzing: 390189/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:09.98] [status] tests: 0/1, fuzzing: 393426/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:12.99] [status] tests: 0/1, fuzzing: 398344/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:15.99] [status] tests: 0/1, fuzzing: 402005/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:18.99] [status] tests: 0/1, fuzzing: 405991/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:22.00] [status] tests: 0/1, fuzzing: 409955/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:25.00] [status] tests: 0/1, fuzzing: 413641/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:28.01] [status] tests: 0/1, fuzzing: 417734/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:31.01] [status] tests: 0/1, fuzzing: 422115/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:34.01] [status] tests: 0/1, fuzzing: 426092/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:37.02] [status] tests: 0/1, fuzzing: 429617/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:40.02] [status] tests: 0/1, fuzzing: 433627/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:43.03] [status] tests: 0/1, fuzzing: 437607/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:46.03] [status] tests: 0/1, fuzzing: 441046/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:49.04] [status] tests: 0/1, fuzzing: 445478/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:52.04] [status] tests: 0/1, fuzzing: 449249/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:55.04] [status] tests: 0/1, fuzzing: 453027/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:30:58.05] [status] tests: 0/1, fuzzing: 456858/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:01.05] [status] tests: 0/1, fuzzing: 460902/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:04.06] [status] tests: 0/1, fuzzing: 465031/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:07.06] [status] tests: 0/1, fuzzing: 468717/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:10.07] [status] tests: 0/1, fuzzing: 472325/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:13.07] [status] tests: 0/1, fuzzing: 476539/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:16.07] [status] tests: 0/1, fuzzing: 481068/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:19.08] [status] tests: 0/1, fuzzing: 485051/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:22.08] [status] tests: 0/1, fuzzing: 488719/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:25.08] [status] tests: 0/1, fuzzing: 492873/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:28.09] [status] tests: 0/1, fuzzing: 497243/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:31.09] [status] tests: 0/1, fuzzing: 501561/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:34.10] [status] tests: 0/1, fuzzing: 505090/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:37.10] [status] tests: 0/1, fuzzing: 509127/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:40.11] [status] tests: 0/1, fuzzing: 512651/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:43.11] [status] tests: 0/1, fuzzing: 516962/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:46.11] [status] tests: 0/1, fuzzing: 521111/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:49.12] [status] tests: 0/1, fuzzing: 524983/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:52.12] [status] tests: 0/1, fuzzing: 528935/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:55.13] [status] tests: 0/1, fuzzing: 532982/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:31:58.13] [status] tests: 0/1, fuzzing: 537445/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:01.13] [status] tests: 0/1, fuzzing: 541375/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:04.14] [status] tests: 0/1, fuzzing: 545560/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:07.14] [status] tests: 0/1, fuzzing: 549486/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:10.14] [status] tests: 0/1, fuzzing: 553287/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:13.15] [status] tests: 0/1, fuzzing: 556782/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:16.15] [status] tests: 0/1, fuzzing: 560734/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:19.16] [status] tests: 0/1, fuzzing: 564616/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:22.16] [status] tests: 0/1, fuzzing: 568605/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:25.17] [status] tests: 0/1, fuzzing: 572458/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:28.17] [status] tests: 0/1, fuzzing: 577114/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:31.18] [status] tests: 0/1, fuzzing: 581443/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:34.18] [status] tests: 0/1, fuzzing: 585508/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:37.19] [status] tests: 0/1, fuzzing: 589748/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:40.19] [status] tests: 0/1, fuzzing: 593962/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:43.20] [status] tests: 0/1, fuzzing: 597546/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:46.20] [status] tests: 0/1, fuzzing: 602021/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:49.21] [status] tests: 0/1, fuzzing: 605455/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:52.21] [status] tests: 0/1, fuzzing: 609925/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:55.22] [status] tests: 0/1, fuzzing: 614221/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:32:58.22] [status] tests: 0/1, fuzzing: 617951/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:01.22] [status] tests: 0/1, fuzzing: 621660/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:04.23] [status] tests: 0/1, fuzzing: 625542/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:07.23] [status] tests: 0/1, fuzzing: 629777/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:10.24] [status] tests: 0/1, fuzzing: 633387/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:13.24] [status] tests: 0/1, fuzzing: 637212/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:16.25] [status] tests: 0/1, fuzzing: 640904/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:19.25] [status] tests: 0/1, fuzzing: 644250/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:22.26] [status] tests: 0/1, fuzzing: 647777/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:25.26] [status] tests: 0/1, fuzzing: 651579/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:28.27] [status] tests: 0/1, fuzzing: 655784/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:31.27] [status] tests: 0/1, fuzzing: 659622/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:34.28] [status] tests: 0/1, fuzzing: 664310/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:37.28] [status] tests: 0/1, fuzzing: 668251/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:40.28] [status] tests: 0/1, fuzzing: 671677/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:43.29] [status] tests: 0/1, fuzzing: 675222/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:46.29] [status] tests: 0/1, fuzzing: 679042/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:49.30] [status] tests: 0/1, fuzzing: 683362/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:52.30] [status] tests: 0/1, fuzzing: 687458/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:55.30] [status] tests: 0/1, fuzzing: 691280/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:33:58.31] [status] tests: 0/1, fuzzing: 695587/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:01.31] [status] tests: 0/1, fuzzing: 699621/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:04.32] [status] tests: 0/1, fuzzing: 703893/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:07.32] [status] tests: 0/1, fuzzing: 707826/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:10.32] [status] tests: 0/1, fuzzing: 711399/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:13.33] [status] tests: 0/1, fuzzing: 715846/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:16.33] [status] tests: 0/1, fuzzing: 719389/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:19.34] [status] tests: 0/1, fuzzing: 724078/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:22.34] [status] tests: 0/1, fuzzing: 728990/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:25.34] [status] tests: 0/1, fuzzing: 732934/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:28.35] [status] tests: 0/1, fuzzing: 737030/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:31.35] [status] tests: 0/1, fuzzing: 740884/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:34.36] [status] tests: 0/1, fuzzing: 744496/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:37.36] [status] tests: 0/1, fuzzing: 747956/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:40.37] [status] tests: 0/1, fuzzing: 751737/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:43.37] [status] tests: 0/1, fuzzing: 755773/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:46.37] [status] tests: 0/1, fuzzing: 760307/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:49.38] [status] tests: 0/1, fuzzing: 764088/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:52.38] [status] tests: 0/1, fuzzing: 768554/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:55.39] [status] tests: 0/1, fuzzing: 772645/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:34:58.39] [status] tests: 0/1, fuzzing: 776813/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:35:01.39] [status] tests: 0/1, fuzzing: 780905/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:35:04.40] [status] tests: 0/1, fuzzing: 784841/7766279631452241919, values: [], cov: 106689, corpus: 92
-[2026-01-03 21:35:06.34] [Worker 1] New coverage: 106692 instr, 59 contracts, 93 seqs in corpus
-[2026-01-03 21:35:06.40]  Saved reproducer to echidna/coverage/8166643960865338040.txt
-[2026-01-03 21:35:07.40] [status] tests: 0/1, fuzzing: 789566/7766279631452241919, values: [], cov: 106692, corpus: 93
-[2026-01-03 21:35:10.41] [status] tests: 0/1, fuzzing: 793472/7766279631452241919, values: [], cov: 106692, corpus: 93
-[2026-01-03 21:35:13.41] [status] tests: 0/1, fuzzing: 797865/7766279631452241919, values: [], cov: 106692, corpus: 93
-[2026-01-03 21:35:16.41] [status] tests: 0/1, fuzzing: 801626/7766279631452241919, values: [], cov: 106692, corpus: 93
-[2026-01-03 21:35:19.42] [status] tests: 0/1, fuzzing: 805219/7766279631452241919, values: [], cov: 106692, corpus: 93
-[2026-01-03 21:35:22.42] [status] tests: 0/1, fuzzing: 809414/7766279631452241919, values: [], cov: 106692, corpus: 93
-[2026-01-03 21:35:25.42] [status] tests: 0/1, fuzzing: 813036/7766279631452241919, values: [], cov: 106692, corpus: 93
-[2026-01-03 21:35:27.88] [Worker 2] New coverage: 106805 instr, 59 contracts, 94 seqs in corpus
-[2026-01-03 21:35:27.94]  Saved reproducer to echidna/coverage/8767803380943585384.txt
-[2026-01-03 21:35:28.43] [status] tests: 0/1, fuzzing: 816694/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:35:31.43] [status] tests: 0/1, fuzzing: 820720/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:35:34.44] [status] tests: 0/1, fuzzing: 824957/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:35:37.44] [status] tests: 0/1, fuzzing: 828492/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:35:40.45] [status] tests: 0/1, fuzzing: 832209/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:35:43.45] [status] tests: 0/1, fuzzing: 835723/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:35:46.46] [status] tests: 0/1, fuzzing: 839714/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:35:49.46] [status] tests: 0/1, fuzzing: 843506/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:35:52.46] [status] tests: 0/1, fuzzing: 847751/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:35:55.47] [status] tests: 0/1, fuzzing: 851762/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:35:58.47] [status] tests: 0/1, fuzzing: 855820/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:36:01.48] [status] tests: 0/1, fuzzing: 859360/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:36:04.48] [status] tests: 0/1, fuzzing: 862598/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:36:07.50] [status] tests: 0/1, fuzzing: 867052/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:36:10.51] [status] tests: 0/1, fuzzing: 871103/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:36:13.51] [status] tests: 0/1, fuzzing: 875081/7766279631452241919, values: [], cov: 106805, corpus: 94
-[2026-01-03 21:36:15.68] [Worker 1] Time limit reached. Stopping.
-[2026-01-03 21:36:15.68] [Worker 0] Time limit reached. Stopping.
-[2026-01-03 21:36:15.68] [Worker 3] Time limit reached. Stopping.
-[2026-01-03 21:36:15.68] [Worker 2] Time limit reached. Stopping.
-[2026-01-03 21:36:15.68] [status] tests: 0/1, fuzzing: 877442/7766279631452241919, values: [], cov: 106805, corpus: 94
+Loaded 290 transaction sequences from echidna/coverage
+[2026-01-03 21:58:39.07] [Worker 3] New coverage: 74637 instr, 59 contracts, 1 seqs in corpus
+[2026-01-03 21:58:39.08] [Worker 0] New coverage: 75058 instr, 59 contracts, 2 seqs in corpus
+[2026-01-03 21:58:39.10] [Worker 1] New coverage: 75091 instr, 59 contracts, 3 seqs in corpus
+[2026-01-03 21:58:39.11] [Worker 3] Sequence replayed from corpus file 6174614486938530197.txt (1/71)
+[2026-01-03 21:58:39.11] [Worker 1] Sequence replayed from corpus file 8047187280328864388.txt (1/73)
+[2026-01-03 21:58:39.11]  Saved reproducer to echidna/coverage/6174614486938530197.txt
+[2026-01-03 21:58:39.12] [Worker 0] Sequence replayed from corpus file 6044305551371077525.txt (1/73)
+[2026-01-03 21:58:39.16]  Saved reproducer to echidna/coverage/6044305551371077525.txt
+[2026-01-03 21:58:39.20] [Worker 3] New coverage: 81147 instr, 59 contracts, 4 seqs in corpus
+[2026-01-03 21:58:39.20] [Worker 3] Sequence replayed from corpus file 8441941502637096723.txt (2/71)
+[2026-01-03 21:58:39.21]  Saved reproducer to echidna/coverage/8047187280328864388.txt
+[2026-01-03 21:58:39.22] [Worker 0] New coverage: 81365 instr, 59 contracts, 5 seqs in corpus
+[2026-01-03 21:58:39.22] [Worker 0] Sequence replayed from corpus file 1018429691800989152.txt (2/73)
+[2026-01-03 21:58:39.22] [Worker 1] New coverage: 81365 instr, 59 contracts, 6 seqs in corpus
+[2026-01-03 21:58:39.22] [Worker 1] Sequence replayed from corpus file 3366202252032203527.txt (2/73)
+[2026-01-03 21:58:39.24]  Saved reproducer to echidna/coverage/8441941502637096723.txt
+[2026-01-03 21:58:39.28]  Saved reproducer to echidna/coverage/1018429691800989152.txt
+[2026-01-03 21:58:39.32] [Worker 3] New coverage: 85363 instr, 59 contracts, 7 seqs in corpus
+[2026-01-03 21:58:39.32] [Worker 3] Sequence replayed from corpus file 4687275374763087940.txt (3/71)
+[2026-01-03 21:58:39.33]  Saved reproducer to echidna/coverage/3366202252032203527.txt
+[2026-01-03 21:58:39.34] [Worker 2] New coverage: 85404 instr, 59 contracts, 8 seqs in corpus
+[2026-01-03 21:58:39.34] [Worker 2] Sequence replayed from corpus file 7369049939071562149.txt (1/73)
+[2026-01-03 21:58:39.38]  Saved reproducer to echidna/coverage/4687275374763087940.txt
+[2026-01-03 21:58:39.39] [Worker 0] New coverage: 85845 instr, 59 contracts, 9 seqs in corpus
+[2026-01-03 21:58:39.40] [Worker 0] Sequence replayed from corpus file 8260242404268881639.txt (3/73)
+[2026-01-03 21:58:39.42] [Worker 1] New coverage: 86530 instr, 59 contracts, 10 seqs in corpus
+[2026-01-03 21:58:39.42] [Worker 1] Sequence replayed from corpus file 1126600767032191227.txt (3/73)
+[2026-01-03 21:58:39.43]  Saved reproducer to echidna/coverage/7369049939071562149.txt
+[2026-01-03 21:58:39.45] [Worker 2] New coverage: 86570 instr, 59 contracts, 11 seqs in corpus
+[2026-01-03 21:58:39.45] [Worker 2] Sequence replayed from corpus file 6986825690449066606.txt (2/73)
+[2026-01-03 21:58:39.47] [Worker 3] New coverage: 86570 instr, 59 contracts, 12 seqs in corpus
+[2026-01-03 21:58:39.47] [Worker 3] Sequence replayed from corpus file 3093929846583908843.txt (4/71)
+[2026-01-03 21:58:39.49]  Saved reproducer to echidna/coverage/8260242404268881639.txt
+[2026-01-03 21:58:39.53] [Worker 1] New coverage: 86584 instr, 59 contracts, 13 seqs in corpus
+[2026-01-03 21:58:39.54] [Worker 1] Sequence replayed from corpus file 2245657584463757228.txt (4/73)
+[2026-01-03 21:58:39.54]  Saved reproducer to echidna/coverage/1126600767032191227.txt
+[2026-01-03 21:58:39.54] [Worker 0] New coverage: 86584 instr, 59 contracts, 14 seqs in corpus
+[2026-01-03 21:58:39.54] [Worker 0] Sequence replayed from corpus file 6560012829584668596.txt (4/73)
+[2026-01-03 21:58:39.57]  Saved reproducer to echidna/coverage/6986825690449066606.txt
+[2026-01-03 21:58:39.60] [Worker 2] Sequence replayed from corpus file 524430106065283008.txt (3/73)
+[2026-01-03 21:58:39.62] [Worker 3] Sequence replayed from corpus file 1967424057556228016.txt (5/71)
+[2026-01-03 21:58:39.62]  Saved reproducer to echidna/coverage/3093929846583908843.txt
+[2026-01-03 21:58:39.65] [Worker 1] Sequence replayed from corpus file 3603008595657287036.txt (5/73)
+[2026-01-03 21:58:39.66]  Saved reproducer to echidna/coverage/2245657584463757228.txt
+[2026-01-03 21:58:39.70]  Saved reproducer to echidna/coverage/6560012829584668596.txt
+[2026-01-03 21:58:39.73] [Worker 3] New coverage: 87256 instr, 59 contracts, 15 seqs in corpus
+[2026-01-03 21:58:39.73] [Worker 2] Sequence replayed from corpus file 5135327126527843143.txt (4/73)
+[2026-01-03 21:58:39.73] [Worker 3] Sequence replayed from corpus file 1519276404113651798.txt (6/71)
+[2026-01-03 21:58:39.76]  Saved reproducer to echidna/coverage/1519276404113651798.txt
+[2026-01-03 21:58:39.78] [Worker 1] Sequence replayed from corpus file 8246126709399510362.txt (6/73)
+[2026-01-03 21:58:39.84] [Worker 2] New coverage: 87854 instr, 59 contracts, 16 seqs in corpus
+[2026-01-03 21:58:39.84] [Worker 2] Sequence replayed from corpus file 4327177242875529019.txt (5/73)
+[2026-01-03 21:58:39.84] [Worker 3] Sequence replayed from corpus file 7403958297991632512.txt (7/71)
+[2026-01-03 21:58:39.89]  Saved reproducer to echidna/coverage/4327177242875529019.txt
+[2026-01-03 21:58:39.90] [Worker 1] Sequence replayed from corpus file 6718176507502919668.txt (7/73)
+[2026-01-03 21:58:39.94] [Worker 0] New coverage: 88230 instr, 59 contracts, 17 seqs in corpus
+[2026-01-03 21:58:39.94] [Worker 0] Sequence replayed from corpus file 5936248988653335150.txt (5/73)
+[2026-01-03 21:58:39.98] [Worker 2] Sequence replayed from corpus file 6849957783935319748.txt (6/73)
+[2026-01-03 21:58:40.00]  Saved reproducer to echidna/coverage/5936248988653335150.txt
+[2026-01-03 21:58:40.06] [Worker 0] Sequence replayed from corpus file 159070717392216055.txt (6/73)
+[2026-01-03 21:58:40.07] [Worker 1] New coverage: 89469 instr, 59 contracts, 18 seqs in corpus
+[2026-01-03 21:58:40.08] [Worker 1] Sequence replayed from corpus file 5696735656808671457.txt (8/73)
+[2026-01-03 21:58:40.13]  Saved reproducer to echidna/coverage/5696735656808671457.txt
+[2026-01-03 21:58:40.13] [Worker 2] New coverage: 89532 instr, 59 contracts, 19 seqs in corpus
+[2026-01-03 21:58:40.13] [Worker 2] Sequence replayed from corpus file 3023143907469364739.txt (7/73)
+[2026-01-03 21:58:40.18]  Saved reproducer to echidna/coverage/3023143907469364739.txt
+[2026-01-03 21:58:40.19] [Worker 3] New coverage: 89532 instr, 59 contracts, 20 seqs in corpus
+[2026-01-03 21:58:40.20] [Worker 3] Sequence replayed from corpus file 1819490371523160622.txt (8/71)
+[2026-01-03 21:58:40.21] [Worker 0] Sequence replayed from corpus file 2309040375627916951.txt (7/73)
+[2026-01-03 21:58:40.24] [Worker 1] Sequence replayed from corpus file 6075238034914131336.txt (9/73)
+[2026-01-03 21:58:40.25]  Saved reproducer to echidna/coverage/1819490371523160622.txt
+[2026-01-03 21:58:40.29] [Worker 2] Sequence replayed from corpus file 2134284958935335855.txt (8/73)
+[2026-01-03 21:58:40.33] [Worker 0] Sequence replayed from corpus file 7776539823050777382.txt (8/73)
+[2026-01-03 21:58:40.40] [Worker 2] Sequence replayed from corpus file 2518700107590592916.txt (9/73)
+[2026-01-03 21:58:40.48] [Worker 0] Sequence replayed from corpus file 7494320585867061391.txt (9/73)
+[2026-01-03 21:58:40.55] [Worker 2] New coverage: 94045 instr, 59 contracts, 21 seqs in corpus
+[2026-01-03 21:58:40.56] [Worker 2] Sequence replayed from corpus file 7656661516730205627.txt (10/73)
+[2026-01-03 21:58:40.60]  Saved reproducer to echidna/coverage/7656661516730205627.txt
+[2026-01-03 21:58:40.62] [Worker 3] New coverage: 94674 instr, 59 contracts, 22 seqs in corpus
+[2026-01-03 21:58:40.62] [Worker 3] Sequence replayed from corpus file 8166643960865338040.txt (9/71)
+[2026-01-03 21:58:40.64] [Worker 0] New coverage: 95059 instr, 59 contracts, 23 seqs in corpus
+[2026-01-03 21:58:40.64] [Worker 0] Sequence replayed from corpus file 5329389134557709567.txt (10/73)
+[2026-01-03 21:58:40.78]  Saved reproducer to echidna/coverage/8166643960865338040.txt
+[2026-01-03 21:58:40.79] [Worker 2] Sequence replayed from corpus file 8077266023682935986.txt (11/73)
+[2026-01-03 21:58:40.80] [Worker 1] New coverage: 96175 instr, 59 contracts, 24 seqs in corpus
+[2026-01-03 21:58:40.80] [Worker 1] Sequence replayed from corpus file 6466047566410289537.txt (10/73)
+[2026-01-03 21:58:40.83]  Saved reproducer to echidna/coverage/5329389134557709567.txt
+[2026-01-03 21:58:40.84] [Worker 3] Sequence replayed from corpus file 4975789097658791251.txt (10/71)
+[2026-01-03 21:58:40.88]  Saved reproducer to echidna/coverage/6466047566410289537.txt
+[2026-01-03 21:58:40.90] [Worker 0] Sequence replayed from corpus file 5001837346622601301.txt (11/73)
+[2026-01-03 21:58:40.94] [Worker 2] Sequence replayed from corpus file 897142917622515337.txt (12/73)
+[2026-01-03 21:58:40.97] [Worker 1] New coverage: 96206 instr, 59 contracts, 25 seqs in corpus
+[2026-01-03 21:58:40.97] [Worker 1] Sequence replayed from corpus file 985174096369184563.txt (11/73)
+[2026-01-03 21:58:41.02]  Saved reproducer to echidna/coverage/985174096369184563.txt
+[2026-01-03 21:58:41.06] [Worker 0] New coverage: 99431 instr, 59 contracts, 26 seqs in corpus
+[2026-01-03 21:58:41.06] [Worker 0] Sequence replayed from corpus file 4939685428026014601.txt (12/73)
+[2026-01-03 21:58:41.11]  Saved reproducer to echidna/coverage/4939685428026014601.txt
+[2026-01-03 21:58:41.15] [Worker 1] Sequence replayed from corpus file 4012648125807441643.txt (12/73)
+[2026-01-03 21:58:41.19] [Worker 0] Sequence replayed from corpus file 330937522336523391.txt (13/73)
+[2026-01-03 21:58:41.19] [Worker 3] New coverage: 99563 instr, 59 contracts, 27 seqs in corpus
+[2026-01-03 21:58:41.20] [Worker 3] Sequence replayed from corpus file 5411576712684709017.txt (11/71)
+[2026-01-03 21:58:41.25]  Saved reproducer to echidna/coverage/5411576712684709017.txt
+[2026-01-03 21:58:41.31] [Worker 1] Sequence replayed from corpus file 553343890882782475.txt (13/73)
+[2026-01-03 21:58:41.32] [Worker 0] Sequence replayed from corpus file 1904007088263221954.txt (14/73)
+[2026-01-03 21:58:41.38] [Worker 2] New coverage: 100282 instr, 59 contracts, 28 seqs in corpus
+[2026-01-03 21:58:41.38] [Worker 2] Sequence replayed from corpus file 7697757305138639154.txt (13/73)
+[2026-01-03 21:58:41.42]  Saved reproducer to echidna/coverage/7697757305138639154.txt
+[2026-01-03 21:58:41.46] [Worker 0] Sequence replayed from corpus file 6419922681706291204.txt (15/73)
+[2026-01-03 21:58:41.47] [Worker 2] Sequence replayed from corpus file 6440372331413840922.txt (14/73)
+[2026-01-03 21:58:41.61] [Worker 2] Sequence replayed from corpus file 7372850623140524314.txt (15/73)
+[2026-01-03 21:58:41.61] [Worker 3] New coverage: 102928 instr, 59 contracts, 29 seqs in corpus
+[2026-01-03 21:58:41.61] [Worker 3] Sequence replayed from corpus file 5034797444398431493.txt (12/71)
+[2026-01-03 21:58:41.66]  Saved reproducer to echidna/coverage/5034797444398431493.txt
+[2026-01-03 21:58:41.73] [Worker 2] Sequence replayed from corpus file 874372693902731450.txt (16/73)
+[2026-01-03 21:58:41.75] [Worker 1] New coverage: 102932 instr, 59 contracts, 30 seqs in corpus
+[2026-01-03 21:58:41.75] [Worker 1] Sequence replayed from corpus file 4473620231441031604.txt (14/73)
+[2026-01-03 21:58:41.76] [Worker 3] Sequence replayed from corpus file 3456766741938601458.txt (13/71)
+[2026-01-03 21:58:41.77] [status] tests: 0/1, fuzzing: 0/7766279631452241919, values: [], cov: 102951, corpus: 30
+[2026-01-03 21:58:41.80]  Saved reproducer to echidna/coverage/4473620231441031604.txt
+[2026-01-03 21:58:41.86] [Worker 0] New coverage: 102987 instr, 59 contracts, 31 seqs in corpus
+[2026-01-03 21:58:41.86] [Worker 0] Sequence replayed from corpus file 1194285998728105316.txt (16/73)
+[2026-01-03 21:58:41.89] [Worker 1] Sequence replayed from corpus file 8152151787947917532.txt (15/73)
+[2026-01-03 21:58:41.90] [Worker 2] Sequence replayed from corpus file 3932135291662389416.txt (17/73)
+[2026-01-03 21:58:41.91] [Worker 3] Sequence replayed from corpus file 5745261157099761655.txt (14/71)
+[2026-01-03 21:58:41.92]  Saved reproducer to echidna/coverage/1194285998728105316.txt
+[2026-01-03 21:58:41.99] [Worker 0] Sequence replayed from corpus file 5619713486232767566.txt (17/73)
+[2026-01-03 21:58:42.04] [Worker 2] Sequence replayed from corpus file 5637282851889595190.txt (18/73)
+[2026-01-03 21:58:42.07] [Worker 3] Sequence replayed from corpus file 1467397813821139000.txt (15/71)
+[2026-01-03 21:58:42.10] [Worker 1] Sequence replayed from corpus file 7390320056437468663.txt (16/73)
+[2026-01-03 21:58:42.19] [Worker 2] Sequence replayed from corpus file 8219570024974781010.txt (19/73)
+[2026-01-03 21:58:42.36] [Worker 3] New coverage: 103069 instr, 59 contracts, 32 seqs in corpus
+[2026-01-03 21:58:42.37] [Worker 3] Sequence replayed from corpus file 8539023250898984483.txt (16/71)
+[2026-01-03 21:58:42.38] [Worker 1] New coverage: 103069 instr, 59 contracts, 33 seqs in corpus
+[2026-01-03 21:58:42.38] [Worker 1] Sequence replayed from corpus file 329747951440750578.txt (17/73)
+[2026-01-03 21:58:42.41] [Worker 2] Sequence replayed from corpus file 3720347767814252045.txt (20/73)
+[2026-01-03 21:58:42.42]  Saved reproducer to echidna/coverage/8539023250898984483.txt
+[2026-01-03 21:58:42.45] [Worker 0] New coverage: 103085 instr, 59 contracts, 34 seqs in corpus
+[2026-01-03 21:58:42.45] [Worker 0] Sequence replayed from corpus file 8260333516033878160.txt (18/73)
+[2026-01-03 21:58:42.49]  Saved reproducer to echidna/coverage/329747951440750578.txt
+[2026-01-03 21:58:42.52] [Worker 2] Sequence replayed from corpus file 2398022810462951709.txt (21/73)
+[2026-01-03 21:58:42.56]  Saved reproducer to echidna/coverage/8260333516033878160.txt
+[2026-01-03 21:58:42.56] [Worker 1] Sequence replayed from corpus file 1944688398613680137.txt (18/73)
+[2026-01-03 21:58:42.65] [Worker 2] New coverage: 103118 instr, 59 contracts, 35 seqs in corpus
+[2026-01-03 21:58:42.66] [Worker 2] Sequence replayed from corpus file 648825545634143051.txt (22/73)
+[2026-01-03 21:58:42.70]  Saved reproducer to echidna/coverage/648825545634143051.txt
+[2026-01-03 21:58:42.76] [Worker 0] Sequence replayed from corpus file 1393070961325664228.txt (19/73)
+[2026-01-03 21:58:42.82] [Worker 2] Sequence replayed from corpus file 7863439683556824231.txt (23/73)
+[2026-01-03 21:58:42.88] [Worker 1] New coverage: 103125 instr, 59 contracts, 36 seqs in corpus
+[2026-01-03 21:58:42.88] [Worker 1] Sequence replayed from corpus file 6688334407446167723.txt (19/73)
+[2026-01-03 21:58:42.91] [Worker 3] Sequence replayed from corpus file 3243875782933566214.txt (17/71)
+[2026-01-03 21:58:42.94]  Saved reproducer to echidna/coverage/6688334407446167723.txt
+[2026-01-03 21:58:43.18] [Worker 0] Sequence replayed from corpus file 3555172695990394923.txt (20/73)
+[2026-01-03 21:58:43.34] [Worker 2] New coverage: 103399 instr, 59 contracts, 37 seqs in corpus
+[2026-01-03 21:58:43.34] [Worker 2] Sequence replayed from corpus file 4163031843108957648.txt (24/73)
+[2026-01-03 21:58:43.36] [Worker 0] Sequence replayed from corpus file 646102386023612057.txt (21/73)
+[2026-01-03 21:58:43.39]  Saved reproducer to echidna/coverage/4163031843108957648.txt
+[2026-01-03 21:58:43.40] [Worker 1] New coverage: 103399 instr, 59 contracts, 38 seqs in corpus
+[2026-01-03 21:58:43.40] [Worker 3] New coverage: 103399 instr, 59 contracts, 39 seqs in corpus
+[2026-01-03 21:58:43.40] [Worker 1] Sequence replayed from corpus file 7023084146326803679.txt (20/73)
+[2026-01-03 21:58:43.40] [Worker 3] Sequence replayed from corpus file 7277313040616894422.txt (18/71)
+[2026-01-03 21:58:43.46]  Saved reproducer to echidna/coverage/7023084146326803679.txt
+[2026-01-03 21:58:43.51]  Saved reproducer to echidna/coverage/7277313040616894422.txt
+[2026-01-03 21:58:43.54] [Worker 1] Sequence replayed from corpus file 7055892951062659586.txt (21/73)
+[2026-01-03 21:58:43.55] [Worker 3] Sequence replayed from corpus file 6450814134268516613.txt (19/71)
+[2026-01-03 21:58:43.58] [Worker 2] Sequence replayed from corpus file 7089137416033597287.txt (25/73)
+[2026-01-03 21:58:43.64] [Worker 1] Sequence replayed from corpus file 2124088497646080794.txt (22/73)
+[2026-01-03 21:58:43.71] [Worker 2] Sequence replayed from corpus file 6097392067256511038.txt (26/73)
+[2026-01-03 21:58:43.72] [Worker 3] Sequence replayed from corpus file 3302583273411722534.txt (20/71)
+[2026-01-03 21:58:43.79] [Worker 0] New coverage: 103405 instr, 59 contracts, 40 seqs in corpus
+[2026-01-03 21:58:43.80] [Worker 0] Sequence replayed from corpus file 7060655044017314733.txt (22/73)
+[2026-01-03 21:58:43.85]  Saved reproducer to echidna/coverage/7060655044017314733.txt
+[2026-01-03 21:58:43.86] [Worker 2] Sequence replayed from corpus file 7608825045635585732.txt (27/73)
+[2026-01-03 21:58:43.86] [Worker 3] Sequence replayed from corpus file 9128902228983981018.txt (21/71)
+[2026-01-03 21:58:43.96] [Worker 0] Sequence replayed from corpus file 3356490176370289319.txt (23/73)
+[2026-01-03 21:58:44.00] [Worker 3] Sequence replayed from corpus file 4117408845878884602.txt (22/71)
+[2026-01-03 21:58:44.04] [Worker 1] New coverage: 103410 instr, 59 contracts, 41 seqs in corpus
+[2026-01-03 21:58:44.04] [Worker 1] Sequence replayed from corpus file 9196456798587125552.txt (23/73)
+[2026-01-03 21:58:44.09]  Saved reproducer to echidna/coverage/9196456798587125552.txt
+[2026-01-03 21:58:44.09] [Worker 0] Sequence replayed from corpus file 4881421812347011344.txt (24/73)
+[2026-01-03 21:58:44.15] [Worker 3] Sequence replayed from corpus file 2882645306604253049.txt (23/71)
+[2026-01-03 21:58:44.17] [Worker 1] Sequence replayed from corpus file 1584392263455406147.txt (24/73)
+[2026-01-03 21:58:44.22] [Worker 0] Sequence replayed from corpus file 9068789123703513198.txt (25/73)
+[2026-01-03 21:58:44.24] [Worker 2] Sequence replayed from corpus file 3245465106167241011.txt (28/73)
+[2026-01-03 21:58:44.33] [Worker 3] Sequence replayed from corpus file 7966362053302008139.txt (24/71)
+[2026-01-03 21:58:44.35] [Worker 0] Sequence replayed from corpus file 5477135505408598165.txt (26/73)
+[2026-01-03 21:58:44.41] [Worker 2] New coverage: 103418 instr, 59 contracts, 42 seqs in corpus
+[2026-01-03 21:58:44.41] [Worker 2] Sequence replayed from corpus file 1173244530434704918.txt (29/73)
+[2026-01-03 21:58:44.42] [Worker 3] Sequence replayed from corpus file 857104106203809341.txt (25/71)
+[2026-01-03 21:58:44.46]  Saved reproducer to echidna/coverage/1173244530434704918.txt
+[2026-01-03 21:58:44.53] [Worker 1] New coverage: 103418 instr, 59 contracts, 43 seqs in corpus
+[2026-01-03 21:58:44.54] [Worker 1] Sequence replayed from corpus file 7029621721202275654.txt (25/73)
+[2026-01-03 21:58:44.55] [Worker 0] Sequence replayed from corpus file 1707132852099978904.txt (27/73)
+[2026-01-03 21:58:44.60]  Saved reproducer to echidna/coverage/7029621721202275654.txt
+[2026-01-03 21:58:44.69] [Worker 3] Sequence replayed from corpus file 2566328401085092873.txt (26/71)
+[2026-01-03 21:58:44.73] [Worker 0] Sequence replayed from corpus file 7136821581797705154.txt (28/73)
+[2026-01-03 21:58:44.74] [Worker 1] Sequence replayed from corpus file 6812238420606502133.txt (26/73)
+[2026-01-03 21:58:44.78] [status] tests: 0/1, fuzzing: 0/7766279631452241919, values: [], cov: 103418, corpus: 43
+[2026-01-03 21:58:44.80] [Worker 3] Sequence replayed from corpus file 6643254862220301574.txt (27/71)
+[2026-01-03 21:58:44.88] [Worker 0] Sequence replayed from corpus file 7910779282561852713.txt (29/73)
+[2026-01-03 21:58:44.88] [Worker 2] Sequence replayed from corpus file 6766230693475292795.txt (30/73)
+[2026-01-03 21:58:44.98] [Worker 3] Sequence replayed from corpus file 1774520841240499810.txt (28/71)
+[2026-01-03 21:58:45.03] [Worker 0] Sequence replayed from corpus file 138499335130436767.txt (30/73)
+[2026-01-03 21:58:45.04] [Worker 2] Sequence replayed from corpus file 4649067894427601292.txt (31/73)
+[2026-01-03 21:58:45.13] [Worker 3] Sequence replayed from corpus file 733762941073776652.txt (29/71)
+[2026-01-03 21:58:45.13] [Worker 1] New coverage: 103552 instr, 59 contracts, 44 seqs in corpus
+[2026-01-03 21:58:45.14] [Worker 1] Sequence replayed from corpus file 3331098104000470442.txt (27/73)
+[2026-01-03 21:58:45.19]  Saved reproducer to echidna/coverage/3331098104000470442.txt
+[2026-01-03 21:58:45.21] [Worker 0] Sequence replayed from corpus file 5791641552910316497.txt (31/73)
+[2026-01-03 21:58:45.22] [Worker 2] New coverage: 103665 instr, 59 contracts, 45 seqs in corpus
+[2026-01-03 21:58:45.22] [Worker 2] Sequence replayed from corpus file 8724670797557127998.txt (32/73)
+[2026-01-03 21:58:45.28]  Saved reproducer to echidna/coverage/8724670797557127998.txt
+[2026-01-03 21:58:45.32] [Worker 3] Sequence replayed from corpus file 1191110569622584732.txt (30/71)
+[2026-01-03 21:58:45.38] [Worker 0] Sequence replayed from corpus file 1312059098265909093.txt (32/73)
+[2026-01-03 21:58:45.39] [Worker 1] New coverage: 103688 instr, 59 contracts, 46 seqs in corpus
+[2026-01-03 21:58:45.40] [Worker 1] Sequence replayed from corpus file 4553682503617527311.txt (28/73)
+[2026-01-03 21:58:45.44]  Saved reproducer to echidna/coverage/4553682503617527311.txt
+[2026-01-03 21:58:45.49] [Worker 3] Sequence replayed from corpus file 6632562360011817686.txt (31/71)
+[2026-01-03 21:58:45.61] [Worker 0] New coverage: 103760 instr, 59 contracts, 47 seqs in corpus
+[2026-01-03 21:58:45.61] [Worker 0] Sequence replayed from corpus file 789140621275204757.txt (33/73)
+[2026-01-03 21:58:45.65] [Worker 3] Sequence replayed from corpus file 2377521703374294654.txt (32/71)
+[2026-01-03 21:58:45.66]  Saved reproducer to echidna/coverage/789140621275204757.txt
+[2026-01-03 21:58:45.71] [Worker 1] New coverage: 103778 instr, 59 contracts, 48 seqs in corpus
+[2026-01-03 21:58:45.71] [Worker 1] Sequence replayed from corpus file 6851458689213940137.txt (29/73)
+[2026-01-03 21:58:45.76]  Saved reproducer to echidna/coverage/6851458689213940137.txt
+[2026-01-03 21:58:45.77] [Worker 3] Sequence replayed from corpus file 6526306244509838943.txt (33/71)
+[2026-01-03 21:58:45.80] [Worker 2] New coverage: 104053 instr, 59 contracts, 49 seqs in corpus
+[2026-01-03 21:58:45.80] [Worker 2] Sequence replayed from corpus file 5026830677502410613.txt (33/73)
+[2026-01-03 21:58:45.81] [Worker 0] Sequence replayed from corpus file 8357045091811256814.txt (34/73)
+[2026-01-03 21:58:45.86] [Worker 1] Sequence replayed from corpus file 5103959793352731862.txt (30/73)
+[2026-01-03 21:58:45.86]  Saved reproducer to echidna/coverage/5026830677502410613.txt
+[2026-01-03 21:58:45.94] [Worker 0] New coverage: 104072 instr, 59 contracts, 50 seqs in corpus
+[2026-01-03 21:58:45.95] [Worker 0] Sequence replayed from corpus file 6102135142075504058.txt (35/73)
+[2026-01-03 21:58:46.00]  Saved reproducer to echidna/coverage/6102135142075504058.txt
+[2026-01-03 21:58:46.05] [Worker 1] Sequence replayed from corpus file 6625317272569975225.txt (31/73)
+[2026-01-03 21:58:46.16] [Worker 0] New coverage: 104108 instr, 59 contracts, 51 seqs in corpus
+[2026-01-03 21:58:46.16] [Worker 0] Sequence replayed from corpus file 9141252485045704026.txt (36/73)
+[2026-01-03 21:58:46.21]  Saved reproducer to echidna/coverage/9141252485045704026.txt
+[2026-01-03 21:58:46.36] [Worker 2] Sequence replayed from corpus file 2531199847625379386.txt (34/73)
+[2026-01-03 21:58:46.39] [Worker 3] New coverage: 105281 instr, 59 contracts, 52 seqs in corpus
+[2026-01-03 21:58:46.39] [Worker 3] Sequence replayed from corpus file 5527004880036124832.txt (34/71)
+[2026-01-03 21:58:46.46]  Saved reproducer to echidna/coverage/5527004880036124832.txt
+[2026-01-03 21:58:46.56] [Worker 0] New coverage: 105281 instr, 59 contracts, 53 seqs in corpus
+[2026-01-03 21:58:46.56] [Worker 0] Sequence replayed from corpus file 7535508814165052056.txt (37/73)
+[2026-01-03 21:58:46.57] [Worker 2] Sequence replayed from corpus file 8823217158409800490.txt (35/73)
+[2026-01-03 21:58:46.57] [Worker 1] New coverage: 105289 instr, 59 contracts, 54 seqs in corpus
+[2026-01-03 21:58:46.57] [Worker 1] Sequence replayed from corpus file 6288673101331864270.txt (32/73)
+[2026-01-03 21:58:46.60] [Worker 3] Sequence replayed from corpus file 6314841673609342302.txt (35/71)
+[2026-01-03 21:58:46.62]  Saved reproducer to echidna/coverage/7535508814165052056.txt
+[2026-01-03 21:58:46.67]  Saved reproducer to echidna/coverage/6288673101331864270.txt
+[2026-01-03 21:58:46.70] [Worker 0] Sequence replayed from corpus file 5490718745915780107.txt (38/73)
+[2026-01-03 21:58:46.76] [Worker 1] Sequence replayed from corpus file 5802613745941757305.txt (33/73)
+[2026-01-03 21:58:46.76] [Worker 3] Sequence replayed from corpus file 5652779548975198859.txt (36/71)
+[2026-01-03 21:58:46.80] [Worker 2] Sequence replayed from corpus file 2421136924591050393.txt (36/73)
+[2026-01-03 21:58:46.85] [Worker 3] Sequence replayed from corpus file 8509362163773849556.txt (37/71)
+[2026-01-03 21:58:46.91] [Worker 1] Sequence replayed from corpus file 2080740005008538974.txt (34/73)
+[2026-01-03 21:58:46.95] [Worker 2] Sequence replayed from corpus file 8774276348029750057.txt (37/73)
+[2026-01-03 21:58:46.99] [Worker 3] Sequence replayed from corpus file 7111066267408315247.txt (38/71)
+[2026-01-03 21:58:47.05] [Worker 1] Sequence replayed from corpus file 40354824046159811.txt (35/73)
+[2026-01-03 21:58:47.10] [Worker 0] Sequence replayed from corpus file 3556866169677612829.txt (39/73)
+[2026-01-03 21:58:47.14] [Worker 3] Sequence replayed from corpus file 7785563700344120341.txt (39/71)
+[2026-01-03 21:58:47.20] [Worker 1] Sequence replayed from corpus file 3637633650615846177.txt (36/73)
+[2026-01-03 21:58:47.20] [Worker 2] Sequence replayed from corpus file 2783439777107546995.txt (38/73)
+[2026-01-03 21:58:47.24] [Worker 0] Sequence replayed from corpus file 1612321482846539038.txt (40/73)
+[2026-01-03 21:58:47.30] [Worker 3] Sequence replayed from corpus file 7629760026459026789.txt (40/71)
+[2026-01-03 21:58:47.36] [Worker 0] Sequence replayed from corpus file 754479714730056146.txt (41/73)
+[2026-01-03 21:58:47.36] [Worker 2] Sequence replayed from corpus file 8519279292439931369.txt (39/73)
+[2026-01-03 21:58:47.37] [Worker 1] Sequence replayed from corpus file 4209012367695588618.txt (37/73)
+[2026-01-03 21:58:47.51] [Worker 2] Sequence replayed from corpus file 7401439092361537771.txt (40/73)
+[2026-01-03 21:58:47.56] [Worker 1] Sequence replayed from corpus file 563283994396469048.txt (38/73)
+[2026-01-03 21:58:47.66] [Worker 2] Sequence replayed from corpus file 5749559843990760536.txt (41/73)
+[2026-01-03 21:58:47.69] [Worker 1] Sequence replayed from corpus file 5636852891097938820.txt (39/73)
+[2026-01-03 21:58:47.73] [Worker 3] Sequence replayed from corpus file 8531120759189410305.txt (41/71)
+[2026-01-03 21:58:47.76] [Worker 1] Sequence replayed from corpus file 8666368248261505187.txt (40/73)
+[2026-01-03 21:58:47.78] [status] tests: 0/1, fuzzing: 0/7766279631452241919, values: [], cov: 105289, corpus: 54
+[2026-01-03 21:58:47.85] [Worker 2] Sequence replayed from corpus file 1400178431741226600.txt (42/73)
+[2026-01-03 21:58:47.86] [Worker 3] Sequence replayed from corpus file 7088460649560717210.txt (42/71)
+[2026-01-03 21:58:47.87] [Worker 1] Sequence replayed from corpus file 5335960772261984461.txt (41/73)
+[2026-01-03 21:58:47.91] [Worker 0] New coverage: 105618 instr, 59 contracts, 55 seqs in corpus
+[2026-01-03 21:58:47.91] [Worker 0] Sequence replayed from corpus file 5989644159693394593.txt (42/73)
+[2026-01-03 21:58:47.96]  Saved reproducer to echidna/coverage/5989644159693394593.txt
+[2026-01-03 21:58:48.03] [Worker 3] Sequence replayed from corpus file 1185903996673361160.txt (43/71)
+[2026-01-03 21:58:48.04] [Worker 2] Sequence replayed from corpus file 950149378904960337.txt (43/73)
+[2026-01-03 21:58:48.05] [Worker 1] Sequence replayed from corpus file 8303161158650169675.txt (42/73)
+[2026-01-03 21:58:48.08] [Worker 0] Sequence replayed from corpus file 6811745825455926774.txt (43/73)
+[2026-01-03 21:58:48.13] [Worker 3] Sequence replayed from corpus file 1953589327799267382.txt (44/71)
+[2026-01-03 21:58:48.14] [Worker 2] Sequence replayed from corpus file 947536366464770167.txt (44/73)
+[2026-01-03 21:58:48.18] [Worker 1] Sequence replayed from corpus file 7094307847957876498.txt (43/73)
+[2026-01-03 21:58:48.19] [Worker 0] Sequence replayed from corpus file 6093998987211442734.txt (44/73)
+[2026-01-03 21:58:48.26] [Worker 3] Sequence replayed from corpus file 5917828916046049029.txt (45/71)
+[2026-01-03 21:58:48.30] [Worker 2] Sequence replayed from corpus file 1655759177658115183.txt (45/73)
+[2026-01-03 21:58:48.31] [Worker 0] Sequence replayed from corpus file 3950291419904705848.txt (45/73)
+[2026-01-03 21:58:48.42] [Worker 3] Sequence replayed from corpus file 2316504889210212658.txt (46/71)
+[2026-01-03 21:58:48.42] [Worker 2] Sequence replayed from corpus file 5800705983588572597.txt (46/73)
+[2026-01-03 21:58:48.52] [Worker 0] New coverage: 106485 instr, 59 contracts, 56 seqs in corpus
+[2026-01-03 21:58:48.52] [Worker 0] Sequence replayed from corpus file 4010523340070680689.txt (46/73)
+[2026-01-03 21:58:48.55] [Worker 3] New coverage: 106501 instr, 59 contracts, 57 seqs in corpus
+[2026-01-03 21:58:48.56] [Worker 3] Sequence replayed from corpus file 8503893175395337332.txt (47/71)
+[2026-01-03 21:58:48.57]  Saved reproducer to echidna/coverage/4010523340070680689.txt
+[2026-01-03 21:58:48.60]  Saved reproducer to echidna/coverage/8503893175395337332.txt
+[2026-01-03 21:58:48.67] [Worker 0] Sequence replayed from corpus file 772296142816609717.txt (47/73)
+[2026-01-03 21:58:48.73] [Worker 3] Sequence replayed from corpus file 2594340631994150547.txt (48/71)
+[2026-01-03 21:58:48.74] [Worker 1] New coverage: 106517 instr, 59 contracts, 58 seqs in corpus
+[2026-01-03 21:58:48.75] [Worker 1] Sequence replayed from corpus file 3486369171997779898.txt (44/73)
+[2026-01-03 21:58:48.78] [Worker 2] New coverage: 106517 instr, 59 contracts, 59 seqs in corpus
+[2026-01-03 21:58:48.78] [Worker 2] Sequence replayed from corpus file 3793218438780924819.txt (47/73)
+[2026-01-03 21:58:48.79]  Saved reproducer to echidna/coverage/3486369171997779898.txt
+[2026-01-03 21:58:48.84]  Saved reproducer to echidna/coverage/3793218438780924819.txt
+[2026-01-03 21:58:48.93] [Worker 3] Sequence replayed from corpus file 6682843129737901144.txt (49/71)
+[2026-01-03 21:58:48.93] [Worker 1] Sequence replayed from corpus file 4081233657319968415.txt (45/73)
+[2026-01-03 21:58:48.94] [Worker 2] Sequence replayed from corpus file 5121213604924259081.txt (48/73)
+[2026-01-03 21:58:49.03] [Worker 2] Sequence replayed from corpus file 997571601191585451.txt (49/73)
+[2026-01-03 21:58:49.08] [Worker 1] Sequence replayed from corpus file 6258366190018312487.txt (46/73)
+[2026-01-03 21:58:49.08] [Worker 0] Sequence replayed from corpus file 3144608974964222573.txt (48/73)
+[2026-01-03 21:58:49.15] [Worker 3] Sequence replayed from corpus file 1512277805266498820.txt (50/71)
+[2026-01-03 21:58:49.22] [Worker 1] Sequence replayed from corpus file 824593702547924400.txt (47/73)
+[2026-01-03 21:58:49.23] [Worker 0] Sequence replayed from corpus file 1643863196364365106.txt (49/73)
+[2026-01-03 21:58:49.34] [Worker 3] Sequence replayed from corpus file 4952424344772597843.txt (51/71)
+[2026-01-03 21:58:49.39] [Worker 2] Sequence replayed from corpus file 1190714301697574567.txt (50/73)
+[2026-01-03 21:58:49.44] [Worker 1] Sequence replayed from corpus file 4228228836152339728.txt (48/73)
+[2026-01-03 21:58:49.46] [Worker 3] Sequence replayed from corpus file 7852235702096100629.txt (52/71)
+[2026-01-03 21:58:49.55] [Worker 0] New coverage: 106560 instr, 59 contracts, 60 seqs in corpus
+[2026-01-03 21:58:49.55] [Worker 0] Sequence replayed from corpus file 1118331574297971562.txt (50/73)
+[2026-01-03 21:58:49.56] [Worker 2] New coverage: 106560 instr, 59 contracts, 61 seqs in corpus
+[2026-01-03 21:58:49.56] [Worker 2] Sequence replayed from corpus file 1569024547809205803.txt (51/73)
+[2026-01-03 21:58:49.56] [Worker 1] Sequence replayed from corpus file 1253904463205637390.txt (49/73)
+[2026-01-03 21:58:49.58] [Worker 3] New coverage: 106560 instr, 59 contracts, 62 seqs in corpus
+[2026-01-03 21:58:49.58] [Worker 3] Sequence replayed from corpus file 846841806556900034.txt (53/71)
+[2026-01-03 21:58:49.59]  Saved reproducer to echidna/coverage/1118331574297971562.txt
+[2026-01-03 21:58:49.64]  Saved reproducer to echidna/coverage/1569024547809205803.txt
+[2026-01-03 21:58:49.69]  Saved reproducer to echidna/coverage/846841806556900034.txt
+[2026-01-03 21:58:49.71] [Worker 2] Sequence replayed from corpus file 1899597145711279269.txt (52/73)
+[2026-01-03 21:58:49.71] [Worker 1] Sequence replayed from corpus file 8756496745296208663.txt (50/73)
+[2026-01-03 21:58:49.72] [Worker 0] Sequence replayed from corpus file 5081592025321165505.txt (51/73)
+[2026-01-03 21:58:49.85] [Worker 0] Sequence replayed from corpus file 7918703741763282865.txt (52/73)
+[2026-01-03 21:58:49.85] [Worker 1] Sequence replayed from corpus file 4500978752464982189.txt (51/73)
+[2026-01-03 21:58:49.86] [Worker 2] Sequence replayed from corpus file 3077821688735900493.txt (53/73)
+[2026-01-03 21:58:50.01] [Worker 1] Sequence replayed from corpus file 6779062072257729867.txt (52/73)
+[2026-01-03 21:58:50.03] [Worker 0] Sequence replayed from corpus file 6937978171981218959.txt (53/73)
+[2026-01-03 21:58:50.05] [Worker 2] Sequence replayed from corpus file 7582695847707409211.txt (54/73)
+[2026-01-03 21:58:50.12] [Worker 3] New coverage: 106597 instr, 59 contracts, 63 seqs in corpus
+[2026-01-03 21:58:50.12] [Worker 3] Sequence replayed from corpus file 8705537289266140761.txt (54/71)
+[2026-01-03 21:58:50.13] [Worker 1] Sequence replayed from corpus file 1166514532248266984.txt (53/73)
+[2026-01-03 21:58:50.14] [Worker 0] Sequence replayed from corpus file 7490220100616626152.txt (54/73)
+[2026-01-03 21:58:50.18]  Saved reproducer to echidna/coverage/8705537289266140761.txt
+[2026-01-03 21:58:50.22] [Worker 2] Sequence replayed from corpus file 4558595496187063273.txt (55/73)
+[2026-01-03 21:58:50.27] [Worker 1] Sequence replayed from corpus file 7067552144246787618.txt (54/73)
+[2026-01-03 21:58:50.27] [Worker 3] Sequence replayed from corpus file 8305721467737501798.txt (55/71)
+[2026-01-03 21:58:50.35] [Worker 0] Sequence replayed from corpus file 2036979763929628386.txt (55/73)
+[2026-01-03 21:58:50.35] [Worker 2] Sequence replayed from corpus file 8809698919146245800.txt (56/73)
+[2026-01-03 21:58:50.41] [Worker 3] Sequence replayed from corpus file 1439083900994056997.txt (56/71)
+[2026-01-03 21:58:50.45] [Worker 1] New coverage: 106597 instr, 59 contracts, 64 seqs in corpus
+[2026-01-03 21:58:50.45] [Worker 1] Sequence replayed from corpus file 5141378247040593472.txt (55/73)
+[2026-01-03 21:58:50.49] [Worker 2] Sequence replayed from corpus file 3131269007468484270.txt (57/73)
+[2026-01-03 21:58:50.51]  Saved reproducer to echidna/coverage/5141378247040593472.txt
+[2026-01-03 21:58:50.56] [Worker 1] Sequence replayed from corpus file 6847246210609463397.txt (56/73)
+[2026-01-03 21:58:50.57] [Worker 3] Sequence replayed from corpus file 2923611438055136946.txt (57/71)
+[2026-01-03 21:58:50.61] [Worker 2] Sequence replayed from corpus file 7081652592741182256.txt (58/73)
+[2026-01-03 21:58:50.70] [Worker 3] Sequence replayed from corpus file 3463166880531600355.txt (58/71)
+[2026-01-03 21:58:50.71] [Worker 1] Sequence replayed from corpus file 1078911181590616029.txt (57/73)
+[2026-01-03 21:58:50.72] [Worker 0] New coverage: 106612 instr, 59 contracts, 65 seqs in corpus
+[2026-01-03 21:58:50.72] [Worker 0] Sequence replayed from corpus file 3740024144443861226.txt (56/73)
+[2026-01-03 21:58:50.78]  Saved reproducer to echidna/coverage/3740024144443861226.txt
+[2026-01-03 21:58:50.78] [status] tests: 0/1, fuzzing: 0/7766279631452241919, values: [], cov: 106612, corpus: 65
+[2026-01-03 21:58:50.82] [Worker 3] Sequence replayed from corpus file 1473444174938634106.txt (59/71)
+[2026-01-03 21:58:50.83] [Worker 1] Sequence replayed from corpus file 1208447422092688039.txt (58/73)
+[2026-01-03 21:58:50.88] [Worker 2] New coverage: 106756 instr, 59 contracts, 66 seqs in corpus
+[2026-01-03 21:58:50.89] [Worker 2] Sequence replayed from corpus file 8097426589418808682.txt (59/73)
+[2026-01-03 21:58:50.91] [Worker 0] Sequence replayed from corpus file 6723850449155969538.txt (57/73)
+[2026-01-03 21:58:50.95]  Saved reproducer to echidna/coverage/8097426589418808682.txt
+[2026-01-03 21:58:50.96] [Worker 1] Sequence replayed from corpus file 8975026340285211826.txt (59/73)
+[2026-01-03 21:58:51.00] [Worker 3] Sequence replayed from corpus file 6314783541458897547.txt (60/71)
+[2026-01-03 21:58:51.02] [Worker 2] Sequence replayed from corpus file 7579955845787755140.txt (60/73)
+[2026-01-03 21:58:51.08] [Worker 0] Sequence replayed from corpus file 1448258525347528801.txt (58/73)
+[2026-01-03 21:58:51.17] [Worker 2] Sequence replayed from corpus file 9178936685775074625.txt (61/73)
+[2026-01-03 21:58:51.29] [Worker 0] Sequence replayed from corpus file 8251552279815808884.txt (59/73)
+[2026-01-03 21:58:51.37] [Worker 1] New coverage: 106761 instr, 59 contracts, 67 seqs in corpus
+[2026-01-03 21:58:51.37] [Worker 1] Sequence replayed from corpus file 5420405518346707607.txt (60/73)
+[2026-01-03 21:58:51.39] [Worker 3] New coverage: 106857 instr, 59 contracts, 68 seqs in corpus
+[2026-01-03 21:58:51.40] [Worker 3] Sequence replayed from corpus file 448442557596396995.txt (61/71)
+[2026-01-03 21:58:51.43]  Saved reproducer to echidna/coverage/5420405518346707607.txt
+[2026-01-03 21:58:51.43] [Worker 0] Sequence replayed from corpus file 5659545676756920014.txt (60/73)
+[2026-01-03 21:58:51.48]  Saved reproducer to echidna/coverage/448442557596396995.txt
+[2026-01-03 21:58:51.51] [Worker 1] Sequence replayed from corpus file 3989357702093054054.txt (61/73)
+[2026-01-03 21:58:51.57] [Worker 2] Sequence replayed from corpus file 5189872770252164420.txt (62/73)
+[2026-01-03 21:58:51.58] [Worker 0] Sequence replayed from corpus file 2893220057680719338.txt (61/73)
+[2026-01-03 21:58:51.65] [Worker 3] Sequence replayed from corpus file 4404392624957697555.txt (62/71)
+[2026-01-03 21:58:51.77] [Worker 0] Sequence replayed from corpus file 4090874521201468195.txt (62/73)
+[2026-01-03 21:58:52.02] [Worker 2] New coverage: 107038 instr, 59 contracts, 69 seqs in corpus
+[2026-01-03 21:58:52.03] [Worker 2] Sequence replayed from corpus file 2694063561198796534.txt (63/73)
+[2026-01-03 21:58:52.03] [Worker 1] New coverage: 107038 instr, 59 contracts, 70 seqs in corpus
+[2026-01-03 21:58:52.03] [Worker 1] Sequence replayed from corpus file 113458408815870097.txt (62/73)
+[2026-01-03 21:58:52.08]  Saved reproducer to echidna/coverage/2694063561198796534.txt
+[2026-01-03 21:58:52.11] [Worker 3] New coverage: 107249 instr, 59 contracts, 71 seqs in corpus
+[2026-01-03 21:58:52.11] [Worker 3] Sequence replayed from corpus file 7253167461826940712.txt (63/71)
+[2026-01-03 21:58:52.12]  Saved reproducer to echidna/coverage/113458408815870097.txt
+[2026-01-03 21:58:52.15] [Worker 2] Sequence replayed from corpus file 1702998481782547017.txt (64/73)
+[2026-01-03 21:58:52.17] [Worker 1] Sequence replayed from corpus file 6967261867415973570.txt (63/73)
+[2026-01-03 21:58:52.18]  Saved reproducer to echidna/coverage/7253167461826940712.txt
+[2026-01-03 21:58:52.26] [Worker 2] Sequence replayed from corpus file 8258389186892391755.txt (65/73)
+[2026-01-03 21:58:52.49] [Worker 0] Sequence replayed from corpus file 1959120615255018128.txt (63/73)
+[2026-01-03 21:58:52.51] [Worker 3] New coverage: 107365 instr, 59 contracts, 72 seqs in corpus
+[2026-01-03 21:58:52.51] [Worker 3] Sequence replayed from corpus file 7604522072706682400.txt (64/71)
+[2026-01-03 21:58:52.53] [Worker 2] Sequence replayed from corpus file 1582350033521880913.txt (66/73)
+[2026-01-03 21:58:52.57]  Saved reproducer to echidna/coverage/7604522072706682400.txt
+[2026-01-03 21:58:52.61] [Worker 1] New coverage: 107365 instr, 59 contracts, 73 seqs in corpus
+[2026-01-03 21:58:52.62] [Worker 1] Sequence replayed from corpus file 8767803380943585384.txt (64/73)
+[2026-01-03 21:58:52.67]  Saved reproducer to echidna/coverage/8767803380943585384.txt
+[2026-01-03 21:58:52.67] [Worker 3] Sequence replayed from corpus file 2219820466167351086.txt (65/71)
+[2026-01-03 21:58:52.68] [Worker 0] Sequence replayed from corpus file 8270885553102353269.txt (64/73)
+[2026-01-03 21:58:52.72] [Worker 2] Sequence replayed from corpus file 5590548497739395903.txt (67/73)
+[2026-01-03 21:58:52.73] [Worker 1] Sequence replayed from corpus file 1312444363929265880.txt (65/73)
+[2026-01-03 21:58:52.81] [Worker 0] Sequence replayed from corpus file 4282546282431207980.txt (65/73)
+[2026-01-03 21:58:52.82] [Worker 3] Sequence replayed from corpus file 2672253184066116368.txt (66/71)
+[2026-01-03 21:58:52.88] [Worker 2] Sequence replayed from corpus file 648258019786543469.txt (68/73)
+[2026-01-03 21:58:52.88] [Worker 1] Sequence replayed from corpus file 6693481969945574713.txt (66/73)
+[2026-01-03 21:58:52.96] [Worker 3] Sequence replayed from corpus file 2931516952405950447.txt (67/71)
+[2026-01-03 21:58:53.09] [Worker 1] Sequence replayed from corpus file 8719575333574290787.txt (67/73)
+[2026-01-03 21:58:53.19] [Worker 3] Sequence replayed from corpus file 4121395470466105912.txt (68/71)
+[2026-01-03 21:58:53.21] [Worker 0] New coverage: 108305 instr, 59 contracts, 74 seqs in corpus
+[2026-01-03 21:58:53.22] [Worker 0] Sequence replayed from corpus file 942234498133946434.txt (66/73)
+[2026-01-03 21:58:53.26]  Saved reproducer to echidna/coverage/942234498133946434.txt
+[2026-01-03 21:58:53.29] [Worker 1] Sequence replayed from corpus file 5097195963332136935.txt (68/73)
+[2026-01-03 21:58:53.31] [Worker 2] New coverage: 108305 instr, 59 contracts, 75 seqs in corpus
+[2026-01-03 21:58:53.31] [Worker 2] Sequence replayed from corpus file 1095015590701793805.txt (69/73)
+[2026-01-03 21:58:53.36]  Saved reproducer to echidna/coverage/1095015590701793805.txt
+[2026-01-03 21:58:53.36] [Worker 0] Sequence replayed from corpus file 6979534733582416972.txt (67/73)
+[2026-01-03 21:58:53.36] [Worker 3] Sequence replayed from corpus file 171601840753164896.txt (69/71)
+[2026-01-03 21:58:53.41] [Worker 1] Sequence replayed from corpus file 6038291133513111651.txt (69/73)
+[2026-01-03 21:58:53.44] [Worker 2] Sequence replayed from corpus file 3126840808621868896.txt (70/73)
+[2026-01-03 21:58:53.45] [Worker 0] Sequence replayed from corpus file 5408803764277520747.txt (68/73)
+[2026-01-03 21:58:53.47] [Worker 3] Sequence replayed from corpus file 1071737340940333425.txt (70/71)
+[2026-01-03 21:58:53.55] [Worker 1] Sequence replayed from corpus file 2006761628613192646.txt (70/73)
+[2026-01-03 21:58:53.64] [Worker 3] Sequence replayed from corpus file 2535971392800462084.txt (71/71)
+[2026-01-03 21:58:53.79] [status] tests: 0/1, fuzzing: 0/7766279631452241919, values: [], cov: 108305, corpus: 75
+[2026-01-03 21:58:53.91] [Worker 0] Sequence replayed from corpus file 4650197980953084370.txt (69/73)
+[2026-01-03 21:58:53.93] [Worker 1] Sequence replayed from corpus file 4722563339035507196.txt (71/73)
+[2026-01-03 21:58:54.04] [Worker 3] New coverage: 108540 instr, 59 contracts, 76 seqs in corpus
+[2026-01-03 21:58:54.04] [Worker 2] New coverage: 108540 instr, 59 contracts, 77 seqs in corpus
+[2026-01-03 21:58:54.05] [Worker 2] Sequence replayed from corpus file 2799246153471267483.txt (71/73)
+[2026-01-03 21:58:54.07] [Worker 0] Sequence replayed from corpus file 8134434037149052436.txt (70/73)
+[2026-01-03 21:58:54.10]  Saved reproducer to echidna/coverage/1242092543981110851.txt
+[2026-01-03 21:58:54.11] [Worker 1] Sequence replayed from corpus file 6727901382166004142.txt (72/73)
+[2026-01-03 21:58:54.15] [Worker 0] Sequence replayed from corpus file 4127764879914241646.txt (71/73)
+[2026-01-03 21:58:54.15]  Saved reproducer to echidna/coverage/2799246153471267483.txt
+[2026-01-03 21:58:54.19] [Worker 3] New coverage: 108691 instr, 59 contracts, 78 seqs in corpus
+[2026-01-03 21:58:54.22]  Saved reproducer to echidna/coverage/8022327855467972656.txt
+[2026-01-03 21:58:54.28] [Worker 1] Sequence replayed from corpus file 8964658579973678736.txt (73/73)
+[2026-01-03 21:58:54.30] [Worker 2] Sequence replayed from corpus file 2338743142579761293.txt (72/73)
+[2026-01-03 21:58:54.30] [Worker 0] Sequence replayed from corpus file 3440536212254097092.txt (72/73)
+[2026-01-03 21:58:54.42] [Worker 2] Sequence replayed from corpus file 4566276581134639250.txt (73/73)
+[2026-01-03 21:58:54.52] [Worker 0] Sequence replayed from corpus file 3897749866319427773.txt (73/73)
+[2026-01-03 21:58:54.53] [Worker 1] New coverage: 108863 instr, 59 contracts, 79 seqs in corpus
+[2026-01-03 21:58:54.56] [Worker 2] New coverage: 108887 instr, 59 contracts, 80 seqs in corpus
+[2026-01-03 21:58:54.57]  Saved reproducer to echidna/coverage/4334654501785133897.txt
+[2026-01-03 21:58:54.63]  Saved reproducer to echidna/coverage/4679189317715089823.txt
+[2026-01-03 21:58:54.94] [Worker 3] New coverage: 112157 instr, 59 contracts, 81 seqs in corpus
+[2026-01-03 21:58:54.97]  Saved reproducer to echidna/coverage/944497140060612912.txt
+[2026-01-03 21:58:55.05] [Worker 2] New coverage: 112157 instr, 59 contracts, 82 seqs in corpus
+[2026-01-03 21:58:55.10]  Saved reproducer to echidna/coverage/5408569051100566765.txt
+[2026-01-03 21:58:55.70] [Worker 2] New coverage: 112183 instr, 59 contracts, 83 seqs in corpus
+[2026-01-03 21:58:55.75]  Saved reproducer to echidna/coverage/3984159326948789538.txt
+[2026-01-03 21:58:56.79] [status] tests: 0/1, fuzzing: 32272/7766279631452241919, values: [], cov: 112183, corpus: 83
+[2026-01-03 21:58:58.68] [Worker 0] New coverage: 112190 instr, 59 contracts, 84 seqs in corpus
+[2026-01-03 21:58:58.74]  Saved reproducer to echidna/coverage/9154381940007727457.txt
+[2026-01-03 21:58:59.79] [status] tests: 0/1, fuzzing: 37550/7766279631452241919, values: [], cov: 112190, corpus: 84
+[2026-01-03 21:59:02.80] [status] tests: 0/1, fuzzing: 42803/7766279631452241919, values: [], cov: 112190, corpus: 84
+[2026-01-03 21:59:05.80] [status] tests: 0/1, fuzzing: 48200/7766279631452241919, values: [], cov: 112190, corpus: 84
+[2026-01-03 21:59:08.80] [status] tests: 0/1, fuzzing: 54005/7766279631452241919, values: [], cov: 112190, corpus: 84
+[2026-01-03 21:59:11.81] [status] tests: 0/1, fuzzing: 58604/7766279631452241919, values: [], cov: 112190, corpus: 84
+[2026-01-03 21:59:14.81] [status] tests: 0/1, fuzzing: 64479/7766279631452241919, values: [], cov: 112190, corpus: 84
+[2026-01-03 21:59:17.81] [status] tests: 0/1, fuzzing: 69870/7766279631452241919, values: [], cov: 112190, corpus: 84
+[2026-01-03 21:59:20.81] [status] tests: 0/1, fuzzing: 74649/7766279631452241919, values: [], cov: 112190, corpus: 84
+[2026-01-03 21:59:23.81] [status] tests: 0/1, fuzzing: 79506/7766279631452241919, values: [], cov: 112190, corpus: 84
+[2026-01-03 21:59:26.73] [Worker 2] New coverage: 112190 instr, 59 contracts, 85 seqs in corpus
+[2026-01-03 21:59:26.79]  Saved reproducer to echidna/coverage/7013443775586505758.txt
+[2026-01-03 21:59:26.82] [status] tests: 0/1, fuzzing: 84493/7766279631452241919, values: [], cov: 112190, corpus: 85
+[2026-01-03 21:59:29.82] [status] tests: 0/1, fuzzing: 89370/7766279631452241919, values: [], cov: 112190, corpus: 85
+[2026-01-03 21:59:32.82] [status] tests: 0/1, fuzzing: 94565/7766279631452241919, values: [], cov: 112190, corpus: 85
+[2026-01-03 21:59:35.82] [status] tests: 0/1, fuzzing: 99610/7766279631452241919, values: [], cov: 112190, corpus: 85
+[2026-01-03 21:59:38.83] [status] tests: 0/1, fuzzing: 104725/7766279631452241919, values: [], cov: 112190, corpus: 85
+[2026-01-03 21:59:41.83] [status] tests: 0/1, fuzzing: 109656/7766279631452241919, values: [], cov: 112190, corpus: 85
+[2026-01-03 21:59:44.83] [status] tests: 0/1, fuzzing: 114896/7766279631452241919, values: [], cov: 112190, corpus: 85
+[2026-01-03 21:59:47.84] [status] tests: 0/1, fuzzing: 120289/7766279631452241919, values: [], cov: 112190, corpus: 85
+[2026-01-03 21:59:50.84] [status] tests: 0/1, fuzzing: 124997/7766279631452241919, values: [], cov: 112190, corpus: 85
+[2026-01-03 21:59:53.84] [status] tests: 0/1, fuzzing: 129312/7766279631452241919, values: [], cov: 112190, corpus: 85
+[2026-01-03 21:59:53.97] [Worker 1] New coverage: 112353 instr, 59 contracts, 86 seqs in corpus
+[2026-01-03 21:59:54.03]  Saved reproducer to echidna/coverage/7445476175393642955.txt
+[2026-01-03 21:59:56.85] [status] tests: 0/1, fuzzing: 135257/7766279631452241919, values: [], cov: 112353, corpus: 86
+[2026-01-03 21:59:59.85] [status] tests: 0/1, fuzzing: 139643/7766279631452241919, values: [], cov: 112353, corpus: 86
+[2026-01-03 22:00:00.39] [Worker 0] New coverage: 112353 instr, 59 contracts, 87 seqs in corpus
+[2026-01-03 22:00:00.46]  Saved reproducer to echidna/coverage/9054564482569010275.txt
+[2026-01-03 22:00:02.86] [status] tests: 0/1, fuzzing: 144879/7766279631452241919, values: [], cov: 112353, corpus: 87
+[2026-01-03 22:00:05.86] [status] tests: 0/1, fuzzing: 149213/7766279631452241919, values: [], cov: 112353, corpus: 87
+[2026-01-03 22:00:08.86] [status] tests: 0/1, fuzzing: 153947/7766279631452241919, values: [], cov: 112353, corpus: 87
+[2026-01-03 22:00:11.87] [status] tests: 0/1, fuzzing: 159089/7766279631452241919, values: [], cov: 112353, corpus: 87
+[2026-01-03 22:00:14.87] [status] tests: 0/1, fuzzing: 164610/7766279631452241919, values: [], cov: 112353, corpus: 87
+[2026-01-03 22:00:17.87] [status] tests: 0/1, fuzzing: 169407/7766279631452241919, values: [], cov: 112353, corpus: 87
+[2026-01-03 22:00:20.88] [status] tests: 0/1, fuzzing: 174498/7766279631452241919, values: [], cov: 112353, corpus: 87
+[2026-01-03 22:00:22.97] [Worker 0] New coverage: 112356 instr, 59 contracts, 88 seqs in corpus
+[2026-01-03 22:00:23.03]  Saved reproducer to echidna/coverage/5027218637566155930.txt
+[2026-01-03 22:00:23.88] [status] tests: 0/1, fuzzing: 179684/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:00:26.88] [status] tests: 0/1, fuzzing: 184964/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:00:29.89] [status] tests: 0/1, fuzzing: 190318/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:00:32.89] [status] tests: 0/1, fuzzing: 195169/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:00:35.90] [status] tests: 0/1, fuzzing: 200659/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:00:38.90] [status] tests: 0/1, fuzzing: 206234/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:00:41.90] [status] tests: 0/1, fuzzing: 211282/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:00:44.91] [status] tests: 0/1, fuzzing: 215770/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:00:47.91] [status] tests: 0/1, fuzzing: 221248/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:00:50.91] [status] tests: 0/1, fuzzing: 226614/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:00:53.92] [status] tests: 0/1, fuzzing: 231540/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:00:56.92] [status] tests: 0/1, fuzzing: 236582/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:00:59.92] [status] tests: 0/1, fuzzing: 242241/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:02.93] [status] tests: 0/1, fuzzing: 247504/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:05.93] [status] tests: 0/1, fuzzing: 252852/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:08.93] [status] tests: 0/1, fuzzing: 257823/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:11.94] [status] tests: 0/1, fuzzing: 263072/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:14.94] [status] tests: 0/1, fuzzing: 268425/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:17.94] [status] tests: 0/1, fuzzing: 273665/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:20.95] [status] tests: 0/1, fuzzing: 278973/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:23.95] [status] tests: 0/1, fuzzing: 284363/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:26.95] [status] tests: 0/1, fuzzing: 289817/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:29.96] [status] tests: 0/1, fuzzing: 294958/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:32.96] [status] tests: 0/1, fuzzing: 300273/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:35.97] [status] tests: 0/1, fuzzing: 305611/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:38.97] [status] tests: 0/1, fuzzing: 310506/7766279631452241919, values: [], cov: 112356, corpus: 88
+[2026-01-03 22:01:41.21] [Worker 2] New coverage: 112710 instr, 59 contracts, 89 seqs in corpus
+[2026-01-03 22:01:41.27]  Saved reproducer to echidna/coverage/1994392347823664994.txt
+[2026-01-03 22:01:41.54] [Worker 0] New coverage: 112751 instr, 59 contracts, 90 seqs in corpus
+[2026-01-03 22:01:41.59]  Saved reproducer to echidna/coverage/7063645209325527965.txt
+[2026-01-03 22:01:41.97] [status] tests: 0/1, fuzzing: 315770/7766279631452241919, values: [], cov: 112751, corpus: 90
+[2026-01-03 22:01:44.98] [status] tests: 0/1, fuzzing: 320739/7766279631452241919, values: [], cov: 112751, corpus: 90
+[2026-01-03 22:01:47.98] [status] tests: 0/1, fuzzing: 325369/7766279631452241919, values: [], cov: 112751, corpus: 90
+[2026-01-03 22:01:50.98] [status] tests: 0/1, fuzzing: 330280/7766279631452241919, values: [], cov: 112751, corpus: 90
+[2026-01-03 22:01:53.99] [status] tests: 0/1, fuzzing: 335607/7766279631452241919, values: [], cov: 112751, corpus: 90
+[2026-01-03 22:01:56.99] [status] tests: 0/1, fuzzing: 340518/7766279631452241919, values: [], cov: 112751, corpus: 90
+[2026-01-03 22:01:59.99] [status] tests: 0/1, fuzzing: 346031/7766279631452241919, values: [], cov: 112751, corpus: 90
+[2026-01-03 22:02:03.00] [status] tests: 0/1, fuzzing: 350888/7766279631452241919, values: [], cov: 112751, corpus: 90
+[2026-01-03 22:02:04.56] [Worker 0] New coverage: 112846 instr, 59 contracts, 91 seqs in corpus
+[2026-01-03 22:02:04.58]  Saved reproducer to echidna/coverage/975761694612525206.txt
+[2026-01-03 22:02:06.00] [status] tests: 0/1, fuzzing: 356138/7766279631452241919, values: [], cov: 112846, corpus: 91
+[2026-01-03 22:02:09.00] [status] tests: 0/1, fuzzing: 361278/7766279631452241919, values: [], cov: 112846, corpus: 91
+[2026-01-03 22:02:12.01] [status] tests: 0/1, fuzzing: 367133/7766279631452241919, values: [], cov: 112846, corpus: 91
+[2026-01-03 22:02:15.01] [status] tests: 0/1, fuzzing: 372294/7766279631452241919, values: [], cov: 112846, corpus: 91
+[2026-01-03 22:02:18.01] [status] tests: 0/1, fuzzing: 377559/7766279631452241919, values: [], cov: 112846, corpus: 91
+[2026-01-03 22:02:21.02] [status] tests: 0/1, fuzzing: 383052/7766279631452241919, values: [], cov: 112846, corpus: 91
+[2026-01-03 22:02:24.02] [status] tests: 0/1, fuzzing: 388540/7766279631452241919, values: [], cov: 112846, corpus: 91
+[2026-01-03 22:02:26.37] [Worker 2] New coverage: 112851 instr, 59 contracts, 92 seqs in corpus
+[2026-01-03 22:02:26.42]  Saved reproducer to echidna/coverage/6611774780847011200.txt
+[2026-01-03 22:02:27.02] [status] tests: 0/1, fuzzing: 393709/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:02:30.03] [status] tests: 0/1, fuzzing: 398697/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:02:33.03] [status] tests: 0/1, fuzzing: 403758/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:02:36.03] [status] tests: 0/1, fuzzing: 408854/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:02:39.04] [status] tests: 0/1, fuzzing: 413907/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:02:42.04] [status] tests: 0/1, fuzzing: 419169/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:02:45.04] [status] tests: 0/1, fuzzing: 423650/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:02:48.05] [status] tests: 0/1, fuzzing: 428879/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:02:51.05] [status] tests: 0/1, fuzzing: 434724/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:02:54.06] [status] tests: 0/1, fuzzing: 440343/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:02:57.06] [status] tests: 0/1, fuzzing: 445556/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:00.06] [status] tests: 0/1, fuzzing: 450738/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:03.07] [status] tests: 0/1, fuzzing: 456300/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:06.07] [status] tests: 0/1, fuzzing: 461546/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:09.07] [status] tests: 0/1, fuzzing: 467232/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:12.08] [status] tests: 0/1, fuzzing: 472353/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:15.08] [status] tests: 0/1, fuzzing: 477324/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:18.09] [status] tests: 0/1, fuzzing: 483143/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:21.09] [status] tests: 0/1, fuzzing: 488876/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:24.09] [status] tests: 0/1, fuzzing: 493747/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:27.10] [status] tests: 0/1, fuzzing: 499469/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:30.10] [status] tests: 0/1, fuzzing: 504557/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:33.10] [status] tests: 0/1, fuzzing: 509962/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:36.11] [status] tests: 0/1, fuzzing: 514605/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:39.11] [status] tests: 0/1, fuzzing: 519860/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:42.11] [status] tests: 0/1, fuzzing: 525509/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:45.12] [status] tests: 0/1, fuzzing: 530349/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:48.12] [status] tests: 0/1, fuzzing: 536239/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:51.12] [status] tests: 0/1, fuzzing: 541387/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:54.13] [status] tests: 0/1, fuzzing: 546486/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:03:57.13] [status] tests: 0/1, fuzzing: 552213/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:04:00.14] [status] tests: 0/1, fuzzing: 557805/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:04:03.14] [status] tests: 0/1, fuzzing: 562978/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:04:06.14] [status] tests: 0/1, fuzzing: 568076/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:04:09.15] [status] tests: 0/1, fuzzing: 573478/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:04:12.15] [status] tests: 0/1, fuzzing: 578695/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:04:15.15] [status] tests: 0/1, fuzzing: 582948/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:04:18.16] [status] tests: 0/1, fuzzing: 588404/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:04:21.16] [status] tests: 0/1, fuzzing: 593894/7766279631452241919, values: [], cov: 112851, corpus: 92
+[2026-01-03 22:04:22.67] [Worker 1] New coverage: 112857 instr, 59 contracts, 93 seqs in corpus
+[2026-01-03 22:04:22.72]  Saved reproducer to echidna/coverage/806003919405470867.txt
+[2026-01-03 22:04:24.16] [status] tests: 0/1, fuzzing: 599262/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:04:27.17] [status] tests: 0/1, fuzzing: 605209/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:04:30.17] [status] tests: 0/1, fuzzing: 610403/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:04:33.17] [status] tests: 0/1, fuzzing: 615723/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:04:36.18] [status] tests: 0/1, fuzzing: 621813/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:04:39.18] [status] tests: 0/1, fuzzing: 627511/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:04:42.18] [status] tests: 0/1, fuzzing: 633043/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:04:45.19] [status] tests: 0/1, fuzzing: 637887/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:04:48.19] [status] tests: 0/1, fuzzing: 643412/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:04:51.19] [status] tests: 0/1, fuzzing: 648672/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:04:54.20] [status] tests: 0/1, fuzzing: 654507/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:04:57.20] [status] tests: 0/1, fuzzing: 660027/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:00.20] [status] tests: 0/1, fuzzing: 665555/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:03.21] [status] tests: 0/1, fuzzing: 670781/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:06.21] [status] tests: 0/1, fuzzing: 676446/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:09.21] [status] tests: 0/1, fuzzing: 682081/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:12.21] [status] tests: 0/1, fuzzing: 687933/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:15.22] [status] tests: 0/1, fuzzing: 693602/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:18.22] [status] tests: 0/1, fuzzing: 698901/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:21.23] [status] tests: 0/1, fuzzing: 704696/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:24.23] [status] tests: 0/1, fuzzing: 710270/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:27.23] [status] tests: 0/1, fuzzing: 715510/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:30.24] [status] tests: 0/1, fuzzing: 720609/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:33.24] [status] tests: 0/1, fuzzing: 726182/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:36.24] [status] tests: 0/1, fuzzing: 731576/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:39.25] [status] tests: 0/1, fuzzing: 737496/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:42.25] [status] tests: 0/1, fuzzing: 743354/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:45.25] [status] tests: 0/1, fuzzing: 749239/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:48.26] [status] tests: 0/1, fuzzing: 754701/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:51.26] [status] tests: 0/1, fuzzing: 760665/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:54.27] [status] tests: 0/1, fuzzing: 766413/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:05:57.27] [status] tests: 0/1, fuzzing: 772520/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:00.27] [status] tests: 0/1, fuzzing: 778285/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:03.27] [status] tests: 0/1, fuzzing: 783704/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:06.28] [status] tests: 0/1, fuzzing: 789898/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:09.28] [status] tests: 0/1, fuzzing: 795443/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:12.29] [status] tests: 0/1, fuzzing: 800956/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:15.29] [status] tests: 0/1, fuzzing: 806373/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:18.29] [status] tests: 0/1, fuzzing: 811652/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:21.30] [status] tests: 0/1, fuzzing: 817673/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:24.30] [status] tests: 0/1, fuzzing: 823351/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:27.30] [status] tests: 0/1, fuzzing: 828923/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:30.31] [status] tests: 0/1, fuzzing: 834129/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:33.31] [status] tests: 0/1, fuzzing: 838947/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:36.31] [status] tests: 0/1, fuzzing: 844599/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:39.32] [status] tests: 0/1, fuzzing: 850287/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:42.32] [status] tests: 0/1, fuzzing: 855691/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:45.32] [status] tests: 0/1, fuzzing: 861054/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:48.33] [status] tests: 0/1, fuzzing: 866834/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:51.33] [status] tests: 0/1, fuzzing: 872472/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:54.34] [status] tests: 0/1, fuzzing: 877865/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:06:57.34] [status] tests: 0/1, fuzzing: 883124/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:00.34] [status] tests: 0/1, fuzzing: 888792/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:03.35] [status] tests: 0/1, fuzzing: 894151/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:06.35] [status] tests: 0/1, fuzzing: 900311/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:09.35] [status] tests: 0/1, fuzzing: 905353/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:12.36] [status] tests: 0/1, fuzzing: 910438/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:15.36] [status] tests: 0/1, fuzzing: 915776/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:18.36] [status] tests: 0/1, fuzzing: 921337/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:21.37] [status] tests: 0/1, fuzzing: 926541/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:24.37] [status] tests: 0/1, fuzzing: 932210/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:27.37] [status] tests: 0/1, fuzzing: 938046/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:30.38] [status] tests: 0/1, fuzzing: 943832/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:33.38] [status] tests: 0/1, fuzzing: 949308/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:36.39] [status] tests: 0/1, fuzzing: 954513/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:39.39] [status] tests: 0/1, fuzzing: 960143/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:42.39] [status] tests: 0/1, fuzzing: 965243/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:45.39] [status] tests: 0/1, fuzzing: 970423/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:48.40] [status] tests: 0/1, fuzzing: 975906/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:51.40] [status] tests: 0/1, fuzzing: 981518/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:54.40] [status] tests: 0/1, fuzzing: 987445/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:07:57.41] [status] tests: 0/1, fuzzing: 993285/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:08:00.41] [status] tests: 0/1, fuzzing: 998846/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:08:03.42] [status] tests: 0/1, fuzzing: 1004259/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:08:06.42] [status] tests: 0/1, fuzzing: 1009735/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:08:09.42] [status] tests: 0/1, fuzzing: 1015076/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:08:12.42] [status] tests: 0/1, fuzzing: 1020928/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:08:15.43] [status] tests: 0/1, fuzzing: 1026307/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:08:18.43] [status] tests: 0/1, fuzzing: 1031164/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:08:21.43] [status] tests: 0/1, fuzzing: 1036413/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:08:24.44] [status] tests: 0/1, fuzzing: 1041784/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:08:27.44] [status] tests: 0/1, fuzzing: 1047160/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:08:30.44] [status] tests: 0/1, fuzzing: 1051984/7766279631452241919, values: [], cov: 112857, corpus: 93
+[2026-01-03 22:08:30.82] [Worker 1] New coverage: 112873 instr, 59 contracts, 94 seqs in corpus
+[2026-01-03 22:08:30.88]  Saved reproducer to echidna/coverage/3197710873631766369.txt
+[2026-01-03 22:08:33.45] [status] tests: 0/1, fuzzing: 1057600/7766279631452241919, values: [], cov: 112873, corpus: 94
+[2026-01-03 22:08:36.45] [status] tests: 0/1, fuzzing: 1063315/7766279631452241919, values: [], cov: 112873, corpus: 94
+[2026-01-03 22:08:38.77] [Worker 2] Time limit reached. Stopping.
+[2026-01-03 22:08:38.77] [Worker 3] Time limit reached. Stopping.
+[2026-01-03 22:08:38.77] [Worker 1] Time limit reached. Stopping.
+[2026-01-03 22:08:38.77] [Worker 0] Time limit reached. Stopping.
+[2026-01-03 22:08:38.77] [status] tests: 0/1, fuzzing: 1067836/7766279631452241919, values: [], cov: 112873, corpus: 94
 
 
-Unique instructions: 106805
+Unique instructions: 112873
 Unique codehashes: 59
 Corpus size: 94
-Seed: 8666949994092851656
-Total calls: 877442
+Seed: 5301277030006141543
+Total calls: 1067836
 
-[2026-01-03 21:36:15.68] Saving test reproducers... Done! (0s)
-[2026-01-03 21:36:15.68] Saving corpus... Done! (6.237942s)
-[2026-01-03 21:36:21.92] Saving coverage... Done! (17.9194s)
+[2026-01-03 22:08:38.77] Saving test reproducers... Done! (0.000001s)
+[2026-01-03 22:08:38.77] Saving corpus... Done! (5.939913s)
+[2026-01-03 22:08:44.71] Saving coverage... Done! (17.992806s)
