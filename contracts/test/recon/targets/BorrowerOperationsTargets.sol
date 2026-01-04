@@ -175,14 +175,17 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         // Ensure minInterestRate and maxInterestRate are valid and ordered
         // Clamp to valid range: MIN_ANNUAL_INTEREST_RATE to MAX_ANNUAL_INTEREST_RATE
         uint256 range = MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE;
-        _minInterestRate = uint128(MIN_ANNUAL_INTEREST_RATE + (_minInterestRate % (range + 1)));
-        _maxInterestRate = uint128(MIN_ANNUAL_INTEREST_RATE + (_maxInterestRate % (range + 1)));
         
-        // Ensure minInterestRate <= maxInterestRate
-        if (_minInterestRate > _maxInterestRate) {
-            uint128 temp = _minInterestRate;
-            _minInterestRate = _maxInterestRate;
-            _maxInterestRate = temp;
+        // First, clamp minInterestRate to the valid range
+        _minInterestRate = uint128(MIN_ANNUAL_INTEREST_RATE + (_minInterestRate % (range + 1)));
+        
+        // Then, clamp maxInterestRate to be >= minInterestRate and <= MAX_ANNUAL_INTEREST_RATE
+        // Calculate remaining range from minInterestRate to MAX
+        uint256 remainingRange = MAX_ANNUAL_INTEREST_RATE - _minInterestRate;
+        if (remainingRange > 0) {
+            _maxInterestRate = uint128(_minInterestRate + (_maxInterestRate % (remainingRange + 1)));
+        } else {
+            _maxInterestRate = _minInterestRate;
         }
         
         // Ensure _newAnnualInterestRate is also in valid range
