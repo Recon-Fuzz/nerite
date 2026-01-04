@@ -134,48 +134,65 @@ abstract contract TroveManagerTargets is BaseTargetFunctions, Properties  {
         uint256 _boldAmount,
         uint256 _priceCollapse
     ) public {
-        // Step 1: Open a trove with the actor
-        _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
-        if (_collAmount == 0) _collAmount = collToken.balanceOf(_getActor());
+        // Step 1: Open multiple troves to build up system debt
+        uint256[] memory troveIdsForRedemption = new uint256[](3);
         
-        uint256 troveId = borrowerOperations.openTrove(
-            _getActor(),
-            0,
-            _collAmount,
-            _boldAmount % 1000e18 + MIN_DEBT,
-            0,
-            0,
-            MAX_ANNUAL_INTEREST_RATE / 2,
-            type(uint256).max,
-            address(0),
-            address(0),
-            address(0)
-        );
+        for (uint256 i = 0; i < 3; i++) {
+            _collAmount = _collAmount % (collToken.balanceOf(_getActor()) + 1);
+            if (_collAmount == 0 || _collAmount < 10e18) _collAmount = 50e18;
+            
+            uint256 troveDebt = (_boldAmount % (MIN_DEBT * 10)) + MIN_DEBT;
+            
+            uint256 troveId = borrowerOperations.openTrove(
+                _getActor(),
+                i,
+                _collAmount,
+                troveDebt,
+                0,
+                0,
+                MAX_ANNUAL_INTEREST_RATE / 2,
+                type(uint256).max,
+                address(0),
+                address(0),
+                address(0)
+            );
+            
+            troveIdsForRedemption[i] = troveId;
+        }
         
-        // Step 2: Trigger shutdown by collapsing price
-        uint256 collapsePrice = _priceCollapse % 1000e18 + 1e18; // Low price to trigger shutdown
+        // Step 2: Trigger shutdown by severely collapsing price
+        // SCR is typically 130%, so we need TCR < 130%
+        // If troves have 150% collateral ratio, drop price by ~20% to get TCR ~120%
+        uint256 currentPrice = priceFeed.getPrice();
+        uint256 collapsePrice = currentPrice * 70 / 100; // 30% price drop should trigger shutdown
         priceFeed.setPrice(collapsePrice);
         
-        // Step 3: Call shutdown (this should succeed if TCR < SCR)
-        try borrowerOperations.shutdown() {} catch {}
+        // Step 3: Call shutdown - should succeed now with TCR < SCR
+        try borrowerOperations.shutdown() {
+            // Shutdown succeeded
+        } catch {
+            // If shutdown failed, try even lower price
+            priceFeed.setPrice(currentPrice * 50 / 100);
+            try borrowerOperations.shutdown() {} catch {}
+        }
         
-        // Step 4: Ensure actor has Bold to redeem
-        uint256 redeemAmount = (_boldAmount % 100e18) + 1e18;
+        // Step 4: Verify shutdown happened by checking if we can call urgentRedemption
+        // (urgentRedemption requires shutdownTime != 0)
+        
+        // Step 5: Ensure actor has Bold to redeem
+        uint256 redeemAmount = (_boldAmount % (MIN_DEBT * 5)) + MIN_DEBT;
         uint256 actorBoldBalance = boldToken.balanceOf(_getActor());
         if (actorBoldBalance < redeemAmount) {
             vm.prank(address(borrowerOperations));
             boldToken.mint(_getActor(), redeemAmount - actorBoldBalance);
         }
         
-        // Step 5: Approve Bold for redemption
+        // Step 6: Approve Bold for redemption
         vm.prank(_getActor());
         boldToken.approve(address(troveManager), redeemAmount);
         
-        // Step 6: Call urgent redemption
-        uint256[] memory troveIds = new uint256[](1);
-        troveIds[0] = troveId;
-        
-        troveManager_urgentRedemption(redeemAmount, troveIds, 0);
+        // Step 7: Call urgent redemption with the troves we created
+        troveManager_urgentRedemption(redeemAmount, troveIdsForRedemption, 0);
     }
 
     /// Shortcut to create liquidatable troves and batch liquidate them
@@ -187,14 +204,37 @@ abstract contract TroveManagerTargets is BaseTargetFunctions, Properties  {
         _numTroves = (_numTroves % 5) + 1; // 1-5 troves
         uint256[] memory troveIdsToLiquidate = new uint256[](_numTroves);
         
-        // Step 1: Open multiple troves
+        // Step 1: Ensure stability pool has deposits to absorb liquidations
+        // Switch to a different actor to provide stability pool deposits
+        address liquidator = _getActor();
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            _enableActor(actors[1]);
+        }
+        
+        // Deposit to stability pool
+        uint256 spDeposit = MIN_DEBT * 100;
+        vm.prank(address(borrowerOperations));
+        boldToken.mint(_getActor(), spDeposit);
+        
+        vm.prank(_getActor());
+        boldToken.approve(address(stabilityPool), spDeposit);
+        
+        vm.prank(_getActor());
+        stabilityPool.provideToSP(spDeposit, false);
+        
+        // Switch back to original actor
+        _enableActor(liquidator);
+        
+        // Step 2: Open multiple troves with high debt-to-collateral ratio
         for (uint256 i = 0; i < _numTroves; i++) {
-            uint256 collAmount = (_collPerTrove % 100e18) + 10e18;
-            uint256 boldAmount = (collAmount * 50) / 100; // ~50% LTV initially
+            uint256 collAmount = (_collPerTrove % 50e18) + 10e18;
+            // Create troves with higher debt ratio to make them easier to liquidate
+            uint256 boldAmount = (collAmount * 80) / 100; // ~80% LTV initially
             
             try borrowerOperations.openTrove(
                 _getActor(),
-                i,
+                i + 100, // Use different ownerIndex to avoid conflicts
                 collAmount,
                 boldAmount,
                 0,
@@ -214,11 +254,13 @@ abstract contract TroveManagerTargets is BaseTargetFunctions, Properties  {
             }
         }
         
-        // Step 2: Crash the collateral price to make troves liquidatable
-        uint256 crashedPrice = (_priceCollapse % 500e18) + 100e18; // 100-600 USD per ETH
+        // Step 3: Crash the collateral price significantly to make troves liquidatable
+        // MCR is typically 110%, so crash price to make CR < 110%
+        uint256 currentPrice = priceFeed.getPrice();
+        uint256 crashedPrice = currentPrice * 60 / 100; // 40% crash should make 80% LTV troves liquidatable
         priceFeed.setPrice(crashedPrice);
         
-        // Step 3: Call batch liquidate
+        // Step 4: Call batch liquidate
         troveManager_batchLiquidateTroves(troveIdsToLiquidate);
     }
 

@@ -159,9 +159,18 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     }
 
     function borrowerOperations_setInterestIndividualDelegate_clamped(uint256 _troveId, address _delegate, uint128 _minInterestRate, uint128 _maxInterestRate, uint256 _newAnnualInterestRate, uint256 _upperHint, uint256 _lowerHint, uint256 _maxUpfrontFee, uint256 _minInterestRateChangePeriod) public {
-        _troveId = setNewClampedTroveId(_troveId);
+        // Use active trove to ensure it's in the right state
+        _troveId = getActiveOrZombieTroveId(_troveId);
+        
+        // Ensure minInterestRate <= maxInterestRate
         _minInterestRate = uint128(_minInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1));
         _maxInterestRate = uint128(_maxInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1));
+        if (_minInterestRate > _maxInterestRate) {
+            uint128 temp = _minInterestRate;
+            _minInterestRate = _maxInterestRate;
+            _maxInterestRate = temp;
+        }
+        
         _newAnnualInterestRate = _newAnnualInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1);
         _upperHint = setNewClampedTroveId(_upperHint);
         _lowerHint = setNewClampedTroveId(_lowerHint);
@@ -476,25 +485,44 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         uint256 _boldAmount,
         uint128 _newAnnualInterestRate
     ) public {
+        // Save current actor to restore later
+        address currentActorAddress = _getActor();
+        
         // Step 1: Register a batch manager
         borrowerOperations_registerAndUseBatchManager(
             uint128(MAX_ANNUAL_INTEREST_RATE / 2),
             uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 2)
         );
+        address batchManagerAddr = clampedBatchManager;
         
-        // Step 2: Open trove and join the batch (this puts the batch manager address in clampedBatchManager)
+        // Step 2: Switch to a different actor to open the trove (borrowers can't be batch managers)
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            // Find an actor that's not the batch manager
+            for (uint256 i = 0; i < actors.length; i++) {
+                if (actors[i] != batchManagerAddr) {
+                    _enableActor(actors[i]);
+                    break;
+                }
+            }
+        }
+        
+        // Step 3: Open trove and join the batch
         borrowerOperations_openTroveAndJoinInterestBatchManager_clamped(
             _collAmount,
             _boldAmount,
             _newAnnualInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1),
-            clampedBatchManager,  // Use the batch manager we just registered
+            batchManagerAddr,
             type(uint256).max
         );
         
-        // Step 3: Warp time to ensure cooldown period has passed
+        // Step 4: Warp time to ensure cooldown period has passed
         vm.warp(block.timestamp + 8 days); // INTEREST_RATE_ADJ_COOLDOWN is 7 days
         
-        // Step 4: Call setBatchManagerAnnualInterestRate as the batch manager
+        // Step 5: Switch back to the batch manager to call setBatchManagerAnnualInterestRate
+        _enableActor(batchManagerAddr);
+        
+        // Step 6: Call setBatchManagerAnnualInterestRate as the batch manager
         uint128 adjustedRate = uint128((_newAnnualInterestRate + 1) % (MAX_ANNUAL_INTEREST_RATE + 1));
         borrowerOperations_setBatchManagerAnnualInterestRate_clamped(
             adjustedRate,
@@ -648,14 +676,27 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         uint256 _collAmount,
         uint256 _boldAmount
     ) public {
-        // Step 1: Register first batch manager
+        address currentActorAddress = _getActor();
+        
+        // Step 1: Register first batch manager using first actor
         borrowerOperations_registerAndUseBatchManager(
             uint128(MAX_ANNUAL_INTEREST_RATE / 2),
             uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 2)
         );
         address firstBatchManager = clampedBatchManager;
         
-        // Step 2: Open trove and join first batch
+        // Step 2: Switch to different actor to open trove
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            for (uint256 i = 0; i < actors.length; i++) {
+                if (actors[i] != firstBatchManager) {
+                    _enableActor(actors[i]);
+                    break;
+                }
+            }
+        }
+        
+        // Step 3: Open trove and join first batch
         borrowerOperations_openTroveAndJoinInterestBatchManager_clamped(
             _collAmount,
             _boldAmount,
@@ -664,25 +705,156 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
             type(uint256).max
         );
         uint256 troveInBatch = clampedTroveId;
+        address troveOwner = _getActor();
         
-        // Step 3: Register second batch manager
+        // Step 4: Register second batch manager (using original actor)
+        _enableActor(currentActorAddress);
         borrowerOperations_registerAndUseBatchManager(
             uint128(MAX_ANNUAL_INTEREST_RATE / 3),
             uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 3)
         );
+        address secondBatchManager = clampedBatchManager;
         
-        // Step 4: Warp time to ensure cooldown has passed
+        // Ensure second batch is different from first
+        if (secondBatchManager == firstBatchManager) {
+            return; // Can't switch to same batch
+        }
+        
+        // Step 5: Warp time to ensure cooldown has passed
         vm.warp(block.timestamp + 8 days);
         
-        // Step 5: Switch from first batch to second batch
+        // Step 6: Switch back to trove owner to call switchBatchManager
+        _enableActor(troveOwner);
+        
+        // Step 7: Switch from first batch to second batch
         borrowerOperations_switchBatchManager_clamped(
             troveInBatch,
             0,
             0,
-            clampedBatchManager,  // Second batch manager
+            secondBatchManager,
             0,
             0,
             type(uint256).max
         );
+    }
+    
+    /// Shortcut to create and adjust a zombie trove
+    function shortcut_createAndAdjustZombieTrove(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint256 _priceCollapse
+    ) public {
+        // Step 1: Open a trove with minimal debt (below MIN_DEBT threshold after liquidation)
+        _collAmount = (_collAmount % 10e18) + 1e18; // Small collateral
+        _boldAmount = (_boldAmount % MIN_DEBT) + (MIN_DEBT / 2); // Debt below MIN_DEBT
+        
+        uint256 zombieTroveId = borrowerOperations.openTrove(
+            _getActor(),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 2: Create another larger trove for redistribution
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            _enableActor(actors[1]);
+        }
+        
+        uint256 largeTroveId = borrowerOperations.openTrove(
+            _getActor(),
+            0,
+            100e18,
+            MIN_DEBT * 10,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 3: Crash price to make first trove liquidatable
+        uint256 crashedPrice = (_priceCollapse % 500e18) + 100e18;
+        priceFeed.setPrice(crashedPrice);
+        
+        // Step 4: Liquidate the small trove (should become zombie due to debt < MIN_DEBT)
+        try troveManager.liquidate(zombieTroveId) {} catch {}
+        
+        // Step 5: Now try to adjust the zombie trove
+        borrowerOperations_adjustZombieTrove_clamped(
+            zombieTroveId,
+            1e18,
+            true,
+            MIN_DEBT,
+            true,
+            0,
+            0,
+            type(uint256).max
+        );
+    }
+    
+    /// Shortcut to create zombie trove and apply pending debt to make it active
+    function shortcut_zombieToActiveViaPendingDebt(
+        uint256 _collAmount
+    ) public {
+        // Step 1: Create a zombie trove (similar to above)
+        _collAmount = (_collAmount % 10e18) + 1e18;
+        
+        uint256 zombieTroveId = borrowerOperations.openTrove(
+            _getActor(),
+            0,
+            _collAmount,
+            MIN_DEBT / 2,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 2: Create another trove for liquidation/redistribution
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            _enableActor(actors[1]);
+        }
+        
+        borrowerOperations.openTrove(
+            _getActor(),
+            0,
+            100e18,
+            MIN_DEBT * 10,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 3: Crash price and liquidate to create zombie
+        priceFeed.setPrice(500e18);
+        try troveManager.liquidate(zombieTroveId) {} catch {}
+        
+        // Step 4: Trigger redistribution by liquidating another trove
+        // This will add pending debt to the zombie trove
+        try troveManager.liquidate(zombieTroveId + 1) {} catch {}
+        
+        // Step 5: Warp time to accumulate more debt
+        vm.warp(block.timestamp + 365 days);
+        
+        // Step 6: Apply pending debt to potentially make zombie active
+        borrowerOperations_applyPendingDebt_clamped(zombieTroveId, 0, 0);
     }
 }

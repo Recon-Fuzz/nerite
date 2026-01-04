@@ -186,6 +186,24 @@ abstract contract Setup is BaseSetup, ActorManager, AssetManager {
         return clampedBatchManager; // So it gets added to the dictionary
     }
     
+    // Helper to get a different batch manager (for switchBatchManager)
+    function getDifferentBatchManager(address excludeManager, uint256 entropy) public view returns (address) {
+        if (registeredBatchManagers.length <= 1) {
+            // Can't switch if there's only one or zero batch managers
+            return address(0);
+        }
+        
+        // Find a different batch manager
+        for (uint256 i = 0; i < registeredBatchManagers.length; i++) {
+            uint256 index = (entropy + i) % registeredBatchManagers.length;
+            if (registeredBatchManagers[index] != excludeManager) {
+                return registeredBatchManagers[index];
+            }
+        }
+        
+        return address(0);
+    }
+    
     // Helper to get active trove ID (filters out closed/liquidated troves)
     function getActiveOrZombieTroveId(uint256 entropy) public view returns (uint256) {
         uint256[] memory activeTroves = new uint256[](troveIds.length);
