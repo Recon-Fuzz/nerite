@@ -428,24 +428,43 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
     }
 
     /// Shortcut to ensure a trove has individual delegate set before removing it
-    function shortcut_setAndRemoveIndividualDelegate(uint256 _troveId) public {
-        _troveId = setNewClampedTroveId(_troveId);
+    function shortcut_setAndRemoveIndividualDelegate(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint256 _annualInterestRate,
+        address _delegate
+    ) public {
+        // Step 1: Open a fresh trove owned by current actor
+        borrowerOperations_openTrove_clamped(
+            address(0),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            _annualInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1),
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        uint256 freshTroveId = clampedTroveId;
         
-        // First set the delegate
+        // Step 2: Set individual delegate on this trove
         borrowerOperations_setInterestIndividualDelegate_clamped(
-            _troveId,
-            _getActor(),
+            freshTroveId,
+            _delegate,
             0,
             uint128(MAX_ANNUAL_INTEREST_RATE),
             MAX_ANNUAL_INTEREST_RATE / 2,
             0,
             0,
             type(uint256).max,
-            0
+            1 hours
         );
         
-        // Then remove it
-        borrowerOperations_removeInterestIndividualDelegate_clamped(_troveId);
+        // Step 3: Now remove the delegate (this should cover line 834)
+        borrowerOperations_removeInterestIndividualDelegate(freshTroveId);
     }
 
     /// Improved handler to ensure batch managers are registered before use
@@ -957,5 +976,200 @@ abstract contract BorrowerOperationsTargets is BaseTargetFunctions, Properties  
         
         // Step 6: Apply pending debt to potentially make zombie active
         borrowerOperations_applyPendingDebt_clamped(zombieTroveId, 0, 0);
+    }
+    
+    /// ===== PHASE 4 COVERAGE IMPROVEMENTS ===== ///
+    
+    /// Shortcut for closeTrove - ensures trove is open and actor has sufficient Bold
+    function shortcut_closeTrove_fullyFunded(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint256 _annualInterestRate
+    ) public {
+        // Step 1: Open a trove
+        borrowerOperations_openTrove_clamped(
+            address(0),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            _annualInterestRate % (MAX_ANNUAL_INTEREST_RATE + 1),
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        uint256 troveToClose = clampedTroveId;
+        
+        // Step 2: Warp time to accumulate some interest
+        vm.warp(block.timestamp + 30 days);
+        
+        // Step 3: Get the trove's debt and ensure actor has enough Bold
+        try troveManager.getLatestTroveData(troveToClose) returns (LatestTroveData memory troveData) {
+            uint256 actorBalance = boldToken.balanceOf(_getActor());
+            if (actorBalance < troveData.entireDebt) {
+                // Mint additional Bold to actor
+                vm.prank(address(borrowerOperations));
+                boldToken.mint(_getActor(), troveData.entireDebt - actorBalance + 1e18);
+            }
+        } catch {}
+        
+        // Step 4: Close the trove
+        borrowerOperations_closeTrove(troveToClose);
+    }
+    
+    /// Shortcut to create a batch with troves and then call setBatchManagerAnnualInterestRate within cooldown
+    function shortcut_setBatchAnnualRate_prematureAdjustment(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint128 _initialRate,
+        uint128 _newRate
+    ) public {
+        // Ensure rates are different
+        _initialRate = uint128((_initialRate % (MAX_ANNUAL_INTEREST_RATE - 1)) + 1);
+        _newRate = uint128((_newRate % (MAX_ANNUAL_INTEREST_RATE - 1)) + 1);
+        if (_initialRate == _newRate) {
+            _newRate = uint128((_initialRate % MAX_ANNUAL_INTEREST_RATE) + 1);
+        }
+        
+        address originalActor = _getActor();
+        
+        // Step 1: Register a batch manager with _initialRate
+        borrowerOperations_registerBatchManager_clamped(
+            0,
+            uint128(MAX_ANNUAL_INTEREST_RATE),
+            _initialRate,
+            uint128(MAX_ANNUAL_BATCH_MANAGEMENT_FEE / 2),
+            1 hours // Short cooldown period
+        );
+        address batchManagerAddr = _getActor();
+        
+        // Step 2: Switch to different actor and open trove joining the batch
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            for (uint256 i = 0; i < actors.length; i++) {
+                if (actors[i] != batchManagerAddr) {
+                    _enableActor(actors[i]);
+                    break;
+                }
+            }
+        }
+        
+        borrowerOperations_openTroveAndJoinInterestBatchManager_clamped(
+            _collAmount,
+            _boldAmount,
+            _initialRate,
+            batchManagerAddr,
+            type(uint256).max
+        );
+        
+        // Step 3: Warp SMALL amount of time (within cooldown) - this triggers the upfront fee path
+        vm.warp(block.timestamp + 30 minutes); // Within 1 hour cooldown
+        
+        // Step 4: Switch to batch manager and change rate (should trigger lines 928-944)
+        _enableActor(batchManagerAddr);
+        
+        borrowerOperations_setBatchManagerAnnualInterestRate_clamped(
+            _newRate,
+            0,
+            0,
+            type(uint256).max
+        );
+    }
+    
+    /// Shortcut for batchLiquidateTroves to generate collateral surplus
+    function shortcut_batchLiquidate_withSurplus(
+        uint256 _numTroves,
+        uint256 _collAmount,
+        uint256 _boldAmount
+    ) public {
+        // Create multiple over-collateralized troves
+        _numTroves = (_numTroves % 3) + 1; // 1-3 troves
+        uint256[] memory troveIdsToLiquidate = new uint256[](_numTroves);
+        
+        for (uint256 i = 0; i < _numTroves; i++) {
+            // Create heavily over-collateralized troves (400% collateral ratio)
+            uint256 collateral = (_collAmount % 100e18) + 50e18;
+            uint256 debt = (_boldAmount % MIN_DEBT) + MIN_DEBT;
+            
+            uint256 tid = borrowerOperations.openTrove(
+                _getActor(),
+                i,
+                collateral,
+                debt,
+                0,
+                0,
+                MAX_ANNUAL_INTEREST_RATE / 2,
+                type(uint256).max,
+                address(0),
+                address(0),
+                address(0)
+            );
+            troveIdsToLiquidate[i] = tid;
+        }
+        
+        // Provide to stability pool to enable liquidations
+        address[] memory actors = _getActors();
+        if (actors.length > 1) {
+            _enableActor(actors[1]);
+        }
+        uint256 spAmount = MIN_DEBT * _numTroves * 2;
+        
+        // First open a trove to get Bold
+        borrowerOperations_openTrove_clamped(
+            address(0),
+            0,
+            100e18,
+            spAmount,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Provide to SP
+        try stabilityPool.provideToSP(spAmount, false) {} catch {}
+        
+        // Crash price moderately (not too much, to ensure surplus)
+        priceFeed.setPrice(1500e18);
+        
+        // Batch liquidate
+        try troveManager.batchLiquidateTroves(troveIdsToLiquidate) {} catch {}
+    }
+    
+    /// Shortcut for withdrawColl - ensures withdrawal maintains collateralization
+    function shortcut_withdrawColl_maintainCollateral(
+        uint256 _collAmount,
+        uint256 _boldAmount,
+        uint256 _withdrawalPct
+    ) public {
+        // Step 1: Open a well-collateralized trove
+        _collAmount = (_collAmount % 100e18) + 50e18; // Large collateral
+        _boldAmount = (_boldAmount % MIN_DEBT) + MIN_DEBT;
+        
+        borrowerOperations_openTrove_clamped(
+            address(0),
+            0,
+            _collAmount,
+            _boldAmount,
+            0,
+            0,
+            MAX_ANNUAL_INTEREST_RATE / 2,
+            type(uint256).max,
+            address(0),
+            address(0),
+            address(0)
+        );
+        
+        // Step 2: Withdraw a small percentage (10-20%) to maintain collateralization
+        _withdrawalPct = (_withdrawalPct % 11) + 10; // 10-20%
+        uint256 withdrawAmount = (_collAmount * _withdrawalPct) / 100;
+        
+        // Step 3: Call withdrawColl
+        borrowerOperations_withdrawColl(clampedTroveId, withdrawAmount);
     }
 }
