@@ -22,7 +22,16 @@ abstract contract TroveManagerTargets is BaseTargetFunctions, Properties  {
     }
 
     function troveManager_urgentRedemption_clamped(uint256 _boldAmount, uint256[] memory _troveIds, uint256 _minCollateral) public {
-        _boldAmount = _boldAmount % (boldToken.balanceOf(_getActor()) + 1);
+        // Ensure _boldAmount > 0 by using modulo with actor's balance
+        uint256 actorBalance = boldToken.balanceOf(_getActor());
+        if (actorBalance == 0) return; // Skip if actor has no Bold
+        
+        _boldAmount = (_boldAmount % actorBalance) + 1; // CRITICAL: +1 ensures > 0
+        
+        // Clamp troveIds array to valid active troves
+        if (_troveIds.length > 0 && troveIds.length > 0) {
+            _troveIds[0] = setNewClampedTroveId(_troveIds[0]);
+        }
         
         vm.prank(_getActor());
         boldToken.approve(address(troveManager), _boldAmount);

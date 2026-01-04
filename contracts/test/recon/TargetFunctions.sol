@@ -737,15 +737,33 @@ abstract contract TargetFunctions is
     // ===== SHORTCUT FUNCTIONS FOR borrowerOperations_shutdownFromOracleFailure =====
     // Prerequisites: none
     // Paths: 2
+    // NOTE: This function can only be called by the price feed contract
     
     // PATH 0: hasBeenShutDown
-    function shortcut_shutdownFromOracleFailure_alreadyShutdown() public {
-        borrowerOperations_shutdownFromOracleFailure();
+    function shortcut_shutdownFromOracleFailure_alreadyShutdown(
+        uint256 collAmount,
+        uint256 boldAmount,
+        uint256 annualInterestRate,
+        uint88 newPrice
+    ) public {
+        // First trigger normal shutdown to set hasBeenShutDown = true
+        borrowerOperations_openTrove_clamped(
+            address(0), 0, collAmount, boldAmount, 0, 0, annualInterestRate, type(uint256).max,
+            address(0), address(0), address(0)
+        );
+        priceFeed_setPrice(newPrice % (100e18 + 1));
+        try borrowerOperations.shutdown() {} catch {}
+        
+        // Now call shutdownFromOracleFailure as price feed
+        vm.prank(address(priceFeed));
+        borrowerOperations.shutdownFromOracleFailure();
     }
     
     // PATH 1: !hasBeenShutDown
     function shortcut_shutdownFromOracleFailure_notShutdown() public {
-        borrowerOperations_shutdownFromOracleFailure();
+        // Call shutdownFromOracleFailure as price feed when not yet shutdown
+        vm.prank(address(priceFeed));
+        borrowerOperations.shutdownFromOracleFailure();
     }
 
     // ===== SHORTCUT FUNCTIONS FOR borrowerOperations_openTroveAndJoinInterestBatchManager =====
@@ -920,24 +938,31 @@ abstract contract TargetFunctions is
             address(0), address(0), address(0)
         );
         
+        uint256 openedTroveId = clampedTroveId;
+        
         // Step 2: Trigger shutdown by crashing the price
         priceFeed_setPrice(newPrice % (100e18 + 1)); // Low price to trigger TCR < SCR
         
-        // Step 3: Call shutdown
-        borrowerOperations_shutdown();
+        // Step 3: Call shutdown - catch in case it fails
+        try borrowerOperations.shutdown() {} catch {}
         
         // Step 4: Ensure actor has Bold tokens for redemption
-        redemptionAmount = redemptionAmount % (boldToken.balanceOf(_getActor()) + 1);
-        if (redemptionAmount == 0) {
-            redemptionAmount = 1;
+        uint256 actorBalance = boldToken.balanceOf(_getActor());
+        if (actorBalance < 1e18) {
+            // Mint Bold if actor doesn't have enough
+            vm.prank(address(borrowerOperations));
+            boldToken.mint(_getActor(), 100e18);
+            actorBalance = boldToken.balanceOf(_getActor());
         }
         
-        // Step 5: Build array of trove IDs
-        uint256[] memory troveIdsArray = new uint256[](1);
-        troveIdsArray[0] = clampedTroveId;
+        redemptionAmount = (redemptionAmount % actorBalance) + 1; // Ensure > 0
         
-        // Step 6: Call urgent redemption
-        troveManager_urgentRedemption(redemptionAmount, troveIdsArray, 1);
+        // Step 5: Build array of trove IDs with the opened trove
+        uint256[] memory troveIdsArray = new uint256[](1);
+        troveIdsArray[0] = openedTroveId;
+        
+        // Step 6: Call urgent redemption with clamped handler
+        troveManager_urgentRedemption_clamped(redemptionAmount, troveIdsArray, 0);
     }
 
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
