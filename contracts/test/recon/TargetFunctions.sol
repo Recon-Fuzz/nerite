@@ -1210,19 +1210,21 @@ abstract contract TargetFunctions is
             address(0),
             address(0)
         );
+        troveIds.push(standaloneTroveId);  // Track the trove
+        clampedTroveId = standaloneTroveId;
         
         // Verify trove is NOT in a batch (line 975 requires this)
-        require(borrowerOperations.interestBatchManagerOf(standaloneTroveId) == address(0), 
-            "Trove must not be in batch");
+        address currentBatch = borrowerOperations.interestBatchManagerOf(standaloneTroveId);
+        if (currentBatch != address(0)) return;  // Already in batch, skip
         
         // Step 3: Join the VALID batch manager (should now cover lines 974-1022)
-        try borrowerOperations.setInterestBatchManager(
+        borrowerOperations.setInterestBatchManager(
             standaloneTroveId,
             validBatchManager,
             0,
             0,
             type(uint256).max
-        ) {} catch {}
+        );
     }
     
     /// COVERAGE TARGET: switchBatchManager - lines 1105-1110
@@ -1234,17 +1236,18 @@ abstract contract TargetFunctions is
         uint128 _rate1,
         uint128 _rate2
     ) public {
-        // Ensure rates are different
+        // Ensure rates are in valid range
         _rate1 = uint128(MIN_ANNUAL_INTEREST_RATE + 
-            (uint256(_rate1) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+            (uint256(_rate1) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE + 1)));
         _rate2 = uint128(MIN_ANNUAL_INTEREST_RATE + 
-            (uint256(_rate2) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+            (uint256(_rate2) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE + 1)));
+        // Ensure rates are different
         if (_rate1 == _rate2) {
             _rate2 = _rate1 == MIN_ANNUAL_INTEREST_RATE ? 
                 uint128(MIN_ANNUAL_INTEREST_RATE + 1) : uint128(MIN_ANNUAL_INTEREST_RATE);
         }
         
-        // Step 1: Register FIRST batch manager
+        // Step 1: Register FIRST batch manager AS actor 0
         borrowerOperations.registerBatchManager(
             uint128(MIN_ANNUAL_INTEREST_RATE),
             uint128(MAX_ANNUAL_INTEREST_RATE),
@@ -1265,7 +1268,7 @@ abstract contract TargetFunctions is
         );
         address secondBatchManager = _getActor();
         
-        // Ensure we have two DIFFERENT batch managers
+        // Ensure we have two DIFFERENT batch managers (safety check)
         if (firstBatchManager == secondBatchManager) return;
         
         // Step 3: Switch to third actor to open trove and join first batch
@@ -1291,15 +1294,22 @@ abstract contract TargetFunctions is
                 receiver: address(0)
             });
         
-        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) {} catch { return; }
-        uint256 troveInBatch = clampedTroveId;
+        // Open trove and capture the returned troveId
+        uint256 troveInBatch;
+        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) returns (uint256 newTroveId) {
+            troveInBatch = newTroveId;
+            troveIds.push(newTroveId);  // Track the trove
+            clampedTroveId = newTroveId;
+        } catch {
+            return;  // Failed to open trove, skip
+        }
         
         // Verify trove is in the first batch
         address currentBatch = borrowerOperations.interestBatchManagerOf(troveInBatch);
         if (currentBatch != firstBatchManager) return;
         
         // Step 4: Switch batch from first to second (should cover lines 1105-1110)
-        try borrowerOperations.switchBatchManager(
+        borrowerOperations.switchBatchManager(
             troveInBatch,
             0,  // removeUpperHint
             0,  // removeLowerHint
@@ -1307,7 +1317,7 @@ abstract contract TargetFunctions is
             0,  // addUpperHint
             0,  // addLowerHint
             type(uint256).max
-        ) {} catch {}
+        );
     }
     
     /// COVERAGE TARGET: setBatchManagerAnnualInterestRate - lines 928-944
@@ -1319,17 +1329,17 @@ abstract contract TargetFunctions is
         uint128 _initialRate,
         uint128 _newRate
     ) public {
-        // Ensure rates are different
+        // Ensure rates are in valid range and different
         _initialRate = uint128(MIN_ANNUAL_INTEREST_RATE + 
-            (uint256(_initialRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+            (uint256(_initialRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE + 1)));
         _newRate = uint128(MIN_ANNUAL_INTEREST_RATE + 
-            (uint256(_newRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+            (uint256(_newRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE + 1)));
         if (_initialRate == _newRate) {
             _newRate = _initialRate == MIN_ANNUAL_INTEREST_RATE ? 
                 uint128(MIN_ANNUAL_INTEREST_RATE + 1) : uint128(MIN_ANNUAL_INTEREST_RATE);
         }
         
-        // Step 1: Register batch manager with initial rate
+        // Step 1: Register batch manager with initial rate AS actor 0
         borrowerOperations.registerBatchManager(
             uint128(MIN_ANNUAL_INTEREST_RATE),
             uint128(MAX_ANNUAL_INTEREST_RATE),
@@ -1361,7 +1371,13 @@ abstract contract TargetFunctions is
                 receiver: address(0)
             });
         
-        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) {} catch { return; }
+        // Open trove and capture the returned troveId
+        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) returns (uint256 newTroveId) {
+            troveIds.push(newTroveId);  // Track the trove
+            clampedTroveId = newTroveId;
+        } catch {
+            return;  // Failed to open trove, skip
+        }
         
         // Step 3: Warp SMALL amount of time (within 7-day cooldown) - this is critical!
         // INTEREST_RATE_ADJ_COOLDOWN is 7 days, so we warp only 1 day to stay within it
@@ -1371,12 +1387,12 @@ abstract contract TargetFunctions is
         // This should trigger the upfront fee path at lines 928-944
         switchActor(0);  // Back to batch manager actor
         
-        try borrowerOperations.setBatchManagerAnnualInterestRate(
+        borrowerOperations.setBatchManagerAnnualInterestRate(
             _newRate,
             0,
             0,
             type(uint256).max
-        ) {} catch {}
+        );
     }
     
     /// COVERAGE TARGET: setBatchManagerAnnualInterestRate - line 951
@@ -1388,17 +1404,17 @@ abstract contract TargetFunctions is
         uint128 _initialRate,
         uint128 _newRate
     ) public {
-        // Ensure rates are different
+        // Ensure rates are in valid range and different
         _initialRate = uint128(MIN_ANNUAL_INTEREST_RATE + 
-            (uint256(_initialRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+            (uint256(_initialRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE + 1)));
         _newRate = uint128(MIN_ANNUAL_INTEREST_RATE + 
-            (uint256(_newRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+            (uint256(_newRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE + 1)));
         if (_initialRate == _newRate) {
             _newRate = _initialRate == MIN_ANNUAL_INTEREST_RATE ? 
                 uint128(MIN_ANNUAL_INTEREST_RATE + 1) : uint128(MIN_ANNUAL_INTEREST_RATE);
         }
         
-        // Step 1: Register batch manager with initial rate
+        // Step 1: Register batch manager with initial rate AS actor 0
         borrowerOperations.registerBatchManager(
             uint128(MIN_ANNUAL_INTEREST_RATE),
             uint128(MAX_ANNUAL_INTEREST_RATE),
@@ -1431,7 +1447,13 @@ abstract contract TargetFunctions is
                 receiver: address(0)
             });
         
-        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) {} catch { return; }
+        // Open trove and capture the returned troveId
+        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) returns (uint256 newTroveId) {
+            troveIds.push(newTroveId);  // Track the trove
+            clampedTroveId = newTroveId;
+        } catch {
+            return;  // Failed to open trove, skip
+        }
         
         // Step 3: Warp time PAST cooldown period (8 days to ensure we pass 7-day cooldown)
         vm.warp(block.timestamp + 8 days);
@@ -1440,12 +1462,12 @@ abstract contract TargetFunctions is
         // Since batch is non-empty, this should execute line 951 (reInsertBatch)
         switchActor(0);  // Back to batch manager actor
         
-        try borrowerOperations.setBatchManagerAnnualInterestRate(
+        borrowerOperations.setBatchManagerAnnualInterestRate(
             _newRate,
             0,
             0,
             type(uint256).max
-        ) {} catch {}
+        );
     }
     
     /// COVERAGE TARGET: removeFromBatch - lines 1041-1091
@@ -1457,12 +1479,13 @@ abstract contract TargetFunctions is
         uint128 _batchRate,
         uint128 _newRate
     ) public {
+        // Ensure rates are in valid range
         _batchRate = uint128(MIN_ANNUAL_INTEREST_RATE + 
-            (uint256(_batchRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+            (uint256(_batchRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE + 1)));
         _newRate = uint128(MIN_ANNUAL_INTEREST_RATE + 
-            (uint256(_newRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE)));
+            (uint256(_newRate) % (MAX_ANNUAL_INTEREST_RATE - MIN_ANNUAL_INTEREST_RATE + 1)));
         
-        // Step 1: Register batch manager
+        // Step 1: Register batch manager AS actor 0
         borrowerOperations.registerBatchManager(
             uint128(MIN_ANNUAL_INTEREST_RATE),
             uint128(MAX_ANNUAL_INTEREST_RATE),
@@ -1494,21 +1517,28 @@ abstract contract TargetFunctions is
                 receiver: address(0)
             });
         
-        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) {} catch { return; }
-        uint256 troveInBatch = clampedTroveId;
+        // Open trove and capture the returned troveId
+        uint256 troveInBatch;
+        try borrowerOperations.openTroveAndJoinInterestBatchManager(params) returns (uint256 newTroveId) {
+            troveInBatch = newTroveId;
+            troveIds.push(newTroveId);  // Track the trove
+            clampedTroveId = newTroveId;
+        } catch {
+            return;  // Failed to open trove, skip
+        }
         
         // Verify trove IS in batch (line 1043 requires this)
         address currentBatch = borrowerOperations.interestBatchManagerOf(troveInBatch);
         if (currentBatch == address(0)) return;  // Not in batch, skip
         
         // Step 3: Remove from batch (should now cover lines 1041-1091)
-        try borrowerOperations.removeFromBatch(
+        borrowerOperations.removeFromBatch(
             troveInBatch,
             _newRate,
             0,
             0,
             type(uint256).max
-        ) {} catch {}
+        );
     }
 
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
