@@ -38,29 +38,6 @@ abstract contract BeforeAfter is Setup {
         _before.weightedRecordedDebtAccumulator = 0;
         _before.price = priceFeed.getPrice();
 
-        uint256 troveArrayLength = troveManager.getTroveIdsCount();
-        for(uint256 i; i < troveArrayLength; i++) {
-            uint256 troveId = troveManager.getTroveFromTroveIdsArray(i);
-            borrowerOperations.applyPendingDebt(troveId, 0, 1); // NOTE: passing in static hints for simplicity because shouldn't have to worry about gas
-
-            (uint256 debt, uint256 coll, uint64 arrayIndex, uint64 lastDebtUpdateTime, uint64 lastInterestRateAdjTime, uint256 annualInterestRate, uint256 annualManagementFee, uint256 totalDebtShares) = troveManager.getBatch(_getActor());
-            
-            _before.batches[_getActor()] = TroveManager.Batch(
-                debt, 
-                coll, 
-                arrayIndex, 
-                lastDebtUpdateTime, 
-                lastInterestRateAdjTime, 
-                annualInterestRate, 
-                annualManagementFee, 
-                totalDebtShares
-            );
-            _before.dataForTroves[troveId] = troveManager.getLatestTroveData(troveId);
-            _before.ghostDebtAccumulator += _before.dataForTroves[troveId].entireDebt;
-            _before.entireSystemDebt = borrowerOperations.getEntireSystemDebt();
-            _before.ghostWeightedRecordedDebtAccumulator += (_before.dataForTroves[troveId].entireDebt * troveManager.getTroveInterestRate(troveId));
-            _before.weightedRecordedDebtAccumulator += _before.dataForTroves[troveId].weightedRecordedDebt;
-        } 
     }
 
     function __after() internal {
@@ -70,32 +47,5 @@ abstract contract BeforeAfter is Setup {
         _after.ghostWeightedRecordedDebtAccumulator = 0;
         _after.weightedRecordedDebtAccumulator = 0;
         _after.price = priceFeed.getPrice();
-
-        uint256 troveArrayLength = troveManager.getTroveIdsCount();
-        for(uint256 i; i < troveArrayLength; i++) {
-            uint256 troveId = troveManager.getTroveFromTroveIdsArray(i);
-            borrowerOperations.applyPendingDebt(troveId, 0, 1); // NOTE: passing in static hints for simplicity because shouldn't have to worry about gas
-
-
-            (uint256 debt, uint256 coll, uint64 arrayIndex, uint64 lastDebtUpdateTime, uint64 lastInterestRateAdjTime, uint256 annualInterestRate, uint256 annualManagementFee, uint256 totalDebtShares) = troveManager.getBatch(_getActor());
-            
-            _after.batches[_getActor()] = TroveManager.Batch(
-                debt, 
-                coll, 
-                arrayIndex, 
-                lastDebtUpdateTime, 
-                lastInterestRateAdjTime, 
-                annualInterestRate, 
-                annualManagementFee, 
-                totalDebtShares
-            );
-            _after.dataForTroves[troveId] = troveManager.getLatestTroveData(troveId);
-            _after.ghostDebtAccumulator += _after.dataForTroves[troveId].entireDebt;
-            _after.entireSystemDebt = borrowerOperations.getEntireSystemDebt();
-            _after.ghostWeightedRecordedDebtAccumulator += (_after.dataForTroves[troveId].entireDebt * troveManager.getTroveInterestRate(troveId));
-            _after.weightedRecordedDebtAccumulator += _after.dataForTroves[troveId].weightedRecordedDebt;
-
-            // TODO: Missing Zombie Trove | lastZombieTrove  (NOTE: Technically a suite long enough will have more than one)
-        }
     }
 }
